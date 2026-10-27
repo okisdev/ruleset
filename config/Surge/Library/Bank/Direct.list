@@ -1,4 +1,4 @@
-# The Network: Banks, direct
+# Ruleset: Banks, direct
 #
 # Expects DIRECT. Must follow Bank/Proxy.list, which takes two Hong Kong arms out of their mainland parents' suffixes, and precede DOMAIN-SUFFIX,cn.
 #

@@ -1,4 +1,4 @@
-# The Network: Apple China
+# Ruleset: Apple China
 #
 # Expects Domestic, referenced with extended-matching. Must precede Platforms/Apple.list, whose apple.com suffix would otherwise take the -cn location and Maps hosts. Those hosts carry the region inside a label (gspe19-cn-ssl, gsp10-ssl-cn), which a suffix rule cannot see, so the wildcard does that work.
 #

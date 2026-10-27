@@ -1,4 +1,4 @@
-# The Network: Xbox
+# Ruleset: Xbox
 #
 # Expects a gaming policy. Must precede Platforms/Microsoft.list, which would otherwise take the account hosts.
 #

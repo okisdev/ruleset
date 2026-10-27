@@ -1,4 +1,4 @@
-# The Network: official package registries
+# Ruleset: official package registries
 #
 # Expects DIRECT. Must precede Library/Developer/Npm.list.
 #

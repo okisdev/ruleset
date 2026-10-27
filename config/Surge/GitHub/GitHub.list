@@ -1,4 +1,4 @@
-# The Network: GitHub
+# Ruleset: GitHub
 #
 # Expects a region group that is not Hong Kong. Must precede the general proxy classification, which would otherwise send these to the default proxy group.
 #

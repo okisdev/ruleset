@@ -1,4 +1,4 @@
-# The Network: AI services
+# Ruleset: AI services
 #
 # Expects the AI Suite policy, referenced with extended-matching. Must precede the general proxy classification.
 #

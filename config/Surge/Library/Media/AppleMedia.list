@@ -1,4 +1,4 @@
-# The Network: Apple TV and News
+# Ruleset: Apple TV and News
 #
 # Expects Proxy, referenced with extended-matching. Must precede Platforms/Apple.list.
 #

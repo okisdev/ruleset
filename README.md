@@ -1,4 +1,4 @@
-# The Network
+# Ruleset
 
 Surge rule library for the home network gateway.
 

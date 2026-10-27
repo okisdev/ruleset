@@ -1,4 +1,4 @@
-# The Network: Apple Intelligence
+# Ruleset: Apple Intelligence
 #
 # Expects the AI Suite policy, referenced with extended-matching. Must precede Platforms/Apple.list, which would otherwise route these direct like ordinary Apple services, by name and by address.
 #

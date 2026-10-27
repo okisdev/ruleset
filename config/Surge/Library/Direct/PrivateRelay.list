@@ -1,4 +1,4 @@
-# The Network: iCloud Private Relay
+# Ruleset: iCloud Private Relay
 #
 # Expects DIRECT, referenced with extended-matching. Must precede Platforms/Apple.list, which would otherwise swallow the mask hosts; it exists as its own file so the relay can be switched off for the whole network by pointing it at REJECT.
 #
