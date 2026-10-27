@@ -16,7 +16,7 @@ AND,((PROTOCOL,TCP),(DEST-PORT,22000)),DIRECT
 AND,((PROTOCOL,TCP),(DEST-PORT,22067)),DIRECT
 
 # iCloud content falls back to TCP. Must precede Apple/iCloudContent.list.
-AND,((PROTOCOL,UDP),(DEST-PORT,443),(OR,((RULE-SET,<base>/config/Surge/Apple/iCloudContent.list),(IP-CIDR,17.248.152.0/24,no-resolve),(IP-CIDR,17.248.163.0/24,no-resolve)))),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(RULE-SET,<base>/config/Surge/Apple/iCloudContent.list)),REJECT-NO-DROP
 
 RULE-SET,<base>/config/Surge/Apple/ApplePush.list,DIRECT
 RULE-SET,<base>/config/Surge/Apple/iCloudContent.list,DIRECT
