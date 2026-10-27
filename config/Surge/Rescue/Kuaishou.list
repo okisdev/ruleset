@@ -1,4 +1,4 @@
-# The Network: Kuaishou false positives
+# Ruleset: Kuaishou false positives
 #
 # Expects Domestic. Must precede the blocking rule sets.
 #

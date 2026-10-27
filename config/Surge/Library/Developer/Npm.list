@@ -1,4 +1,4 @@
-# The Network: npm
+# Ruleset: npm
 #
 # Expects Proxy. Must follow Registries/Registries.list, which owns the registry hosts under these suffixes.
 

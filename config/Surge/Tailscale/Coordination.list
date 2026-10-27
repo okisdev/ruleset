@@ -1,4 +1,4 @@
-# The Network: Tailscale coordination and admin
+# Ruleset: Tailscale coordination and admin
 #
 # Expects a proxy policy. Must precede Direct.list, whose tailscale.com suffix would otherwise swallow these.
 #

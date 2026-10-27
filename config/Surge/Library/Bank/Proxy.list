@@ -1,4 +1,4 @@
-# The Network: Banks, proxied
+# Ruleset: Banks, proxied
 #
 # Expects Proxy. Must precede Bank/Direct.list, whose mainland suffixes would otherwise take CCB Asia and BoCom Hong Kong.
 #

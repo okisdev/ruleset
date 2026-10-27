@@ -3,7 +3,7 @@
 Base URL for every reference below:
 
 ```
-https://raw.githubusercontent.com/okisdev/the-network/main
+https://raw.githubusercontent.com/okisdev/ruleset/main
 ```
 
 The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it already carries every block described here in the right order and uses the panel group names (`AdBlock`, `AI Suite`, `Domestic`, `Microsoft`, `Netflix`, `Others`, `Proxy`, `Tailnet`, `Telegram`, and the region groups such as `🇯🇵 JP`). Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
@@ -25,7 +25,7 @@ The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it 
 
 Apple is direct by default. `Platforms/Apple.list` carries every Apple name and Apple's own address space (17.0.0.0/8 and the three IPv6 blocks) and expects DIRECT; the evidence is in its header. Four sets precede it because their policy differs: `Apple/AppleIntelligence.list` on `AI Suite`, `Media/AppleMedia.list` (TV and News) on `Proxy`, `Platforms/AppleChina.list` on `Domestic`, and `Direct/PrivateRelay.list`, which is DIRECT but exists on its own so the relay can be switched off by pointing it at `REJECT`. `Apple/ApplePush.list` and `Apple/iCloudContent.list` sit in the overlay as pins: they are DIRECT too, and they stay DIRECT whatever the panel does with the company floor. The address rules for Apple's space live in the floor and nowhere earlier, because an address rule matches a request that arrived as an address even when it carries an SNI, and 17.248.152.0/24 and 17.248.163.0/24 are shared by the content edges, the Private Relay ingress and the Intelligence relay.
 
-iCloud content is held to TCP. Direct QUIC works and never fails, which is the problem: through this gateway it is slow, and a handshake that succeeds never falls back. On the same edges and devices in the 12 days to 2026-09-21, transfers of 10 MB or more ran at a median of 15.3 Mbps down and 13.4 Mbps up over TCP against 1.2 and 2.6 over QUIC, and QUIC carried most of the upload bytes (17.2 GB against 7.1 GB). A guard ahead of the pin answers UDP 443 to the content names and to the two shared /24s with `REJECT-NO-DROP`, an immediate ICMP refusal that Surge never escalates to a silent drop, so the client retries over TCP at once and lands on the DIRECT pin. Private Relay and Intelligence traffic that reaches those addresses over QUIC falls back the same way and is then matched by name in its own file.
+iCloud content is held to TCP. Direct QUIC works and never fails, which is the problem: through this gateway it is slow, and a handshake that succeeds never falls back. On the same edges and devices in the 12 days to 2026-09-21, transfers of 10 MB or more ran at a median of 15.3 Mbps down and 13.4 Mbps up over TCP against 1.2 and 2.6 over QUIC, and QUIC carried most of the upload bytes (17.2 GB against 7.1 GB). A guard ahead of the pin answers UDP 443 to the content names with `REJECT-NO-DROP`, an immediate ICMP refusal that Surge never escalates to a silent drop, so the client retries over TCP at once and lands on the DIRECT pin. The guard matches names only, never the shared edge addresses: Apple's frontends hand an established HTTP/3 connection a preferred address in those ranges, and a refusal on the migrated path kills the connection instead of falling back. Matched by address, it broke every CloudKit background fetch through the gateway (2026-10-27).
 
 ## Banks
 
@@ -48,7 +48,7 @@ AND,((PROTOCOL,TCP),(DEST-PORT,22067)),DIRECT    Syncthing relay
 The iCloud content guard is a logical rule too, and the one place a rule set appears as a sub-rule, so the names stay in `Apple/iCloudContent.list` alone:
 
 ```
-AND,((PROTOCOL,UDP),(DEST-PORT,443),(OR,((RULE-SET,<base>/config/Surge/Apple/iCloudContent.list),(IP-CIDR,17.248.152.0/24,no-resolve),(IP-CIDR,17.248.163.0/24,no-resolve)))),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(RULE-SET,<base>/config/Surge/Apple/iCloudContent.list)),REJECT-NO-DROP
 ```
 
 The port guards exist because of flows that reach the gateway without a name. Names in the profile's `always-real-ip` (NTP servers, the carrier ePDG, STUN, the consoles' NAT probes) resolve on the device, so the packets arrive as a bare address and never match a name rule. HTTP/3 whose SNI the gateway cannot read arrives the same way. Measured in the 14 days to 2026-09-09: 21,000 NTP flows to Apple's time servers and a carrier's IKE tunnel riding the fallthrough proxy, and 54,300 iCloud content handshakes rejected by `block-quic`. Where the destination owns a published range, an address rule in a list does the job (Apple, and Alibaba's anycast space in `Library/Geo/AlibabaCIDR.list`); where it does not, only a port rule can.

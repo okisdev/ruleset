@@ -1,4 +1,4 @@
-# The Network: Better Stack false positives
+# Ruleset: Better Stack false positives
 #
 # Expects Proxy. Must precede the imported reject layer.
 #

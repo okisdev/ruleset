@@ -1,4 +1,4 @@
-# The Network: Apple push
+# Ruleset: Apple push
 #
 # Expects DIRECT. Lives in the overlay so push stays direct whatever policy the panel hangs the company-wide Platforms/Apple.list on, and precedes the two Apple sets that leave the direct path.
 #

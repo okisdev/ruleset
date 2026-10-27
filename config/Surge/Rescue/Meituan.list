@@ -1,4 +1,4 @@
-# The Network: Meituan false positives
+# Ruleset: Meituan false positives
 #
 # Expects Domestic. Must precede the blocking rule sets.
 #

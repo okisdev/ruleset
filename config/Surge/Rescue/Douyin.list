@@ -1,4 +1,4 @@
-# The Network: Douyin false positives
+# Ruleset: Douyin false positives
 #
 # Expects Domestic. Must precede the blocking rule sets.
 #
