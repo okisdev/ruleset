@@ -2,7 +2,7 @@
 #
 # Expects a proxy policy, the same one as general traffic. The list keeps every GitHub host on that one policy: the release asset and Copilot blob hosts sit on S3 and Azure, inside the suffixes of Platforms/Amazon.list and Platforms/Microsoft.list, whose groups are chosen independently, and ghcr.io and formulae.brew.sh fail on the direct path. Must precede those sets.
 #
-# Known risk on Hong Kong exits, measured 2026-08-12: both providers' Hong Kong exits intermittently dropped the TLS handshake to GitHub's Asia frontend (20.205.243.166), 12.5% to 17.5% of fresh connections, while Japan and Singapore were clean at 0 of 30. The client hello goes out and nothing returns for about 7 s; a browser retry succeeds. A fallback group's probe does not catch a failure rate this low, so if it returns, the remedy is an exit outside Hong Kong for this list.
+# Known risk on Hong Kong exits, measured 2026-08-12: both providers' Hong Kong exits intermittently dropped the TLS handshake to GitHub's Asia frontend (20.205.243.166), 12.5% to 17.5% of fresh connections, while Japan and Singapore were clean at 0 of 30. The client hello goes out and nothing returns for about 7 s; a browser retry succeeds. A group's availability probe does not catch a failure rate this low, so if it returns, the remedy is an exit outside Hong Kong for this list.
 #
 # ghcr.io lives here rather than in Registries/Registries.list: it is blocked on the direct path, and it is GitHub, so it should share their exit.
 #

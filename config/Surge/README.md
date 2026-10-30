@@ -6,7 +6,7 @@ Base URL for every reference below:
 https://raw.githubusercontent.com/okisdev/ruleset/main
 ```
 
-The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it already carries every block described here in the right order and uses the panel group names (`AdBlock`, `AI Suite`, `Domestic`, `Microsoft`, `Netflix`, `Others`, `Proxy`, `Tailnet`, `Telegram`, the region groups such as `🇯🇵 JP`, and the fallback group `⚡ Fastest`). Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
+The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it already carries every block described here in the right order and uses the panel group names (`AdBlock`, `AI Suite`, `Domestic`, `Microsoft`, `Netflix`, `Others`, `Proxy`, `Tailnet`, `Telegram`, the region groups such as `🇯🇵 JP`, and `⚡ Fastest`, the url-test group over nodes with enough bandwidth). Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
 
 ## Order of the profile
 
