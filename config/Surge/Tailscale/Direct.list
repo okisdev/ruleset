@@ -7,9 +7,10 @@
 # The DERP relays double as STUN servers, so proxying them makes Tailscale advertise the proxy's address as its own endpoint. That defeats NAT traversal and pins every peer to relay. The guard that enforces this for the STUN port is a logical rule and cannot live in a rule set, so it stays inline in the profile:
 #
 #   AND,((PROTOCOL,UDP),(DEST-PORT,3478)),DIRECT
+#
+# Only the DERP relay names are pinned here. The website, pkgs.tailscale.com and log.tailscale.com are ordinary HTTPS that is slow on the direct path: measured 2026-10-30, tailscale.com/download took 1.1 to 2.3 s direct against 0.1 to 0.3 s through a Hong Kong exit, and pkgs.tailscale.com 0.9 to 2.2 s against 0.7 to 1.7 s. They reach a proxy through FINAL.
 
-DOMAIN-SUFFIX,tailscale.com
-DOMAIN-SUFFIX,tailscale.io
+DOMAIN-WILDCARD,derp*.tailscale.com
 PROCESS-NAME,Tailscale
 PROCESS-NAME,tailscaled
 PROCESS-NAME,io.tailscale.ipn.macsys.network-extension

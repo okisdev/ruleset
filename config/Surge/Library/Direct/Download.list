@@ -2,7 +2,9 @@
 #
 # Expects DIRECT.
 #
-# Netdisk fronts, OS and game content CDNs, and the update and object storage hosts that the 14 days to 2026-09-09 measured clean on the direct path: store.setapp.com 460 flows, Cloudflare R2 559, the 1Password caches 225, OrbStack updates 183, iStat Menus updates 105, none failed. The Steam and Nintendo delivery hosts follow the same rule for game downloads without a measurement yet. Microsoft delivery lives in Platforms/MicrosoftCDN.list.
+# Netdisk fronts, OS and game content CDNs, and the update and object storage hosts that the 14 days to 2026-09-09 measured clean on the direct path: store.setapp.com 460 flows, Cloudflare R2 559, OrbStack updates 183, none failed. The Steam and Nintendo delivery hosts follow the same rule for game downloads without a measurement yet. Microsoft delivery lives in Platforms/MicrosoftCDN.list.
+#
+# The 1Password, iStat Menus and PopClip update hosts left this list: they completed direct but answered slowly, 0.5 to 1.5 s per request against 0.2 to 0.6 s through a Hong Kong exit (measured 2026-10-30), so they reach a proxy through FINAL.
 
 DOMAIN-SUFFIX,123pan.com
 DOMAIN-SUFFIX,alipan.com
@@ -25,9 +27,5 @@ DOMAIN-SUFFIX,weiyun.com
 DOMAIN-SUFFIX,wenshushu.cn
 DOMAIN-SUFFIX,xunlei.com
 DOMAIN,api-updates.orbstack.dev
-DOMAIN,app-updates.agilebits.com
-DOMAIN,cache.agilebits.com
 DOMAIN,cdn-updates.orbstack.dev
-DOMAIN,softwareupdate.pilotmoon.com
 DOMAIN,store.setapp.com
-DOMAIN,updates.istatmenus.app

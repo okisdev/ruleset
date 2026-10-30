@@ -1,10 +1,10 @@
 # Ruleset: official package registries
 #
-# Expects DIRECT. Must precede Library/Developer/Npm.list.
+# Expects a proxy policy.
 #
-# A generic download set is the wrong unit for this network: it puts working Fastly registries, GitHub Pages indexes that stall on the direct path, and destinations the GFW blocks into one bucket and sends them all DIRECT. GitHub-hosted downloads live in GitHub/GitHub.list (Japan). Blocked destinations such as gcr.io, pkg.dev, mega.nz and archive.org stay unclassified so FINAL carries them to a proxy. This file owns the official registries so their policy is a decision, not an inheritance.
+# A generic download set is the wrong unit for this network: it mixes working mirrors, GitHub Pages indexes that stall on the direct path, and destinations the GFW blocks. This file owns the official registries so their policy is a decision, not an inheritance. Blocked destinations such as gcr.io, pkg.dev, mega.nz and archive.org stay unclassified so FINAL carries them to a proxy.
 #
-# Policy is DIRECT because that is the measured working path. In the 14 days to 2026-08-14, registry.npmjs.org carried 1.34GB over 3180 flows, files.pythonhosted.org carried 76MB, and static.crates.io completed the same way. Do not promote a host from here to Proxy or to a region pin without a reproduced failure on the direct path.
+# Policy is a proxy because the direct path answers slowly, which package managers feel on every metadata request. Measured 2026-10-30, three fetches each, direct from the LAN against the same URL through a Hong Kong exit: registry.npmjs.org/typescript 5.5 s, 10.2 s and a 20 s timeout against 0.3 s; registry.npmjs.org/react 3.7 s, 5.4 s and a timeout against 0.2 to 0.35 s; repo1.maven.org 1.0 to 1.5 s against under 0.15 s; pypi.org and files.pythonhosted.org about 0.2 s with spikes to 3.4 s and 7.7 s against under 0.1 s. The earlier DIRECT pin rested on flows completing, which says nothing about how long they took.
 #
 # Scope: the package body or index host of an official registry, in use here or unambiguous. Website, documentation, and static-asset hosts stay out and reach FINAL. GitHub-hosted registries stay in GitHub/GitHub.list. Chinese mirrors stay on the domestic path. Docker Hub stays in Library/Developer/Docker.list. NuGet stays in Library/Platforms/Microsoft.list.
 

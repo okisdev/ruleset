@@ -6,7 +6,7 @@ Base URL for every reference below:
 https://raw.githubusercontent.com/okisdev/ruleset/main
 ```
 
-The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it already carries every block described here in the right order and uses the panel group names (`AdBlock`, `AI Suite`, `Domestic`, `Microsoft`, `Netflix`, `Others`, `Proxy`, `Tailnet`, `Telegram`, and the region groups such as `🇯🇵 JP`). Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
+The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it already carries every block described here in the right order and uses the panel group names (`AdBlock`, `AI Suite`, `Domestic`, `Microsoft`, `Netflix`, `Others`, `Proxy`, `Tailnet`, `Telegram`, the region groups such as `🇯🇵 JP`, and the fallback group `⚡ Fastest`). Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
 
 ## Order of the profile
 
@@ -69,10 +69,7 @@ The port guards exist because of flows that reach the gateway without a name. Na
 - Rescue precedes reject, and reject precedes every service list. A service list placed before the reject layer shields that company's telemetry hosts from it.
 - Every Rescue line carries `extended-matching`, because the reject domainset does. A client that dials an address and names the host only in its SNI otherwise passes the repair unmatched and is rejected one block later.
 - The iCloud content QUIC guard precedes `Apple/iCloudContent.list`. Behind the pin it never sees a packet.
-- `Tailscale/Coordination.list` precedes `Tailscale/Direct.list`, because the coordination hosts are covered by the `tailscale.com` suffix in the second file.
 - `AI/AI.list` precedes `Platforms/Google.list`, so the `.google` AI products keep the AI exit; `Platforms/GoogleChina.list` precedes it too.
-- `GitHub/GitHub.list` precedes `Registries/Registries.list`, so a GitHub-hosted registry that appears in both keeps the Japan pin instead of falling through to DIRECT.
-- `Registries/Registries.list` precedes `Library/Developer/Npm.list`, so `registry.npmjs.org` stays DIRECT instead of matching the npmjs.org suffix.
 - The four Apple exceptions precede `Platforms/Apple.list`; the Microsoft CDN and Xbox precede `Platforms/Microsoft.list`; `Direct/Download.list` and `Direct/CDNChina.list` precede the company sets whose suffixes cover their hosts.
 - `Library/Bank/Proxy.list` precedes `Library/Bank/Direct.list`, so `www.asia.ccb.com` and `hk.bankcomm.com` keep the proxy instead of matching their mainland parents' suffixes.
 - `Library/Geo/LAN.list` does not carry `100.64.0.0/10`. That range belongs to `Tailscale/Tailnet.list`.
