@@ -1,6 +1,6 @@
 # Ruleset: Tencent
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # WeChat has its own file, the QQ media brands live in Media/China.list, and qcloudcdn.com in Direct/CDNChina.list.
 

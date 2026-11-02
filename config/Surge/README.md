@@ -6,16 +6,29 @@ Base URL for every reference below:
 https://raw.githubusercontent.com/okisdev/ruleset/main
 ```
 
-The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it already carries every block described here in the right order and uses the panel group names (`AdBlock`, `AI Suite`, `Domestic`, `Microsoft`, `Netflix`, `Others`, `Proxy`, `Tailnet`, `Telegram`, the region groups such as `🇯🇵 JP`, and `⚡ Fastest`, the url-test group over nodes with enough bandwidth). Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
+Every library file is listed in [`Library/INDEX.md`](Library/INDEX.md).
+
+## Policies
+
+No file names a policy group. Each header opens with the kind of policy it expects, and the profile that references the file binds that to one of its own:
+
+- **DIRECT**, Surge's built-in direct path.
+- **A proxy policy**, any proxy or group that leaves the country.
+- **A mainland policy**, the path for mainland services: DIRECT unless the profile routes mainland traffic elsewhere.
+- **A reject policy**, REJECT or a group that can be switched off, so a false positive can be tested without editing the profile.
+- **An AI policy**, a proxy whose exit region the AI providers serve.
+- **A streaming policy** and **a gaming policy**, a proxy chosen for that service.
+
+Files that expect DIRECT expect it literally: a bank or a pin on DIRECT must not move when the profile reroutes mainland traffic.
 
 ## Order of the profile
 
-1. **Overlay.** Surge's built-in `SYSTEM` set, infrastructure, Tailscale, the transport guards, the iCloud content QUIC guard, the Apple pins, Apple Intelligence, Rescue, the AI sets, the GitHub pin, and the registries. Measured on this network; sits first so it wins.
+1. **Overlay.** Surge's built-in `SYSTEM` set, infrastructure, Tailscale, the transport guards, the iCloud content QUIC guard, the Apple pins, Apple Intelligence, Rescue, the AI sets, the GitHub set, and the registries. Measured on this network; sits first so it wins.
 2. **Local.** Proxy cores and download clients by process name, private names, LAN.
-3. **Reject.** The library's ads and HTTP DNS sets, then the imported skk.moe reject layer. Rescue must precede this block and every service list must follow it. Two imported sets do not follow the `AdBlock` group: `reject-drop.conf` carries `pre-matching`, which Surge evaluates before every other rule, and `reject-no-drop.conf` is a hard `REJECT-NO-DROP`; a Rescue file cannot override either, so the lint checks that no repair collides with them.
+3. **Reject.** The library's ads and HTTP DNS sets, then the imported skk.moe reject layer. Rescue must precede this block and every service list must follow it. Two imported sets do not follow the reject policy: `reject-drop.conf` carries `pre-matching`, which Surge evaluates before every other rule, and `reject-no-drop.conf` is a hard `REJECT-NO-DROP`; a Rescue file cannot override either, so the lint checks that no repair collides with them.
 4. **Direct services.** Certificate validation, NTP, carrier, Syncthing, downloads, the mainland CDN, then the two proxy-side utility sets (speedtest, public DoH).
 5. **Apple.** Apple China, Apple TV and News, Private Relay, then the company floor `Platforms/Apple.list` on DIRECT.
-6. **Microsoft.** The CDN, Xbox, then the company set on the Microsoft group.
+6. **Microsoft.** The CDN, Xbox, then the company set, which works on DIRECT or a proxy policy.
 7. **Social, media, gaming, developer, finance.** One file per service.
 8. **Banks.** The proxied set, then the direct set; every bank takes one path by name.
 9. **Company-wide sets** after the more specific files, then `DOMAIN-SUFFIX,cn`.
@@ -23,13 +36,13 @@ The drop-in profile is [`Library/profile.snippet`](Library/profile.snippet); it 
 
 ## Apple
 
-Apple is direct by default. `Platforms/Apple.list` carries every Apple name and Apple's own address space (17.0.0.0/8 and the three IPv6 blocks) and expects DIRECT; the evidence is in its header. Four sets precede it because their policy differs: `Apple/AppleIntelligence.list` on `AI Suite`, `Media/AppleMedia.list` (TV and News) on `Proxy`, `Platforms/AppleChina.list` on `Domestic`, and `Direct/PrivateRelay.list`, which is DIRECT but exists on its own so the relay can be switched off by pointing it at `REJECT`. `Apple/ApplePush.list` and `Apple/iCloudContent.list` sit in the overlay as pins: they are DIRECT too, and they stay DIRECT whatever the panel does with the company floor. The address rules for Apple's space live in the floor and nowhere earlier, because an address rule matches a request that arrived as an address even when it carries an SNI, and 17.248.152.0/24 and 17.248.163.0/24 are shared by the content edges, the Private Relay ingress and the Intelligence relay.
+Apple is direct by default. `Platforms/Apple.list` carries every Apple name and Apple's own address space (17.0.0.0/8 and the three IPv6 blocks) and expects DIRECT; the evidence is in its header. Four sets precede it because their policy differs: `Apple/AppleIntelligence.list` on an AI policy, `Media/AppleMedia.list` (TV and News) on a proxy policy, `Platforms/AppleChina.list` on a mainland policy, and `Direct/PrivateRelay.list`, which is DIRECT but exists on its own so the relay can be switched off by pointing it at `REJECT`. `Apple/ApplePush.list` and `Apple/iCloudContent.list` sit in the overlay as pins: they are DIRECT too, and they stay DIRECT whatever policy the profile gives the company floor. The address rules for Apple's space live in the floor and nowhere earlier, because an address rule matches a request that arrived as an address even when it carries an SNI, and 17.248.152.0/24 and 17.248.163.0/24 are shared by the content edges, the Private Relay ingress and the Intelligence relay.
 
 iCloud content is held to TCP. Direct QUIC works and never fails, which is the problem: through this gateway it is slow, and a handshake that succeeds never falls back. On the same edges and devices in the 12 days to 2026-09-21, transfers of 10 MB or more ran at a median of 15.3 Mbps down and 13.4 Mbps up over TCP against 1.2 and 2.6 over QUIC, and QUIC carried most of the upload bytes (17.2 GB against 7.1 GB). A guard ahead of the pin answers UDP 443 to the content names with `REJECT-NO-DROP`, an immediate ICMP refusal that Surge never escalates to a silent drop, so the client retries over TCP at once and lands on the DIRECT pin. The guard matches names only, never the shared edge addresses: Apple's frontends hand an established HTTP/3 connection a preferred address in those ranges, and a refusal on the migrated path kills the connection instead of falling back. Matched by address, it broke every CloudKit background fetch through the gateway (2026-10-27).
 
 ## Banks
 
-A bank ties a session to the address it sees, so each bank takes one path for its whole estate, decided by name. `Library/Bank/Direct.list` carries the mainland banks, UnionPay, ICBC Asia (which runs on its parent's mainland infrastructure) and Bank of China (Hong Kong) on DIRECT; `Library/Bank/Proxy.list` carries the Hong Kong and foreign banks on `Proxy`. BOCHK is direct because the proxy provider refuses `bochk.com` by name on every node tested, while the bank itself accepts the exits and the direct path answers. The proxied set exists although `FINAL` is a proxy: the mainland resolvers hand some Hong Kong bank edges mainland or Alibaba anycast addresses, which `GEOIP,CN` and `Geo/AlibabaCIDR.list` would send direct. The evidence is in the two headers.
+A bank ties a session to the address it sees, so each bank takes one path for its whole estate, decided by name. `Library/Bank/Direct.list` carries the mainland banks, UnionPay, ICBC Asia (which runs on its parent's mainland infrastructure) and Bank of China (Hong Kong) on DIRECT; `Library/Bank/Proxy.list` carries the Hong Kong and foreign banks, and AlipayHK, on a proxy policy. BOCHK is direct because the proxy provider refuses `bochk.com` by name on every node tested, while the bank itself accepts the exits and the direct path answers. The proxied set exists although `FINAL` is a proxy: the mainland resolvers hand some Hong Kong bank edges mainland or Alibaba anycast addresses, which `GEOIP,CN` and `Geo/AlibabaCIDR.list` would send direct. A bank's second zones (a card or wealth app domain, a `.citic` host) are named as well, because a name the files miss reaches its path only through `DOMAIN-SUFFIX,cn` or `GEOIP,CN`. The evidence is in the two headers.
 
 ## What cannot live in a rule set
 
@@ -53,7 +66,7 @@ AND,((PROTOCOL,UDP),(DEST-PORT,443),(RULE-SET,<base>/config/Surge/Apple/iCloudCo
 
 The port guards exist because of flows that reach the gateway without a name. Names in the profile's `always-real-ip` (NTP servers, the carrier ePDG, STUN, the consoles' NAT probes) resolve on the device, so the packets arrive as a bare address and never match a name rule. HTTP/3 whose SNI the gateway cannot read arrives the same way. Measured in the 14 days to 2026-09-09: 21,000 NTP flows to Apple's time servers and a carrier's IKE tunnel riding the fallthrough proxy, and 54,300 iCloud content handshakes rejected by `block-quic`. Where the destination owns a published range, an address rule in a list does the job (Apple, and Alibaba's anycast space in `Library/Geo/AlibabaCIDR.list`); where it does not, only a port rule can.
 
-**Platform directives.** `#!MACOS-ONLY` and `#!IOS-ONLY` are resolved server side by the panel worker before delivery. A rule set file has no way to express a platform split, which is why `Tailscale/Tailnet.list` is referenced twice with different policies.
+**Platform directives.** `#!MACOS-ONLY` and `#!IOS-ONLY` are resolved by the profile generator before delivery. A rule set file has no way to express a platform split, which is why `Tailscale/Tailnet.list` is referenced twice with different policies.
 
 **Device rules.** A console whose NAT traversal must stay direct needs a `SRC-IP` rule in the profile; no list can name it.
 
@@ -74,10 +87,6 @@ The port guards exist because of flows that reach the gateway without a name. Na
 - `Library/Bank/Proxy.list` precedes `Library/Bank/Direct.list`, so `www.asia.ccb.com` and `hk.bankcomm.com` keep the proxy instead of matching their mainland parents' suffixes.
 - `Library/Geo/LAN.list` does not carry `100.64.0.0/10`. That range belongs to `Tailscale/Tailnet.list`.
 
-## Region groups
-
-Region groups are generated by the panel worker from whichever nodes the subscriptions carry, so a region with no nodes leaves the group undefined and any rule pointing at it fails to load.
-
 ## Checking a change
 
-There is no test suite; the check is a dry run of the snippet against the gateway's request history. The hub on the gateway keeps 14 days of flows with the rule each one matched, so a change is verified by replaying the hosts it saw through the old and the new order and reading the diff: which hosts change policy, what still lands on `FINAL`, and whether anything functional now meets the reject layer. Deliveries that arrive as a bare address show up there as an address with no host and, for QUIC on a proxy policy, the policy `QUIC-BLOCK`.
+There is no test suite; the check is a dry run of the profile's rule order against the gateway's request history. The hub on the gateway keeps 14 days of flows with the rule each one matched, so a change is verified by replaying the hosts it saw through the old and the new order and reading the diff: which hosts change policy, what still lands on `FINAL`, and whether anything functional now meets the reject layer. Deliveries that arrive as a bare address show up there as an address with no host and, for QUIC on a proxy policy, the policy `QUIC-BLOCK`.

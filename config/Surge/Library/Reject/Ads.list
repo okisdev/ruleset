@@ -1,8 +1,8 @@
 # Ruleset: Ads
 #
-# Expects AdBlock.
+# Expects a reject policy.
 #
-# Known advertising hosts. Keep Rescue ahead of this file. Analytics and crash reporters stay out. Hang this on the AdBlock group so it can be flipped off.
+# Known advertising hosts. Keep Rescue ahead of this file. Analytics and crash reporters stay out. Hang this on a policy that can be switched off rather than a hard REJECT.
 
 DOMAIN-SUFFIX,2mdn.net
 DOMAIN-SUFFIX,adform.net

@@ -1,6 +1,6 @@
 # Ruleset: LINE
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,line-apps.com
 DOMAIN-SUFFIX,line-scdn.net

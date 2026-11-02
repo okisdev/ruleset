@@ -1,6 +1,6 @@
 # Ruleset: Bilibili
 #
-# Expects Domestic.
+# Expects a mainland policy.
 
 DOMAIN-SUFFIX,biliapi.com
 DOMAIN-SUFFIX,biliapi.net

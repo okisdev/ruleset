@@ -1,6 +1,6 @@
 # Ruleset: ByteDance
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # Douyin, Toutiao, Feishu, Volcano Engine and the e-commerce and mini-app estates. TikTok stays in Media/TikTok.list and expects a streaming policy. The content CDNs (douyincdn.com, douyinvod.com, byteimg.com, bytecdn.cn, pstatp.com) live in Direct/CDNChina.list. Rescue/Douyin.list precedes the reject layer for the app hosts it blocks.
 

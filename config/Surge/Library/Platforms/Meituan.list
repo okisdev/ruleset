@@ -1,6 +1,6 @@
 # Ruleset: Meituan
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # Meituan and Dianping. Rescue/Meituan.list precedes the reject layer for the image host it blocks; this file carries the rest.
 

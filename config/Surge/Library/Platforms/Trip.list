@@ -1,6 +1,6 @@
 # Ruleset: Trip.com
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # Ctrip and its international brand share one infrastructure, and the app used here alternates between the two names.
 

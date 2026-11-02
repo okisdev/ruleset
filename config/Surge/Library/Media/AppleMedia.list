@@ -1,6 +1,6 @@
 # Ruleset: Apple TV and News
 #
-# Expects Proxy, referenced with extended-matching. Must precede Platforms/Apple.list.
+# Expects a proxy policy, referenced with extended-matching. Must precede Platforms/Apple.list.
 #
 # The two Apple services whose catalog depends on where the connection comes from: the TV app with its channels and licensed streams, and News. Music and Podcasts are storefront bound rather than address bound, so they stay on the direct floor; through the proxy their playback hosts lost a third of their flows to blocked QUIC in the 14 days to 2026-09-09.
 

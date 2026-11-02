@@ -1,6 +1,6 @@
 # Ruleset: Apple Intelligence
 #
-# Expects the AI Suite policy, referenced with extended-matching. Must precede Platforms/Apple.list, which would otherwise route these direct like ordinary Apple services, by name and by address.
+# Expects an AI policy, referenced with extended-matching. Must precede Platforms/Apple.list, which would otherwise route these direct like ordinary Apple services, by name and by address.
 #
 # Private Cloud Compute reaches Apple's inference through these relay hosts, which are fronted by Cloudflare and Fastly rather than by Apple. The feature is region gated, so it needs the same foreign exit as every other AI service, which is why it is grouped with AI rather than with push and content.
 #

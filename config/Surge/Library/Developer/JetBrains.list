@@ -1,6 +1,6 @@
 # Ruleset: JetBrains
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # The AI endpoint is also in the overlay AI list.
 

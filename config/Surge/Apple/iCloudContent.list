@@ -1,6 +1,6 @@
 # Ruleset: iCloud content
 #
-# Expects DIRECT. Lives in the overlay so the content plane stays direct whatever policy the panel hangs the company-wide Platforms/Apple.list on.
+# Expects DIRECT. Lives in the overlay so the content plane stays direct whatever policy the profile puts the company-wide Platforms/Apple.list on.
 #
 # The MMCS content service behind iMessage attachments, Photos, Drive and Backup. Proxied, the global block-quic setting rejected its HTTP/3 and the fallbacks inherited the proxy path's instability: 35 blocked attachment transfers in one 6.6 minute window on 2026-08-12, images stalling on the phone that sent them.
 #

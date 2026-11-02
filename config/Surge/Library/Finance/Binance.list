@@ -1,6 +1,6 @@
 # Ruleset: Binance
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.me

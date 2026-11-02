@@ -1,6 +1,6 @@
 # Ruleset: Snap
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,sc-cdn.net
 DOMAIN-SUFFIX,snapchat.com

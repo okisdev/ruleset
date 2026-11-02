@@ -1,6 +1,6 @@
 # Ruleset: Alibaba false positives
 #
-# Expects Domestic. Must precede the blocking rule sets.
+# Expects a mainland policy. Must precede the blocking rule sets.
 #
 # The reject set classifies Alibaba's security SDK, device fingerprint and device identifier endpoints as tracking, and Platforms/Alibaba.list cannot shield them because it follows the reject layer. Taobao treats a client that cannot reach them as an untrusted device: the app intermittently refuses to load and reports that the network is restricted. Measured in the 12 days to 2026-09-21 as 1,565 rejected flows to mum.alibabachengdun.com, retried every two seconds for as long as the app is open, 616 to audid-api.taobao.com and 394 under ynuf.aliapp.org.
 #

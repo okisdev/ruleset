@@ -1,6 +1,6 @@
 # Ruleset: iQiyi
 #
-# Expects Domestic.
+# Expects a mainland policy.
 
 DOMAIN-SUFFIX,iq.com
 DOMAIN-SUFFIX,iqiyi.com

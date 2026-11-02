@@ -1,6 +1,6 @@
 # Ruleset: Stripe
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,link.com
 DOMAIN-SUFFIX,stripe.com

@@ -1,6 +1,6 @@
 # Ruleset: Weibo
 #
-# Expects Domestic.
+# Expects a mainland policy.
 
 DOMAIN-SUFFIX,sinaimg.cn
 DOMAIN-SUFFIX,weibo.cn

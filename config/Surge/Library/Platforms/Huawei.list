@@ -1,6 +1,6 @@
 # Ruleset: Huawei
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # Reject/HttpDNS.list precedes this file for the HTTP DNS hosts under dbankcloud.
 

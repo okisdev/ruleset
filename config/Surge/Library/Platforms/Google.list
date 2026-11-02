@@ -1,8 +1,8 @@
 # Ruleset: Google
 #
-# Expects Proxy, referenced with extended-matching.
+# Expects a proxy policy, referenced with extended-matching.
 #
-# The overlay AI list must precede this file so Gemini, AI Studio and the .google AI products stay on AI Suite. YouTube has its own file. The mainland endpoints live in Platforms/GoogleChina.list and must precede this file.
+# The overlay AI list must precede this file so Gemini, AI Studio and the .google AI products stay on the AI policy. YouTube has its own file. The mainland endpoints live in Platforms/GoogleChina.list and must precede this file.
 
 DOMAIN-SUFFIX,1e100.net
 DOMAIN-SUFFIX,ampproject.org

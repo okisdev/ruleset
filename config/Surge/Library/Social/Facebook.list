@@ -1,6 +1,6 @@
 # Ruleset: Facebook
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,facebook.com
 DOMAIN-SUFFIX,facebook.net

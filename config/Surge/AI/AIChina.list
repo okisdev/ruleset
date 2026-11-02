@@ -1,6 +1,6 @@
 # Ruleset: Chinese AI services
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # The mainland providers, kept apart from AI/AI.list so they never take the foreign exit and never depend on GEOIP to stay home. askdiandian.com is Xiaohongshu's AI search app, and jimeng.jianying.com is ByteDance's image and video generation site.
 

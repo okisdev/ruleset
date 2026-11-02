@@ -1,6 +1,6 @@
 # Ruleset: Youku
 #
-# Expects Domestic.
+# Expects a mainland policy.
 
 DOMAIN-SUFFIX,soku.com
 DOMAIN-SUFFIX,ykimg.com

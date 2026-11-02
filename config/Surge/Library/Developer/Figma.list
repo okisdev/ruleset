@@ -1,6 +1,6 @@
 # Ruleset: Figma
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,figma.com
 DOMAIN-SUFFIX,figma.site

@@ -1,6 +1,6 @@
 # Ruleset: Cryptocurrency
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # Major exchanges and on-chain fronts that need a foreign exit here.
 

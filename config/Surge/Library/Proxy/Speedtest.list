@@ -1,6 +1,6 @@
 # Ruleset: Speedtest
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # On a hijacking gateway these measure the selected exit. DIRECT would measure the last mile instead.
 

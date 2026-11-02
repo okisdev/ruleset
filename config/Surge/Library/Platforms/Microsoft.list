@@ -1,6 +1,6 @@
 # Ruleset: Microsoft
 #
-# Expects Microsoft, referenced with extended-matching.
+# Expects DIRECT or a proxy policy, referenced with extended-matching.
 #
 # Accounts, Office, Azure, Bing, Skype and the VS Code service plane. Update and download hosts live in Platforms/MicrosoftCDN.list and must precede this file, whose suffixes would otherwise take them. Xbox has its own file. msftconnecttest.com and msftncsi.com sit in the profile's always-real-ip, so their probes reach the gateway by address and never match here.
 
