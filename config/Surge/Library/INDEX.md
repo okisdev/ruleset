@@ -1,20 +1,20 @@
 # Library index
 
-92 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
+94 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
 
 ### Reject
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
 | [`Reject/Ads.list`](Reject/Ads.list) | Ads | a reject policy | 38 |
-| [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 15 |
+| [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 17 |
 
 ### Direct
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Direct/CDNChina.list`](Direct/CDNChina.list) | China CDN | DIRECT | 23 |
-| [`Direct/Carrier.list`](Direct/Carrier.list) | Carrier services | DIRECT | 15 |
+| [`Direct/CDNChina.list`](Direct/CDNChina.list) | China CDN | DIRECT | 25 |
+| [`Direct/Carrier.list`](Direct/Carrier.list) | Carrier services | DIRECT | 16 |
 | [`Direct/Certificates.list`](Direct/Certificates.list) | Certificate validation | DIRECT | 30 |
 | [`Direct/Download.list`](Direct/Download.list) | Downloads | DIRECT | 23 |
 | [`Direct/NTP.list`](Direct/NTP.list) | NTP | DIRECT | 11 |
@@ -27,6 +27,7 @@
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
 | [`Proxy/DoH.list`](Proxy/DoH.list) | DNS over HTTPS | a proxy policy | 8 |
+| [`Proxy/SafeBrowsing.list`](Proxy/SafeBrowsing.list) | Safe Browsing | a proxy policy | 1 |
 | [`Proxy/Speedtest.list`](Proxy/Speedtest.list) | Speedtest | a proxy policy | 8 |
 
 ### Social
@@ -42,7 +43,7 @@
 | [`Social/Reddit.list`](Social/Reddit.list) | Reddit | a proxy policy | 4 |
 | [`Social/Snap.list`](Social/Snap.list) | Snap | a proxy policy | 3 |
 | [`Social/Telegram.list`](Social/Telegram.list) | Telegram | a proxy policy | 9 |
-| [`Social/WeChat.list`](Social/WeChat.list) | WeChat | a mainland policy | 7 |
+| [`Social/WeChat.list`](Social/WeChat.list) | WeChat | a mainland policy | 11 |
 | [`Social/Weibo.list`](Social/Weibo.list) | Weibo | a mainland policy | 5 |
 | [`Social/WhatsApp.list`](Social/WhatsApp.list) | WhatsApp | a proxy policy | 3 |
 | [`Social/X.list`](Social/X.list) | X | a proxy policy | 7 |
@@ -113,14 +114,14 @@
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Bank/Direct.list`](Bank/Direct.list) | Banks, direct | DIRECT | 39 |
+| [`Bank/Direct.list`](Bank/Direct.list) | Banks, direct | DIRECT | 40 |
 | [`Bank/Proxy.list`](Bank/Proxy.list) | Banks, proxied | a proxy policy | 37 |
 
 ### Platforms
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Platforms/Alibaba.list`](Platforms/Alibaba.list) | Alibaba | a mainland policy | 25 |
+| [`Platforms/Alibaba.list`](Platforms/Alibaba.list) | Alibaba | a mainland policy | 29 |
 | [`Platforms/Amazon.list`](Platforms/Amazon.list) | Amazon | a proxy policy | 9 |
 | [`Platforms/Apple.list`](Platforms/Apple.list) | Apple | DIRECT | 17 |
 | [`Platforms/AppleChina.list`](Platforms/AppleChina.list) | Apple China | a mainland policy | 7 |
@@ -135,9 +136,10 @@
 | [`Platforms/Microsoft.list`](Platforms/Microsoft.list) | Microsoft | DIRECT or a proxy policy | 46 |
 | [`Platforms/MicrosoftCDN.list`](Platforms/MicrosoftCDN.list) | Microsoft CDN | DIRECT | 17 |
 | [`Platforms/NetEase.list`](Platforms/NetEase.list) | NetEase | a mainland policy | 11 |
+| [`Platforms/Pinduoduo.list`](Platforms/Pinduoduo.list) | Pinduoduo | a mainland policy | 4 |
 | [`Platforms/Tencent.list`](Platforms/Tencent.list) | Tencent | a mainland policy | 21 |
-| [`Platforms/Trip.list`](Platforms/Trip.list) | Trip.com | a mainland policy | 4 |
-| [`Platforms/Xiaomi.list`](Platforms/Xiaomi.list) | Xiaomi | a mainland policy | 10 |
+| [`Platforms/Trip.list`](Platforms/Trip.list) | Trip.com | a mainland policy | 5 |
+| [`Platforms/Xiaomi.list`](Platforms/Xiaomi.list) | Xiaomi | a mainland policy | 11 |
 
 ### Geo
 

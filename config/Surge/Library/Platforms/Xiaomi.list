@@ -5,6 +5,7 @@
 # Phones, the ROM, the account plane and the home devices. The cameras and the Mijia P2P relays under mijia.tech were the busiest domestic destination in the house in the 14 days to 2026-09-09, at 21,600 flows.
 
 DOMAIN-SUFFIX,mi.com
+DOMAIN-SUFFIX,mifile.cn
 DOMAIN-SUFFIX,mi-img.com
 DOMAIN-SUFFIX,mijia.tech
 DOMAIN-SUFFIX,miui.com

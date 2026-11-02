@@ -26,7 +26,7 @@ Files that expect DIRECT expect it literally: a bank or a pin on DIRECT must not
 1. **Overlay.** Surge's built-in `SYSTEM` set, infrastructure, Tailscale, the transport guards, the iCloud content QUIC guard, the Apple pins, Apple Intelligence, Rescue, the AI sets, the GitHub set, and the registries. Measured on this network; sits first so it wins.
 2. **Local.** Proxy cores and download clients by process name, private names, LAN.
 3. **Reject.** The library's ads and HTTP DNS sets, then the imported skk.moe reject layer. Rescue must precede this block and every service list must follow it. Two imported sets do not follow the reject policy: `reject-drop.conf` carries `pre-matching`, which Surge evaluates before every other rule, and `reject-no-drop.conf` is a hard `REJECT-NO-DROP`; a Rescue file cannot override either, so the lint checks that no repair collides with them.
-4. **Direct services.** Certificate validation, NTP, carrier, Syncthing, downloads, the mainland CDN, then the two proxy-side utility sets (speedtest, public DoH).
+4. **Direct services.** Certificate validation, NTP, carrier, Syncthing, downloads, the mainland CDN, then the three proxy-side utility sets (speedtest, public DoH, Safe Browsing).
 5. **Apple.** Apple China, Apple TV and News, Private Relay, then the company floor `Platforms/Apple.list` on DIRECT.
 6. **Microsoft.** The CDN, Xbox, then the company set, which works on DIRECT or a proxy policy.
 7. **Social, media, gaming, developer, finance.** One file per service.
@@ -83,7 +83,7 @@ The port guards exist because of flows that reach the gateway without a name. Na
 - Every Rescue line carries `extended-matching`, because the reject domainset does. A client that dials an address and names the host only in its SNI otherwise passes the repair unmatched and is rejected one block later.
 - The iCloud content QUIC guard precedes `Apple/iCloudContent.list`. Behind the pin it never sees a packet.
 - `AI/AI.list` precedes `Platforms/Google.list`, so the `.google` AI products keep the AI exit; `Platforms/GoogleChina.list` precedes it too.
-- The four Apple exceptions precede `Platforms/Apple.list`; the Microsoft CDN and Xbox precede `Platforms/Microsoft.list`; `Direct/Download.list` and `Direct/CDNChina.list` precede the company sets whose suffixes cover their hosts.
+- The four Apple exceptions and `Proxy/SafeBrowsing.list` precede `Platforms/Apple.list`; the Microsoft CDN and Xbox precede `Platforms/Microsoft.list`; `Direct/Download.list` and `Direct/CDNChina.list` precede the company sets whose suffixes cover their hosts.
 - `Library/Bank/Proxy.list` precedes `Library/Bank/Direct.list`, so `www.asia.ccb.com` and `hk.bankcomm.com` keep the proxy instead of matching their mainland parents' suffixes.
 - `Library/Geo/LAN.list` does not carry `100.64.0.0/10`. That range belongs to `Tailscale/Tailnet.list`.
 

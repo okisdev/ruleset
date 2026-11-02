@@ -5,7 +5,11 @@
 # cloudflared dials the Cloudflare edge on 7844 and carries its own transport security. Proxying it adds a hop to every tunnelled service for no benefit.
 #
 # cfargotunnel.com is the current connector hostname. argotunnel.com is the older name still in use on some agents. trycloudflare.com is the quick-tunnel front.
+#
+# The connector dials the edge by address, so its QUIC transport arrives without a name and misses the suffixes above. 198.41.192.0/24 and 198.41.200.0/24 are the two edge regions cloudflared connects to. In the 14 days to 2026-11-02 those connections fell to FINAL and 282 of 441 failed in a proxy exit.
 
 DOMAIN-SUFFIX,argotunnel.com
 DOMAIN-SUFFIX,cfargotunnel.com
 DOMAIN-SUFFIX,trycloudflare.com
+IP-CIDR,198.41.192.0/24,no-resolve
+IP-CIDR,198.41.200.0/24,no-resolve

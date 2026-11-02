@@ -1,0 +1,7 @@
+# Ruleset: Safe Browsing
+#
+# Expects a proxy policy. Must precede Platforms/Apple.list, whose .apple suffix would otherwise take it.
+#
+# Safari's Safe Browsing service fetches its token from token.safebrowsing.apple, which fails on the direct path from the mainland: 2,487 of 2,487 flows failed from six devices in the 14 days to 2026-11-02, as did every flow in the 14 days to 2026-09-09, while the host answers through Hong Kong and Japan exits. The Google lookups behind it already take a proxy through Platforms/Google.list.
+
+DOMAIN-SUFFIX,safebrowsing.apple
