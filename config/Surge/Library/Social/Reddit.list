@@ -1,6 +1,6 @@
 # Ruleset: Reddit
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,redd.it
 DOMAIN-SUFFIX,reddit.com

@@ -1,6 +1,6 @@
 # Ruleset: Cloudflare
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # Dashboard, APIs, and Workers. Tunnel edge hosts stay in the overlay and expect DIRECT. Do not send cloudflare-dns.com DIRECT.
 

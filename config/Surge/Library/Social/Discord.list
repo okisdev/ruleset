@@ -1,6 +1,6 @@
 # Ruleset: Discord
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,discord.com
 DOMAIN-SUFFIX,discord.gg

@@ -1,6 +1,6 @@
 # Ruleset: Alibaba CIDR
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # Alibaba's anycast space, which its apps dial by address with no name the gateway can read. The blocks are registered in the United States, so GEOIP,CN misses them and the flows reached FINAL: in the 12 days to 2026-09-21, 3,993 QUIC handshakes rejected by block-quic and 2,965 flows (340 MB) carried abroad through eight exit nodes in Hong Kong, Taiwan and Japan, from five devices. Taobao then sees one session arriving from a mainland address and from rotating foreign data centers at once, which its risk control answers by restricting the app.
 #

@@ -1,6 +1,6 @@
 # Ruleset: Telegram CIDR
 #
-# Expects Telegram.
+# Expects a proxy policy.
 #
 # Telegram data-center prefixes, written here the same way Apple Push carries Apple's published courier ranges. Place below domain rules. Pair with Social/Telegram.list.
 

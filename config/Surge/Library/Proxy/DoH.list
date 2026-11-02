@@ -1,6 +1,6 @@
 # Ruleset: DNS over HTTPS
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # Public resolvers. Sending these DIRECT bypasses the gateway resolver.
 

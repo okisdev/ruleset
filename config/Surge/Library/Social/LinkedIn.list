@@ -1,6 +1,6 @@
 # Ruleset: LinkedIn
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,licdn.com
 DOMAIN-SUFFIX,linkedin.com

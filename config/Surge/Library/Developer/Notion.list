@@ -1,6 +1,6 @@
 # Ruleset: Notion
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,notion.com
 DOMAIN-SUFFIX,notion.site

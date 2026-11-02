@@ -1,6 +1,6 @@
 # Ruleset: Vercel
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # Blob storage lives in Direct/Download.list.
 

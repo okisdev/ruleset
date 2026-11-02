@@ -1,6 +1,6 @@
 # Ruleset: JD
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # The store, payments and JD Cloud. The image CDN 360buyimg.com lives in Direct/CDNChina.list.
 

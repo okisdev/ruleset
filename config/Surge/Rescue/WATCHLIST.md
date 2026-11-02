@@ -15,10 +15,11 @@ Hosts that the imported reject layer matches, where the classification looks def
 | `mqtt.zhihu.com` | Push and telemetry channel | | Zhihu notifications stop arriving |
 | `appsec-mobile.meituan.com` | Security SDK endpoint | | Meituan risk control fails closed, which can block checkout |
 | `edith-seb.xiaohongshu.com` | Risk control endpoint | | Xiaohongshu refuses to load feeds or post |
+| `switch.cup.com.cn` | UnionPay client switch, function unconfirmed | 32 in the 14 days to 2026-11-02 | Requested at every UnionPay app launch beside hosts that load; the app works so far, promote if a UnionPay feature stays off or payment falls back |
 
 ## How to triage a suspected false positive
 
-1. Flip the AdBlock policy group to Direct. If the symptom clears within a second, the reject layer is responsible. If it does not, check the request log for `reject-drop.conf` or `reject-no-drop.conf`: those two imported sets do not follow the group and reject regardless, and a match there needs the entry removed upstream or the profile line changed, because a Rescue file cannot outrank a pre-matching rule. Otherwise stop looking here.
+1. Switch the policy the reject layer is hung on to DIRECT. If the symptom clears within a second, the reject layer is responsible. If it does not, check the request log for `reject-drop.conf` or `reject-no-drop.conf`: those two imported sets do not follow the group and reject regardless, and a match there needs the entry removed upstream or the profile line changed, because a Rescue file cannot outrank a pre-matching rule. Otherwise stop looking here.
 2. Find which rule matched, by domain, in the request log. The record names the rule, so there is no guessing.
 3. Confirm the failure shape before writing a patch. A local reject is a zero byte connection that closes about 7ms after the TCP connect. An origin reset carries the real round trip. A foreign origin refusing a foreign exit is a connection with a handshake and no data, which is a routing problem rather than a blocking problem and belongs in a different file.
 4. Add the narrowest rule that covers the symptom, and put the symptom in the header. A patch without a recorded symptom cannot be retired later.

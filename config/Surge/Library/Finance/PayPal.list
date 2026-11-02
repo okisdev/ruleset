@@ -1,6 +1,6 @@
 # Ruleset: PayPal
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,braintreegateway.com
 DOMAIN-SUFFIX,paypal.com

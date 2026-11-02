@@ -1,6 +1,6 @@
 # Ruleset: Telegram
 #
-# Expects Telegram.
+# Expects a proxy policy.
 #
 # Pair with Geo/TelegramCIDR.list for clients that skip SNI.
 

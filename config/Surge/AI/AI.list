@@ -1,6 +1,6 @@
 # Ruleset: AI services
 #
-# Expects the AI Suite policy, referenced with extended-matching. Must precede the general proxy classification.
+# Expects an AI policy, referenced with extended-matching. Must precede the general proxy classification.
 #
 # extended-matching is not optional here. Clients that run their own encrypted DNS never ask the gateway to resolve, so they arrive as a raw IP with an SNI, and claude.com in particular resolves to GFW poisoned addresses on those clients. extended-matching matches on the SNI and hands the connection to the policy to resolve again, which replaces the destination rather than only changing the route. Without it those clients connect to a poisoned address and hang.
 #

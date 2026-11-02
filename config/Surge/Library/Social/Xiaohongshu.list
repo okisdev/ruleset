@@ -1,6 +1,6 @@
 # Ruleset: Xiaohongshu
 #
-# Expects Domestic.
+# Expects a mainland policy.
 
 DOMAIN-SUFFIX,xhscdn.com
 DOMAIN-SUFFIX,xhscdn.net

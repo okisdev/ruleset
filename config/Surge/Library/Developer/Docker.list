@@ -1,6 +1,6 @@
 # Ruleset: Docker
 #
-# Expects Proxy.
+# Expects a proxy policy.
 
 DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io

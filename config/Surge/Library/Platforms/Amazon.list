@@ -1,6 +1,6 @@
 # Ruleset: Amazon
 #
-# Expects Proxy.
+# Expects a proxy policy.
 #
 # Prime Video has its own file.
 

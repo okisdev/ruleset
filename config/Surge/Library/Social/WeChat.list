@@ -1,6 +1,6 @@
 # Ruleset: WeChat
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # The messenger subset, so it can be steered without the rest of Tencent.
 

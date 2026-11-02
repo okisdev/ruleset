@@ -1,6 +1,6 @@
 # Ruleset: China media
 #
-# Expects Domestic.
+# Expects a mainland policy.
 #
 # Domestic video and audio without a file of their own. Bilibili, iQiyi and Youku have theirs; Douyin lives in Platforms/ByteDance.list.
 

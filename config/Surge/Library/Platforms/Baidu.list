@@ -1,6 +1,6 @@
 # Ruleset: Baidu
 #
-# Expects Domestic.
+# Expects a mainland policy.
 
 DOMAIN-SUFFIX,baidu.com
 DOMAIN-SUFFIX,baidubce.com
