@@ -10,7 +10,7 @@
 #
 # ICBC Asia runs on its parent's mainland infrastructure: its app talks to mobilehk.icbc.com.cn and icbc-asia.icbc.com.cn in Shanghai Mobile space (39 flows and 29.5 MB direct in the window) and www.icbcasia.com resolves into China Mobile space, so it stays with its parent. The Hong Kong arms that run their own Hong Kong infrastructure are in Bank/Proxy.list.
 #
-# A bank's second zones belong here too, because a name this file misses reaches its path only through DOMAIN-SUFFIX,cn or GEOIP, which a mainland policy pointed at a proxy, or a missing DNS answer, moves off the direct path. In the 14 days to 2026-11-02 those were China Minsheng's credit card hosts under creditcard.cmbc.cn (61 flows through DOMAIN-SUFFIX,cn), CITIC's wealth app on tech.citic and cfhc.citic (66 flows through GEOIP), Ping An on pingan.com and Ping An Bank's orangebank.com.cn (8), China Merchants' card host under cc.cmbchina.cn (1) and UnionPay International (4).
+# A bank's second zones belong here too, because a name this file misses reaches its path only through DOMAIN-SUFFIX,cn or GEOIP, which a mainland policy pointed at a proxy, or a missing DNS answer, moves off the direct path. In the 14 days to 2026-11-02 those were China Minsheng's credit card hosts under creditcard.cmbc.cn (61 flows through DOMAIN-SUFFIX,cn), CITIC's wealth app on tech.citic and cfhc.citic (66 flows through GEOIP), Ping An on pingan.com and Ping An Bank's orangebank.com.cn (8), China Merchants' card host under cc.cmbchina.cn (1), UnionPay International (4) and Ping An Bank's static hosts under sdb.com.cn, the zone it kept from Shenzhen Development Bank (45 through DOMAIN-SUFFIX,cn).
 
 # Bank of China (Hong Kong). The proxy provider refuses it.
 DOMAIN-SUFFIX,bochk.com
@@ -49,6 +49,7 @@ DOMAIN-SUFFIX,hxb.com.cn
 DOMAIN-SUFFIX,cgbchina.com.cn
 DOMAIN-SUFFIX,pingan.com
 DOMAIN-SUFFIX,orangebank.com.cn
+DOMAIN-SUFFIX,sdb.com.cn
 DOMAIN-SUFFIX,czbank.com
 DOMAIN-SUFFIX,cbhb.com.cn
 DOMAIN-SUFFIX,hfbank.com.cn

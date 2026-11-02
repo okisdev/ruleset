@@ -3,12 +3,16 @@
 # Expects a reject policy.
 #
 # Stops mainland apps from bypassing the gateway resolver. Hang this on a policy that can be switched off rather than a hard REJECT. If an app fails closed instead of falling back, that host belongs in Rescue.
+#
+# DNSPod's public DoH under doh.pub and dns.pub is the same bypass with a general resolver behind it: 227 flows from six devices in the 14 days to 2026-11-02, matched direct by GEOIP. The foreign public resolvers are in Proxy/DoH.list.
 
 DOMAIN-SUFFIX,httpdns.platform.dbankcloud.cn
 DOMAIN-SUFFIX,httpdns.platform.dbankcloud.com
+DOMAIN,dns.pub
 DOMAIN,dns.wechat.com
 DOMAIN,dns.weixin.qq.com
 DOMAIN,dns.weixin.qq.com.cn
+DOMAIN,doh.pub
 DOMAIN,httpdns.alicdn.com
 DOMAIN,httpdns.aliyuncs.com
 DOMAIN,httpdns.baidu.com

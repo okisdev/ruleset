@@ -1,0 +1,10 @@
+# Ruleset: Pinduoduo
+#
+# Expects a mainland policy.
+#
+# The app, its web front yangkeduo.com and the image and video hosts. Every flow reached the mainland path only through GEOIP in the 14 days to 2026-11-02. The reject layer precedes this file and keeps the tracking hosts under th.pinduoduo.com blocked.
+
+DOMAIN-SUFFIX,pddpic.com
+DOMAIN-SUFFIX,pddugc.com
+DOMAIN-SUFFIX,pinduoduo.com
+DOMAIN-SUFFIX,yangkeduo.com

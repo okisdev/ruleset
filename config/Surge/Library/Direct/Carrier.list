@@ -4,8 +4,11 @@
 #
 # Wi-Fi Calling ePDG endpoints. The IKEv2/IPsec tunnel must terminate at the carrier from the real access network; through a proxy exit it either fails registration or pins calls to the exit region. The hostname pattern sits in the profile's always-real-ip so the phone sees real addresses, which also means the tunnel reaches the gateway by bare address and this name rule never sees it. Measured as 551 UDP flows to a carrier ePDG riding the fallthrough proxy in 14 days; the inline UDP 500 and 4500 rules in the profile are the fix, and this file keeps the name resolution on the same path.
 #
+# Carrier apps. China Telecom's app and account plane live under 189.cn, 121 flows in the 14 days to 2026-11-02; the carrier answers its own customers on the access network it runs.
+#
 # Handset address space. A mainland mobile carrier numbers a handset interface from US DoD and UK MoD blocks, and peer-to-peer apps such as UU Remote offer that address as a connection candidate. It is never reachable from outside the carrier, but a candidate that falls to FINAL is dialed through a proxy exit, and Surge maps a UDP socket as a whole: the policy its first packet picks also carries its later packets to the relay servers and to the handset's public address. Measured as 128 flows in 14 days to three handset addresses in 21/8, 25/8 and 28/8, all riding the fallthrough proxy, one of them a UDP socket that also carried relay traffic; no other flow touched these blocks. Three blocks turned up within a day, so the file carries all fourteen.
 
+DOMAIN-SUFFIX,189.cn
 DOMAIN-SUFFIX,pub.3gppnetwork.org
 IP-CIDR,6.0.0.0/8,no-resolve
 IP-CIDR,7.0.0.0/8,no-resolve

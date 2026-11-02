@@ -2,12 +2,16 @@
 #
 # Expects a mainland policy.
 #
-# The messenger subset, so it can be steered without the rest of Tencent.
+# The messenger subset, so it can be steered without the rest of Tencent. The image hosts under qpic.cn and qlogo.cn and the mini program hosts under wxqcloud.qq.com.cn reached the mainland path only through DOMAIN-SUFFIX,cn (884 flows in the 14 days to 2026-11-02), which a client that dials by address with an SNI never meets.
 
+DOMAIN-SUFFIX,qlogo.cn
+DOMAIN-SUFFIX,qpic.cn
 DOMAIN-SUFFIX,servicewechat.com
 DOMAIN-SUFFIX,wechat.com
 DOMAIN-SUFFIX,wechatlegal.com
+DOMAIN-SUFFIX,wechatpay.cn
 DOMAIN-SUFFIX,wechatpay.com
 DOMAIN-SUFFIX,weixin.com
 DOMAIN-SUFFIX,weixin.qq.com
 DOMAIN-SUFFIX,weixinbridge.com
+DOMAIN-SUFFIX,wxqcloud.qq.com.cn

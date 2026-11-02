@@ -23,7 +23,7 @@ Banks are named whichever way they go. A bank ties a session to the address it s
 | --- | --- |
 | `Reject/` | Ads and HTTP DNS |
 | `Direct/` | Private names, mainland CDN, downloads, certificate validation, NTP, carrier, Syncthing, Private Relay |
-| `Proxy/` | Speedtest and public DoH resolvers |
+| `Proxy/` | Speedtest, public DoH resolvers and Safe Browsing |
 | `Media/` | Streaming, split by service, plus Apple TV and News |
 | `Social/` | Messengers and social networks |
 | `Developer/` | Forges, clouds, design tools |

@@ -2,7 +2,7 @@
 #
 # Expects DIRECT.
 #
-# Mainland content hosts. Keep large objects on the local last mile.
+# Mainland content hosts. Keep large objects on the local last mile. ctlcdn.cn and ctadns.cn are China Telecom's CDN zones; NetEase Cloud Music streams through them under names like m701.music.126.net.ctlcdn.cn (420 MB in the 14 days to 2026-11-02).
 
 DOMAIN-SUFFIX,360buyimg.com
 DOMAIN-SUFFIX,71edge.com
@@ -14,6 +14,8 @@ DOMAIN-SUFFIX,cctvpic.com
 DOMAIN-SUFFIX,cdnhwc1.com
 DOMAIN-SUFFIX,cdnhwc2.com
 DOMAIN-SUFFIX,cdnhwc3.com
+DOMAIN-SUFFIX,ctadns.cn
+DOMAIN-SUFFIX,ctlcdn.cn
 DOMAIN-SUFFIX,douyincdn.com
 DOMAIN-SUFFIX,douyinvod.com
 DOMAIN-SUFFIX,hwcdn.cn
