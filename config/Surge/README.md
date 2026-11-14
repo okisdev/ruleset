@@ -26,12 +26,12 @@ Files that expect DIRECT expect it literally: a bank or a pin on DIRECT must not
 1. **Overlay.** Surge's built-in `SYSTEM` set, infrastructure, Tailscale, the transport guards, the iCloud content QUIC guard, the Apple pins, Apple Intelligence, Rescue, the AI sets, the GitHub set, and the registries. Measured on this network; sits first so it wins.
 2. **Local.** Proxy cores and download clients by process name, private names, LAN.
 3. **Reject.** The library's ads and HTTP DNS sets, then the imported skk.moe reject layer. Rescue must precede this block and every service list must follow it. Two imported sets do not follow the reject policy: `reject-drop.conf` carries `pre-matching`, which Surge evaluates before every other rule, and `reject-no-drop.conf` is a hard `REJECT-NO-DROP`; a Rescue file cannot override either, so the lint checks that no repair collides with them.
-4. **Direct services.** Certificate validation, NTP, carrier, Syncthing, downloads, the mainland CDN, then the three proxy-side utility sets (speedtest, public DoH, Safe Browsing).
+4. **Direct services.** Certificate validation, NTP, carrier, Syncthing, downloads, the mainland CDN, then the four proxy-side utility sets (speedtest, public DoH, Safe Browsing, app backends).
 5. **Apple.** Apple China, Apple TV and News, Private Relay, then the company floor `Platforms/Apple.list` on DIRECT.
 6. **Microsoft.** The CDN, Xbox, then the company set, which works on DIRECT or a proxy policy.
 7. **Social, media, gaming, developer, finance.** One file per service.
 8. **Banks.** The proxied set, then the direct set; every bank takes one path by name.
-9. **Company-wide sets** after the more specific files, then `DOMAIN-SUFFIX,cn`.
+9. **Company-wide sets** after the more specific files, `Platforms/China.list` last among them, then `DOMAIN-SUFFIX,cn`.
 10. **Addresses.** The imported IP reject set, the Telegram prefixes, Alibaba's anycast space, `LAN`, `GEOIP,CN`, then `FINAL`.
 
 ## Apple

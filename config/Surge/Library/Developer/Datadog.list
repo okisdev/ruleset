@@ -1,0 +1,7 @@
+# Ruleset: Datadog
+#
+# Expects a proxy policy.
+#
+# Log intake. In the 14 days to 2026-11-14 on the gateway: 1,820 flows and 139MB from ten devices through FINAL, all to http-intake.logs.us5.datadoghq.com. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
+
+DOMAIN-SUFFIX,datadoghq.com

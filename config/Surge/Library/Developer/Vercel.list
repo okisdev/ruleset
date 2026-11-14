@@ -3,6 +3,8 @@
 # Expects a proxy policy.
 #
 # Blob storage lives in Direct/Download.list.
+#
+# The address rules cover the vercel CLI, which dials Vercel's anycast space without a name. In the 14 days to 2026-11-14 that was 49,024 flows through FINAL from the gateway itself; 38,432 of them closed after about one second with no bytes, on a cause not yet established, so the rules classify the flows and are not a repair.
 
 DOMAIN-SUFFIX,now.sh
 DOMAIN-SUFFIX,vercel-insights.com
@@ -11,3 +13,6 @@ DOMAIN-SUFFIX,vercel-status.com
 DOMAIN-SUFFIX,vercel.app
 DOMAIN-SUFFIX,vercel.com
 DOMAIN-SUFFIX,vercel.sh
+IP-CIDR,64.239.109.0/24,no-resolve
+IP-CIDR,64.239.123.0/24,no-resolve
+IP-CIDR,76.76.21.0/24,no-resolve
