@@ -28,7 +28,7 @@ Banks are named whichever way they go. A bank ties a session to the address it s
 | `Social/` | Messengers and social networks |
 | `Developer/` | Forges, clouds, design tools, the tooling in daily use and the owned zones |
 | `Gaming/` | Stores, publishers and consoles |
-| `Finance/` | Payments, exchanges and mainland brokerages |
+| `Finance/` | Payments, exchanges and Hong Kong brokerages |
 | `Bank/` | Banks, one path each: mainland banks and BOCHK direct, Hong Kong and foreign banks proxied |
 | `Platforms/` | Company-wide sets. Place after the more specific files |
 | `Geo/` | LAN, Telegram DC prefixes and Alibaba's anycast space |

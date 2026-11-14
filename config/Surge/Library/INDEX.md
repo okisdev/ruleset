@@ -114,7 +114,7 @@
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
 | [`Finance/Binance.list`](Finance/Binance.list) | Binance | a proxy policy | 5 |
-| [`Finance/Brokers.list`](Finance/Brokers.list) | Brokerages | a mainland policy | 4 |
+| [`Finance/Brokers.list`](Finance/Brokers.list) | Brokerages | a proxy policy | 3 |
 | [`Finance/Crypto.list`](Finance/Crypto.list) | Cryptocurrency | a proxy policy | 11 |
 | [`Finance/PayPal.list`](Finance/PayPal.list) | PayPal | a proxy policy | 4 |
 | [`Finance/Stripe.list`](Finance/Stripe.list) | Stripe | a proxy policy | 4 |
@@ -136,7 +136,7 @@
 | [`Platforms/AppleChina.list`](Platforms/AppleChina.list) | Apple China | a mainland policy | 7 |
 | [`Platforms/Baidu.list`](Platforms/Baidu.list) | Baidu | a mainland policy | 10 |
 | [`Platforms/ByteDance.list`](Platforms/ByteDance.list) | ByteDance | a mainland policy | 44 |
-| [`Platforms/China.list`](Platforms/China.list) | China services | a mainland policy | 10 |
+| [`Platforms/China.list`](Platforms/China.list) | China services | a mainland policy | 11 |
 | [`Platforms/Google.list`](Platforms/Google.list) | Google | a proxy policy | 35 |
 | [`Platforms/GoogleChina.list`](Platforms/GoogleChina.list) | Google China | a mainland policy | 6 |
 | [`Platforms/Huawei.list`](Platforms/Huawei.list) | Huawei | a mainland policy | 6 |
