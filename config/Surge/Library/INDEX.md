@@ -134,7 +134,7 @@
 | [`Platforms/Meituan.list`](Platforms/Meituan.list) | Meituan | a mainland policy | 5 |
 | [`Platforms/Meta.list`](Platforms/Meta.list) | Meta | a proxy policy | 5 |
 | [`Platforms/Microsoft.list`](Platforms/Microsoft.list) | Microsoft | DIRECT or a proxy policy | 46 |
-| [`Platforms/MicrosoftCDN.list`](Platforms/MicrosoftCDN.list) | Microsoft CDN | DIRECT | 17 |
+| [`Platforms/MicrosoftCDN.list`](Platforms/MicrosoftCDN.list) | Microsoft CDN | DIRECT | 16 |
 | [`Platforms/NetEase.list`](Platforms/NetEase.list) | NetEase | a mainland policy | 11 |
 | [`Platforms/Pinduoduo.list`](Platforms/Pinduoduo.list) | Pinduoduo | a mainland policy | 4 |
 | [`Platforms/Tencent.list`](Platforms/Tencent.list) | Tencent | a mainland policy | 21 |
