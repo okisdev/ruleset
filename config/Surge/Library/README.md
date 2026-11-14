@@ -13,7 +13,7 @@ Each file names the kind of policy it expects, never a policy group; [`../README
 
 ## What earns a file
 
-A mainland service earns a file when it is in daily use here, so its policy is a decision rather than a GEOIP lookup. A foreign service earns a file only when its policy or matching differs from `FINAL`: a policy of its own kind (streaming, gaming, AI, either path for Microsoft), a direct path (downloads, registries), a region pin, or `extended-matching` for clients that arrive with a bare address and an SNI. A foreign service that would simply be proxied stays out; `FINAL` already does that.
+A mainland service earns a file when it is in daily use here, so its policy is a decision rather than a GEOIP lookup. A foreign service earns a file only when its policy or matching differs from `FINAL`: a policy of its own kind (streaming, gaming, AI, either path for Microsoft), a direct path (downloads, registries), a region pin, or `extended-matching` for clients that arrive with a bare address and an SNI. Tooling in daily use here also earns one, so its exit is the profile's proxy policy and does not move when the catch-all group is switched: the owned zones, error and log intake, secrets, the password manager. Any other foreign service that would simply be proxied stays out; `FINAL` already does that.
 
 Banks are named whichever way they go. A bank ties a session to the address it sees, and GEOIP splits a bank's estate between the direct path and the proxy, so `Bank/Direct.list` and `Bank/Proxy.list` give every bank one path by name.
 
@@ -23,12 +23,12 @@ Banks are named whichever way they go. A bank ties a session to the address it s
 | --- | --- |
 | `Reject/` | Ads and HTTP DNS |
 | `Direct/` | Private names, mainland CDN, downloads, certificate validation, NTP, carrier, Syncthing, Private Relay |
-| `Proxy/` | Speedtest, public DoH resolvers and Safe Browsing |
+| `Proxy/` | Speedtest, public DoH resolvers, Safe Browsing and app backends |
 | `Media/` | Streaming, split by service, plus Apple TV and News |
 | `Social/` | Messengers and social networks |
-| `Developer/` | Forges, clouds, design tools |
+| `Developer/` | Forges, clouds, design tools, the tooling in daily use and the owned zones |
 | `Gaming/` | Stores, publishers and consoles |
-| `Finance/` | Payments and exchanges |
+| `Finance/` | Payments, exchanges and mainland brokerages |
 | `Bank/` | Banks, one path each: mainland banks and BOCHK direct, Hong Kong and foreign banks proxied |
 | `Platforms/` | Company-wide sets. Place after the more specific files |
 | `Geo/` | LAN, Telegram DC prefixes and Alibaba's anycast space |

@@ -1,0 +1,10 @@
+# Ruleset: Brokerages
+#
+# Expects a mainland policy.
+#
+# Futu, Longbridge and GF Securities. Their apps answer from mainland addresses and reached the direct path only through GEOIP,CN. In the 14 days to 2026-11-14 on the gateway: futunn.com 203 flows, lbkrs.com 218, lbctrl.com 54, 95508.com 136, none failed. A brokerage ties a session to the address it sees, as a bank does, so each takes one path by name. Longbridge's global hosts (ws-gl, quote-gl, 19 flows through FINAL) move to this path with the suffix.
+
+DOMAIN-SUFFIX,95508.com
+DOMAIN-SUFFIX,futunn.com
+DOMAIN-SUFFIX,lbctrl.com
+DOMAIN-SUFFIX,lbkrs.com

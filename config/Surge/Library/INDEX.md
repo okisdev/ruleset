@@ -1,6 +1,6 @@
 # Library index
 
-94 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
+104 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
 
 ### Reject
 
@@ -13,7 +13,7 @@
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Direct/CDNChina.list`](Direct/CDNChina.list) | China CDN | DIRECT | 25 |
+| [`Direct/CDNChina.list`](Direct/CDNChina.list) | China CDN | DIRECT | 29 |
 | [`Direct/Carrier.list`](Direct/Carrier.list) | Carrier services | DIRECT | 16 |
 | [`Direct/Certificates.list`](Direct/Certificates.list) | Certificate validation | DIRECT | 30 |
 | [`Direct/Download.list`](Direct/Download.list) | Downloads | DIRECT | 23 |
@@ -26,6 +26,7 @@
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
+| [`Proxy/AppServices.list`](Proxy/AppServices.list) | App services | a proxy policy | 3 |
 | [`Proxy/DoH.list`](Proxy/DoH.list) | DNS over HTTPS | a proxy policy | 8 |
 | [`Proxy/SafeBrowsing.list`](Proxy/SafeBrowsing.list) | Safe Browsing | a proxy policy | 1 |
 | [`Proxy/Speedtest.list`](Proxy/Speedtest.list) | Speedtest | a proxy policy | 8 |
@@ -56,7 +57,7 @@
 | [`Media/AppleMedia.list`](Media/AppleMedia.list) | Apple TV and News | a proxy policy | 13 |
 | [`Media/Bahamut.list`](Media/Bahamut.list) | Bahamut | a streaming policy | 2 |
 | [`Media/Bilibili.list`](Media/Bilibili.list) | Bilibili | a mainland policy | 7 |
-| [`Media/China.list`](Media/China.list) | China media | a mainland policy | 20 |
+| [`Media/China.list`](Media/China.list) | China media | a mainland policy | 21 |
 | [`Media/Disney.list`](Media/Disney.list) | Disney | a streaming policy | 5 |
 | [`Media/HBO.list`](Media/HBO.list) | HBO | a streaming policy | 6 |
 | [`Media/Hulu.list`](Media/Hulu.list) | Hulu | a streaming policy | 3 |
@@ -74,16 +75,23 @@
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
+| [`Developer/1Password.list`](Developer/1Password.list) | 1Password | a proxy policy | 3 |
 | [`Developer/Atlassian.list`](Developer/Atlassian.list) | Atlassian | a proxy policy | 6 |
 | [`Developer/Cloudflare.list`](Developer/Cloudflare.list) | Cloudflare | a proxy policy | 7 |
+| [`Developer/Datadog.list`](Developer/Datadog.list) | Datadog | a proxy policy | 1 |
 | [`Developer/Docker.list`](Developer/Docker.list) | Docker | a proxy policy | 3 |
 | [`Developer/Figma.list`](Developer/Figma.list) | Figma | a proxy policy | 2 |
 | [`Developer/GitLab.list`](Developer/GitLab.list) | GitLab | a proxy policy | 3 |
+| [`Developer/Infisical.list`](Developer/Infisical.list) | Infisical | a proxy policy | 1 |
 | [`Developer/JetBrains.list`](Developer/JetBrains.list) | JetBrains | a proxy policy | 4 |
+| [`Developer/Neon.list`](Developer/Neon.list) | Neon | a proxy policy | 1 |
 | [`Developer/Notion.list`](Developer/Notion.list) | Notion | a proxy policy | 4 |
 | [`Developer/Npm.list`](Developer/Npm.list) | npm | a proxy policy | 3 |
+| [`Developer/Owned.list`](Developer/Owned.list) | Owned services | a proxy policy | 4 |
+| [`Developer/Sentry.list`](Developer/Sentry.list) | Sentry | a proxy policy | 1 |
 | [`Developer/Slack.list`](Developer/Slack.list) | Slack | a proxy policy | 4 |
-| [`Developer/Vercel.list`](Developer/Vercel.list) | Vercel | a proxy policy | 7 |
+| [`Developer/Vercel.list`](Developer/Vercel.list) | Vercel | a proxy policy | 10 |
+| [`Developer/WakaTime.list`](Developer/WakaTime.list) | WakaTime | a proxy policy | 1 |
 
 ### Gaming
 
@@ -106,6 +114,7 @@
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
 | [`Finance/Binance.list`](Finance/Binance.list) | Binance | a proxy policy | 5 |
+| [`Finance/Brokers.list`](Finance/Brokers.list) | Brokerages | a mainland policy | 4 |
 | [`Finance/Crypto.list`](Finance/Crypto.list) | Cryptocurrency | a proxy policy | 11 |
 | [`Finance/PayPal.list`](Finance/PayPal.list) | PayPal | a proxy policy | 4 |
 | [`Finance/Stripe.list`](Finance/Stripe.list) | Stripe | a proxy policy | 4 |
@@ -121,14 +130,15 @@
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Platforms/Alibaba.list`](Platforms/Alibaba.list) | Alibaba | a mainland policy | 29 |
+| [`Platforms/Alibaba.list`](Platforms/Alibaba.list) | Alibaba | a mainland policy | 30 |
 | [`Platforms/Amazon.list`](Platforms/Amazon.list) | Amazon | a proxy policy | 9 |
 | [`Platforms/Apple.list`](Platforms/Apple.list) | Apple | DIRECT | 17 |
 | [`Platforms/AppleChina.list`](Platforms/AppleChina.list) | Apple China | a mainland policy | 7 |
 | [`Platforms/Baidu.list`](Platforms/Baidu.list) | Baidu | a mainland policy | 10 |
 | [`Platforms/ByteDance.list`](Platforms/ByteDance.list) | ByteDance | a mainland policy | 44 |
+| [`Platforms/China.list`](Platforms/China.list) | China services | a mainland policy | 10 |
 | [`Platforms/Google.list`](Platforms/Google.list) | Google | a proxy policy | 35 |
-| [`Platforms/GoogleChina.list`](Platforms/GoogleChina.list) | Google China | a mainland policy | 5 |
+| [`Platforms/GoogleChina.list`](Platforms/GoogleChina.list) | Google China | a mainland policy | 6 |
 | [`Platforms/Huawei.list`](Platforms/Huawei.list) | Huawei | a mainland policy | 6 |
 | [`Platforms/JD.list`](Platforms/JD.list) | JD | a mainland policy | 7 |
 | [`Platforms/Meituan.list`](Platforms/Meituan.list) | Meituan | a mainland policy | 5 |
@@ -137,9 +147,9 @@
 | [`Platforms/MicrosoftCDN.list`](Platforms/MicrosoftCDN.list) | Microsoft CDN | DIRECT | 16 |
 | [`Platforms/NetEase.list`](Platforms/NetEase.list) | NetEase | a mainland policy | 11 |
 | [`Platforms/Pinduoduo.list`](Platforms/Pinduoduo.list) | Pinduoduo | a mainland policy | 4 |
-| [`Platforms/Tencent.list`](Platforms/Tencent.list) | Tencent | a mainland policy | 21 |
+| [`Platforms/Tencent.list`](Platforms/Tencent.list) | Tencent | a mainland policy | 23 |
 | [`Platforms/Trip.list`](Platforms/Trip.list) | Trip.com | a mainland policy | 5 |
-| [`Platforms/Xiaomi.list`](Platforms/Xiaomi.list) | Xiaomi | a mainland policy | 11 |
+| [`Platforms/Xiaomi.list`](Platforms/Xiaomi.list) | Xiaomi | a mainland policy | 12 |
 
 ### Geo
 

@@ -1,0 +1,10 @@
+# Ruleset: Owned services
+#
+# Expects a proxy policy.
+#
+# The zones this household runs, all behind Cloudflare. In the 14 days to 2026-11-14 on the gateway: 23,882 flows and 12.6GB to harisfox.com, 9,774 to okis.dev and 4,948 to agentdoc.md through FINAL, with a median connect of 7 to 11 ms through the proxy. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Must follow Process/ProxyCores.list, so Surge keeps fetching its managed profile from network.harisfox.com on the direct path when no proxy answers. Tailnet names under ts.harisfox.com resolve on the device and never reach this file.
+
+DOMAIN-SUFFIX,harisfox.com
+DOMAIN-SUFFIX,okis.dev
+DOMAIN-SUFFIX,okis.me
+DOMAIN-SUFFIX,agentdoc.md

@@ -1,0 +1,16 @@
+# Ruleset: China services
+#
+# Expects a mainland policy.
+#
+# Mainland services without a file of their own that reached the direct path only through GEOIP,CN. In the 14 days to 2026-11-14 on the gateway, none with a failure rate above 2%: XGIMI 143 flows and 261MB, Coolapk 96, BOSS Zhipin 84, ifanr's IoT cloud 518, Cece 50. 300hu.com (123 flows, 402MB), dittocdn.com (45), ndcpp.com (236), sjxydc.com (66) and i-ttg.net (24) are listed on that evidence alone; their owners are not identified.
+
+DOMAIN-SUFFIX,300hu.com
+DOMAIN-SUFFIX,cece.com
+DOMAIN-SUFFIX,coolapk.com
+DOMAIN-SUFFIX,dittocdn.com
+DOMAIN-SUFFIX,i-ttg.net
+DOMAIN-SUFFIX,ifanrusercontent.com
+DOMAIN-SUFFIX,ndcpp.com
+DOMAIN-SUFFIX,sjxydc.com
+DOMAIN-SUFFIX,xgimi.com
+DOMAIN-SUFFIX,zhipin.com

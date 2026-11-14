@@ -1,0 +1,7 @@
+# Ruleset: Neon
+#
+# Expects a proxy policy.
+#
+# Database endpoints and the MCP server. In the 14 days to 2026-11-14 on the gateway: 975 flows from eight devices through FINAL. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
+
+DOMAIN-SUFFIX,neon.tech

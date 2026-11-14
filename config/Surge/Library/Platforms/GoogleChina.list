@@ -3,9 +3,12 @@
 # Expects a mainland policy. Must precede Platforms/Google.list.
 #
 # The endpoints Google serves for the mainland: the reCAPTCHA mirror, the .cn API and static mirrors, and the -cn download redirector. recaptcha.net exists so that sites work without a foreign exit; through the proxy it lost 14 of 36 flows to blocked QUIC in the 14 days to 2026-09-09.
+#
+# app-analytics-services.com is Firebase Analytics, which answers from Google's mainland addresses: 965 direct flows from seven devices through GEOIP,CN in the 14 days to 2026-11-14, one failed.
 
 DOMAIN-SUFFIX,google.cn
 DOMAIN-SUFFIX,googleapis.cn
 DOMAIN-SUFFIX,gstatic.cn
 DOMAIN-SUFFIX,gvt1-cn.com
 DOMAIN-SUFFIX,recaptcha.net
+DOMAIN,app-analytics-services.com

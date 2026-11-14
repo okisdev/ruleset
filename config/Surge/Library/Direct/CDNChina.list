@@ -3,6 +3,8 @@
 # Expects DIRECT.
 #
 # Mainland content hosts. Keep large objects on the local last mile. ctlcdn.cn and ctadns.cn are China Telecom's CDN zones; NetEase Cloud Music streams through them under names like m701.music.126.net.ctlcdn.cn (420 MB in the 14 days to 2026-11-02).
+#
+# volcgslb.com and vedcdnlb.com are Volcano Engine's CDN zones, which NetEase Cloud Music also streams through (music.126.net.volcgslb.com); tcdnos.com carries app and game update downloads (203MB in the 14 days to 2026-11-14).
 
 DOMAIN-SUFFIX,360buyimg.com
 DOMAIN-SUFFIX,71edge.com
@@ -29,3 +31,7 @@ DOMAIN-SUFFIX,qiniudn.com
 DOMAIN-SUFFIX,tbcdn.cn
 DOMAIN-SUFFIX,upaiyun.com
 DOMAIN-SUFFIX,ykimg.com
+DOMAIN-SUFFIX,bytecdn.com
+DOMAIN-SUFFIX,tcdnos.com
+DOMAIN-SUFFIX,vedcdnlb.com
+DOMAIN-SUFFIX,volcgslb.com
