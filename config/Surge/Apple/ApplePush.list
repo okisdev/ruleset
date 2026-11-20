@@ -2,11 +2,11 @@
 #
 # Expects DIRECT. Lives in the overlay so push stays direct whatever policy the profile puts the company-wide Platforms/Apple.list on, and precedes the two Apple sets that leave the direct path.
 #
-# APNs is one long-lived TCP connection per device, and instant delivery depends on it staying up. Riding a proxy policy group makes it fragile in a way that has nothing to do with reachability: every reselection of that group severs the connection on every device at once. Measured on 2026-08-12, a single policy group switch left all seven push connections in the house, across two Macs, a phone, and the gateway itself, re-established within the same second. The phone recovers quickly because iOS reconnects aggressively and can fall back to cellular; a Mac has no second path, and macOS backs off exponentially when the reconnect lands in a bad window, so pushes queue at Apple and arrive minutes late. The symptom is a message that the phone already shows and the Mac does not, with Messages open the whole time.
+# APNs uses long-lived TCP connections, and instant delivery depends on them staying up. Every reselection of a proxy policy group severs those connections. iOS reconnects aggressively and can fall back to cellular, while macOS may back off exponentially and delay push delivery. DIRECT avoids proxy group reselection.
 #
-# Push is reachable domestically, so the proxy was buying nothing and costing that.
+# Push is reachable on the domestic path, so it stays DIRECT.
 #
-# A second effect of proxying push: the egress region decides which courier Apple assigns. Through a Hong Kong exit a Mac registers with us-courier.push.apple.com, so every notification travels to a US courier and back.
+# The egress region also influences which courier Apple assigns. A Hong Kong exit can assign us-courier.push.apple.com, sending notifications through a US courier.
 #
 # IP ranges are Apple's published list: https://support.apple.com/en-us/102266
 

@@ -2,7 +2,7 @@
 #
 # Expects a proxy policy.
 #
-# Futu and Longbridge, Hong Kong brokerages that refuse logins from a mainland address. Their apps answer from mainland addresses, so without a name they reached the direct path through GEOIP,CN: futunn.com 203 flows, lbkrs.com 218 and lbctrl.com 54 in the 14 days to 2026-11-14. A brokerage ties a session to the address it sees, as a bank does, so each takes one path by name. Must precede GEOIP,CN. Mainland brokerages stay on the mainland path; GF Securities is in Platforms/China.list.
+# Futu and Longbridge are Hong Kong brokerages that refuse logins from a mainland address. Their apps can answer from mainland addresses and reach the direct path through GEOIP,CN unless matched by name. A brokerage ties a session to the address it sees, as a bank does, so each takes one path by name. Must precede GEOIP,CN. Mainland brokerages stay on the mainland path; GF Securities is in Platforms/China.list.
 
 DOMAIN-SUFFIX,futunn.com
 DOMAIN-SUFFIX,lbctrl.com

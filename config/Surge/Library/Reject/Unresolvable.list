@@ -1,0 +1,12 @@
+# Ruleset: Unresolvable names
+#
+# Expects a reject policy.
+#
+# Names that can never resolve: the special-use TLDs of RFC 2606 and RFC 6761, and names under a TLD that does not exist. Without a rule they reach FINAL and are dialed through a proxy exit that cannot resolve them either: test fixtures under .test, connectivity probes under .invalid, and app placeholders such as uc.cmd. Bind it to REJECT: nothing here works on any path.
+#
+# example.com and its siblings stay out. They are reserved but resolve and answer.
+
+DOMAIN-SUFFIX,test
+DOMAIN-SUFFIX,invalid
+DOMAIN-SUFFIX,example
+DOMAIN-SUFFIX,cmd

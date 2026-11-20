@@ -2,6 +2,6 @@
 #
 # Expects a proxy policy.
 #
-# Error reporting from the tooling on this network. In the 14 days to 2026-11-14 on the gateway: 5,544 flows from ten devices through FINAL. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
+# The Sentry dashboard and API. Event ingestion under ingest.sentry.io is telemetry and lives in Reject/Telemetry.list, which precedes this file. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
 
 DOMAIN-SUFFIX,sentry.io

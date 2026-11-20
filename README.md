@@ -1,18 +1,18 @@
 # Ruleset
 
-Surge rule library for the home network gateway.
+Surge rule library for gateway profiles.
 
-Two layers, both first-party. The overlay is what this network measured and owns: infrastructure, path faults, pins that must survive whatever policy the profile chooses, and false-positive repairs. The library is classification written in this repository, complete enough that the gateway profile subscribes to these files for every category but one.
+Two first-party layers. The overlay handles tunnel transport, path faults, policy pins and false-positive repairs. The library classifies services and categories for a Surge profile.
 
 ## Overlay
 
-A rule earns a place here when it encodes something specific to this network:
+A rule earns a place here when it must precede general service classification:
 
-- Our own infrastructure. The tailnet address space and the tunnel edge.
-- Measured path faults. Destinations that fail through one exit region and succeed through another.
-- Pins. Apple push and iCloud content stay direct whatever policy the profile puts the company-wide Apple set on, because a reselection of that policy, or a QUIC handshake blocked on a proxy path, was measured breaking them. iCloud content is also held to TCP: direct QUIC never failed and measured five to thirteen times slower.
+- Tunnel transport. Tailnet address space and tunnel edge traffic need rules ahead of service classification.
+- Path faults. Destinations that fail through one exit region and succeed through another need a specific policy.
+- Pins. Apple push and iCloud content stay direct whatever policy the profile puts the company-wide Apple set on. A proxy policy reselection interrupts push, and the profile's QUIC block can break content transfers. The iCloud content guard prefers TCP because QUIC can transfer slowly without triggering a fallback.
 - False positives to repair. Services that the reject layer kills. Each patch names the symptom.
-- Categories worth owning outright. AI was the first; Apple is the second.
+- Categories with dedicated policies, including AI and Apple.
 
 ## Library
 
@@ -38,8 +38,8 @@ config/
     ├── AI/               owned AI category, foreign and mainland
     ├── Apple/            push and content pinned direct, Intelligence to AI
     ├── GitHub/           every GitHub host on one proxy policy
-    ├── Infrastructure/   our own tunnels
-    ├── Registries/       official package registries, direct
+    ├── Infrastructure/   tunnel transport
+    ├── Registries/       official registries, distro archives, toolchains
     ├── Rescue/           false positive repairs, plus the watchlist
     ├── Tailscale/        tailnet space, coordination, and the direct domains
     └── Library/          first-party classification

@@ -2,6 +2,6 @@
 #
 # Expects a mainland policy. Must precede the blocking rule sets.
 #
-# d.meituan.net serves in-app imagery and the reject set classifies it as ad infrastructure. Observed as zero byte connections on gatewayed phones, with the app rendering blank tiles.
+# d.meituan.net serves in-app imagery and the reject set classifies it as ad infrastructure. Blocking the host leaves blank image tiles.
 
 DOMAIN-SUFFIX,d.meituan.net

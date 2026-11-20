@@ -1,0 +1,49 @@
+# Ruleset: Telemetry
+#
+# Expects a reject policy.
+#
+# Usage telemetry, product analytics and crash reports that the imported reject layer lets through, so they would otherwise ride a proxy exit. Developer CLIs are the heaviest senders: they report on every command. Hang this on a policy that can be switched off rather than a hard REJECT.
+#
+# Scope: the ingestion host, never the vendor's dashboard or API, which keep their own file or FINAL. Feature flag services stay out, because a client that cannot fetch its flags changes behavior. Our own services stay in Developer/Owned.list. A host whose company list sits in the overlay, ahead of the reject block (GitHub, AI, Tailscale coordination), cannot be caught here.
+
+# Cloudflare: wrangler's usage events.
+DOMAIN,sparrow.cloudflare.com
+
+# Vercel: the CLI and Turborepo.
+DOMAIN,telemetry.vercel.com
+
+# Sentry ingestion, per region. sentry.io itself stays in Developer/Sentry.list.
+DOMAIN-SUFFIX,ingest.sentry.io
+DOMAIN-SUFFIX,ingest.us.sentry.io
+DOMAIN-SUFFIX,ingest.de.sentry.io
+
+# Datadog log and browser intake. The us5 browser intake is its own registrable domain.
+DOMAIN,http-intake.logs.datadoghq.com
+DOMAIN,http-intake.logs.us5.datadoghq.com
+DOMAIN-SUFFIX,browser-intake-datadoghq.com
+DOMAIN-SUFFIX,browser-intake-us5-datadoghq.com
+
+# PostHog ingestion. posthog.com itself is the product site.
+DOMAIN-SUFFIX,i.posthog.com
+DOMAIN,app.posthog.com
+
+# Segment
+DOMAIN-SUFFIX,segment.io
+DOMAIN,cdn-settings.segment.com
+
+# 1Password usage and crash reports. The vaults stay in Developer/1Password.list.
+DOMAIN,telemetry.1passwordservices.com
+DOMAIN,b5x-sentry.1passwordservices.com
+
+# Microsoft App Center
+DOMAIN,in.appcenter.ms
+
+# Firebase Crashlytics
+DOMAIN-SUFFIX,crashlytics.com
+DOMAIN,crashlyticsreports-pa.googleapis.com
+
+# Tailscale's log service. Clients keep working without it.
+DOMAIN,log.tailscale.com
+
+# X web analytics
+DOMAIN,analytics.twitter.com

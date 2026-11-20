@@ -2,6 +2,6 @@
 #
 # Expects a proxy policy.
 #
-# Editor heartbeats. In the 14 days to 2026-11-14 on the gateway: 896 flows through FINAL, all to api.wakatime.com. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
+# Editor heartbeats. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
 
 DOMAIN-SUFFIX,wakatime.com

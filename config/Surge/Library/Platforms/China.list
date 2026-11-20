@@ -2,7 +2,7 @@
 #
 # Expects a mainland policy.
 #
-# Mainland services without a file of their own that reached the direct path only through GEOIP,CN. In the 14 days to 2026-11-14 on the gateway, none with a failure rate above 2%: XGIMI 143 flows and 261MB, Coolapk 96, BOSS Zhipin 84, ifanr's IoT cloud 518, Cece 50, GF Securities 136. 300hu.com (123 flows, 402MB), dittocdn.com (45), ndcpp.com (236), sjxydc.com (66) and i-ttg.net (24) are listed on that evidence alone; their owners are not identified.
+# Mainland services without a dedicated file: XGIMI, Coolapk, BOSS Zhipin, ifanr's IoT cloud, Cece and GF Securities. The owners of 300hu.com, dittocdn.com, ndcpp.com, sjxydc.com and i-ttg.net are unidentified; these hosts are classified by their mainland routing.
 
 DOMAIN-SUFFIX,300hu.com
 DOMAIN-SUFFIX,95508.com

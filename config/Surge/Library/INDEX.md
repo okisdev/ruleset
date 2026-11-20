@@ -1,6 +1,6 @@
 # Library index
 
-104 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
+107 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
 
 ### Reject
 
@@ -8,6 +8,8 @@
 | --- | --- | --- | ---: |
 | [`Reject/Ads.list`](Reject/Ads.list) | Ads | a reject policy | 38 |
 | [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 17 |
+| [`Reject/Telemetry.list`](Reject/Telemetry.list) | Telemetry | a reject policy | 20 |
+| [`Reject/Unresolvable.list`](Reject/Unresolvable.list) | Unresolvable names | a reject policy | 4 |
 
 ### Direct
 
@@ -77,6 +79,7 @@
 | --- | --- | --- | ---: |
 | [`Developer/1Password.list`](Developer/1Password.list) | 1Password | a proxy policy | 3 |
 | [`Developer/Atlassian.list`](Developer/Atlassian.list) | Atlassian | a proxy policy | 6 |
+| [`Developer/BetterStack.list`](Developer/BetterStack.list) | Better Stack | a proxy policy | 1 |
 | [`Developer/Cloudflare.list`](Developer/Cloudflare.list) | Cloudflare | a proxy policy | 7 |
 | [`Developer/Datadog.list`](Developer/Datadog.list) | Datadog | a proxy policy | 1 |
 | [`Developer/Docker.list`](Developer/Docker.list) | Docker | a proxy policy | 3 |
@@ -87,7 +90,7 @@
 | [`Developer/Neon.list`](Developer/Neon.list) | Neon | a proxy policy | 1 |
 | [`Developer/Notion.list`](Developer/Notion.list) | Notion | a proxy policy | 4 |
 | [`Developer/Npm.list`](Developer/Npm.list) | npm | a proxy policy | 3 |
-| [`Developer/Owned.list`](Developer/Owned.list) | Owned services | a proxy policy | 4 |
+| [`Developer/Owned.list`](Developer/Owned.list) | Owned services | a proxy policy | 5 |
 | [`Developer/Sentry.list`](Developer/Sentry.list) | Sentry | a proxy policy | 1 |
 | [`Developer/Slack.list`](Developer/Slack.list) | Slack | a proxy policy | 4 |
 | [`Developer/Vercel.list`](Developer/Vercel.list) | Vercel | a proxy policy | 10 |

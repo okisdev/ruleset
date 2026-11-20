@@ -2,7 +2,7 @@
 #
 # Expects a proxy policy.
 #
-# Major exchanges and on-chain fronts that need a foreign exit here.
+# Major exchanges and on-chain fronts that need a foreign exit from the mainland.
 
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,bitget.com
