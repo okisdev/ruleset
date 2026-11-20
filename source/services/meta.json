@@ -1,0 +1,113 @@
+{
+  "owner": {
+    "id": "meta",
+    "name": "Meta"
+  },
+  "services": [
+    {
+      "id": "meta",
+      "name": "Meta",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Meta.list": [
+          "DOMAIN-SUFFIX,meta.com",
+          "DOMAIN-SUFFIX,oculus.com",
+          "DOMAIN-SUFFIX,oculuscdn.com"
+        ]
+      }
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "category": "social",
+      "lists": {
+        "Library/Social/Facebook.list": [
+          "DOMAIN-SUFFIX,facebook.com",
+          "DOMAIN-SUFFIX,facebook.net",
+          "DOMAIN-SUFFIX,fb.com",
+          "DOMAIN-SUFFIX,fb.gg",
+          "DOMAIN-SUFFIX,fb.watch",
+          "DOMAIN-SUFFIX,fbcdn.com",
+          "DOMAIN-SUFFIX,fbcdn.net",
+          "DOMAIN-SUFFIX,fbsbx.com"
+        ]
+      }
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "category": "social",
+      "lists": {
+        "Library/Social/Instagram.list": [
+          "DOMAIN-SUFFIX,cdninstagram.com",
+          "DOMAIN-SUFFIX,ig.me",
+          "DOMAIN-SUFFIX,instagram.com"
+        ]
+      }
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp",
+      "category": "social",
+      "lists": {
+        "Library/Social/WhatsApp.list": [
+          "DOMAIN-SUFFIX,wa.me",
+          "DOMAIN-SUFFIX,whatsapp.com",
+          "DOMAIN-SUFFIX,whatsapp.net"
+        ]
+      }
+    },
+    {
+      "id": "messenger",
+      "name": "Messenger",
+      "category": "social",
+      "lists": {
+        "Library/Platforms/Meta.list": [
+          "DOMAIN-SUFFIX,messenger.com"
+        ]
+      }
+    },
+    {
+      "id": "threads",
+      "name": "Threads",
+      "category": "social",
+      "lists": {
+        "Library/Platforms/Meta.list": [
+          "DOMAIN-SUFFIX,threads.net"
+        ]
+      },
+      "names": [
+        "threads.com"
+      ]
+    },
+    {
+      "id": "react-native",
+      "name": "React Native",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "Android artifacts publish from a Maven repository of its own.",
+            "rules": [
+              "DOMAIN,repo.reactnative.dev"
+            ]
+          }
+        ]
+      },
+      "names": [
+        "reactnative.dev"
+      ]
+    },
+    {
+      "id": "meta-ai",
+      "name": "Meta AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,meta.ai",
+          "DOMAIN-SUFFIX,metaaivm.com"
+        ]
+      }
+    }
+  ]
+}

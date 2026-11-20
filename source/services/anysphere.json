@@ -1,0 +1,37 @@
+{
+  "owner": {
+    "id": "anysphere",
+    "name": "Anysphere"
+  },
+  "services": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "cursor.com does not cover the CDN, the API hosts or the cloud agent VMs.",
+            "rules": [
+              "DOMAIN-SUFFIX,cursor.com",
+              "DOMAIN-SUFFIX,cursor.sh",
+              "DOMAIN-SUFFIX,cursor-cdn.com",
+              "DOMAIN-SUFFIX,cursorapi.com",
+              "DOMAIN-SUFFIX,cursorvm.com"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "supermaven",
+      "name": "Supermaven",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,supermaven.com"
+        ]
+      }
+    }
+  ]
+}

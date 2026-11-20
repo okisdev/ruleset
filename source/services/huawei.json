@@ -1,0 +1,41 @@
+{
+  "owner": {
+    "id": "huawei",
+    "name": "Huawei",
+    "zh": "华为"
+  },
+  "services": [
+    {
+      "id": "huawei",
+      "name": "Huawei",
+      "zh": "华为",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Huawei.list": [
+          "DOMAIN-SUFFIX,dbankcdn.com",
+          "DOMAIN-SUFFIX,dbankcloud.com",
+          "DOMAIN-SUFFIX,hicloud.com",
+          "DOMAIN-SUFFIX,huawei.com",
+          "DOMAIN-SUFFIX,vmall.com"
+        ]
+      }
+    },
+    {
+      "id": "huawei-cloud",
+      "name": "Huawei Cloud",
+      "zh": "华为云",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,cdnhwc1.com",
+          "DOMAIN-SUFFIX,cdnhwc2.com",
+          "DOMAIN-SUFFIX,cdnhwc3.com",
+          "DOMAIN-SUFFIX,hwcdn.cn"
+        ],
+        "Library/Platforms/Huawei.list": [
+          "DOMAIN-SUFFIX,huaweicloud.com"
+        ]
+      }
+    }
+  ]
+}

@@ -4,14 +4,18 @@
 #
 # Mainland services without a dedicated file: XGIMI, Coolapk, BOSS Zhipin, ifanr's IoT cloud, Cece and GF Securities. The owners of 300hu.com, dittocdn.com, ndcpp.com, sjxydc.com and i-ttg.net are unidentified; these hosts are classified by their mainland routing.
 
+# BOSS Zhipin
+DOMAIN-SUFFIX,zhipin.com
+
+# Coolapk
+DOMAIN-SUFFIX,coolapk.com
+
 DOMAIN-SUFFIX,300hu.com
 DOMAIN-SUFFIX,95508.com
 DOMAIN-SUFFIX,cece.com
-DOMAIN-SUFFIX,coolapk.com
 DOMAIN-SUFFIX,dittocdn.com
 DOMAIN-SUFFIX,i-ttg.net
 DOMAIN-SUFFIX,ifanrusercontent.com
 DOMAIN-SUFFIX,ndcpp.com
 DOMAIN-SUFFIX,sjxydc.com
 DOMAIN-SUFFIX,xgimi.com
-DOMAIN-SUFFIX,zhipin.com

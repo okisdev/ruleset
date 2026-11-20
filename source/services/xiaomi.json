@@ -1,0 +1,60 @@
+{
+  "owner": {
+    "id": "xiaomi",
+    "name": "Xiaomi",
+    "zh": "小米"
+  },
+  "services": [
+    {
+      "id": "xiaomi",
+      "name": "Xiaomi",
+      "zh": "小米",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Xiaomi.list": [
+          "DOMAIN-SUFFIX,mi.com",
+          "DOMAIN-SUFFIX,mifile.cn",
+          "DOMAIN-SUFFIX,mi-img.com",
+          "DOMAIN-SUFFIX,mijia.tech",
+          "DOMAIN-SUFFIX,miui.com",
+          "DOMAIN-SUFFIX,miwifi.com",
+          "DOMAIN-SUFFIX,xiaomi.com",
+          "DOMAIN-SUFFIX,xiaomi.net",
+          "DOMAIN-SUFFIX,miinsurtech.com"
+        ]
+      }
+    },
+    {
+      "id": "xiaomi-ev",
+      "name": "Xiaomi EV",
+      "zh": "小米汽车",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Xiaomi.list": [
+          "DOMAIN-SUFFIX,xiaomiev.com"
+        ]
+      }
+    },
+    {
+      "id": "xiaomi-youpin",
+      "name": "Xiaomi Youpin",
+      "zh": "小米有品",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/Xiaomi.list": [
+          "DOMAIN-SUFFIX,xiaomiyoupin.com"
+        ]
+      }
+    },
+    {
+      "id": "xiaomi-mimo",
+      "name": "Xiaomi MiMo",
+      "category": "ai",
+      "lists": {
+        "Library/Platforms/Xiaomi.list": [
+          "DOMAIN-SUFFIX,xiaomimimo.com"
+        ]
+      }
+    }
+  ]
+}

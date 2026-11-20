@@ -1,0 +1,381 @@
+{
+  "services": [
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Atlassian.list": [
+          "DOMAIN-SUFFIX,atlassian.com",
+          "DOMAIN-SUFFIX,atlassian.net",
+          "DOMAIN-SUFFIX,bitbucket.org",
+          "DOMAIN-SUFFIX,jira.com",
+          "DOMAIN-SUFFIX,statuspage.io",
+          "DOMAIN-SUFFIX,trello.com"
+        ]
+      }
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/GitLab.list": [
+          "DOMAIN-SUFFIX,gitlab.com",
+          "DOMAIN-SUFFIX,gitlab.io",
+          "DOMAIN-SUFFIX,gitlab.net"
+        ]
+      }
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Docker.list": [
+          "DOMAIN-SUFFIX,docker.com",
+          "DOMAIN-SUFFIX,docker.io",
+          "DOMAIN-SUFFIX,dockerhub.com"
+        ]
+      }
+    },
+    {
+      "id": "jetbrains",
+      "name": "JetBrains",
+      "category": "developer",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,api.jetbrains.ai"
+        ],
+        "Library/Developer/JetBrains.list": [
+          "DOMAIN-SUFFIX,jetbrains.ai",
+          "DOMAIN-SUFFIX,jetbrains.com",
+          "DOMAIN-SUFFIX,jetbrains.net",
+          "DOMAIN,api.jetbrains.ai"
+        ]
+      }
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Sentry.list": [
+          "DOMAIN-SUFFIX,sentry.io"
+        ]
+      }
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Datadog.list": [
+          "DOMAIN-SUFFIX,datadoghq.com"
+        ]
+      }
+    },
+    {
+      "id": "better-stack",
+      "name": "Better Stack",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/BetterStack.list": [
+          "DOMAIN-SUFFIX,betterstack.com"
+        ]
+      },
+      "names": [
+        "betterstackdata.com"
+      ]
+    },
+    {
+      "id": "infisical",
+      "name": "Infisical",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Infisical.list": [
+          "DOMAIN-SUFFIX,infisical.com"
+        ]
+      }
+    },
+    {
+      "id": "wakatime",
+      "name": "WakaTime",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/WakaTime.list": [
+          "DOMAIN-SUFFIX,wakatime.com"
+        ]
+      }
+    },
+    {
+      "id": "orbstack",
+      "name": "OrbStack",
+      "category": "developer",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN,api-updates.orbstack.dev",
+          "DOMAIN,cdn-updates.orbstack.dev"
+        ]
+      },
+      "names": [
+        "orbstack.dev"
+      ]
+    },
+    {
+      "id": "homebrew",
+      "name": "Homebrew",
+      "category": "developer",
+      "lists": {
+        "GitHub/GitHub.list": [
+          "DOMAIN-SUFFIX,formulae.brew.sh"
+        ]
+      },
+      "names": [
+        "brew.sh"
+      ]
+    },
+    {
+      "id": "pypi",
+      "name": "PyPI",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN-SUFFIX,pypi.org",
+          "DOMAIN-SUFFIX,pythonhosted.org"
+        ]
+      }
+    },
+    {
+      "id": "crates",
+      "name": "crates.io",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "Includes the sparse index and the static.crates.io crate files.",
+            "rules": [
+              "DOMAIN-SUFFIX,crates.io"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "yarn",
+      "name": "Yarn",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "Yarn Classic still publishes from this zone. Modern Yarn uses the npm registry.",
+            "rules": [
+              "DOMAIN-SUFFIX,yarnpkg.com"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "nodejs.org serves its site and its dist from one host.",
+            "rules": [
+              "DOMAIN,nodejs.org"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,static.rust-lang.org"
+        ]
+      },
+      "names": [
+        "rust-lang.org"
+      ]
+    },
+    {
+      "id": "debian",
+      "name": "Debian",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "debian.map.fastlydns.net is the Fastly name behind deb.debian.org, which some clients dial directly.",
+            "rules": [
+              "DOMAIN,deb.debian.org",
+              "DOMAIN,security.debian.org",
+              "DOMAIN,debian.map.fastlydns.net"
+            ]
+          }
+        ]
+      },
+      "names": [
+        "debian.org"
+      ]
+    },
+    {
+      "id": "rubygems",
+      "name": "RubyGems",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,rubygems.org",
+          "DOMAIN,index.rubygems.org"
+        ]
+      }
+    },
+    {
+      "id": "maven-central",
+      "name": "Maven Central",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,repo1.maven.org",
+          "DOMAIN,repo.maven.apache.org"
+        ]
+      }
+    },
+    {
+      "id": "packagist",
+      "name": "Packagist",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN-SUFFIX,packagist.org"
+        ]
+      }
+    },
+    {
+      "id": "hex",
+      "name": "Hex",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,repo.hex.pm"
+        ]
+      },
+      "names": [
+        "hex.pm"
+      ]
+    },
+    {
+      "id": "cocoapods",
+      "name": "CocoaPods",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,cdn.cocoapods.org"
+        ]
+      },
+      "names": [
+        "cocoapods.org"
+      ]
+    },
+    {
+      "id": "anaconda",
+      "name": "Anaconda",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN-SUFFIX,repo.anaconda.com"
+        ]
+      },
+      "names": [
+        "anaconda.com"
+      ]
+    },
+    {
+      "id": "kernel-org",
+      "name": "kernel.org",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,cdn.kernel.org"
+        ]
+      },
+      "names": [
+        "kernel.org"
+      ]
+    },
+    {
+      "id": "electron",
+      "name": "Electron",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,artifacts.electronjs.org"
+        ]
+      },
+      "names": [
+        "electronjs.org"
+      ]
+    },
+    {
+      "id": "linux-containers",
+      "name": "Linux Containers",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN-SUFFIX,images.linuxcontainers.org"
+        ]
+      },
+      "names": [
+        "linuxcontainers.org"
+      ]
+    },
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,archive.ubuntu.com",
+          "DOMAIN,security.ubuntu.com",
+          "DOMAIN,ports.ubuntu.com"
+        ]
+      },
+      "names": [
+        "ubuntu.com"
+      ]
+    },
+    {
+      "id": "alpine",
+      "name": "Alpine Linux",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,dl-cdn.alpinelinux.org"
+        ]
+      },
+      "names": [
+        "alpinelinux.org"
+      ]
+    },
+    {
+      "id": "owned",
+      "name": "Owned services",
+      "zh": "自有服务",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Owned.list": [
+          "DOMAIN-SUFFIX,harisfox.com",
+          "DOMAIN-SUFFIX,okis.dev",
+          "DOMAIN-SUFFIX,okis.me",
+          "DOMAIN-SUFFIX,okisdev.com",
+          "DOMAIN-SUFFIX,okisdev.workers.dev"
+        ]
+      }
+    }
+  ]
+}

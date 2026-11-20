@@ -89,4 +89,4 @@ The port guards cover traffic that reaches a gateway without a name. Names in a 
 
 ## Checking a change
 
-There is no test suite; check a change by replaying request log hosts through the old and new rule order. Compare which hosts change policy, what still lands on `FINAL`, and whether functional hosts meet the reject layer. Traffic arriving as a bare address appears without a host and, for QUIC on a proxy policy, can show `QUIC-BLOCK`.
+`node scripts/build.mjs --check` verifies that every generated file matches the source and that no domain is claimed twice. It does not judge routing, so also check a change by replaying request log hosts through the old and new rule order. Compare which hosts change policy, what still lands on `FINAL`, and whether functional hosts meet the reject layer. Traffic arriving as a bare address appears without a host and, for QUIC on a proxy policy, can show `QUIC-BLOCK`.

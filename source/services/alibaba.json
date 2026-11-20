@@ -1,0 +1,218 @@
+{
+  "owner": {
+    "id": "alibaba",
+    "name": "Alibaba",
+    "zh": "阿里巴巴"
+  },
+  "services": [
+    {
+      "id": "alibaba",
+      "name": "Alibaba",
+      "zh": "阿里巴巴",
+      "category": "platform",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,alicdn.com"
+        ],
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,alibaba.com",
+          "DOMAIN-SUFFIX,alibaba-inc.com",
+          "DOMAIN-SUFFIX,alibabachengdun.com",
+          "DOMAIN-SUFFIX,alibabachengdun.net",
+          "DOMAIN-SUFFIX,alibabausercontent.com",
+          "DOMAIN-SUFFIX,alidns.com",
+          "DOMAIN-SUFFIX,alikunlun.com",
+          "DOMAIN-SUFFIX,marmot-cloud.com"
+        ]
+      }
+    },
+    {
+      "id": "taobao",
+      "name": "Taobao",
+      "zh": "淘宝",
+      "category": "shopping",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,tbcdn.cn"
+        ],
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,taobao.com",
+          "DOMAIN-SUFFIX,taobaocdn.com",
+          "DOMAIN-SUFFIX,tbcache.com",
+          "DOMAIN-SUFFIX,tmall.com"
+        ]
+      }
+    },
+    {
+      "id": "1688",
+      "name": "1688",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,1688.com"
+        ]
+      }
+    },
+    {
+      "id": "goofish",
+      "name": "Goofish",
+      "zh": "闲鱼",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,goofish.com"
+        ]
+      }
+    },
+    {
+      "id": "freshippo",
+      "name": "Freshippo",
+      "zh": "盒马",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,freshippo.com"
+        ]
+      }
+    },
+    {
+      "id": "alipay",
+      "name": "Alipay",
+      "zh": "支付宝",
+      "category": "finance",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,alipay.com",
+          "DOMAIN-SUFFIX,alipay.com.cn",
+          "DOMAIN-SUFFIX,alipayobjects.com"
+        ]
+      }
+    },
+    {
+      "id": "aliyun",
+      "name": "Alibaba Cloud",
+      "zh": "阿里云",
+      "category": "cloud",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,aliyun.com",
+          "DOMAIN-SUFFIX,aliyuncs.com",
+          "DOMAIN-SUFFIX,hichina.com",
+          "DOMAIN-SUFFIX,mxhichina.com"
+        ]
+      }
+    },
+    {
+      "id": "amap",
+      "name": "Amap",
+      "zh": "高德地图",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,amap.com",
+          "DOMAIN-SUFFIX,autonavi.com"
+        ]
+      }
+    },
+    {
+      "id": "cainiao",
+      "name": "Cainiao",
+      "zh": "菜鸟",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,cainiao.com"
+        ]
+      }
+    },
+    {
+      "id": "eleme",
+      "name": "Ele.me",
+      "zh": "饿了么",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,ele.me"
+        ]
+      }
+    },
+    {
+      "id": "dingtalk",
+      "name": "DingTalk",
+      "zh": "钉钉",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,dingtalk.com"
+        ]
+      }
+    },
+    {
+      "id": "quark",
+      "name": "Quark",
+      "zh": "夸克",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,quark.cn"
+        ],
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,myquark.cn"
+        ]
+      }
+    },
+    {
+      "id": "alipan",
+      "name": "Alipan",
+      "zh": "阿里云盘",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,alipan.com",
+          "DOMAIN-SUFFIX,aliyundrive.com"
+        ]
+      }
+    },
+    {
+      "id": "uc",
+      "name": "UC Browser",
+      "zh": "UC 浏览器",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,uc.cn",
+          "DOMAIN-SUFFIX,ucweb.com"
+        ]
+      }
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "zh": "通义千问",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,qianwen.com",
+          "DOMAIN-SUFFIX,qwen.ai",
+          "DOMAIN-SUFFIX,tongyi.com"
+        ]
+      }
+    },
+    {
+      "id": "youku",
+      "name": "Youku",
+      "zh": "优酷",
+      "category": "video",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,ykimg.com"
+        ],
+        "Library/Media/Youku.list": [
+          "DOMAIN-SUFFIX,soku.com",
+          "DOMAIN-SUFFIX,ykimg.com",
+          "DOMAIN-SUFFIX,youku.com"
+        ]
+      }
+    }
+  ]
+}

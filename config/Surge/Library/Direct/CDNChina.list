@@ -6,32 +6,66 @@
 #
 # volcgslb.com and vedcdnlb.com are Volcano Engine CDN zones used by NetEase Cloud Music under names such as music.126.net.volcgslb.com; tcdnos.com carries app and game update downloads.
 
-DOMAIN-SUFFIX,360buyimg.com
-DOMAIN-SUFFIX,71edge.com
+# Alibaba
 DOMAIN-SUFFIX,alicdn.com
+
+# Taobao
+DOMAIN-SUFFIX,tbcdn.cn
+
+# Youku
+DOMAIN-SUFFIX,ykimg.com
+
+# Baidu
 DOMAIN-SUFFIX,bdstatic.com
+
+# iQIYI
+DOMAIN-SUFFIX,71edge.com
+DOMAIN-SUFFIX,iqiyipic.com
+
+# ByteDance
 DOMAIN-SUFFIX,bytecdn.cn
 DOMAIN-SUFFIX,byteimg.com
-DOMAIN-SUFFIX,cctvpic.com
+DOMAIN-SUFFIX,pstatp.com
+DOMAIN-SUFFIX,bytecdn.com
+
+# Douyin
+DOMAIN-SUFFIX,douyincdn.com
+DOMAIN-SUFFIX,douyinvod.com
+
+# Volcano Engine
+DOMAIN-SUFFIX,vedcdnlb.com
+DOMAIN-SUFFIX,volcgslb.com
+
+# Qiniu
+DOMAIN-SUFFIX,qiniucdn.com
+DOMAIN-SUFFIX,qiniudn.com
+
+# Upyun
+DOMAIN-SUFFIX,upaiyun.com
+
+# Kingsoft Cloud
+DOMAIN-SUFFIX,ksyuncs.com
+
+# China Telecom Cloud
+DOMAIN-SUFFIX,ctadns.cn
+DOMAIN-SUFFIX,ctlcdn.cn
+
+# Huawei Cloud
 DOMAIN-SUFFIX,cdnhwc1.com
 DOMAIN-SUFFIX,cdnhwc2.com
 DOMAIN-SUFFIX,cdnhwc3.com
-DOMAIN-SUFFIX,ctadns.cn
-DOMAIN-SUFFIX,ctlcdn.cn
-DOMAIN-SUFFIX,douyincdn.com
-DOMAIN-SUFFIX,douyinvod.com
 DOMAIN-SUFFIX,hwcdn.cn
-DOMAIN-SUFFIX,iqiyipic.com
-DOMAIN-SUFFIX,ksyuncs.com
-DOMAIN-SUFFIX,pstatp.com
-DOMAIN-SUFFIX,qcloudcdn.com
+
+# JD
+DOMAIN-SUFFIX,360buyimg.com
+
+# Qihoo 360
 DOMAIN-SUFFIX,qhimg.com
-DOMAIN-SUFFIX,qiniucdn.com
-DOMAIN-SUFFIX,qiniudn.com
-DOMAIN-SUFFIX,tbcdn.cn
-DOMAIN-SUFFIX,upaiyun.com
-DOMAIN-SUFFIX,ykimg.com
-DOMAIN-SUFFIX,bytecdn.com
+
+# Tencent Cloud
+DOMAIN-SUFFIX,qcloudcdn.com
+
+# CCTV
+DOMAIN-SUFFIX,cctvpic.com
+
 DOMAIN-SUFFIX,tcdnos.com
-DOMAIN-SUFFIX,vedcdnlb.com
-DOMAIN-SUFFIX,volcgslb.com

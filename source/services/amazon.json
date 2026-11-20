@@ -1,0 +1,67 @@
+{
+  "owner": {
+    "id": "amazon",
+    "name": "Amazon"
+  },
+  "services": [
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "category": "shopping",
+      "lists": {
+        "Library/Media/PrimeVideo.list": [
+          "DOMAIN-SUFFIX,media-amazon.com"
+        ],
+        "Library/Platforms/Amazon.list": [
+          "DOMAIN-SUFFIX,amazon.co.jp",
+          "DOMAIN-SUFFIX,amazon.co.uk",
+          "DOMAIN-SUFFIX,amazon.com",
+          "DOMAIN-SUFFIX,amazon.dev",
+          "DOMAIN-SUFFIX,media-amazon.com",
+          "DOMAIN-SUFFIX,ssl-images-amazon.com"
+        ]
+      }
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "category": "cloud",
+      "lists": {
+        "Library/Platforms/Amazon.list": [
+          "DOMAIN-SUFFIX,amazonaws.com",
+          "DOMAIN-SUFFIX,aws.dev",
+          "DOMAIN-SUFFIX,awsstatic.com"
+        ]
+      },
+      "names": [
+        "amazontrust.com"
+      ]
+    },
+    {
+      "id": "prime-video",
+      "name": "Prime Video",
+      "category": "video",
+      "lists": {
+        "Library/Media/PrimeVideo.list": [
+          "DOMAIN-SUFFIX,aiv-cdn.net",
+          "DOMAIN-SUFFIX,aiv-delivery.net",
+          "DOMAIN-SUFFIX,primevideo.com",
+          "DOMAIN,atv-ps.amazon.com"
+        ]
+      }
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "category": "video",
+      "lists": {
+        "Library/Media/Twitch.list": [
+          "DOMAIN-SUFFIX,jtvnw.net",
+          "DOMAIN-SUFFIX,ttvnw.net",
+          "DOMAIN-SUFFIX,twitch.tv",
+          "DOMAIN-SUFFIX,twitchcdn.net"
+        ]
+      }
+    }
+  ]
+}

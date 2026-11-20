@@ -1,0 +1,147 @@
+{
+  "owner": {
+    "id": "google",
+    "name": "Google"
+  },
+  "services": [
+    {
+      "id": "google",
+      "name": "Google",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Google.list": [
+          "DOMAIN-SUFFIX,1e100.net",
+          "DOMAIN-SUFFIX,ampproject.org",
+          "DOMAIN-SUFFIX,android.com",
+          "DOMAIN-SUFFIX,appspot.com",
+          "DOMAIN-SUFFIX,blogger.com",
+          "DOMAIN-SUFFIX,blogspot.com",
+          "DOMAIN-SUFFIX,chrome.com",
+          "DOMAIN-SUFFIX,chromium.org",
+          "DOMAIN-SUFFIX,g.co",
+          "DOMAIN-SUFFIX,goo.gl",
+          "DOMAIN-SUFFIX,goog",
+          "DOMAIN-SUFFIX,google",
+          "DOMAIN-SUFFIX,google.co.jp",
+          "DOMAIN-SUFFIX,google.com",
+          "DOMAIN-SUFFIX,google.com.hk",
+          "DOMAIN-SUFFIX,google.com.sg",
+          "DOMAIN-SUFFIX,google.com.tw",
+          "DOMAIN-SUFFIX,google.dev",
+          "DOMAIN-SUFFIX,googleapis.com",
+          "DOMAIN-SUFFIX,googledomains.com",
+          "DOMAIN-SUFFIX,googlesource.com",
+          "DOMAIN-SUFFIX,googletagmanager.com",
+          "DOMAIN-SUFFIX,googleusercontent.com",
+          "DOMAIN-SUFFIX,googlezip.net",
+          "DOMAIN-SUFFIX,gstatic.com",
+          "DOMAIN-SUFFIX,gvt1.com",
+          "DOMAIN-SUFFIX,gvt2.com",
+          "DOMAIN-SUFFIX,gvt3.com",
+          "DOMAIN-SUFFIX,withgoogle.com"
+        ],
+        "Library/Platforms/GoogleChina.list": [
+          "DOMAIN-SUFFIX,google.cn",
+          "DOMAIN-SUFFIX,googleapis.cn",
+          "DOMAIN-SUFFIX,gstatic.cn",
+          "DOMAIN-SUFFIX,gvt1-cn.com",
+          "DOMAIN-SUFFIX,recaptcha.net",
+          "DOMAIN,app-analytics-services.com"
+        ]
+      }
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/Google.list": [
+          "DOMAIN-SUFFIX,gmail.com",
+          "DOMAIN-SUFFIX,googlemail.com"
+        ]
+      }
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "category": "video",
+      "lists": {
+        "Library/Media/YouTube.list": [
+          "DOMAIN-SUFFIX,ggpht.com",
+          "DOMAIN-SUFFIX,googlevideo.com",
+          "DOMAIN-SUFFIX,youtu.be",
+          "DOMAIN-SUFFIX,youtube-nocookie.com",
+          "DOMAIN-SUFFIX,youtube.com",
+          "DOMAIN-SUFFIX,youtubekids.com",
+          "DOMAIN-SUFFIX,yt.be",
+          "DOMAIN-SUFFIX,ytimg.com",
+          "DOMAIN,youtubei.googleapis.com"
+        ],
+        "Library/Platforms/Google.list": [
+          "DOMAIN-SUFFIX,ggpht.com"
+        ]
+      }
+    },
+    {
+      "id": "go-modules",
+      "name": "Go modules",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "Exact hosts only: DOMAIN-SUFFIX golang.org would steal pkg.go.dev from the global classification.",
+            "rules": [
+              "DOMAIN,proxy.golang.org",
+              "DOMAIN,sum.golang.org",
+              "DOMAIN,index.golang.org"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "firebase",
+      "name": "Firebase",
+      "category": "developer",
+      "lists": {
+        "Library/Platforms/Google.list": [
+          "DOMAIN-SUFFIX,crashlytics.com",
+          "DOMAIN-SUFFIX,firebase.com",
+          "DOMAIN-SUFFIX,firebaseio.com"
+        ]
+      }
+    },
+    {
+      "id": "google-ai",
+      "name": "Google AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "geminiweb-pa serves Gemini in Chrome; robinfrontend-pa and proactivebackend-pa serve the Gemini app on Android. Code Assist and Antigravity call cloudcode-pa through prefixed sibling hosts such as daily-cloudcode-pa, which a suffix cannot reach, so it is a keyword.",
+            "rules": [
+              "DOMAIN,ai.google.dev",
+              "DOMAIN,jules.google.com",
+              "DOMAIN,antigravity.google",
+              "DOMAIN,aicode.googleapis.com",
+              "DOMAIN,appsgenaiserver-pa.googleapis.com",
+              "DOMAIN-KEYWORD,antigravity-cli-auto-updater",
+              "DOMAIN-SUFFIX,labs.google",
+              "DOMAIN-SUFFIX,gemini.google",
+              "DOMAIN-SUFFIX,gemini.google.com",
+              "DOMAIN-SUFFIX,aistudio.google.com",
+              "DOMAIN-SUFFIX,notebooklm.google",
+              "DOMAIN-SUFFIX,notebooklm.google.com",
+              "DOMAIN-SUFFIX,deepmind.google",
+              "DOMAIN-SUFFIX,generativelanguage.googleapis.com",
+              "DOMAIN-KEYWORD,cloudcode-pa.googleapis.com",
+              "DOMAIN-SUFFIX,geminiweb-pa.googleapis.com",
+              "DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com",
+              "DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

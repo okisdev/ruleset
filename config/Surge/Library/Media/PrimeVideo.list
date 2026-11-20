@@ -2,8 +2,11 @@
 #
 # Expects a streaming policy.
 
+# Amazon
+DOMAIN-SUFFIX,media-amazon.com
+
+# Prime Video
 DOMAIN-SUFFIX,aiv-cdn.net
 DOMAIN-SUFFIX,aiv-delivery.net
-DOMAIN-SUFFIX,media-amazon.com
 DOMAIN-SUFFIX,primevideo.com
 DOMAIN,atv-ps.amazon.com

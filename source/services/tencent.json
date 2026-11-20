@@ -1,0 +1,186 @@
+{
+  "owner": {
+    "id": "tencent",
+    "name": "Tencent",
+    "zh": "腾讯"
+  },
+  "services": [
+    {
+      "id": "tencent",
+      "name": "Tencent",
+      "zh": "腾讯",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,gtimg.cn",
+          "DOMAIN-SUFFIX,gtimg.com",
+          "DOMAIN-SUFFIX,idqqimg.com",
+          "DOMAIN-SUFFIX,qq.com",
+          "DOMAIN-SUFFIX,smtcdns.com",
+          "DOMAIN-SUFFIX,tencent.com"
+        ]
+      }
+    },
+    {
+      "id": "wechat",
+      "name": "WeChat",
+      "zh": "微信",
+      "category": "social",
+      "lists": {
+        "Library/Social/WeChat.list": [
+          "DOMAIN-SUFFIX,qlogo.cn",
+          "DOMAIN-SUFFIX,qpic.cn",
+          "DOMAIN-SUFFIX,servicewechat.com",
+          "DOMAIN-SUFFIX,wechat.com",
+          "DOMAIN-SUFFIX,wechatlegal.com",
+          "DOMAIN-SUFFIX,wechatpay.cn",
+          "DOMAIN-SUFFIX,wechatpay.com",
+          "DOMAIN-SUFFIX,weixin.com",
+          "DOMAIN-SUFFIX,weixin.qq.com",
+          "DOMAIN-SUFFIX,weixinbridge.com",
+          "DOMAIN-SUFFIX,wxqcloud.qq.com.cn"
+        ]
+      }
+    },
+    {
+      "id": "qq-mail",
+      "name": "QQ Mail",
+      "zh": "QQ 邮箱",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,foxmail.com",
+          "DOMAIN-SUFFIX,qqmail.com"
+        ]
+      },
+      "names": [
+        "mail.qq.com"
+      ]
+    },
+    {
+      "id": "tencent-video",
+      "name": "Tencent Video",
+      "zh": "腾讯视频",
+      "category": "video",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,v.qq.com",
+          "DOMAIN-SUFFIX,video.qq.com",
+          "DOMAIN-SUFFIX,wetv.vip"
+        ]
+      }
+    },
+    {
+      "id": "qq-music",
+      "name": "QQ Music",
+      "zh": "QQ 音乐",
+      "category": "music",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,qqmusic.qq.com",
+          "DOMAIN-SUFFIX,y.qq.com"
+        ],
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,tencentmusic.com"
+        ]
+      }
+    },
+    {
+      "id": "kugou",
+      "name": "Kugou",
+      "zh": "酷狗音乐",
+      "category": "music",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,kugou.com"
+        ]
+      }
+    },
+    {
+      "id": "kuwo",
+      "name": "Kuwo",
+      "zh": "酷我音乐",
+      "category": "music",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,kuwo.cn"
+        ]
+      }
+    },
+    {
+      "id": "tencent-cloud",
+      "name": "Tencent Cloud",
+      "zh": "腾讯云",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,qcloudcdn.com"
+        ],
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,myqcloud.com",
+          "DOMAIN-SUFFIX,qcloud.com",
+          "DOMAIN-SUFFIX,qlivecdn.com",
+          "DOMAIN-SUFFIX,tencent-cloud.net",
+          "DOMAIN-SUFFIX,tencentcs.com",
+          "DOMAIN-SUFFIX,tliveapp.com",
+          "DOMAIN-SUFFIX,tlivecdn.com",
+          "DOMAIN-SUFFIX,tlivedns.com",
+          "DOMAIN-SUFFIX,tlivemcdn.com",
+          "DOMAIN-SUFFIX,tlivesource.com"
+        ]
+      },
+      "names": [
+        "tencentcloudapi.com",
+        "tcloudbaseapp.com"
+      ]
+    },
+    {
+      "id": "myapp",
+      "name": "Tencent App Store",
+      "zh": "应用宝",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,myapp.com"
+        ]
+      }
+    },
+    {
+      "id": "weiyun",
+      "name": "Weiyun",
+      "zh": "微云",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,weiyun.com"
+        ]
+      }
+    },
+    {
+      "id": "wegame",
+      "name": "WeGame",
+      "category": "gaming",
+      "lists": {
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,wegame.com",
+          "DOMAIN-SUFFIX,anticheatexpert.com",
+          "DOMAIN-SUFFIX,gcloudcs.com"
+        ]
+      }
+    },
+    {
+      "id": "riot",
+      "name": "Riot Games",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/Riot.list": [
+          "DOMAIN-SUFFIX,leagueoflegends.com",
+          "DOMAIN-SUFFIX,playvalorant.com",
+          "DOMAIN-SUFFIX,pvp.net",
+          "DOMAIN-SUFFIX,riotgames.com",
+          "DOMAIN-SUFFIX,valorant.com"
+        ]
+      }
+    }
+  ]
+}

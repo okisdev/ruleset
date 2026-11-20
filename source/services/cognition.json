@@ -1,0 +1,32 @@
+{
+  "owner": {
+    "id": "cognition",
+    "name": "Cognition"
+  },
+  "services": [
+    {
+      "id": "devin",
+      "name": "Devin",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,cognition.com",
+          "DOMAIN-SUFFIX,cognition.ai",
+          "DOMAIN-SUFFIX,devin.ai"
+        ]
+      }
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,windsurf.com",
+          "DOMAIN-SUFFIX,windsurf.build",
+          "DOMAIN-SUFFIX,codeium.com"
+        ]
+      }
+    }
+  ]
+}

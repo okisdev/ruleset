@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "id": "sohu",
+      "name": "Sohu",
+      "zh": "搜狐",
+      "category": "news",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,sohu.com",
+          "DOMAIN-SUFFIX,sohucs.com"
+        ]
+      }
+    }
+  ]
+}

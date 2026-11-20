@@ -4,6 +4,7 @@
 #
 # Phones, the ROM, the account plane and home devices. Mijia camera and peer relay traffic under mijia.tech belongs on the domestic path.
 
+# Xiaomi
 DOMAIN-SUFFIX,mi.com
 DOMAIN-SUFFIX,mifile.cn
 DOMAIN-SUFFIX,mi-img.com
@@ -12,7 +13,13 @@ DOMAIN-SUFFIX,miui.com
 DOMAIN-SUFFIX,miwifi.com
 DOMAIN-SUFFIX,xiaomi.com
 DOMAIN-SUFFIX,xiaomi.net
-DOMAIN-SUFFIX,xiaomiev.com
-DOMAIN-SUFFIX,xiaomimimo.com
-DOMAIN-SUFFIX,xiaomiyoupin.com
 DOMAIN-SUFFIX,miinsurtech.com
+
+# Xiaomi EV
+DOMAIN-SUFFIX,xiaomiev.com
+
+# Xiaomi Youpin
+DOMAIN-SUFFIX,xiaomiyoupin.com
+
+# Xiaomi MiMo
+DOMAIN-SUFFIX,xiaomimimo.com

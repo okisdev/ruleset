@@ -1,0 +1,138 @@
+{
+  "services": [
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "category": "video",
+      "lists": {
+        "Library/Media/Netflix.list": [
+          "DOMAIN-SUFFIX,fast.com",
+          "DOMAIN-SUFFIX,netflix.com",
+          "DOMAIN-SUFFIX,netflix.net",
+          "DOMAIN-SUFFIX,nflxext.com",
+          "DOMAIN-SUFFIX,nflximg.com",
+          "DOMAIN-SUFFIX,nflximg.net",
+          "DOMAIN-SUFFIX,nflxso.net",
+          "DOMAIN-SUFFIX,nflxvideo.net"
+        ]
+      }
+    },
+    {
+      "id": "hbo-max",
+      "name": "HBO Max",
+      "category": "video",
+      "lists": {
+        "Library/Media/HBO.list": [
+          "DOMAIN-SUFFIX,hbo.com",
+          "DOMAIN-SUFFIX,hbogo.com",
+          "DOMAIN-SUFFIX,hbomax.com",
+          "DOMAIN-SUFFIX,hbonow.com",
+          "DOMAIN-SUFFIX,max.com",
+          "DOMAIN-SUFFIX,warnermediacdn.com"
+        ]
+      }
+    },
+    {
+      "id": "viu",
+      "name": "Viu",
+      "category": "video",
+      "lists": {
+        "Library/Media/Viu.list": [
+          "DOMAIN-SUFFIX,viu.com",
+          "DOMAIN-SUFFIX,viu.tv"
+        ]
+      }
+    },
+    {
+      "id": "bilibili",
+      "name": "Bilibili",
+      "zh": "哔哩哔哩",
+      "category": "video",
+      "lists": {
+        "Library/Media/Bilibili.list": [
+          "DOMAIN-SUFFIX,biliapi.com",
+          "DOMAIN-SUFFIX,biliapi.net",
+          "DOMAIN-SUFFIX,bilibili.cn",
+          "DOMAIN-SUFFIX,bilibili.com",
+          "DOMAIN-SUFFIX,bilivideo.cn",
+          "DOMAIN-SUFFIX,bilivideo.com",
+          "DOMAIN-SUFFIX,hdslb.com"
+        ]
+      }
+    },
+    {
+      "id": "kuaishou",
+      "name": "Kuaishou",
+      "zh": "快手",
+      "category": "video",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,gifshow.com",
+          "DOMAIN-SUFFIX,kuaishou.com",
+          "DOMAIN-SUFFIX,kwaicdn.com",
+          "DOMAIN-SUFFIX,yximgs.com"
+        ]
+      }
+    },
+    {
+      "id": "mgtv",
+      "name": "Mango TV",
+      "zh": "芒果 TV",
+      "category": "video",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,hunantv.com",
+          "DOMAIN-SUFFIX,mgtv.com"
+        ]
+      }
+    },
+    {
+      "id": "cctv",
+      "name": "CCTV",
+      "zh": "央视",
+      "category": "video",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,cctvpic.com"
+        ],
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,cctv.com",
+          "DOMAIN-SUFFIX,cntv.cn"
+        ]
+      }
+    },
+    {
+      "id": "letv",
+      "name": "LeTV",
+      "zh": "乐视视频",
+      "category": "video",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,le.com"
+        ]
+      }
+    },
+    {
+      "id": "pptv",
+      "name": "PPTV",
+      "zh": "PP 视频",
+      "category": "video",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,pptv.com"
+        ]
+      }
+    },
+    {
+      "id": "wasu",
+      "name": "Wasu",
+      "zh": "华数",
+      "category": "video",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,wasu.tv"
+        ]
+      }
+    }
+  ]
+}

@@ -4,8 +4,13 @@
 #
 # The company remainder. Facebook, Instagram and WhatsApp have their own files.
 
-DOMAIN-SUFFIX,messenger.com
+# Meta
 DOMAIN-SUFFIX,meta.com
 DOMAIN-SUFFIX,oculus.com
 DOMAIN-SUFFIX,oculuscdn.com
+
+# Messenger
+DOMAIN-SUFFIX,messenger.com
+
+# Threads
 DOMAIN-SUFFIX,threads.net

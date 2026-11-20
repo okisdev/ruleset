@@ -12,13 +12,16 @@
 #
 # The two address rules cover clients that dial GitHub without a name: 20.205.243.0/24 is the Asia frontend and 185.199.108.0/22 serves githubusercontent.com as well as Pages. They carry no-resolve, so a Pages custom domain that arrives by name is still not matched here.
 
+# Homebrew
+DOMAIN-SUFFIX,formulae.brew.sh
+
+# GitHub
 DOMAIN-SUFFIX,github.com
 DOMAIN-SUFFIX,githubassets.com
 DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,githubapp.com
 DOMAIN-SUFFIX,githubnext.com
 DOMAIN-SUFFIX,ghcr.io
-DOMAIN-SUFFIX,formulae.brew.sh
 DOMAIN,github-cloud.s3.amazonaws.com
 DOMAIN-WILDCARD,github-production-*.s3.amazonaws.com
 DOMAIN,copilotprodattachments.blob.core.windows.net

@@ -1,0 +1,34 @@
+{
+  "owner": {
+    "id": "disney",
+    "name": "Disney"
+  },
+  "services": [
+    {
+      "id": "disney-plus",
+      "name": "Disney+",
+      "category": "video",
+      "lists": {
+        "Library/Media/Disney.list": [
+          "DOMAIN-SUFFIX,bamgrid.com",
+          "DOMAIN-SUFFIX,disney-plus.net",
+          "DOMAIN-SUFFIX,disneyplus.com",
+          "DOMAIN-SUFFIX,disneystreaming.com",
+          "DOMAIN-SUFFIX,dssott.com"
+        ]
+      }
+    },
+    {
+      "id": "hulu",
+      "name": "Hulu",
+      "category": "video",
+      "lists": {
+        "Library/Media/Hulu.list": [
+          "DOMAIN-SUFFIX,hulu.com",
+          "DOMAIN-SUFFIX,huluim.com",
+          "DOMAIN-SUFFIX,hulustream.com"
+        ]
+      }
+    }
+  ]
+}

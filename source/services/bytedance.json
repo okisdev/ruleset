@@ -1,0 +1,215 @@
+{
+  "owner": {
+    "id": "bytedance",
+    "name": "ByteDance",
+    "zh": "字节跳动"
+  },
+  "services": [
+    {
+      "id": "bytedance",
+      "name": "ByteDance",
+      "zh": "字节跳动",
+      "category": "platform",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,bytecdn.cn",
+          "DOMAIN-SUFFIX,byteimg.com",
+          "DOMAIN-SUFFIX,pstatp.com",
+          "DOMAIN-SUFFIX,bytecdn.com"
+        ],
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,baike.com",
+          "DOMAIN-SUFFIX,byted.org",
+          "DOMAIN-SUFFIX,bytedance.com",
+          "DOMAIN-SUFFIX,bytedance.net",
+          "DOMAIN-SUFFIX,bytedancevod.com",
+          "DOMAIN-SUFFIX,bytednsdoc.com",
+          "DOMAIN-SUFFIX,byteeffecttos.com",
+          "DOMAIN-SUFFIX,bytegecko.com",
+          "DOMAIN-SUFFIX,bytehwm.com",
+          "DOMAIN-SUFFIX,bytemaimg.com",
+          "DOMAIN-SUFFIX,bytemastatic.com",
+          "DOMAIN-SUFFIX,bytescm.com",
+          "DOMAIN-SUFFIX,bytetos.com",
+          "DOMAIN-SUFFIX,dailygn.com",
+          "DOMAIN-SUFFIX,ibytedapm.com",
+          "DOMAIN-SUFFIX,snssdk.com",
+          "DOMAIN-SUFFIX,zijieapi.com",
+          "DOMAIN-SUFFIX,zjcdn.com"
+        ]
+      }
+    },
+    {
+      "id": "douyin",
+      "name": "Douyin",
+      "zh": "抖音",
+      "category": "video",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,douyincdn.com",
+          "DOMAIN-SUFFIX,douyinvod.com"
+        ],
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,amemv.com",
+          "DOMAIN-SUFFIX,douyin.com",
+          "DOMAIN-SUFFIX,douyinpic.com",
+          "DOMAIN-SUFFIX,douyinstatic.com",
+          "DOMAIN-SUFFIX,idouyinvod.com",
+          "DOMAIN-SUFFIX,iesdouyin.com"
+        ]
+      }
+    },
+    {
+      "id": "douyin-shop",
+      "name": "Douyin Shop",
+      "zh": "抖音电商",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,ecombdapi.com",
+          "DOMAIN-SUFFIX,ecombdimg.com",
+          "DOMAIN-SUFFIX,ecombdpage.com",
+          "DOMAIN-SUFFIX,ecombdstatic.com",
+          "DOMAIN-SUFFIX,jinritemai.com"
+        ]
+      }
+    },
+    {
+      "id": "huoshan",
+      "name": "Douyin Huoshan",
+      "zh": "抖音火山版",
+      "category": "video",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,huoshan.com",
+          "DOMAIN-SUFFIX,huoshanimg.com"
+        ]
+      }
+    },
+    {
+      "id": "xigua",
+      "name": "Xigua Video",
+      "zh": "西瓜视频",
+      "category": "video",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,bdxiguastatic.com",
+          "DOMAIN-SUFFIX,ixigua.com"
+        ]
+      }
+    },
+    {
+      "id": "toutiao",
+      "name": "Toutiao",
+      "zh": "今日头条",
+      "category": "news",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,365yg.com",
+          "DOMAIN-SUFFIX,toutiao.com",
+          "DOMAIN-SUFFIX,toutiaoapi.com",
+          "DOMAIN-SUFFIX,toutiaocloud.com"
+        ]
+      }
+    },
+    {
+      "id": "pipix",
+      "name": "Pipixia",
+      "zh": "皮皮虾",
+      "category": "social",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,pipix.com"
+        ]
+      }
+    },
+    {
+      "id": "qishui",
+      "name": "Qishui Music",
+      "zh": "汽水音乐",
+      "category": "music",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,qishui.com"
+        ]
+      }
+    },
+    {
+      "id": "feishu",
+      "name": "Feishu",
+      "zh": "飞书",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,feishu.cn",
+          "DOMAIN-SUFFIX,larksuite.com"
+        ]
+      }
+    },
+    {
+      "id": "jianying",
+      "name": "Jianying",
+      "zh": "剪映",
+      "category": "video",
+      "names": [
+        "jianying.com"
+      ]
+    },
+    {
+      "id": "doubao",
+      "name": "Doubao",
+      "zh": "豆包",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,doubao.com"
+        ]
+      }
+    },
+    {
+      "id": "jimeng",
+      "name": "Jimeng",
+      "zh": "即梦",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,jimeng.jianying.com"
+        ]
+      }
+    },
+    {
+      "id": "volcengine",
+      "name": "Volcano Engine",
+      "zh": "火山引擎",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,vedcdnlb.com",
+          "DOMAIN-SUFFIX,volcgslb.com"
+        ],
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,volccdn.com",
+          "DOMAIN-SUFFIX,volcengine.com",
+          "DOMAIN-SUFFIX,volces.com"
+        ]
+      }
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "category": "video",
+      "lists": {
+        "Library/Media/TikTok.list": [
+          "DOMAIN-SUFFIX,byteoversea.com",
+          "DOMAIN-SUFFIX,ibytedtos.com",
+          "DOMAIN-SUFFIX,ibyteimg.com",
+          "DOMAIN-SUFFIX,musical.ly",
+          "DOMAIN-SUFFIX,tiktok.com",
+          "DOMAIN-SUFFIX,tiktokcdn-us.com",
+          "DOMAIN-SUFFIX,tiktokcdn.com",
+          "DOMAIN-SUFFIX,tiktokv.com"
+        ]
+      }
+    }
+  ]
+}

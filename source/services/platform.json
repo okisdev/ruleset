@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "id": "speedtest",
+      "name": "Speedtest",
+      "category": "platform",
+      "names": [
+        "speedtest.net",
+        "ookla.com",
+        "stvidtest.net"
+      ]
+    },
+    {
+      "id": "qihoo",
+      "name": "Qihoo 360",
+      "zh": "360",
+      "category": "platform",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,qhimg.com"
+        ]
+      },
+      "names": [
+        "360.cn",
+        "360.com"
+      ]
+    }
+  ]
+}

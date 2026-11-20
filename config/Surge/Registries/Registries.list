@@ -8,26 +8,26 @@
 #
 # Scope: the package body or index host of an official registry, a Linux distribution's package archive, or a toolchain's official download host. Website, documentation, and static-asset hosts stay out and reach FINAL. GitHub-hosted registries stay in GitHub/GitHub.list. Chinese mirrors stay on the domestic path. Docker Hub stays in Library/Developer/Docker.list. NuGet stays in Library/Platforms/Microsoft.list.
 
-# npm. Exact hosts only: DOMAIN-SUFFIX npmjs.org would steal www.npmjs.com and api.npmjs.org from the global classification.
-DOMAIN,registry.npmjs.org
-DOMAIN,registry.npmjs.com
-DOMAIN,skimdb.npmjs.com
-DOMAIN,replicate.npmjs.com
-
-# Yarn Classic still publishes from this zone. Modern Yarn hits the npm registry above.
-DOMAIN-SUFFIX,yarnpkg.com
-
 # PyPI
 DOMAIN-SUFFIX,pypi.org
 DOMAIN-SUFFIX,pythonhosted.org
 
-# crates.io, including the sparse index and static.crates.io crate files.
+# crates.io. Includes the sparse index and the static.crates.io crate files.
 DOMAIN-SUFFIX,crates.io
 
-# Go module proxy. Exact hosts only: DOMAIN-SUFFIX golang.org would steal pkg.go.dev from the global classification.
-DOMAIN,proxy.golang.org
-DOMAIN,sum.golang.org
-DOMAIN,index.golang.org
+# Yarn. Yarn Classic still publishes from this zone. Modern Yarn uses the npm registry.
+DOMAIN-SUFFIX,yarnpkg.com
+
+# Node.js. nodejs.org serves its site and its dist from one host.
+DOMAIN,nodejs.org
+
+# Rust
+DOMAIN,static.rust-lang.org
+
+# Debian. debian.map.fastlydns.net is the Fastly name behind deb.debian.org, which some clients dial directly.
+DOMAIN,deb.debian.org
+DOMAIN,security.debian.org
+DOMAIN,debian.map.fastlydns.net
 
 # RubyGems
 DOMAIN,rubygems.org
@@ -49,21 +49,33 @@ DOMAIN,cdn.cocoapods.org
 # Anaconda
 DOMAIN-SUFFIX,repo.anaconda.com
 
-# React Native publishes its Android artifacts from its own Maven repository.
-DOMAIN,repo.reactnative.dev
+# kernel.org
+DOMAIN,cdn.kernel.org
 
-# Linux distribution archives, pulled by containers and VMs. debian.map.fastlydns.net is the Fastly name behind deb.debian.org, which some clients dial directly.
-DOMAIN,deb.debian.org
-DOMAIN,security.debian.org
-DOMAIN,debian.map.fastlydns.net
+# Electron
+DOMAIN,artifacts.electronjs.org
+
+# Linux Containers
+DOMAIN-SUFFIX,images.linuxcontainers.org
+
+# Ubuntu
 DOMAIN,archive.ubuntu.com
 DOMAIN,security.ubuntu.com
 DOMAIN,ports.ubuntu.com
-DOMAIN,dl-cdn.alpinelinux.org
-DOMAIN-SUFFIX,images.linuxcontainers.org
 
-# Toolchain downloads: Node.js, rustup, kernel sources, Electron. nodejs.org serves its site and its dist from one host.
-DOMAIN,nodejs.org
-DOMAIN,static.rust-lang.org
-DOMAIN,cdn.kernel.org
-DOMAIN,artifacts.electronjs.org
+# Alpine Linux
+DOMAIN,dl-cdn.alpinelinux.org
+
+# Go modules. Exact hosts only: DOMAIN-SUFFIX golang.org would steal pkg.go.dev from the global classification.
+DOMAIN,proxy.golang.org
+DOMAIN,sum.golang.org
+DOMAIN,index.golang.org
+
+# React Native. Android artifacts publish from a Maven repository of its own.
+DOMAIN,repo.reactnative.dev
+
+# npm. Exact hosts only: DOMAIN-SUFFIX npmjs.org would steal www.npmjs.com and api.npmjs.org from the global classification.
+DOMAIN,registry.npmjs.org
+DOMAIN,registry.npmjs.com
+DOMAIN,skimdb.npmjs.com
+DOMAIN,replicate.npmjs.com

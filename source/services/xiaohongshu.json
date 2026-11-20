@@ -1,0 +1,33 @@
+{
+  "owner": {
+    "id": "xiaohongshu",
+    "name": "Xiaohongshu",
+    "zh": "小红书"
+  },
+  "services": [
+    {
+      "id": "xiaohongshu",
+      "name": "Xiaohongshu",
+      "zh": "小红书",
+      "category": "social",
+      "lists": {
+        "Library/Social/Xiaohongshu.list": [
+          "DOMAIN-SUFFIX,xhscdn.com",
+          "DOMAIN-SUFFIX,xhscdn.net",
+          "DOMAIN-SUFFIX,xiaohongshu.com"
+        ]
+      }
+    },
+    {
+      "id": "diandian",
+      "name": "Diandian",
+      "zh": "点点",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,askdiandian.com"
+        ]
+      }
+    }
+  ]
+}

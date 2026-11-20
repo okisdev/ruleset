@@ -8,6 +8,7 @@
 #
 # The services that keep a foreign exit on purpose stay out: Apple Intelligence in the overlay, TV and News in Media/AppleMedia.list.
 
+# Apple
 DOMAIN-SUFFIX,apple
 DOMAIN-SUFFIX,apple.com
 DOMAIN-SUFFIX,apple-cloudkit.com
@@ -17,12 +18,13 @@ DOMAIN-SUFFIX,apple-mapkit.com
 DOMAIN-SUFFIX,apzones.com
 DOMAIN-SUFFIX,aaplimg.com
 DOMAIN-SUFFIX,cdn-apple.com
-DOMAIN-SUFFIX,icloud.com
-DOMAIN-SUFFIX,icloud-content.com
-DOMAIN-SUFFIX,me.com
 DOMAIN-SUFFIX,mzstatic.com
-
 IP-CIDR,17.0.0.0/8,no-resolve
 IP-CIDR6,2403:300::/32,no-resolve
 IP-CIDR6,2620:149::/32,no-resolve
 IP-CIDR6,2a01:b740::/32,no-resolve
+
+# iCloud
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,icloud-content.com
+DOMAIN-SUFFIX,me.com

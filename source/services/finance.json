@@ -1,0 +1,173 @@
+{
+  "services": [
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Stripe.list": [
+          "DOMAIN-SUFFIX,link.com",
+          "DOMAIN-SUFFIX,stripe.com",
+          "DOMAIN-SUFFIX,stripe.network",
+          "DOMAIN-SUFFIX,stripecdn.com"
+        ]
+      }
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/PayPal.list": [
+          "DOMAIN-SUFFIX,braintreegateway.com",
+          "DOMAIN-SUFFIX,paypal.com",
+          "DOMAIN-SUFFIX,paypalobjects.com",
+          "DOMAIN-SUFFIX,venmo.com"
+        ]
+      }
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Binance.list": [
+          "DOMAIN-SUFFIX,binance.com",
+          "DOMAIN-SUFFIX,binance.me",
+          "DOMAIN-SUFFIX,binance.org",
+          "DOMAIN-SUFFIX,bnbstatic.com",
+          "DOMAIN-SUFFIX,bntrace.com"
+        ],
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,binance.com"
+        ]
+      }
+    },
+    {
+      "id": "coinbase",
+      "name": "Coinbase",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,coinbase.com"
+        ]
+      }
+    },
+    {
+      "id": "okx",
+      "name": "OKX",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,okex.com",
+          "DOMAIN-SUFFIX,okx.com"
+        ]
+      }
+    },
+    {
+      "id": "bybit",
+      "name": "Bybit",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,bybit.com"
+        ]
+      }
+    },
+    {
+      "id": "bitget",
+      "name": "Bitget",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,bitget.com"
+        ]
+      }
+    },
+    {
+      "id": "kraken",
+      "name": "Kraken",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,kraken.com"
+        ]
+      }
+    },
+    {
+      "id": "kucoin",
+      "name": "KuCoin",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,kucoin.com"
+        ]
+      }
+    },
+    {
+      "id": "gate",
+      "name": "Gate",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,gate.io"
+        ]
+      }
+    },
+    {
+      "id": "blockchain-com",
+      "name": "Blockchain.com",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,blockchain.com"
+        ]
+      }
+    },
+    {
+      "id": "etherscan",
+      "name": "Etherscan",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Crypto.list": [
+          "DOMAIN-SUFFIX,etherscan.io"
+        ]
+      }
+    },
+    {
+      "id": "futu",
+      "name": "Futu",
+      "zh": "富途",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Brokers.list": [
+          "DOMAIN-SUFFIX,futunn.com"
+        ]
+      }
+    },
+    {
+      "id": "longbridge",
+      "name": "Longbridge",
+      "zh": "长桥",
+      "category": "finance",
+      "lists": {
+        "Library/Finance/Brokers.list": [
+          "DOMAIN-SUFFIX,lbctrl.com",
+          "DOMAIN-SUFFIX,lbkrs.com"
+        ]
+      }
+    },
+    {
+      "id": "unionpay",
+      "name": "UnionPay",
+      "zh": "银联",
+      "category": "finance",
+      "names": [
+        "unionpay.com",
+        "unionpayintl.com",
+        "95516.com",
+        "cup.com.cn"
+      ]
+    }
+  ]
+}

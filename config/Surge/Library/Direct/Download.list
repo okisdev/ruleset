@@ -6,26 +6,55 @@
 #
 # The 1Password, iStat Menus and PopClip update hosts answer slowly on the direct path, so they reach a proxy through FINAL.
 
-DOMAIN-SUFFIX,123pan.com
+# Quark
+DOMAIN-SUFFIX,quark.cn
+
+# Alipan
 DOMAIN-SUFFIX,alipan.com
 DOMAIN-SUFFIX,aliyundrive.com
-DOMAIN-SUFFIX,backblazeb2.com
+
+# Baidu Netdisk
 DOMAIN-SUFFIX,baidupcs.com
-DOMAIN-SUFFIX,cdn.nintendo.net
-DOMAIN-SUFFIX,cloudflarestorage.com
-DOMAIN-SUFFIX,lanzoui.com
-DOMAIN-SUFFIX,lanzoux.com
 DOMAIN-SUFFIX,pan.baidu.com
-DOMAIN-SUFFIX,quark.cn
+
+# Cloudflare
+DOMAIN-SUFFIX,cloudflarestorage.com
 DOMAIN-SUFFIX,r2.dev
+
+# Backblaze
+DOMAIN-SUFFIX,backblazeb2.com
+
+# OrbStack
+DOMAIN,api-updates.orbstack.dev
+DOMAIN,cdn-updates.orbstack.dev
+
+# Steam
 DOMAIN-SUFFIX,steamcdn-a.akamaihd.net
 DOMAIN-SUFFIX,steamcontent.com
 DOMAIN-SUFFIX,steampipe.akamaized.net
-DOMAIN-SUFFIX,thunderurl.com
-DOMAIN-SUFFIX,vercel-storage.com
-DOMAIN-SUFFIX,weiyun.com
-DOMAIN-SUFFIX,wenshushu.cn
-DOMAIN-SUFFIX,xunlei.com
-DOMAIN,api-updates.orbstack.dev
-DOMAIN,cdn-updates.orbstack.dev
+
+# Nintendo
+DOMAIN-SUFFIX,cdn.nintendo.net
+
+# Setapp
 DOMAIN,store.setapp.com
+
+# 123pan
+DOMAIN-SUFFIX,123pan.com
+
+# Lanzou
+DOMAIN-SUFFIX,lanzoui.com
+DOMAIN-SUFFIX,lanzoux.com
+
+# Xunlei
+DOMAIN-SUFFIX,thunderurl.com
+DOMAIN-SUFFIX,xunlei.com
+
+# Wenshushu
+DOMAIN-SUFFIX,wenshushu.cn
+
+# Weiyun
+DOMAIN-SUFFIX,weiyun.com
+
+# Vercel
+DOMAIN-SUFFIX,vercel-storage.com

@@ -8,8 +8,11 @@
 #
 # apple-relay.apple.com shares 17.248.152.0/24 and 17.248.163.0/24 with the Private Relay ingress at mask.icloud.com and with the iCloud content edges, so the three can only be told apart by name; Platforms/Apple.list carries the address space for the flows that arrive without one, and sits behind this file so an address never outranks the name.
 
+# Apple
+DOMAIN,gspe1-ssl.ls.apple.com
+
+# Apple Intelligence
 DOMAIN,apple-relay.apple.com
 DOMAIN,apple-relay.cloudflare.com
 DOMAIN,apple-relay.fastly-edge.com
-DOMAIN,gspe1-ssl.ls.apple.com
 DOMAIN,cp4.cloudflare.com

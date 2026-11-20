@@ -1,0 +1,34 @@
+{
+  "owner": {
+    "id": "meituan",
+    "name": "Meituan",
+    "zh": "美团"
+  },
+  "services": [
+    {
+      "id": "meituan",
+      "name": "Meituan",
+      "zh": "美团",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Meituan.list": [
+          "DOMAIN-SUFFIX,meituan.com",
+          "DOMAIN-SUFFIX,meituan.net",
+          "DOMAIN-SUFFIX,sankuai.com"
+        ]
+      }
+    },
+    {
+      "id": "dianping",
+      "name": "Dianping",
+      "zh": "大众点评",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Meituan.list": [
+          "DOMAIN-SUFFIX,dianping.com",
+          "DOMAIN-SUFFIX,dpfile.com"
+        ]
+      }
+    }
+  ]
+}

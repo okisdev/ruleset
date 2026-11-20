@@ -1,0 +1,525 @@
+{
+  "services": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,anthropic.com",
+          "DOMAIN-SUFFIX,claude.ai",
+          "DOMAIN-SUFFIX,claude.com",
+          "DOMAIN-SUFFIX,claude.dev",
+          "DOMAIN-SUFFIX,claudeusercontent.com",
+          "DOMAIN-SUFFIX,claudemcpclient.com",
+          "DOMAIN-SUFFIX,claudemcpcontent.com"
+        ]
+      }
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "The keyword covers Azure hosted deployments and the assorted api hosts.",
+            "rules": [
+              "DOMAIN-SUFFIX,openai.com",
+              "DOMAIN-SUFFIX,chatgpt.com",
+              "DOMAIN-SUFFIX,oaistatic.com",
+              "DOMAIN-SUFFIX,oaiusercontent.com",
+              "DOMAIN-SUFFIX,sora.com",
+              "DOMAIN-KEYWORD,openai"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "grok.x.com is exact: a suffix would swallow x.com.",
+            "rules": [
+              "DOMAIN-SUFFIX,x.ai",
+              "DOMAIN-SUFFIX,grok.com",
+              "DOMAIN,grok.x.com"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,perplexity.ai"
+        ]
+      }
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,mistral.ai"
+        ]
+      }
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,cohere.com",
+          "DOMAIN-SUFFIX,cohere.ai"
+        ]
+      }
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,openrouter.ai"
+        ]
+      }
+    },
+    {
+      "id": "opencode",
+      "name": "opencode",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,opencode.ai",
+          "DOMAIN,models.dev"
+        ]
+      }
+    },
+    {
+      "id": "hugging-face",
+      "name": "Hugging Face",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,huggingface.co",
+          "DOMAIN-SUFFIX,hf.co"
+        ]
+      }
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,ollama.com"
+        ]
+      }
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,groq.com"
+        ]
+      }
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,together.ai",
+          "DOMAIN-SUFFIX,together.xyz"
+        ]
+      }
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,fireworks.ai"
+        ]
+      }
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,cerebras.ai"
+        ]
+      }
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,deepinfra.com"
+        ]
+      }
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,replicate.com",
+          "DOMAIN-SUFFIX,replicate.delivery"
+        ]
+      }
+    },
+    {
+      "id": "fal",
+      "name": "fal",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,fal.ai",
+          "DOMAIN-SUFFIX,fal.run"
+        ]
+      }
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,litellm.ai"
+        ]
+      }
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,poe.com"
+        ]
+      }
+    },
+    {
+      "id": "character-ai",
+      "name": "Character.AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,character.ai"
+        ]
+      }
+    },
+    {
+      "id": "lmarena",
+      "name": "LMArena",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,lmarena.ai",
+          "DOMAIN-SUFFIX,arena.ai"
+        ]
+      }
+    },
+    {
+      "id": "lobehub",
+      "name": "LobeHub",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,lobehub.com"
+        ]
+      }
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,manus.im"
+        ]
+      }
+    },
+    {
+      "id": "genspark",
+      "name": "Genspark",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,genspark.ai"
+        ]
+      }
+    },
+    {
+      "id": "poke",
+      "name": "Poke",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "authenticate.cx carries Poke's sign-in and integration links.",
+            "rules": [
+              "DOMAIN-SUFFIX,poke.com",
+              "DOMAIN-SUFFIX,authenticate.cx"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,openclaw.ai"
+        ]
+      }
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,midjourney.com"
+        ]
+      }
+    },
+    {
+      "id": "stability",
+      "name": "Stability AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,stability.ai"
+        ]
+      }
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,runwayml.com"
+        ]
+      }
+    },
+    {
+      "id": "luma",
+      "name": "Luma AI",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,lumalabs.ai"
+        ]
+      }
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,suno.com",
+          "DOMAIN-SUFFIX,suno.ai"
+        ]
+      }
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,elevenlabs.io"
+        ]
+      }
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,zed.dev"
+        ]
+      }
+    },
+    {
+      "id": "sourcegraph",
+      "name": "Sourcegraph",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,sourcegraph.com"
+        ]
+      }
+    },
+    {
+      "id": "amp",
+      "name": "Amp",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,ampcode.com"
+        ]
+      }
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,continue.dev"
+        ]
+      }
+    },
+    {
+      "id": "tabnine",
+      "name": "Tabnine",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,tabnine.com"
+        ]
+      }
+    },
+    {
+      "id": "augment",
+      "name": "Augment Code",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,augmentcode.com"
+        ]
+      }
+    },
+    {
+      "id": "coderabbit",
+      "name": "CodeRabbit",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,coderabbit.ai"
+        ]
+      }
+    },
+    {
+      "id": "lovable",
+      "name": "Lovable",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,lovable.dev",
+          "DOMAIN-SUFFIX,lovable.app"
+        ]
+      }
+    },
+    {
+      "id": "bolt",
+      "name": "Bolt",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,bolt.new"
+        ]
+      }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,deepseek.com"
+        ]
+      }
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "kimi.ai is Moonshot's overseas product; the mainland kimi.com lives in AI/AIChina.list.",
+            "rules": [
+              "DOMAIN-SUFFIX,kimi.ai"
+            ]
+          }
+        ],
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,kimi.com",
+          "DOMAIN-SUFFIX,moonshot.cn"
+        ]
+      }
+    },
+    {
+      "id": "zhipu",
+      "name": "Zhipu AI",
+      "zh": "智谱",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,bigmodel.cn",
+          "DOMAIN-SUFFIX,z.ai"
+        ]
+      }
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,minimaxi.com"
+        ]
+      }
+    },
+    {
+      "id": "stepfun",
+      "name": "StepFun",
+      "zh": "阶跃星辰",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,stepfun.com"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow",
+      "name": "SiliconFlow",
+      "zh": "硅基流动",
+      "category": "ai",
+      "lists": {
+        "AI/AIChina.list": [
+          "DOMAIN-SUFFIX,siliconflow.cn"
+        ]
+      }
+    }
+  ]
+}
