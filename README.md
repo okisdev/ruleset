@@ -50,7 +50,7 @@ config/
     └── Library/          first-party classification
 ```
 
-`config/` is keyed by client, so a second client gets a sibling directory rather than a reshuffle. `catalog/` belongs to no client. Both are generated: change [`source/`](source/README.md), run `node scripts/build.mjs`, and commit the source with its output.
+`config/` is keyed by client, so a second client gets a sibling directory rather than a reshuffle. `catalog/` belongs to no client. Their rule sets, the library index and the catalog are generated: change [`source/`](source/README.md), run `node scripts/build.mjs`, and commit the source with its output.
 
 Start with [`config/Surge/README.md`](config/Surge/README.md) for the order the files must be referenced in and the policy each kind of file expects.
 

@@ -102,9 +102,9 @@
         "claude.ai",
         "claude.com",
         "claude.dev",
-        "claudeusercontent.com",
         "claudemcpclient.com",
-        "claudemcpcontent.com"
+        "claudemcpcontent.com",
+        "claudeusercontent.com"
       ]
     },
     {
@@ -112,10 +112,10 @@
       "name": "OpenAI",
       "category": "ai",
       "domains": [
-        "openai.com",
         "chatgpt.com",
         "oaistatic.com",
         "oaiusercontent.com",
+        "openai.com",
         "sora.com"
       ]
     },
@@ -124,9 +124,9 @@
       "name": "xAI",
       "category": "ai",
       "domains": [
-        "x.ai",
         "grok.com",
-        "grok.x.com"
+        "grok.x.com",
+        "x.ai"
       ]
     },
     {
@@ -150,8 +150,8 @@
       "name": "Cohere",
       "category": "ai",
       "domains": [
-        "cohere.com",
-        "cohere.ai"
+        "cohere.ai",
+        "cohere.com"
       ]
     },
     {
@@ -167,8 +167,8 @@
       "name": "opencode",
       "category": "ai",
       "domains": [
-        "opencode.ai",
-        "models.dev"
+        "models.dev",
+        "opencode.ai"
       ]
     },
     {
@@ -176,8 +176,8 @@
       "name": "Hugging Face",
       "category": "ai",
       "domains": [
-        "huggingface.co",
-        "hf.co"
+        "hf.co",
+        "huggingface.co"
       ]
     },
     {
@@ -276,8 +276,8 @@
       "name": "LMArena",
       "category": "ai",
       "domains": [
-        "lmarena.ai",
-        "arena.ai"
+        "arena.ai",
+        "lmarena.ai"
       ]
     },
     {
@@ -309,8 +309,8 @@
       "name": "Poke",
       "category": "ai",
       "domains": [
-        "poke.com",
-        "authenticate.cx"
+        "authenticate.cx",
+        "poke.com"
       ]
     },
     {
@@ -358,8 +358,8 @@
       "name": "Suno",
       "category": "ai",
       "domains": [
-        "suno.com",
-        "suno.ai"
+        "suno.ai",
+        "suno.com"
       ]
     },
     {
@@ -431,8 +431,8 @@
       "name": "Lovable",
       "category": "ai",
       "domains": [
-        "lovable.dev",
-        "lovable.app"
+        "lovable.app",
+        "lovable.dev"
       ]
     },
     {
@@ -504,12 +504,12 @@
       "owner": "alibaba",
       "category": "platform",
       "domains": [
-        "alicdn.com",
-        "alibaba.com",
         "alibaba-inc.com",
+        "alibaba.com",
         "alibabachengdun.com",
         "alibabachengdun.net",
         "alibabausercontent.com",
+        "alicdn.com",
         "alidns.com",
         "alikunlun.com",
         "marmot-cloud.com"
@@ -522,10 +522,10 @@
       "owner": "alibaba",
       "category": "shopping",
       "domains": [
-        "tbcdn.cn",
         "taobao.com",
         "taobaocdn.com",
         "tbcache.com",
+        "tbcdn.cn",
         "tmall.com"
       ]
     },
@@ -631,8 +631,8 @@
       "owner": "alibaba",
       "category": "storage",
       "domains": [
-        "quark.cn",
-        "myquark.cn"
+        "myquark.cn",
+        "quark.cn"
       ]
     },
     {
@@ -676,8 +676,8 @@
       "owner": "alibaba",
       "category": "video",
       "domains": [
-        "ykimg.com",
         "soku.com",
+        "ykimg.com",
         "youku.com"
       ]
     },
@@ -687,11 +687,11 @@
       "owner": "amazon",
       "category": "shopping",
       "domains": [
-        "media-amazon.com",
         "amazon.co.jp",
         "amazon.co.uk",
         "amazon.com",
         "amazon.dev",
+        "media-amazon.com",
         "ssl-images-amazon.com"
       ]
     },
@@ -701,8 +701,8 @@
       "owner": "amazon",
       "category": "cloud",
       "domains": [
-        "amazontrust.com",
         "amazonaws.com",
+        "amazontrust.com",
         "aws.dev",
         "awsstatic.com"
       ]
@@ -715,8 +715,8 @@
       "domains": [
         "aiv-cdn.net",
         "aiv-delivery.net",
-        "primevideo.com",
-        "atv-ps.amazon.com"
+        "atv-ps.amazon.com",
+        "primevideo.com"
       ]
     },
     {
@@ -737,9 +737,9 @@
       "owner": "anysphere",
       "category": "ai",
       "domains": [
+        "cursor-cdn.com",
         "cursor.com",
         "cursor.sh",
-        "cursor-cdn.com",
         "cursorapi.com",
         "cursorvm.com"
       ]
@@ -759,27 +759,27 @@
       "owner": "apple",
       "category": "platform",
       "domains": [
-        "apple.cn",
-        "safebrowsing.apple",
-        "gspe1-ssl.ls.apple.com",
-        "push.apple.com",
-        "push-apple.com.akadns.net",
-        "doh.dns.apple.com",
+        "aaplimg.com",
+        "api.smoot.apple.cn",
         "apple",
-        "apple.com",
         "apple-cloudkit.com",
         "apple-dns.net",
         "apple-livephotoskit.com",
         "apple-mapkit.com",
-        "apzones.com",
-        "aaplimg.com",
-        "cdn-apple.com",
-        "mzstatic.com",
+        "apple.cn",
+        "apple.com",
         "apple.com.cn",
-        "api.smoot.apple.cn",
+        "apzones.com",
+        "cdn-apple.com",
         "cl2-cn.apple.com",
         "cl4-cn.apple.com",
-        "gs-loc-cn.apple.com"
+        "doh.dns.apple.com",
+        "gs-loc-cn.apple.com",
+        "gspe1-ssl.ls.apple.com",
+        "mzstatic.com",
+        "push-apple.com.akadns.net",
+        "push.apple.com",
+        "safebrowsing.apple"
       ]
     },
     {
@@ -790,13 +790,13 @@
       "domains": [
         "content.icloud.com",
         "icloud-content.com",
-        "mask.icloud.com",
-        "mask-api.icloud.com",
-        "mask-h2.icloud.com",
-        "mask-canary.icloud.com",
         "icloud.com",
-        "me.com",
-        "icloud.com.cn"
+        "icloud.com.cn",
+        "mask-api.icloud.com",
+        "mask-canary.icloud.com",
+        "mask-h2.icloud.com",
+        "mask.icloud.com",
+        "me.com"
       ]
     },
     {
@@ -805,12 +805,12 @@
       "owner": "apple",
       "category": "video",
       "domains": [
-        "tv.apple.com",
-        "hls.itunes.apple.com",
         "hls-amt.itunes.apple.com",
         "hls-svod.itunes.apple.com",
+        "hls.itunes.apple.com",
         "np-edge.itunes.apple.com",
         "ocvideo.apple.com",
+        "tv.apple.com",
         "uts-api.itunes.apple.com"
       ]
     },
@@ -831,8 +831,8 @@
       "domains": [
         "apple.news",
         "news-assets.apple.com",
-        "news-client.apple.com",
         "news-client-search.apple.com",
+        "news-client.apple.com",
         "news-edge.apple.com",
         "news-events.apple.com"
       ]
@@ -856,10 +856,10 @@
       "owner": "baidu",
       "category": "platform",
       "domains": [
-        "bdstatic.com",
         "baidu.com",
         "baidustatic.com",
         "bdimg.com",
+        "bdstatic.com",
         "bdurl.net",
         "bdydns.com",
         "hao123.com"
@@ -895,9 +895,9 @@
       "category": "video",
       "domains": [
         "71edge.com",
-        "iqiyipic.com",
         "iq.com",
         "iqiyi.com",
+        "iqiyipic.com",
         "qy.net"
       ]
     },
@@ -908,11 +908,9 @@
       "owner": "bytedance",
       "category": "platform",
       "domains": [
-        "bytecdn.cn",
-        "byteimg.com",
-        "pstatp.com",
-        "bytecdn.com",
         "baike.com",
+        "bytecdn.cn",
+        "bytecdn.com",
         "byted.org",
         "bytedance.com",
         "bytedance.net",
@@ -921,12 +919,14 @@
         "byteeffecttos.com",
         "bytegecko.com",
         "bytehwm.com",
+        "byteimg.com",
         "bytemaimg.com",
         "bytemastatic.com",
         "bytescm.com",
         "bytetos.com",
         "dailygn.com",
         "ibytedapm.com",
+        "pstatp.com",
         "snssdk.com",
         "zijieapi.com",
         "zjcdn.com"
@@ -939,12 +939,12 @@
       "owner": "bytedance",
       "category": "video",
       "domains": [
-        "douyincdn.com",
-        "douyinvod.com",
         "amemv.com",
         "douyin.com",
+        "douyincdn.com",
         "douyinpic.com",
         "douyinstatic.com",
+        "douyinvod.com",
         "idouyinvod.com",
         "iesdouyin.com"
       ]
@@ -1067,10 +1067,10 @@
       "category": "cloud",
       "domains": [
         "vedcdnlb.com",
-        "volcgslb.com",
         "volccdn.com",
         "volcengine.com",
-        "volces.com"
+        "volces.com",
+        "volcgslb.com"
       ]
     },
     {
@@ -1094,18 +1094,18 @@
       "name": "Cloudflare",
       "category": "cloud",
       "domains": [
-        "gateway.ai.cloudflare.com",
         "argotunnel.com",
         "cfargotunnel.com",
-        "trycloudflare.com",
-        "cloudflarestorage.com",
-        "r2.dev",
         "cloudflare-dns.com",
         "cloudflare.com",
         "cloudflare.net",
         "cloudflareinsights.com",
+        "cloudflarestorage.com",
         "cloudflareworkers.com",
+        "gateway.ai.cloudflare.com",
         "pages.dev",
+        "r2.dev",
+        "trycloudflare.com",
         "workers.dev"
       ]
     },
@@ -1114,10 +1114,10 @@
       "name": "Akamai",
       "category": "cloud",
       "domains": [
+        "akadns.net",
         "akamai.net",
         "akamaihd.net",
         "akamaized.net",
-        "akadns.net",
         "edgekey.net",
         "edgesuite.net"
       ]
@@ -1127,9 +1127,9 @@
       "name": "Fastly",
       "category": "cloud",
       "domains": [
+        "fastly-edge.com",
         "fastly.net",
-        "fastlylb.net",
-        "fastly-edge.com"
+        "fastlylb.net"
       ]
     },
     {
@@ -1175,11 +1175,11 @@
       "name": "Tailscale",
       "category": "cloud",
       "domains": [
-        "tailscale.com",
-        "tailscale.io",
         "console.tailscale.com",
         "controlplane.tailscale.com",
         "login.tailscale.com",
+        "tailscale.com",
+        "tailscale.io",
         "ts.net"
       ]
     },
@@ -1214,8 +1214,8 @@
       "owner": "cognition",
       "category": "ai",
       "domains": [
-        "cognition.com",
         "cognition.ai",
+        "cognition.com",
         "devin.ai"
       ]
     },
@@ -1225,9 +1225,9 @@
       "owner": "cognition",
       "category": "ai",
       "domains": [
-        "windsurf.com",
+        "codeium.com",
         "windsurf.build",
-        "codeium.com"
+        "windsurf.com"
       ]
     },
     {
@@ -1295,8 +1295,8 @@
       "name": "Better Stack",
       "category": "developer",
       "domains": [
-        "betterstackdata.com",
-        "betterstack.com"
+        "betterstack.com",
+        "betterstackdata.com"
       ]
     },
     {
@@ -1320,9 +1320,9 @@
       "name": "OrbStack",
       "category": "developer",
       "domains": [
-        "orbstack.dev",
         "api-updates.orbstack.dev",
-        "cdn-updates.orbstack.dev"
+        "cdn-updates.orbstack.dev",
+        "orbstack.dev"
       ]
     },
     {
@@ -1381,10 +1381,10 @@
       "name": "Debian",
       "category": "developer",
       "domains": [
-        "debian.org",
         "deb.debian.org",
-        "security.debian.org",
-        "debian.map.fastlydns.net"
+        "debian.map.fastlydns.net",
+        "debian.org",
+        "security.debian.org"
       ]
     },
     {
@@ -1392,8 +1392,8 @@
       "name": "RubyGems",
       "category": "developer",
       "domains": [
-        "rubygems.org",
-        "index.rubygems.org"
+        "index.rubygems.org",
+        "rubygems.org"
       ]
     },
     {
@@ -1401,8 +1401,8 @@
       "name": "Maven Central",
       "category": "developer",
       "domains": [
-        "repo1.maven.org",
-        "repo.maven.apache.org"
+        "repo.maven.apache.org",
+        "repo1.maven.org"
       ]
     },
     {
@@ -1427,8 +1427,8 @@
       "name": "CocoaPods",
       "category": "developer",
       "domains": [
-        "cocoapods.org",
-        "cdn.cocoapods.org"
+        "cdn.cocoapods.org",
+        "cocoapods.org"
       ]
     },
     {
@@ -1445,8 +1445,8 @@
       "name": "kernel.org",
       "category": "developer",
       "domains": [
-        "kernel.org",
-        "cdn.kernel.org"
+        "cdn.kernel.org",
+        "kernel.org"
       ]
     },
     {
@@ -1454,8 +1454,8 @@
       "name": "Electron",
       "category": "developer",
       "domains": [
-        "electronjs.org",
-        "artifacts.electronjs.org"
+        "artifacts.electronjs.org",
+        "electronjs.org"
       ]
     },
     {
@@ -1463,8 +1463,8 @@
       "name": "Linux Containers",
       "category": "developer",
       "domains": [
-        "linuxcontainers.org",
-        "images.linuxcontainers.org"
+        "images.linuxcontainers.org",
+        "linuxcontainers.org"
       ]
     },
     {
@@ -1472,10 +1472,10 @@
       "name": "Ubuntu",
       "category": "developer",
       "domains": [
-        "ubuntu.com",
         "archive.ubuntu.com",
+        "ports.ubuntu.com",
         "security.ubuntu.com",
-        "ports.ubuntu.com"
+        "ubuntu.com"
       ]
     },
     {
@@ -1656,10 +1656,10 @@
       "zh": "银联",
       "category": "finance",
       "domains": [
-        "unionpay.com",
-        "unionpayintl.com",
         "95516.com",
-        "cup.com.cn"
+        "cup.com.cn",
+        "unionpay.com",
+        "unionpayintl.com"
       ]
     },
     {
@@ -1667,14 +1667,14 @@
       "name": "Steam",
       "category": "gaming",
       "domains": [
-        "steamcdn-a.akamaihd.net",
-        "steamcontent.com",
-        "steampipe.akamaized.net",
         "s.team",
         "steam-chat.com",
+        "steamcdn-a.akamaihd.net",
         "steamcommunity.com",
+        "steamcontent.com",
         "steamdeck.com",
         "steamgames.com",
+        "steampipe.akamaized.net",
         "steampowered.com",
         "steamserver.net",
         "steamstatic.com",
@@ -1722,6 +1722,7 @@
       "category": "gaming",
       "domains": [
         "cdn.nintendo.net",
+        "nintendo-europe.com",
         "nintendo.co.jp",
         "nintendo.co.kr",
         "nintendo.co.uk",
@@ -1732,7 +1733,6 @@
         "nintendo.jp",
         "nintendo.net",
         "nintendo.tw",
-        "nintendo-europe.com",
         "nintendoswitch.com",
         "nintendowifi.net"
       ]
@@ -1768,6 +1768,7 @@
         "1e100.net",
         "ampproject.org",
         "android.com",
+        "app-analytics-services.com",
         "appspot.com",
         "blogger.com",
         "blogspot.com",
@@ -1777,29 +1778,28 @@
         "goo.gl",
         "goog",
         "google",
+        "google.cn",
         "google.co.jp",
         "google.com",
         "google.com.hk",
         "google.com.sg",
         "google.com.tw",
         "google.dev",
+        "googleapis.cn",
         "googleapis.com",
         "googledomains.com",
         "googlesource.com",
         "googletagmanager.com",
         "googleusercontent.com",
         "googlezip.net",
+        "gstatic.cn",
         "gstatic.com",
+        "gvt1-cn.com",
         "gvt1.com",
         "gvt2.com",
         "gvt3.com",
-        "withgoogle.com",
-        "google.cn",
-        "googleapis.cn",
-        "gstatic.cn",
-        "gvt1-cn.com",
         "recaptcha.net",
-        "app-analytics-services.com"
+        "withgoogle.com"
       ]
     },
     {
@@ -1823,10 +1823,10 @@
         "youtu.be",
         "youtube-nocookie.com",
         "youtube.com",
+        "youtubei.googleapis.com",
         "youtubekids.com",
         "yt.be",
-        "ytimg.com",
-        "youtubei.googleapis.com"
+        "ytimg.com"
       ]
     },
     {
@@ -1835,9 +1835,9 @@
       "owner": "google",
       "category": "developer",
       "domains": [
+        "index.golang.org",
         "proxy.golang.org",
-        "sum.golang.org",
-        "index.golang.org"
+        "sum.golang.org"
       ]
     },
     {
@@ -1858,21 +1858,21 @@
       "category": "ai",
       "domains": [
         "ai.google.dev",
-        "jules.google.com",
-        "antigravity.google",
         "aicode.googleapis.com",
+        "aistudio.google.com",
+        "antigravity.google",
         "appsgenaiserver-pa.googleapis.com",
-        "labs.google",
+        "deepmind.google",
         "gemini.google",
         "gemini.google.com",
-        "aistudio.google.com",
+        "geminiweb-pa.googleapis.com",
+        "generativelanguage.googleapis.com",
+        "jules.google.com",
+        "labs.google",
         "notebooklm.google",
         "notebooklm.google.com",
-        "deepmind.google",
-        "generativelanguage.googleapis.com",
-        "geminiweb-pa.googleapis.com",
-        "robinfrontend-pa.googleapis.com",
-        "proactivebackend-pa.googleapis.com"
+        "proactivebackend-pa.googleapis.com",
+        "robinfrontend-pa.googleapis.com"
       ]
     },
     {
@@ -1899,8 +1899,8 @@
         "cdnhwc1.com",
         "cdnhwc2.com",
         "cdnhwc3.com",
-        "hwcdn.cn",
-        "huaweicloud.com"
+        "huaweicloud.com",
+        "hwcdn.cn"
       ]
     },
     {
@@ -1910,8 +1910,8 @@
       "owner": "jd",
       "category": "shopping",
       "domains": [
-        "360buyimg.com",
         "3.cn",
+        "360buyimg.com",
         "jd.com",
         "jd.hk",
         "jddj.com",
@@ -1925,8 +1925,8 @@
       "owner": "jd",
       "category": "cloud",
       "domains": [
-        "jdcloud.com",
-        "jdcloud-oss.com"
+        "jdcloud-oss.com",
+        "jdcloud.com"
       ]
     },
     {
@@ -2068,14 +2068,18 @@
       "owner": "microsoft",
       "category": "platform",
       "domains": [
-        "msocsp.com",
+        "az764295.vo.msecnd.net",
+        "crl.microsoft.com",
+        "dl.delivery.mp.microsoft.com",
+        "download.microsoft.com",
+        "download.visualstudio.microsoft.com",
         "exp-tas.com",
         "live.com",
         "live.net",
         "microsoft",
         "microsoft.com",
-        "microsoftonline.com",
         "microsoftonline-p.com",
+        "microsoftonline.com",
         "msauth.net",
         "msauthimages.net",
         "msecnd.net",
@@ -2084,24 +2088,20 @@
         "msftauthimages.net",
         "msftconnecttest.com",
         "msftncsi.com",
-        "s-microsoft.com",
-        "skype.com",
-        "windows.com",
-        "windows.net",
-        "sfx.ms",
-        "windowsupdate.com",
-        "az764295.vo.msecnd.net",
-        "crl.microsoft.com",
-        "oneocsp.microsoft.com",
+        "msocsp.com",
         "ocsp.msocsp.com",
-        "dl.delivery.mp.microsoft.com",
-        "download.microsoft.com",
-        "download.visualstudio.microsoft.com",
         "officecdn.microsoft.com",
         "officecdnmac.microsoft.com",
+        "oneocsp.microsoft.com",
+        "s-microsoft.com",
         "sdx.microsoft.com",
+        "sfx.ms",
+        "skype.com",
         "storeedge.microsoft.com",
-        "tlu.dl.delivery.mp.microsoft.com"
+        "tlu.dl.delivery.mp.microsoft.com",
+        "windows.com",
+        "windows.net",
+        "windowsupdate.com"
       ]
     },
     {
@@ -2110,6 +2110,7 @@
       "owner": "microsoft",
       "category": "productivity",
       "domains": [
+        "cdn.office.net",
         "hotmail.com",
         "office.com",
         "office.net",
@@ -2118,8 +2119,7 @@
         "onenote.net",
         "outlook.com",
         "sharepoint.com",
-        "sharepointonline.com",
-        "cdn.office.net"
+        "sharepointonline.com"
       ]
     },
     {
@@ -2140,13 +2140,13 @@
       "owner": "microsoft",
       "category": "cloud",
       "domains": [
-        "trafficmanager.net",
         "azure.com",
         "azure.net",
         "azureedge.net",
         "azurefd.net",
         "azurewebsites.net",
         "cloudapp.net",
+        "trafficmanager.net",
         "vscode-sync.trafficmanager.net"
       ]
     },
@@ -2175,11 +2175,11 @@
       "owner": "microsoft",
       "category": "developer",
       "domains": [
+        "update.code.visualstudio.com",
         "visualstudio.com",
         "vsassets.io",
         "vscode-cdn.net",
-        "vscode-unpkg.net",
-        "update.code.visualstudio.com"
+        "vscode-unpkg.net"
       ]
     },
     {
@@ -2188,15 +2188,15 @@
       "owner": "microsoft",
       "category": "developer",
       "domains": [
-        "githubcopilot.com",
-        "github.com",
-        "githubassets.com",
-        "githubusercontent.com",
-        "githubapp.com",
-        "githubnext.com",
+        "copilotprodattachments.blob.core.windows.net",
         "ghcr.io",
         "github-cloud.s3.amazonaws.com",
-        "copilotprodattachments.blob.core.windows.net"
+        "github.com",
+        "githubapp.com",
+        "githubassets.com",
+        "githubcopilot.com",
+        "githubnext.com",
+        "githubusercontent.com"
       ]
     },
     {
@@ -2205,13 +2205,13 @@
       "owner": "microsoft",
       "category": "developer",
       "domains": [
-        "registry.npmjs.org",
-        "registry.npmjs.com",
-        "skimdb.npmjs.com",
-        "replicate.npmjs.com",
         "npm.cloudflare.com",
         "npmjs.com",
-        "npmjs.org"
+        "npmjs.org",
+        "registry.npmjs.com",
+        "registry.npmjs.org",
+        "replicate.npmjs.com",
+        "skimdb.npmjs.com"
       ]
     },
     {
@@ -2326,8 +2326,8 @@
       "owner": "netease",
       "category": "productivity",
       "domains": [
-        "mail.163.com",
         "126.com",
+        "mail.163.com",
         "yeah.net"
       ]
     },
@@ -2376,8 +2376,8 @@
       "name": "Speedtest",
       "category": "platform",
       "domains": [
-        "speedtest.net",
         "ookla.com",
+        "speedtest.net",
         "stvidtest.net"
       ]
     },
@@ -2397,9 +2397,9 @@
       "name": "Raycast",
       "category": "productivity",
       "domains": [
-        "raycast.com",
+        "raycast-ai-attachments.s3-accelerate.amazonaws.com",
         "raycast-releases.com",
-        "raycast-ai-attachments.s3-accelerate.amazonaws.com"
+        "raycast.com"
       ]
     },
     {
@@ -2438,8 +2438,8 @@
       "name": "1Password",
       "category": "productivity",
       "domains": [
-        "1passwordservices.com",
         "1password.com",
+        "1passwordservices.com",
         "1passwordusercontent.com",
         "agilebits.com"
       ]
@@ -2668,8 +2668,8 @@
       "owner": "tencent",
       "category": "productivity",
       "domains": [
-        "mail.qq.com",
         "foxmail.com",
+        "mail.qq.com",
         "qqmail.com"
       ]
     },
@@ -2693,8 +2693,8 @@
       "category": "music",
       "domains": [
         "qqmusic.qq.com",
-        "y.qq.com",
-        "tencentmusic.com"
+        "tencentmusic.com",
+        "y.qq.com"
       ]
     },
     {
@@ -2724,13 +2724,13 @@
       "owner": "tencent",
       "category": "cloud",
       "domains": [
-        "tencentcloudapi.com",
-        "tcloudbaseapp.com",
-        "qcloudcdn.com",
         "myqcloud.com",
         "qcloud.com",
+        "qcloudcdn.com",
         "qlivecdn.com",
+        "tcloudbaseapp.com",
         "tencent-cloud.net",
+        "tencentcloudapi.com",
         "tencentcs.com",
         "tliveapp.com",
         "tlivecdn.com",
@@ -2765,9 +2765,9 @@
       "owner": "tencent",
       "category": "gaming",
       "domains": [
-        "wegame.com",
         "anticheatexpert.com",
-        "gcloudcs.com"
+        "gcloudcs.com",
+        "wegame.com"
       ]
     },
     {
@@ -2790,11 +2790,11 @@
       "category": "developer",
       "domains": [
         "ai-gateway.vercel.sh",
-        "vercel-storage.com",
         "now.sh",
         "vercel-insights.com",
         "vercel-scripts.com",
         "vercel-status.com",
+        "vercel-storage.com",
         "vercel.app",
         "vercel.com",
         "vercel.sh"
@@ -2806,8 +2806,8 @@
       "owner": "vercel",
       "category": "ai",
       "domains": [
-        "v0.dev",
-        "v0.app"
+        "v0.app",
+        "v0.dev"
       ]
     },
     {
@@ -2890,8 +2890,8 @@
       "zh": "央视",
       "category": "video",
       "domains": [
-        "cctvpic.com",
         "cctv.com",
+        "cctvpic.com",
         "cntv.cn"
       ]
     },
@@ -2951,15 +2951,15 @@
       "owner": "xiaomi",
       "category": "platform",
       "domains": [
+        "mi-img.com",
         "mi.com",
         "mifile.cn",
-        "mi-img.com",
+        "miinsurtech.com",
         "mijia.tech",
         "miui.com",
         "miwifi.com",
         "xiaomi.com",
-        "xiaomi.net",
-        "miinsurtech.com"
+        "xiaomi.net"
       ]
     },
     {

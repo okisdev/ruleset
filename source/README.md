@@ -1,6 +1,6 @@
 # Source
 
-Everything under `config/` and `catalog/` is generated from this directory by `node scripts/build.mjs`. Edit the source, run the build, and commit the source and its output together; `node scripts/build.mjs --check` fails when the two disagree.
+Every `.list` under `config/Surge/`, `config/Surge/Library/INDEX.md` and `catalog/services.json` are generated from this directory by `node scripts/build.mjs`; the other markdown files there are written by hand. Edit the source, run the build, and commit the source and its output together; `node scripts/build.mjs --check` fails when the two disagree.
 
 ## Lists
 
