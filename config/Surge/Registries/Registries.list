@@ -2,11 +2,11 @@
 #
 # Expects a proxy policy.
 #
-# A generic download set is the wrong unit for this network: it mixes working mirrors, GitHub Pages indexes that stall on the direct path, and destinations the GFW blocks. This file owns the official registries so their policy is a decision, not an inheritance. Blocked destinations such as gcr.io, pkg.dev, mega.nz and archive.org stay unclassified so FINAL carries them to a proxy.
+# A generic download set mixes domestic mirrors, GitHub Pages indexes that stall on the direct path, and destinations the GFW blocks. This file owns the official registries so their policy is explicit. Blocked destinations such as gcr.io, pkg.dev, mega.nz and archive.org stay unclassified so FINAL carries them to a proxy.
 #
-# Policy is a proxy because the direct path answers slowly, which package managers feel on every metadata request. Measured 2026-10-30, three fetches each, direct from the LAN against the same URL through a Hong Kong exit: registry.npmjs.org/typescript 5.5 s, 10.2 s and a 20 s timeout against 0.3 s; registry.npmjs.org/react 3.7 s, 5.4 s and a timeout against 0.2 to 0.35 s; repo1.maven.org 1.0 to 1.5 s against under 0.15 s; pypi.org and files.pythonhosted.org about 0.2 s with spikes to 3.4 s and 7.7 s against under 0.1 s. The earlier DIRECT pin rested on flows completing, which says nothing about how long they took.
+# Policy is a proxy because the direct path from the mainland answers slowly and can time out, which package managers feel on every metadata request.
 #
-# Scope: the package body or index host of an official registry, in use here or unambiguous. Website, documentation, and static-asset hosts stay out and reach FINAL. GitHub-hosted registries stay in GitHub/GitHub.list. Chinese mirrors stay on the domestic path. Docker Hub stays in Library/Developer/Docker.list. NuGet stays in Library/Platforms/Microsoft.list.
+# Scope: the package body or index host of an official registry, a Linux distribution's package archive, or a toolchain's official download host. Website, documentation, and static-asset hosts stay out and reach FINAL. GitHub-hosted registries stay in GitHub/GitHub.list. Chinese mirrors stay on the domestic path. Docker Hub stays in Library/Developer/Docker.list. NuGet stays in Library/Platforms/Microsoft.list.
 
 # npm. Exact hosts only: DOMAIN-SUFFIX npmjs.org would steal www.npmjs.com and api.npmjs.org from the global classification.
 DOMAIN,registry.npmjs.org
@@ -48,3 +48,22 @@ DOMAIN,cdn.cocoapods.org
 
 # Anaconda
 DOMAIN-SUFFIX,repo.anaconda.com
+
+# React Native publishes its Android artifacts from its own Maven repository.
+DOMAIN,repo.reactnative.dev
+
+# Linux distribution archives, pulled by containers and VMs. debian.map.fastlydns.net is the Fastly name behind deb.debian.org, which some clients dial directly.
+DOMAIN,deb.debian.org
+DOMAIN,security.debian.org
+DOMAIN,debian.map.fastlydns.net
+DOMAIN,archive.ubuntu.com
+DOMAIN,security.ubuntu.com
+DOMAIN,ports.ubuntu.com
+DOMAIN,dl-cdn.alpinelinux.org
+DOMAIN-SUFFIX,images.linuxcontainers.org
+
+# Toolchain downloads: Node.js, rustup, kernel sources, Electron. nodejs.org serves its site and its dist from one host.
+DOMAIN,nodejs.org
+DOMAIN,static.rust-lang.org
+DOMAIN,cdn.kernel.org
+DOMAIN,artifacts.electronjs.org
