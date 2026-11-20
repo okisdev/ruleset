@@ -4,8 +4,11 @@
 #
 # Private Relay negotiates its own QUIC transport to the relay edge. On a proxy policy that bootstrap is blocked by the profile's QUIC policy and incurs a retry before TCP fallback. DIRECT lets it negotiate for itself. The relay ingress shares 17.248.152.0/24 and 17.248.163.0/24 with the iCloud content edges; the profile's iCloud content guard refuses QUIC by name only, so relay traffic keeps its QUIC whether it arrives by name or by address. To disable Private Relay at the network, point this file at REJECT in the profile.
 
+# Apple
+DOMAIN,doh.dns.apple.com
+
+# iCloud
 DOMAIN,mask.icloud.com
 DOMAIN,mask-api.icloud.com
 DOMAIN,mask-h2.icloud.com
 DOMAIN,mask-canary.icloud.com
-DOMAIN,doh.dns.apple.com

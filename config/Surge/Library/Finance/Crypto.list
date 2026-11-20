@@ -4,14 +4,33 @@
 #
 # Major exchanges and on-chain fronts that need a foreign exit from the mainland.
 
+# Binance
 DOMAIN-SUFFIX,binance.com
-DOMAIN-SUFFIX,bitget.com
-DOMAIN-SUFFIX,blockchain.com
-DOMAIN-SUFFIX,bybit.com
+
+# Coinbase
 DOMAIN-SUFFIX,coinbase.com
-DOMAIN-SUFFIX,etherscan.io
-DOMAIN-SUFFIX,gate.io
-DOMAIN-SUFFIX,kraken.com
-DOMAIN-SUFFIX,kucoin.com
+
+# OKX
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,okx.com
+
+# Bybit
+DOMAIN-SUFFIX,bybit.com
+
+# Bitget
+DOMAIN-SUFFIX,bitget.com
+
+# Kraken
+DOMAIN-SUFFIX,kraken.com
+
+# KuCoin
+DOMAIN-SUFFIX,kucoin.com
+
+# Gate
+DOMAIN-SUFFIX,gate.io
+
+# Blockchain.com
+DOMAIN-SUFFIX,blockchain.com
+
+# Etherscan
+DOMAIN-SUFFIX,etherscan.io

@@ -1,0 +1,119 @@
+{
+  "services": [
+    {
+      "id": "steam",
+      "name": "Steam",
+      "category": "gaming",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,steamcdn-a.akamaihd.net",
+          "DOMAIN-SUFFIX,steamcontent.com",
+          "DOMAIN-SUFFIX,steampipe.akamaized.net"
+        ],
+        "Library/Gaming/Steam.list": [
+          "DOMAIN-SUFFIX,s.team",
+          "DOMAIN-SUFFIX,steam-chat.com",
+          "DOMAIN-SUFFIX,steamcommunity.com",
+          "DOMAIN-SUFFIX,steamdeck.com",
+          "DOMAIN-SUFFIX,steamgames.com",
+          "DOMAIN-SUFFIX,steampowered.com",
+          "DOMAIN-SUFFIX,steamserver.net",
+          "DOMAIN-SUFFIX,steamstatic.com",
+          "DOMAIN-SUFFIX,steamusercontent.com",
+          "DOMAIN-SUFFIX,valvesoftware.com"
+        ]
+      }
+    },
+    {
+      "id": "epic",
+      "name": "Epic Games",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/Epic.list": [
+          "DOMAIN-SUFFIX,easy.ac",
+          "DOMAIN-SUFFIX,easyanticheat.net",
+          "DOMAIN-SUFFIX,epicgames.com",
+          "DOMAIN-SUFFIX,epicgames.dev",
+          "DOMAIN-SUFFIX,fortnite.com",
+          "DOMAIN-SUFFIX,unrealengine.com"
+        ]
+      }
+    },
+    {
+      "id": "ea",
+      "name": "EA",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/EA.list": [
+          "DOMAIN-SUFFIX,ea.com",
+          "DOMAIN-SUFFIX,origin.com",
+          "DOMAIN-SUFFIX,origin.ea.com"
+        ]
+      }
+    },
+    {
+      "id": "ubisoft",
+      "name": "Ubisoft",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/Ubisoft.list": [
+          "DOMAIN-SUFFIX,ubi.com",
+          "DOMAIN-SUFFIX,ubisoft.com",
+          "DOMAIN-SUFFIX,uplay.com"
+        ]
+      }
+    },
+    {
+      "id": "nintendo",
+      "name": "Nintendo",
+      "zh": "任天堂",
+      "category": "gaming",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,cdn.nintendo.net"
+        ],
+        "Library/Gaming/Nintendo.list": [
+          "DOMAIN-SUFFIX,nintendo.co.jp",
+          "DOMAIN-SUFFIX,nintendo.co.kr",
+          "DOMAIN-SUFFIX,nintendo.co.uk",
+          "DOMAIN-SUFFIX,nintendo.com",
+          "DOMAIN-SUFFIX,nintendo.com.au",
+          "DOMAIN-SUFFIX,nintendo.com.hk",
+          "DOMAIN-SUFFIX,nintendo.eu",
+          "DOMAIN-SUFFIX,nintendo.jp",
+          "DOMAIN-SUFFIX,nintendo.net",
+          "DOMAIN-SUFFIX,nintendo.tw",
+          "DOMAIN-SUFFIX,nintendo-europe.com",
+          "DOMAIN-SUFFIX,nintendoswitch.com",
+          "DOMAIN-SUFFIX,nintendowifi.net"
+        ]
+      }
+    },
+    {
+      "id": "playstation",
+      "name": "PlayStation",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/PlayStation.list": [
+          "DOMAIN-SUFFIX,playstation.com",
+          "DOMAIN-SUFFIX,playstation.net",
+          "DOMAIN-SUFFIX,playstationnetwork.com",
+          "DOMAIN-SUFFIX,sie.com",
+          "DOMAIN-SUFFIX,sonyentertainmentnetwork.com"
+        ]
+      }
+    },
+    {
+      "id": "bahamut",
+      "name": "Bahamut",
+      "zh": "巴哈姆特",
+      "category": "gaming",
+      "lists": {
+        "Library/Media/Bahamut.list": [
+          "DOMAIN-SUFFIX,bahamut.com.tw",
+          "DOMAIN-SUFFIX,gamer.com.tw"
+        ]
+      }
+    }
+  ]
+}

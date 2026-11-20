@@ -6,7 +6,7 @@
 #
 # download.prss.microsoft.com is deliberately absent. Its mainland edges can cap each direct connection, so a completed request says nothing about download speed. The zone falls through to Platforms/Microsoft.list, where a proxy policy can avoid the direct path's cap.
 
-DOMAIN-SUFFIX,cdn.office.net
+# Microsoft
 DOMAIN-SUFFIX,sfx.ms
 DOMAIN-SUFFIX,windowsupdate.com
 DOMAIN,az764295.vo.msecnd.net
@@ -21,4 +21,9 @@ DOMAIN,officecdnmac.microsoft.com
 DOMAIN,sdx.microsoft.com
 DOMAIN,storeedge.microsoft.com
 DOMAIN,tlu.dl.delivery.mp.microsoft.com
+
+# Microsoft 365
+DOMAIN-SUFFIX,cdn.office.net
+
+# Visual Studio
 DOMAIN,update.code.visualstudio.com

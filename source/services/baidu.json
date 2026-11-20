@@ -1,0 +1,74 @@
+{
+  "owner": {
+    "id": "baidu",
+    "name": "Baidu",
+    "zh": "百度"
+  },
+  "services": [
+    {
+      "id": "baidu",
+      "name": "Baidu",
+      "zh": "百度",
+      "category": "platform",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,bdstatic.com"
+        ],
+        "Library/Platforms/Baidu.list": [
+          "DOMAIN-SUFFIX,baidu.com",
+          "DOMAIN-SUFFIX,baidustatic.com",
+          "DOMAIN-SUFFIX,bdimg.com",
+          "DOMAIN-SUFFIX,bdstatic.com",
+          "DOMAIN-SUFFIX,bdurl.net",
+          "DOMAIN-SUFFIX,bdydns.com",
+          "DOMAIN-SUFFIX,hao123.com"
+        ]
+      }
+    },
+    {
+      "id": "baidu-netdisk",
+      "name": "Baidu Netdisk",
+      "zh": "百度网盘",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,baidupcs.com",
+          "DOMAIN-SUFFIX,pan.baidu.com"
+        ],
+        "Library/Platforms/Baidu.list": [
+          "DOMAIN-SUFFIX,baidupcs.com"
+        ]
+      }
+    },
+    {
+      "id": "baidu-cloud",
+      "name": "Baidu AI Cloud",
+      "zh": "百度智能云",
+      "category": "cloud",
+      "lists": {
+        "Library/Platforms/Baidu.list": [
+          "DOMAIN-SUFFIX,baidubce.com",
+          "DOMAIN-SUFFIX,bcebos.com"
+        ]
+      }
+    },
+    {
+      "id": "iqiyi",
+      "name": "iQIYI",
+      "zh": "爱奇艺",
+      "category": "video",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,71edge.com",
+          "DOMAIN-SUFFIX,iqiyipic.com"
+        ],
+        "Library/Media/iQiyi.list": [
+          "DOMAIN-SUFFIX,iq.com",
+          "DOMAIN-SUFFIX,iqiyi.com",
+          "DOMAIN-SUFFIX,iqiyipic.com",
+          "DOMAIN-SUFFIX,qy.net"
+        ]
+      }
+    }
+  ]
+}

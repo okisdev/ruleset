@@ -1,0 +1,159 @@
+{
+  "services": [
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "category": "cloud",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,gateway.ai.cloudflare.com"
+        ],
+        "Infrastructure/CloudflareTunnel.list": [
+          "DOMAIN-SUFFIX,argotunnel.com",
+          "DOMAIN-SUFFIX,cfargotunnel.com",
+          "DOMAIN-SUFFIX,trycloudflare.com",
+          "IP-CIDR,198.41.192.0/24,no-resolve",
+          "IP-CIDR,198.41.200.0/24,no-resolve"
+        ],
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,cloudflarestorage.com",
+          "DOMAIN-SUFFIX,r2.dev"
+        ],
+        "Library/Developer/Cloudflare.list": [
+          "DOMAIN-SUFFIX,cloudflare-dns.com",
+          "DOMAIN-SUFFIX,cloudflare.com",
+          "DOMAIN-SUFFIX,cloudflare.net",
+          "DOMAIN-SUFFIX,cloudflareinsights.com",
+          "DOMAIN-SUFFIX,cloudflareworkers.com",
+          "DOMAIN-SUFFIX,pages.dev",
+          "DOMAIN-SUFFIX,workers.dev"
+        ]
+      }
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai",
+      "category": "cloud",
+      "names": [
+        "akamai.net",
+        "akamaihd.net",
+        "akamaized.net",
+        "akadns.net",
+        "edgekey.net",
+        "edgesuite.net"
+      ]
+    },
+    {
+      "id": "fastly",
+      "name": "Fastly",
+      "category": "cloud",
+      "names": [
+        "fastly.net",
+        "fastlylb.net",
+        "fastly-edge.com"
+      ]
+    },
+    {
+      "id": "qiniu",
+      "name": "Qiniu",
+      "zh": "七牛云",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,qiniucdn.com",
+          "DOMAIN-SUFFIX,qiniudn.com"
+        ]
+      }
+    },
+    {
+      "id": "upyun",
+      "name": "Upyun",
+      "zh": "又拍云",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,upaiyun.com"
+        ]
+      }
+    },
+    {
+      "id": "kingsoft-cloud",
+      "name": "Kingsoft Cloud",
+      "zh": "金山云",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,ksyuncs.com"
+        ]
+      }
+    },
+    {
+      "id": "ctyun",
+      "name": "China Telecom Cloud",
+      "zh": "天翼云",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,ctadns.cn",
+          "DOMAIN-SUFFIX,ctlcdn.cn"
+        ]
+      }
+    },
+    {
+      "id": "tailscale",
+      "name": "Tailscale",
+      "category": "cloud",
+      "lists": {
+        "Tailscale/Coordination.list": [
+          "DOMAIN,console.tailscale.com",
+          "DOMAIN,controlplane.tailscale.com",
+          "DOMAIN,login.tailscale.com"
+        ],
+        "Tailscale/Direct.list": [
+          "DOMAIN-WILDCARD,derp*.tailscale.com",
+          "PROCESS-NAME,Tailscale",
+          "PROCESS-NAME,tailscaled",
+          "PROCESS-NAME,io.tailscale.ipn.macsys.network-extension"
+        ],
+        "Tailscale/Tailnet.list": [
+          "IP-CIDR,100.64.0.0/10,no-resolve",
+          "IP-CIDR6,fd7a:115c:a1e0::/48,no-resolve",
+          "DOMAIN-SUFFIX,ts.net"
+        ]
+      },
+      "names": [
+        "tailscale.com",
+        "tailscale.io"
+      ]
+    },
+    {
+      "id": "backblaze",
+      "name": "Backblaze",
+      "category": "cloud",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,backblazeb2.com"
+        ]
+      }
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "category": "cloud",
+      "lists": {
+        "Library/Developer/Neon.list": [
+          "DOMAIN-SUFFIX,neon.tech"
+        ]
+      }
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "category": "cloud",
+      "names": [
+        "supabase.co",
+        "supabase.com"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "owner": {
+    "id": "microsoft",
+    "name": "Microsoft"
+  },
+  "services": [
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,exp-tas.com",
+          "DOMAIN-SUFFIX,live.com",
+          "DOMAIN-SUFFIX,live.net",
+          "DOMAIN-SUFFIX,microsoft",
+          "DOMAIN-SUFFIX,microsoft.com",
+          "DOMAIN-SUFFIX,microsoftonline.com",
+          "DOMAIN-SUFFIX,microsoftonline-p.com",
+          "DOMAIN-SUFFIX,msauth.net",
+          "DOMAIN-SUFFIX,msauthimages.net",
+          "DOMAIN-SUFFIX,msecnd.net",
+          "DOMAIN-SUFFIX,msedge.net",
+          "DOMAIN-SUFFIX,msftauth.net",
+          "DOMAIN-SUFFIX,msftauthimages.net",
+          "DOMAIN-SUFFIX,msftconnecttest.com",
+          "DOMAIN-SUFFIX,msftncsi.com",
+          "DOMAIN-SUFFIX,s-microsoft.com",
+          "DOMAIN-SUFFIX,skype.com",
+          "DOMAIN-SUFFIX,windows.com",
+          "DOMAIN-SUFFIX,windows.net"
+        ],
+        "Library/Platforms/MicrosoftCDN.list": [
+          "DOMAIN-SUFFIX,sfx.ms",
+          "DOMAIN-SUFFIX,windowsupdate.com",
+          "DOMAIN,az764295.vo.msecnd.net",
+          "DOMAIN,crl.microsoft.com",
+          "DOMAIN,oneocsp.microsoft.com",
+          "DOMAIN,ocsp.msocsp.com",
+          "DOMAIN,dl.delivery.mp.microsoft.com",
+          "DOMAIN,download.microsoft.com",
+          "DOMAIN,download.visualstudio.microsoft.com",
+          "DOMAIN,officecdn.microsoft.com",
+          "DOMAIN,officecdnmac.microsoft.com",
+          "DOMAIN,sdx.microsoft.com",
+          "DOMAIN,storeedge.microsoft.com",
+          "DOMAIN,tlu.dl.delivery.mp.microsoft.com"
+        ]
+      },
+      "names": [
+        "msocsp.com"
+      ]
+    },
+    {
+      "id": "microsoft-365",
+      "name": "Microsoft 365",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,hotmail.com",
+          "DOMAIN-SUFFIX,office.com",
+          "DOMAIN-SUFFIX,office.net",
+          "DOMAIN-SUFFIX,office365.com",
+          "DOMAIN-SUFFIX,onenote.com",
+          "DOMAIN-SUFFIX,onenote.net",
+          "DOMAIN-SUFFIX,outlook.com",
+          "DOMAIN-SUFFIX,sharepoint.com",
+          "DOMAIN-SUFFIX,sharepointonline.com"
+        ],
+        "Library/Platforms/MicrosoftCDN.list": [
+          "DOMAIN-SUFFIX,cdn.office.net"
+        ]
+      }
+    },
+    {
+      "id": "onedrive",
+      "name": "OneDrive",
+      "category": "storage",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,1drv.com",
+          "DOMAIN-SUFFIX,livefilestore.com",
+          "DOMAIN-SUFFIX,microsoftpersonalcontent.com",
+          "DOMAIN-SUFFIX,onedrive.com"
+        ]
+      }
+    },
+    {
+      "id": "azure",
+      "name": "Azure",
+      "category": "cloud",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,azure.com",
+          "DOMAIN-SUFFIX,azure.net",
+          "DOMAIN-SUFFIX,azureedge.net",
+          "DOMAIN-SUFFIX,azurefd.net",
+          "DOMAIN-SUFFIX,azurewebsites.net",
+          "DOMAIN-SUFFIX,cloudapp.net",
+          "DOMAIN,vscode-sync.trafficmanager.net"
+        ]
+      },
+      "names": [
+        "trafficmanager.net"
+      ]
+    },
+    {
+      "id": "bing",
+      "name": "Bing",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,bing.com",
+          "DOMAIN-SUFFIX,bing.net"
+        ]
+      }
+    },
+    {
+      "id": "msn",
+      "name": "MSN",
+      "category": "news",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,msn.com"
+        ]
+      }
+    },
+    {
+      "id": "visual-studio",
+      "name": "Visual Studio",
+      "category": "developer",
+      "lists": {
+        "Library/Platforms/Microsoft.list": [
+          "DOMAIN-SUFFIX,visualstudio.com",
+          "DOMAIN-SUFFIX,vsassets.io",
+          "DOMAIN-SUFFIX,vscode-cdn.net",
+          "DOMAIN-SUFFIX,vscode-unpkg.net"
+        ],
+        "Library/Platforms/MicrosoftCDN.list": [
+          "DOMAIN,update.code.visualstudio.com"
+        ]
+      }
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "category": "developer",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "Copilot's model endpoint is githubcopilot.com; api.github.com is ordinary GitHub API traffic and lives in config/Surge/GitHub/GitHub.list.",
+            "rules": [
+              "DOMAIN-SUFFIX,githubcopilot.com"
+            ]
+          }
+        ],
+        "GitHub/GitHub.list": [
+          "DOMAIN-SUFFIX,github.com",
+          "DOMAIN-SUFFIX,githubassets.com",
+          "DOMAIN-SUFFIX,githubusercontent.com",
+          "DOMAIN-SUFFIX,githubapp.com",
+          "DOMAIN-SUFFIX,githubnext.com",
+          "DOMAIN-SUFFIX,ghcr.io",
+          "DOMAIN,github-cloud.s3.amazonaws.com",
+          "DOMAIN-WILDCARD,github-production-*.s3.amazonaws.com",
+          "DOMAIN,copilotprodattachments.blob.core.windows.net",
+          "DOMAIN-WILDCARD,productionresultssa*.blob.core.windows.net",
+          "IP-CIDR,20.205.243.0/24,no-resolve",
+          "IP-CIDR,185.199.108.0/22,no-resolve"
+        ]
+      }
+    },
+    {
+      "id": "npm",
+      "name": "npm",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          {
+            "note": "Exact hosts only: DOMAIN-SUFFIX npmjs.org would steal www.npmjs.com and api.npmjs.org from the global classification.",
+            "rules": [
+              "DOMAIN,registry.npmjs.org",
+              "DOMAIN,registry.npmjs.com",
+              "DOMAIN,skimdb.npmjs.com",
+              "DOMAIN,replicate.npmjs.com"
+            ]
+          }
+        ],
+        "Library/Developer/Npm.list": [
+          "DOMAIN-SUFFIX,npm.cloudflare.com",
+          "DOMAIN-SUFFIX,npmjs.com",
+          "DOMAIN-SUFFIX,npmjs.org"
+        ]
+      }
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "category": "social",
+      "lists": {
+        "Library/Social/LinkedIn.list": [
+          "DOMAIN-SUFFIX,licdn.com",
+          "DOMAIN-SUFFIX,linkedin.com",
+          "DOMAIN-SUFFIX,lnkd.in"
+        ]
+      }
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,copilot.microsoft.com"
+        ]
+      }
+    },
+    {
+      "id": "xbox",
+      "name": "Xbox",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/Xbox.list": [
+          "DOMAIN-SUFFIX,gamepass.com",
+          "DOMAIN-SUFFIX,xbox.com",
+          "DOMAIN-SUFFIX,xboxgamepass.com",
+          "DOMAIN-SUFFIX,xboxlive.com",
+          "DOMAIN-SUFFIX,xboxservices.com"
+        ]
+      }
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/Xbox.list": [
+          "DOMAIN-SUFFIX,minecraft.net",
+          "DOMAIN-SUFFIX,minecraftservices.com",
+          "DOMAIN-SUFFIX,mojang.com"
+        ]
+      }
+    },
+    {
+      "id": "blizzard",
+      "name": "Blizzard",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/Blizzard.list": [
+          "DOMAIN-SUFFIX,battle.net",
+          "DOMAIN-SUFFIX,blizzard.com"
+        ]
+      }
+    }
+  ]
+}

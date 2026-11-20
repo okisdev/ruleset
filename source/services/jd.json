@@ -1,0 +1,39 @@
+{
+  "owner": {
+    "id": "jd",
+    "name": "JD",
+    "zh": "京东"
+  },
+  "services": [
+    {
+      "id": "jd",
+      "name": "JD",
+      "zh": "京东",
+      "category": "shopping",
+      "lists": {
+        "Library/Direct/CDNChina.list": [
+          "DOMAIN-SUFFIX,360buyimg.com"
+        ],
+        "Library/Platforms/JD.list": [
+          "DOMAIN-SUFFIX,3.cn",
+          "DOMAIN-SUFFIX,jd.com",
+          "DOMAIN-SUFFIX,jd.hk",
+          "DOMAIN-SUFFIX,jddj.com",
+          "DOMAIN-SUFFIX,jdpay.com"
+        ]
+      }
+    },
+    {
+      "id": "jd-cloud",
+      "name": "JD Cloud",
+      "zh": "京东云",
+      "category": "cloud",
+      "lists": {
+        "Library/Platforms/JD.list": [
+          "DOMAIN-SUFFIX,jdcloud.com",
+          "DOMAIN-SUFFIX,jdcloud-oss.com"
+        ]
+      }
+    }
+  ]
+}

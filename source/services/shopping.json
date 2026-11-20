@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "id": "pinduoduo",
+      "name": "Pinduoduo",
+      "zh": "拼多多",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/Pinduoduo.list": [
+          "DOMAIN-SUFFIX,pddpic.com",
+          "DOMAIN-SUFFIX,pddugc.com",
+          "DOMAIN-SUFFIX,pinduoduo.com",
+          "DOMAIN-SUFFIX,yangkeduo.com"
+        ]
+      }
+    }
+  ]
+}

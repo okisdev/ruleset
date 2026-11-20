@@ -4,8 +4,11 @@
 #
 # Meituan and Dianping. Rescue/Meituan.list precedes the reject layer for the image host it blocks; this file carries the rest.
 
-DOMAIN-SUFFIX,dianping.com
-DOMAIN-SUFFIX,dpfile.com
+# Meituan
 DOMAIN-SUFFIX,meituan.com
 DOMAIN-SUFFIX,meituan.net
 DOMAIN-SUFFIX,sankuai.com
+
+# Dianping
+DOMAIN-SUFFIX,dianping.com
+DOMAIN-SUFFIX,dpfile.com

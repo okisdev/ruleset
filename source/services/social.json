@@ -1,0 +1,129 @@
+{
+  "services": [
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "category": "social",
+      "lists": {
+        "Library/Social/Telegram.list": [
+          "DOMAIN-SUFFIX,cdn-telegram.org",
+          "DOMAIN-SUFFIX,graph.org",
+          "DOMAIN-SUFFIX,t.me",
+          "DOMAIN-SUFFIX,tdesktop.com",
+          "DOMAIN-SUFFIX,telegra.ph",
+          "DOMAIN-SUFFIX,telegram-cdn.org",
+          "DOMAIN-SUFFIX,telegram.me",
+          "DOMAIN-SUFFIX,telegram.org",
+          "DOMAIN-SUFFIX,telesco.pe"
+        ]
+      }
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "category": "social",
+      "lists": {
+        "Library/Social/Discord.list": [
+          "DOMAIN-SUFFIX,discord.com",
+          "DOMAIN-SUFFIX,discord.gg",
+          "DOMAIN-SUFFIX,discord.gift",
+          "DOMAIN-SUFFIX,discord.media",
+          "DOMAIN-SUFFIX,discordapp.com",
+          "DOMAIN-SUFFIX,discordapp.net"
+        ]
+      }
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "category": "social",
+      "lists": {
+        "Library/Social/X.list": [
+          "DOMAIN-SUFFIX,periscope.tv",
+          "DOMAIN-SUFFIX,pscp.tv",
+          "DOMAIN-SUFFIX,t.co",
+          "DOMAIN-SUFFIX,tweetdeck.com",
+          "DOMAIN-SUFFIX,twimg.com",
+          "DOMAIN-SUFFIX,twitter.com",
+          "DOMAIN-SUFFIX,x.com"
+        ]
+      }
+    },
+    {
+      "id": "bluesky",
+      "name": "Bluesky",
+      "category": "social",
+      "lists": {
+        "Library/Social/Bluesky.list": [
+          "DOMAIN-SUFFIX,bsky.app",
+          "DOMAIN-SUFFIX,bsky.network",
+          "DOMAIN-SUFFIX,bsky.social"
+        ]
+      }
+    },
+    {
+      "id": "line",
+      "name": "LINE",
+      "category": "social",
+      "lists": {
+        "Library/Social/Line.list": [
+          "DOMAIN-SUFFIX,line-apps.com",
+          "DOMAIN-SUFFIX,line-scdn.net",
+          "DOMAIN-SUFFIX,line.me",
+          "DOMAIN-SUFFIX,line.naver.jp"
+        ]
+      }
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "category": "social",
+      "lists": {
+        "Library/Social/Reddit.list": [
+          "DOMAIN-SUFFIX,redd.it",
+          "DOMAIN-SUFFIX,reddit.com",
+          "DOMAIN-SUFFIX,redditmedia.com",
+          "DOMAIN-SUFFIX,redditstatic.com"
+        ]
+      }
+    },
+    {
+      "id": "snapchat",
+      "name": "Snapchat",
+      "category": "social",
+      "lists": {
+        "Library/Social/Snap.list": [
+          "DOMAIN-SUFFIX,sc-cdn.net",
+          "DOMAIN-SUFFIX,snapchat.com",
+          "DOMAIN-SUFFIX,snapkit.com"
+        ]
+      }
+    },
+    {
+      "id": "weibo",
+      "name": "Weibo",
+      "zh": "微博",
+      "category": "social",
+      "lists": {
+        "Library/Social/Weibo.list": [
+          "DOMAIN-SUFFIX,sinaimg.cn",
+          "DOMAIN-SUFFIX,weibo.cn",
+          "DOMAIN-SUFFIX,weibo.com",
+          "DOMAIN-SUFFIX,weibo.com.cn",
+          "DOMAIN-SUFFIX,weibocdn.com"
+        ]
+      }
+    },
+    {
+      "id": "coolapk",
+      "name": "Coolapk",
+      "zh": "酷安",
+      "category": "social",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,coolapk.com"
+        ]
+      }
+    }
+  ]
+}

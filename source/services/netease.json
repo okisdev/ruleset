@@ -1,0 +1,76 @@
+{
+  "owner": {
+    "id": "netease",
+    "name": "NetEase",
+    "zh": "网易"
+  },
+  "services": [
+    {
+      "id": "netease",
+      "name": "NetEase",
+      "zh": "网易",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/NetEase.list": [
+          "DOMAIN-SUFFIX,126.net",
+          "DOMAIN-SUFFIX,127.net",
+          "DOMAIN-SUFFIX,163.com",
+          "DOMAIN-SUFFIX,163jiasu.com",
+          "DOMAIN-SUFFIX,163yun.com",
+          "DOMAIN-SUFFIX,netease.com",
+          "DOMAIN-SUFFIX,netease.im"
+        ]
+      }
+    },
+    {
+      "id": "netease-mail",
+      "name": "NetEase Mail",
+      "zh": "网易邮箱",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/NetEase.list": [
+          "DOMAIN-SUFFIX,126.com",
+          "DOMAIN-SUFFIX,yeah.net"
+        ]
+      },
+      "names": [
+        "mail.163.com"
+      ]
+    },
+    {
+      "id": "netease-music",
+      "name": "NetEase Cloud Music",
+      "zh": "网易云音乐",
+      "category": "music",
+      "lists": {
+        "Library/Media/China.list": [
+          "DOMAIN-SUFFIX,music.163.com"
+        ]
+      },
+      "names": [
+        "music.126.net"
+      ]
+    },
+    {
+      "id": "youdao",
+      "name": "Youdao",
+      "zh": "有道",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/NetEase.list": [
+          "DOMAIN-SUFFIX,youdao.com"
+        ]
+      }
+    },
+    {
+      "id": "lofter",
+      "name": "LOFTER",
+      "category": "social",
+      "lists": {
+        "Library/Platforms/NetEase.list": [
+          "DOMAIN-SUFFIX,lofter.com"
+        ]
+      }
+    }
+  ]
+}

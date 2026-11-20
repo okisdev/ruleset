@@ -4,12 +4,15 @@
 #
 # Prime Video has its own file.
 
+# Amazon
 DOMAIN-SUFFIX,amazon.co.jp
 DOMAIN-SUFFIX,amazon.co.uk
 DOMAIN-SUFFIX,amazon.com
 DOMAIN-SUFFIX,amazon.dev
+DOMAIN-SUFFIX,media-amazon.com
+DOMAIN-SUFFIX,ssl-images-amazon.com
+
+# AWS
 DOMAIN-SUFFIX,amazonaws.com
 DOMAIN-SUFFIX,aws.dev
 DOMAIN-SUFFIX,awsstatic.com
-DOMAIN-SUFFIX,media-amazon.com
-DOMAIN-SUFFIX,ssl-images-amazon.com

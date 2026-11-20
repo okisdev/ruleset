@@ -1,0 +1,61 @@
+{
+  "services": [
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Syncthing.list": [
+          "DOMAIN-SUFFIX,syncthing.net",
+          "PROCESS-NAME,syncthing"
+        ]
+      }
+    },
+    {
+      "id": "123pan",
+      "name": "123pan",
+      "zh": "123 云盘",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,123pan.com"
+        ]
+      }
+    },
+    {
+      "id": "lanzou",
+      "name": "Lanzou",
+      "zh": "蓝奏云",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,lanzoui.com",
+          "DOMAIN-SUFFIX,lanzoux.com"
+        ]
+      }
+    },
+    {
+      "id": "xunlei",
+      "name": "Xunlei",
+      "zh": "迅雷",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,thunderurl.com",
+          "DOMAIN-SUFFIX,xunlei.com"
+        ]
+      }
+    },
+    {
+      "id": "wenshushu",
+      "name": "Wenshushu",
+      "zh": "文叔叔",
+      "category": "storage",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,wenshushu.cn"
+        ]
+      }
+    }
+  ]
+}

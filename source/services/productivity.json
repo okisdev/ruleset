@@ -1,0 +1,94 @@
+{
+  "services": [
+    {
+      "id": "raycast",
+      "name": "Raycast",
+      "category": "productivity",
+      "lists": {
+        "AI/AI.list": [
+          {
+            "note": "The suffix covers the whole product deliberately: its AI and dictation endpoints need a foreign exit, and so does the rest of it. AI attachments upload to an S3 bucket outside the suffix.",
+            "rules": [
+              "DOMAIN-SUFFIX,raycast.com",
+              "DOMAIN-SUFFIX,raycast-releases.com",
+              "DOMAIN,raycast-ai-attachments.s3-accelerate.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "category": "productivity",
+      "lists": {
+        "Library/Developer/Notion.list": [
+          "DOMAIN-SUFFIX,notion.com",
+          "DOMAIN-SUFFIX,notion.site",
+          "DOMAIN-SUFFIX,notion.so",
+          "DOMAIN-SUFFIX,notionusercontent.com"
+        ]
+      }
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "category": "productivity",
+      "lists": {
+        "Library/Developer/Slack.list": [
+          "DOMAIN-SUFFIX,slack-edge.com",
+          "DOMAIN-SUFFIX,slack-msgs.com",
+          "DOMAIN-SUFFIX,slack.com",
+          "DOMAIN-SUFFIX,slackb.com"
+        ]
+      }
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "category": "productivity",
+      "lists": {
+        "Library/Developer/Figma.list": [
+          "DOMAIN-SUFFIX,figma.com",
+          "DOMAIN-SUFFIX,figma.site"
+        ]
+      }
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "category": "productivity",
+      "lists": {
+        "Library/Developer/1Password.list": [
+          "DOMAIN-SUFFIX,1password.com",
+          "DOMAIN-SUFFIX,1passwordusercontent.com",
+          "DOMAIN-SUFFIX,agilebits.com"
+        ]
+      },
+      "names": [
+        "1passwordservices.com"
+      ]
+    },
+    {
+      "id": "spark",
+      "name": "Spark",
+      "category": "productivity",
+      "names": [
+        "sparkmailapp.com"
+      ]
+    },
+    {
+      "id": "setapp",
+      "name": "Setapp",
+      "category": "productivity",
+      "lists": {
+        "Library/Direct/Download.list": [
+          "DOMAIN,store.setapp.com"
+        ]
+      },
+      "names": [
+        "setapp.com"
+      ]
+    }
+  ]
+}

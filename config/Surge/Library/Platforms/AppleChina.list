@@ -4,10 +4,13 @@
 #
 # The mainland operated estate includes iCloud on GCBD, the .cn store, and location, Maps and search endpoints for mainland clients. These endpoints can still answer through a proxy, hiding a routing mismatch.
 
+# Apple
 DOMAIN-SUFFIX,apple.com.cn
-DOMAIN-SUFFIX,icloud.com.cn
 DOMAIN-WILDCARD,gsp*-cn*.ls.apple.com
 DOMAIN,api.smoot.apple.cn
 DOMAIN,cl2-cn.apple.com
 DOMAIN,cl4-cn.apple.com
 DOMAIN,gs-loc-cn.apple.com
+
+# iCloud
+DOMAIN-SUFFIX,icloud.com.cn

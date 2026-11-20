@@ -2,7 +2,7 @@
 
 First-party service classification. The overlay in the sibling directories sits above it.
 
-Each file names the kind of policy it expects, never a policy group; [`../README.md`](../README.md) defines the kinds. Every file is listed in [INDEX.md](INDEX.md), which is generated from the file headers.
+Each file names the kind of policy it expects, never a policy group; [`../README.md`](../README.md) defines the kinds. Every file is listed in [INDEX.md](INDEX.md), which `scripts/build.mjs` generates from `source/lists.json`.
 
 ## How to use it
 

@@ -1,8 +1,10 @@
 # Ruleset
 
-Surge rule library for gateway profiles.
+Surge rule library for gateway profiles, and a catalog of who each domain belongs to.
 
-Two first-party layers. The overlay handles tunnel transport, path faults, policy pins and false-positive repairs. The library classifies services and categories for a Surge profile.
+Two first-party routing layers. The overlay handles tunnel transport, path faults, policy pins and false-positive repairs. The library groups services and categories by the policy they need in a Surge profile.
+
+Both come from one source. Each service in [`source/`](source/README.md) names its rules and the lists they route through, so the rule sets and the [service catalog](catalog/README.md) cannot disagree. The catalog names the service, owner and category of a domain, independent of policy and rule order.
 
 ## Overlay
 
@@ -33,6 +35,9 @@ The reject layer is imported from [ruleset.skk.moe](https://ruleset.skk.moe) on 
 ## Layout
 
 ```
+source/                   the only hand-edited rules: lists and services
+scripts/build.mjs         generates config/ and catalog/ from source/, --check verifies them
+catalog/                  service, owner and category of each domain, client neutral
 config/
 └── Surge/
     ├── AI/               owned AI category, foreign and mainland
@@ -45,7 +50,7 @@ config/
     └── Library/          first-party classification
 ```
 
-`config/` is keyed by client, so a second client gets a sibling directory rather than a reshuffle.
+`config/` is keyed by client, so a second client gets a sibling directory rather than a reshuffle. `catalog/` belongs to no client. Their rule sets, the library index and the catalog are generated: change [`source/`](source/README.md), run `node scripts/build.mjs`, and commit the source with its output.
 
 Start with [`config/Surge/README.md`](config/Surge/README.md) for the order the files must be referenced in and the policy each kind of file expects.
 

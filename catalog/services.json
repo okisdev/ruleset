@@ -1,0 +1,2995 @@
+{
+  "owners": [
+    {
+      "id": "alibaba",
+      "name": "Alibaba",
+      "zh": "阿里巴巴"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon"
+    },
+    {
+      "id": "anysphere",
+      "name": "Anysphere"
+    },
+    {
+      "id": "apple",
+      "name": "Apple"
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu",
+      "zh": "百度"
+    },
+    {
+      "id": "bytedance",
+      "name": "ByteDance",
+      "zh": "字节跳动"
+    },
+    {
+      "id": "cognition",
+      "name": "Cognition"
+    },
+    {
+      "id": "disney",
+      "name": "Disney"
+    },
+    {
+      "id": "google",
+      "name": "Google"
+    },
+    {
+      "id": "huawei",
+      "name": "Huawei",
+      "zh": "华为"
+    },
+    {
+      "id": "jd",
+      "name": "JD",
+      "zh": "京东"
+    },
+    {
+      "id": "meituan",
+      "name": "Meituan",
+      "zh": "美团"
+    },
+    {
+      "id": "meta",
+      "name": "Meta"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft"
+    },
+    {
+      "id": "mihoyo",
+      "name": "miHoYo",
+      "zh": "米哈游"
+    },
+    {
+      "id": "netease",
+      "name": "NetEase",
+      "zh": "网易"
+    },
+    {
+      "id": "tencent",
+      "name": "Tencent",
+      "zh": "腾讯"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel"
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "Xiaohongshu",
+      "zh": "小红书"
+    },
+    {
+      "id": "xiaomi",
+      "name": "Xiaomi",
+      "zh": "小米"
+    }
+  ],
+  "services": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "category": "ai",
+      "domains": [
+        "anthropic.com",
+        "claude.ai",
+        "claude.com",
+        "claude.dev",
+        "claudemcpclient.com",
+        "claudemcpcontent.com",
+        "claudeusercontent.com"
+      ]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "category": "ai",
+      "domains": [
+        "chatgpt.com",
+        "oaistatic.com",
+        "oaiusercontent.com",
+        "openai.com",
+        "sora.com"
+      ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "category": "ai",
+      "domains": [
+        "grok.com",
+        "grok.x.com",
+        "x.ai"
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "ai",
+      "domains": [
+        "perplexity.ai"
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral",
+      "category": "ai",
+      "domains": [
+        "mistral.ai"
+      ]
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "category": "ai",
+      "domains": [
+        "cohere.ai",
+        "cohere.com"
+      ]
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "ai",
+      "domains": [
+        "openrouter.ai"
+      ]
+    },
+    {
+      "id": "opencode",
+      "name": "opencode",
+      "category": "ai",
+      "domains": [
+        "models.dev",
+        "opencode.ai"
+      ]
+    },
+    {
+      "id": "hugging-face",
+      "name": "Hugging Face",
+      "category": "ai",
+      "domains": [
+        "hf.co",
+        "huggingface.co"
+      ]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "category": "ai",
+      "domains": [
+        "ollama.com"
+      ]
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "category": "ai",
+      "domains": [
+        "groq.com"
+      ]
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "category": "ai",
+      "domains": [
+        "together.ai",
+        "together.xyz"
+      ]
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks AI",
+      "category": "ai",
+      "domains": [
+        "fireworks.ai"
+      ]
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "category": "ai",
+      "domains": [
+        "cerebras.ai"
+      ]
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "category": "ai",
+      "domains": [
+        "deepinfra.com"
+      ]
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "category": "ai",
+      "domains": [
+        "replicate.com",
+        "replicate.delivery"
+      ]
+    },
+    {
+      "id": "fal",
+      "name": "fal",
+      "category": "ai",
+      "domains": [
+        "fal.ai",
+        "fal.run"
+      ]
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "category": "ai",
+      "domains": [
+        "litellm.ai"
+      ]
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "category": "ai",
+      "domains": [
+        "poe.com"
+      ]
+    },
+    {
+      "id": "character-ai",
+      "name": "Character.AI",
+      "category": "ai",
+      "domains": [
+        "character.ai"
+      ]
+    },
+    {
+      "id": "lmarena",
+      "name": "LMArena",
+      "category": "ai",
+      "domains": [
+        "arena.ai",
+        "lmarena.ai"
+      ]
+    },
+    {
+      "id": "lobehub",
+      "name": "LobeHub",
+      "category": "ai",
+      "domains": [
+        "lobehub.com"
+      ]
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "category": "ai",
+      "domains": [
+        "manus.im"
+      ]
+    },
+    {
+      "id": "genspark",
+      "name": "Genspark",
+      "category": "ai",
+      "domains": [
+        "genspark.ai"
+      ]
+    },
+    {
+      "id": "poke",
+      "name": "Poke",
+      "category": "ai",
+      "domains": [
+        "authenticate.cx",
+        "poke.com"
+      ]
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "category": "ai",
+      "domains": [
+        "openclaw.ai"
+      ]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "category": "ai",
+      "domains": [
+        "midjourney.com"
+      ]
+    },
+    {
+      "id": "stability",
+      "name": "Stability AI",
+      "category": "ai",
+      "domains": [
+        "stability.ai"
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "category": "ai",
+      "domains": [
+        "runwayml.com"
+      ]
+    },
+    {
+      "id": "luma",
+      "name": "Luma AI",
+      "category": "ai",
+      "domains": [
+        "lumalabs.ai"
+      ]
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "category": "ai",
+      "domains": [
+        "suno.ai",
+        "suno.com"
+      ]
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "category": "ai",
+      "domains": [
+        "elevenlabs.io"
+      ]
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "category": "ai",
+      "domains": [
+        "zed.dev"
+      ]
+    },
+    {
+      "id": "sourcegraph",
+      "name": "Sourcegraph",
+      "category": "ai",
+      "domains": [
+        "sourcegraph.com"
+      ]
+    },
+    {
+      "id": "amp",
+      "name": "Amp",
+      "category": "ai",
+      "domains": [
+        "ampcode.com"
+      ]
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "category": "ai",
+      "domains": [
+        "continue.dev"
+      ]
+    },
+    {
+      "id": "tabnine",
+      "name": "Tabnine",
+      "category": "ai",
+      "domains": [
+        "tabnine.com"
+      ]
+    },
+    {
+      "id": "augment",
+      "name": "Augment Code",
+      "category": "ai",
+      "domains": [
+        "augmentcode.com"
+      ]
+    },
+    {
+      "id": "coderabbit",
+      "name": "CodeRabbit",
+      "category": "ai",
+      "domains": [
+        "coderabbit.ai"
+      ]
+    },
+    {
+      "id": "lovable",
+      "name": "Lovable",
+      "category": "ai",
+      "domains": [
+        "lovable.app",
+        "lovable.dev"
+      ]
+    },
+    {
+      "id": "bolt",
+      "name": "Bolt",
+      "category": "ai",
+      "domains": [
+        "bolt.new"
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "ai",
+      "domains": [
+        "deepseek.com"
+      ]
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "category": "ai",
+      "domains": [
+        "kimi.ai",
+        "kimi.com",
+        "moonshot.cn"
+      ]
+    },
+    {
+      "id": "zhipu",
+      "name": "Zhipu AI",
+      "zh": "智谱",
+      "category": "ai",
+      "domains": [
+        "bigmodel.cn",
+        "z.ai"
+      ]
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "category": "ai",
+      "domains": [
+        "minimaxi.com"
+      ]
+    },
+    {
+      "id": "stepfun",
+      "name": "StepFun",
+      "zh": "阶跃星辰",
+      "category": "ai",
+      "domains": [
+        "stepfun.com"
+      ]
+    },
+    {
+      "id": "siliconflow",
+      "name": "SiliconFlow",
+      "zh": "硅基流动",
+      "category": "ai",
+      "domains": [
+        "siliconflow.cn"
+      ]
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba",
+      "zh": "阿里巴巴",
+      "owner": "alibaba",
+      "category": "platform",
+      "domains": [
+        "alibaba-inc.com",
+        "alibaba.com",
+        "alibabachengdun.com",
+        "alibabachengdun.net",
+        "alibabausercontent.com",
+        "alicdn.com",
+        "alidns.com",
+        "alikunlun.com",
+        "marmot-cloud.com"
+      ]
+    },
+    {
+      "id": "taobao",
+      "name": "Taobao",
+      "zh": "淘宝",
+      "owner": "alibaba",
+      "category": "shopping",
+      "domains": [
+        "taobao.com",
+        "taobaocdn.com",
+        "tbcache.com",
+        "tbcdn.cn",
+        "tmall.com"
+      ]
+    },
+    {
+      "id": "1688",
+      "name": "1688",
+      "owner": "alibaba",
+      "category": "shopping",
+      "domains": [
+        "1688.com"
+      ]
+    },
+    {
+      "id": "goofish",
+      "name": "Goofish",
+      "zh": "闲鱼",
+      "owner": "alibaba",
+      "category": "shopping",
+      "domains": [
+        "goofish.com"
+      ]
+    },
+    {
+      "id": "freshippo",
+      "name": "Freshippo",
+      "zh": "盒马",
+      "owner": "alibaba",
+      "category": "shopping",
+      "domains": [
+        "freshippo.com"
+      ]
+    },
+    {
+      "id": "alipay",
+      "name": "Alipay",
+      "zh": "支付宝",
+      "owner": "alibaba",
+      "category": "finance",
+      "domains": [
+        "alipay.com",
+        "alipay.com.cn",
+        "alipayobjects.com"
+      ]
+    },
+    {
+      "id": "aliyun",
+      "name": "Alibaba Cloud",
+      "zh": "阿里云",
+      "owner": "alibaba",
+      "category": "cloud",
+      "domains": [
+        "aliyun.com",
+        "aliyuncs.com",
+        "hichina.com",
+        "mxhichina.com"
+      ]
+    },
+    {
+      "id": "amap",
+      "name": "Amap",
+      "zh": "高德地图",
+      "owner": "alibaba",
+      "category": "lifestyle",
+      "domains": [
+        "amap.com",
+        "autonavi.com"
+      ]
+    },
+    {
+      "id": "cainiao",
+      "name": "Cainiao",
+      "zh": "菜鸟",
+      "owner": "alibaba",
+      "category": "lifestyle",
+      "domains": [
+        "cainiao.com"
+      ]
+    },
+    {
+      "id": "eleme",
+      "name": "Ele.me",
+      "zh": "饿了么",
+      "owner": "alibaba",
+      "category": "lifestyle",
+      "domains": [
+        "ele.me"
+      ]
+    },
+    {
+      "id": "dingtalk",
+      "name": "DingTalk",
+      "zh": "钉钉",
+      "owner": "alibaba",
+      "category": "productivity",
+      "domains": [
+        "dingtalk.com"
+      ]
+    },
+    {
+      "id": "quark",
+      "name": "Quark",
+      "zh": "夸克",
+      "owner": "alibaba",
+      "category": "storage",
+      "domains": [
+        "myquark.cn",
+        "quark.cn"
+      ]
+    },
+    {
+      "id": "alipan",
+      "name": "Alipan",
+      "zh": "阿里云盘",
+      "owner": "alibaba",
+      "category": "storage",
+      "domains": [
+        "alipan.com",
+        "aliyundrive.com"
+      ]
+    },
+    {
+      "id": "uc",
+      "name": "UC Browser",
+      "zh": "UC 浏览器",
+      "owner": "alibaba",
+      "category": "platform",
+      "domains": [
+        "uc.cn",
+        "ucweb.com"
+      ]
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "zh": "通义千问",
+      "owner": "alibaba",
+      "category": "ai",
+      "domains": [
+        "qianwen.com",
+        "qwen.ai",
+        "tongyi.com"
+      ]
+    },
+    {
+      "id": "youku",
+      "name": "Youku",
+      "zh": "优酷",
+      "owner": "alibaba",
+      "category": "video",
+      "domains": [
+        "soku.com",
+        "ykimg.com",
+        "youku.com"
+      ]
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "owner": "amazon",
+      "category": "shopping",
+      "domains": [
+        "amazon.co.jp",
+        "amazon.co.uk",
+        "amazon.com",
+        "amazon.dev",
+        "media-amazon.com",
+        "ssl-images-amazon.com"
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "owner": "amazon",
+      "category": "cloud",
+      "domains": [
+        "amazonaws.com",
+        "amazontrust.com",
+        "aws.dev",
+        "awsstatic.com"
+      ]
+    },
+    {
+      "id": "prime-video",
+      "name": "Prime Video",
+      "owner": "amazon",
+      "category": "video",
+      "domains": [
+        "aiv-cdn.net",
+        "aiv-delivery.net",
+        "atv-ps.amazon.com",
+        "primevideo.com"
+      ]
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "owner": "amazon",
+      "category": "video",
+      "domains": [
+        "jtvnw.net",
+        "ttvnw.net",
+        "twitch.tv",
+        "twitchcdn.net"
+      ]
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "owner": "anysphere",
+      "category": "ai",
+      "domains": [
+        "cursor-cdn.com",
+        "cursor.com",
+        "cursor.sh",
+        "cursorapi.com",
+        "cursorvm.com"
+      ]
+    },
+    {
+      "id": "supermaven",
+      "name": "Supermaven",
+      "owner": "anysphere",
+      "category": "ai",
+      "domains": [
+        "supermaven.com"
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "owner": "apple",
+      "category": "platform",
+      "domains": [
+        "aaplimg.com",
+        "api.smoot.apple.cn",
+        "apple",
+        "apple-cloudkit.com",
+        "apple-dns.net",
+        "apple-livephotoskit.com",
+        "apple-mapkit.com",
+        "apple.cn",
+        "apple.com",
+        "apple.com.cn",
+        "apzones.com",
+        "cdn-apple.com",
+        "cl2-cn.apple.com",
+        "cl4-cn.apple.com",
+        "doh.dns.apple.com",
+        "gs-loc-cn.apple.com",
+        "gspe1-ssl.ls.apple.com",
+        "mzstatic.com",
+        "push-apple.com.akadns.net",
+        "push.apple.com",
+        "safebrowsing.apple"
+      ]
+    },
+    {
+      "id": "icloud",
+      "name": "iCloud",
+      "owner": "apple",
+      "category": "storage",
+      "domains": [
+        "content.icloud.com",
+        "icloud-content.com",
+        "icloud.com",
+        "icloud.com.cn",
+        "mask-api.icloud.com",
+        "mask-canary.icloud.com",
+        "mask-h2.icloud.com",
+        "mask.icloud.com",
+        "me.com"
+      ]
+    },
+    {
+      "id": "apple-tv",
+      "name": "Apple TV",
+      "owner": "apple",
+      "category": "video",
+      "domains": [
+        "hls-amt.itunes.apple.com",
+        "hls-svod.itunes.apple.com",
+        "hls.itunes.apple.com",
+        "np-edge.itunes.apple.com",
+        "ocvideo.apple.com",
+        "tv.apple.com",
+        "uts-api.itunes.apple.com"
+      ]
+    },
+    {
+      "id": "apple-music",
+      "name": "Apple Music",
+      "owner": "apple",
+      "category": "music",
+      "domains": [
+        "music.apple.com"
+      ]
+    },
+    {
+      "id": "apple-news",
+      "name": "Apple News",
+      "owner": "apple",
+      "category": "news",
+      "domains": [
+        "apple.news",
+        "news-assets.apple.com",
+        "news-client-search.apple.com",
+        "news-client.apple.com",
+        "news-edge.apple.com",
+        "news-events.apple.com"
+      ]
+    },
+    {
+      "id": "apple-intelligence",
+      "name": "Apple Intelligence",
+      "owner": "apple",
+      "category": "ai",
+      "domains": [
+        "apple-relay.apple.com",
+        "apple-relay.cloudflare.com",
+        "apple-relay.fastly-edge.com",
+        "cp4.cloudflare.com"
+      ]
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu",
+      "zh": "百度",
+      "owner": "baidu",
+      "category": "platform",
+      "domains": [
+        "baidu.com",
+        "baidustatic.com",
+        "bdimg.com",
+        "bdstatic.com",
+        "bdurl.net",
+        "bdydns.com",
+        "hao123.com"
+      ]
+    },
+    {
+      "id": "baidu-netdisk",
+      "name": "Baidu Netdisk",
+      "zh": "百度网盘",
+      "owner": "baidu",
+      "category": "storage",
+      "domains": [
+        "baidupcs.com",
+        "pan.baidu.com"
+      ]
+    },
+    {
+      "id": "baidu-cloud",
+      "name": "Baidu AI Cloud",
+      "zh": "百度智能云",
+      "owner": "baidu",
+      "category": "cloud",
+      "domains": [
+        "baidubce.com",
+        "bcebos.com"
+      ]
+    },
+    {
+      "id": "iqiyi",
+      "name": "iQIYI",
+      "zh": "爱奇艺",
+      "owner": "baidu",
+      "category": "video",
+      "domains": [
+        "71edge.com",
+        "iq.com",
+        "iqiyi.com",
+        "iqiyipic.com",
+        "qy.net"
+      ]
+    },
+    {
+      "id": "bytedance",
+      "name": "ByteDance",
+      "zh": "字节跳动",
+      "owner": "bytedance",
+      "category": "platform",
+      "domains": [
+        "baike.com",
+        "bytecdn.cn",
+        "bytecdn.com",
+        "byted.org",
+        "bytedance.com",
+        "bytedance.net",
+        "bytedancevod.com",
+        "bytednsdoc.com",
+        "byteeffecttos.com",
+        "bytegecko.com",
+        "bytehwm.com",
+        "byteimg.com",
+        "bytemaimg.com",
+        "bytemastatic.com",
+        "bytescm.com",
+        "bytetos.com",
+        "dailygn.com",
+        "ibytedapm.com",
+        "pstatp.com",
+        "snssdk.com",
+        "zijieapi.com",
+        "zjcdn.com"
+      ]
+    },
+    {
+      "id": "douyin",
+      "name": "Douyin",
+      "zh": "抖音",
+      "owner": "bytedance",
+      "category": "video",
+      "domains": [
+        "amemv.com",
+        "douyin.com",
+        "douyincdn.com",
+        "douyinpic.com",
+        "douyinstatic.com",
+        "douyinvod.com",
+        "idouyinvod.com",
+        "iesdouyin.com"
+      ]
+    },
+    {
+      "id": "douyin-shop",
+      "name": "Douyin Shop",
+      "zh": "抖音电商",
+      "owner": "bytedance",
+      "category": "shopping",
+      "domains": [
+        "ecombdapi.com",
+        "ecombdimg.com",
+        "ecombdpage.com",
+        "ecombdstatic.com",
+        "jinritemai.com"
+      ]
+    },
+    {
+      "id": "huoshan",
+      "name": "Douyin Huoshan",
+      "zh": "抖音火山版",
+      "owner": "bytedance",
+      "category": "video",
+      "domains": [
+        "huoshan.com",
+        "huoshanimg.com"
+      ]
+    },
+    {
+      "id": "xigua",
+      "name": "Xigua Video",
+      "zh": "西瓜视频",
+      "owner": "bytedance",
+      "category": "video",
+      "domains": [
+        "bdxiguastatic.com",
+        "ixigua.com"
+      ]
+    },
+    {
+      "id": "toutiao",
+      "name": "Toutiao",
+      "zh": "今日头条",
+      "owner": "bytedance",
+      "category": "news",
+      "domains": [
+        "365yg.com",
+        "toutiao.com",
+        "toutiaoapi.com",
+        "toutiaocloud.com"
+      ]
+    },
+    {
+      "id": "pipix",
+      "name": "Pipixia",
+      "zh": "皮皮虾",
+      "owner": "bytedance",
+      "category": "social",
+      "domains": [
+        "pipix.com"
+      ]
+    },
+    {
+      "id": "qishui",
+      "name": "Qishui Music",
+      "zh": "汽水音乐",
+      "owner": "bytedance",
+      "category": "music",
+      "domains": [
+        "qishui.com"
+      ]
+    },
+    {
+      "id": "feishu",
+      "name": "Feishu",
+      "zh": "飞书",
+      "owner": "bytedance",
+      "category": "productivity",
+      "domains": [
+        "feishu.cn",
+        "larksuite.com"
+      ]
+    },
+    {
+      "id": "jianying",
+      "name": "Jianying",
+      "zh": "剪映",
+      "owner": "bytedance",
+      "category": "video",
+      "domains": [
+        "jianying.com"
+      ]
+    },
+    {
+      "id": "doubao",
+      "name": "Doubao",
+      "zh": "豆包",
+      "owner": "bytedance",
+      "category": "ai",
+      "domains": [
+        "doubao.com"
+      ]
+    },
+    {
+      "id": "jimeng",
+      "name": "Jimeng",
+      "zh": "即梦",
+      "owner": "bytedance",
+      "category": "ai",
+      "domains": [
+        "jimeng.jianying.com"
+      ]
+    },
+    {
+      "id": "volcengine",
+      "name": "Volcano Engine",
+      "zh": "火山引擎",
+      "owner": "bytedance",
+      "category": "cloud",
+      "domains": [
+        "vedcdnlb.com",
+        "volccdn.com",
+        "volcengine.com",
+        "volces.com",
+        "volcgslb.com"
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "owner": "bytedance",
+      "category": "video",
+      "domains": [
+        "byteoversea.com",
+        "ibytedtos.com",
+        "ibyteimg.com",
+        "musical.ly",
+        "tiktok.com",
+        "tiktokcdn-us.com",
+        "tiktokcdn.com",
+        "tiktokv.com"
+      ]
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "category": "cloud",
+      "domains": [
+        "argotunnel.com",
+        "cfargotunnel.com",
+        "cloudflare-dns.com",
+        "cloudflare.com",
+        "cloudflare.net",
+        "cloudflareinsights.com",
+        "cloudflarestorage.com",
+        "cloudflareworkers.com",
+        "gateway.ai.cloudflare.com",
+        "pages.dev",
+        "r2.dev",
+        "trycloudflare.com",
+        "workers.dev"
+      ]
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai",
+      "category": "cloud",
+      "domains": [
+        "akadns.net",
+        "akamai.net",
+        "akamaihd.net",
+        "akamaized.net",
+        "edgekey.net",
+        "edgesuite.net"
+      ]
+    },
+    {
+      "id": "fastly",
+      "name": "Fastly",
+      "category": "cloud",
+      "domains": [
+        "fastly-edge.com",
+        "fastly.net",
+        "fastlylb.net"
+      ]
+    },
+    {
+      "id": "qiniu",
+      "name": "Qiniu",
+      "zh": "七牛云",
+      "category": "cloud",
+      "domains": [
+        "qiniucdn.com",
+        "qiniudn.com"
+      ]
+    },
+    {
+      "id": "upyun",
+      "name": "Upyun",
+      "zh": "又拍云",
+      "category": "cloud",
+      "domains": [
+        "upaiyun.com"
+      ]
+    },
+    {
+      "id": "kingsoft-cloud",
+      "name": "Kingsoft Cloud",
+      "zh": "金山云",
+      "category": "cloud",
+      "domains": [
+        "ksyuncs.com"
+      ]
+    },
+    {
+      "id": "ctyun",
+      "name": "China Telecom Cloud",
+      "zh": "天翼云",
+      "category": "cloud",
+      "domains": [
+        "ctadns.cn",
+        "ctlcdn.cn"
+      ]
+    },
+    {
+      "id": "tailscale",
+      "name": "Tailscale",
+      "category": "cloud",
+      "domains": [
+        "console.tailscale.com",
+        "controlplane.tailscale.com",
+        "login.tailscale.com",
+        "tailscale.com",
+        "tailscale.io",
+        "ts.net"
+      ]
+    },
+    {
+      "id": "backblaze",
+      "name": "Backblaze",
+      "category": "cloud",
+      "domains": [
+        "backblazeb2.com"
+      ]
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "category": "cloud",
+      "domains": [
+        "neon.tech"
+      ]
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "category": "cloud",
+      "domains": [
+        "supabase.co",
+        "supabase.com"
+      ]
+    },
+    {
+      "id": "devin",
+      "name": "Devin",
+      "owner": "cognition",
+      "category": "ai",
+      "domains": [
+        "cognition.ai",
+        "cognition.com",
+        "devin.ai"
+      ]
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "owner": "cognition",
+      "category": "ai",
+      "domains": [
+        "codeium.com",
+        "windsurf.build",
+        "windsurf.com"
+      ]
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "category": "developer",
+      "domains": [
+        "atlassian.com",
+        "atlassian.net",
+        "bitbucket.org",
+        "jira.com",
+        "statuspage.io",
+        "trello.com"
+      ]
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "category": "developer",
+      "domains": [
+        "gitlab.com",
+        "gitlab.io",
+        "gitlab.net"
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "category": "developer",
+      "domains": [
+        "docker.com",
+        "docker.io",
+        "dockerhub.com"
+      ]
+    },
+    {
+      "id": "jetbrains",
+      "name": "JetBrains",
+      "category": "developer",
+      "domains": [
+        "api.jetbrains.ai",
+        "jetbrains.ai",
+        "jetbrains.com",
+        "jetbrains.net"
+      ]
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "category": "developer",
+      "domains": [
+        "sentry.io"
+      ]
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "category": "developer",
+      "domains": [
+        "datadoghq.com"
+      ]
+    },
+    {
+      "id": "better-stack",
+      "name": "Better Stack",
+      "category": "developer",
+      "domains": [
+        "betterstack.com",
+        "betterstackdata.com"
+      ]
+    },
+    {
+      "id": "infisical",
+      "name": "Infisical",
+      "category": "developer",
+      "domains": [
+        "infisical.com"
+      ]
+    },
+    {
+      "id": "wakatime",
+      "name": "WakaTime",
+      "category": "developer",
+      "domains": [
+        "wakatime.com"
+      ]
+    },
+    {
+      "id": "orbstack",
+      "name": "OrbStack",
+      "category": "developer",
+      "domains": [
+        "api-updates.orbstack.dev",
+        "cdn-updates.orbstack.dev",
+        "orbstack.dev"
+      ]
+    },
+    {
+      "id": "homebrew",
+      "name": "Homebrew",
+      "category": "developer",
+      "domains": [
+        "brew.sh",
+        "formulae.brew.sh"
+      ]
+    },
+    {
+      "id": "pypi",
+      "name": "PyPI",
+      "category": "developer",
+      "domains": [
+        "pypi.org",
+        "pythonhosted.org"
+      ]
+    },
+    {
+      "id": "crates",
+      "name": "crates.io",
+      "category": "developer",
+      "domains": [
+        "crates.io"
+      ]
+    },
+    {
+      "id": "yarn",
+      "name": "Yarn",
+      "category": "developer",
+      "domains": [
+        "yarnpkg.com"
+      ]
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "category": "developer",
+      "domains": [
+        "nodejs.org"
+      ]
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "category": "developer",
+      "domains": [
+        "rust-lang.org",
+        "static.rust-lang.org"
+      ]
+    },
+    {
+      "id": "debian",
+      "name": "Debian",
+      "category": "developer",
+      "domains": [
+        "deb.debian.org",
+        "debian.map.fastlydns.net",
+        "debian.org",
+        "security.debian.org"
+      ]
+    },
+    {
+      "id": "rubygems",
+      "name": "RubyGems",
+      "category": "developer",
+      "domains": [
+        "index.rubygems.org",
+        "rubygems.org"
+      ]
+    },
+    {
+      "id": "maven-central",
+      "name": "Maven Central",
+      "category": "developer",
+      "domains": [
+        "repo.maven.apache.org",
+        "repo1.maven.org"
+      ]
+    },
+    {
+      "id": "packagist",
+      "name": "Packagist",
+      "category": "developer",
+      "domains": [
+        "packagist.org"
+      ]
+    },
+    {
+      "id": "hex",
+      "name": "Hex",
+      "category": "developer",
+      "domains": [
+        "hex.pm",
+        "repo.hex.pm"
+      ]
+    },
+    {
+      "id": "cocoapods",
+      "name": "CocoaPods",
+      "category": "developer",
+      "domains": [
+        "cdn.cocoapods.org",
+        "cocoapods.org"
+      ]
+    },
+    {
+      "id": "anaconda",
+      "name": "Anaconda",
+      "category": "developer",
+      "domains": [
+        "anaconda.com",
+        "repo.anaconda.com"
+      ]
+    },
+    {
+      "id": "kernel-org",
+      "name": "kernel.org",
+      "category": "developer",
+      "domains": [
+        "cdn.kernel.org",
+        "kernel.org"
+      ]
+    },
+    {
+      "id": "electron",
+      "name": "Electron",
+      "category": "developer",
+      "domains": [
+        "artifacts.electronjs.org",
+        "electronjs.org"
+      ]
+    },
+    {
+      "id": "linux-containers",
+      "name": "Linux Containers",
+      "category": "developer",
+      "domains": [
+        "images.linuxcontainers.org",
+        "linuxcontainers.org"
+      ]
+    },
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "category": "developer",
+      "domains": [
+        "archive.ubuntu.com",
+        "ports.ubuntu.com",
+        "security.ubuntu.com",
+        "ubuntu.com"
+      ]
+    },
+    {
+      "id": "alpine",
+      "name": "Alpine Linux",
+      "category": "developer",
+      "domains": [
+        "alpinelinux.org",
+        "dl-cdn.alpinelinux.org"
+      ]
+    },
+    {
+      "id": "owned",
+      "name": "Owned services",
+      "zh": "自有服务",
+      "category": "developer",
+      "domains": [
+        "harisfox.com",
+        "okis.dev",
+        "okis.me",
+        "okisdev.com",
+        "okisdev.workers.dev"
+      ]
+    },
+    {
+      "id": "disney-plus",
+      "name": "Disney+",
+      "owner": "disney",
+      "category": "video",
+      "domains": [
+        "bamgrid.com",
+        "disney-plus.net",
+        "disneyplus.com",
+        "disneystreaming.com",
+        "dssott.com"
+      ]
+    },
+    {
+      "id": "hulu",
+      "name": "Hulu",
+      "owner": "disney",
+      "category": "video",
+      "domains": [
+        "hulu.com",
+        "huluim.com",
+        "hulustream.com"
+      ]
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "category": "finance",
+      "domains": [
+        "link.com",
+        "stripe.com",
+        "stripe.network",
+        "stripecdn.com"
+      ]
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "category": "finance",
+      "domains": [
+        "braintreegateway.com",
+        "paypal.com",
+        "paypalobjects.com",
+        "venmo.com"
+      ]
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "category": "finance",
+      "domains": [
+        "binance.com",
+        "binance.me",
+        "binance.org",
+        "bnbstatic.com",
+        "bntrace.com"
+      ]
+    },
+    {
+      "id": "coinbase",
+      "name": "Coinbase",
+      "category": "finance",
+      "domains": [
+        "coinbase.com"
+      ]
+    },
+    {
+      "id": "okx",
+      "name": "OKX",
+      "category": "finance",
+      "domains": [
+        "okex.com",
+        "okx.com"
+      ]
+    },
+    {
+      "id": "bybit",
+      "name": "Bybit",
+      "category": "finance",
+      "domains": [
+        "bybit.com"
+      ]
+    },
+    {
+      "id": "bitget",
+      "name": "Bitget",
+      "category": "finance",
+      "domains": [
+        "bitget.com"
+      ]
+    },
+    {
+      "id": "kraken",
+      "name": "Kraken",
+      "category": "finance",
+      "domains": [
+        "kraken.com"
+      ]
+    },
+    {
+      "id": "kucoin",
+      "name": "KuCoin",
+      "category": "finance",
+      "domains": [
+        "kucoin.com"
+      ]
+    },
+    {
+      "id": "gate",
+      "name": "Gate",
+      "category": "finance",
+      "domains": [
+        "gate.io"
+      ]
+    },
+    {
+      "id": "blockchain-com",
+      "name": "Blockchain.com",
+      "category": "finance",
+      "domains": [
+        "blockchain.com"
+      ]
+    },
+    {
+      "id": "etherscan",
+      "name": "Etherscan",
+      "category": "finance",
+      "domains": [
+        "etherscan.io"
+      ]
+    },
+    {
+      "id": "futu",
+      "name": "Futu",
+      "zh": "富途",
+      "category": "finance",
+      "domains": [
+        "futunn.com"
+      ]
+    },
+    {
+      "id": "longbridge",
+      "name": "Longbridge",
+      "zh": "长桥",
+      "category": "finance",
+      "domains": [
+        "lbctrl.com",
+        "lbkrs.com"
+      ]
+    },
+    {
+      "id": "unionpay",
+      "name": "UnionPay",
+      "zh": "银联",
+      "category": "finance",
+      "domains": [
+        "95516.com",
+        "cup.com.cn",
+        "unionpay.com",
+        "unionpayintl.com"
+      ]
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "category": "gaming",
+      "domains": [
+        "s.team",
+        "steam-chat.com",
+        "steamcdn-a.akamaihd.net",
+        "steamcommunity.com",
+        "steamcontent.com",
+        "steamdeck.com",
+        "steamgames.com",
+        "steampipe.akamaized.net",
+        "steampowered.com",
+        "steamserver.net",
+        "steamstatic.com",
+        "steamusercontent.com",
+        "valvesoftware.com"
+      ]
+    },
+    {
+      "id": "epic",
+      "name": "Epic Games",
+      "category": "gaming",
+      "domains": [
+        "easy.ac",
+        "easyanticheat.net",
+        "epicgames.com",
+        "epicgames.dev",
+        "fortnite.com",
+        "unrealengine.com"
+      ]
+    },
+    {
+      "id": "ea",
+      "name": "EA",
+      "category": "gaming",
+      "domains": [
+        "ea.com",
+        "origin.com",
+        "origin.ea.com"
+      ]
+    },
+    {
+      "id": "ubisoft",
+      "name": "Ubisoft",
+      "category": "gaming",
+      "domains": [
+        "ubi.com",
+        "ubisoft.com",
+        "uplay.com"
+      ]
+    },
+    {
+      "id": "nintendo",
+      "name": "Nintendo",
+      "zh": "任天堂",
+      "category": "gaming",
+      "domains": [
+        "cdn.nintendo.net",
+        "nintendo-europe.com",
+        "nintendo.co.jp",
+        "nintendo.co.kr",
+        "nintendo.co.uk",
+        "nintendo.com",
+        "nintendo.com.au",
+        "nintendo.com.hk",
+        "nintendo.eu",
+        "nintendo.jp",
+        "nintendo.net",
+        "nintendo.tw",
+        "nintendoswitch.com",
+        "nintendowifi.net"
+      ]
+    },
+    {
+      "id": "playstation",
+      "name": "PlayStation",
+      "category": "gaming",
+      "domains": [
+        "playstation.com",
+        "playstation.net",
+        "playstationnetwork.com",
+        "sie.com",
+        "sonyentertainmentnetwork.com"
+      ]
+    },
+    {
+      "id": "bahamut",
+      "name": "Bahamut",
+      "zh": "巴哈姆特",
+      "category": "gaming",
+      "domains": [
+        "bahamut.com.tw",
+        "gamer.com.tw"
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "owner": "google",
+      "category": "platform",
+      "domains": [
+        "1e100.net",
+        "ampproject.org",
+        "android.com",
+        "app-analytics-services.com",
+        "appspot.com",
+        "blogger.com",
+        "blogspot.com",
+        "chrome.com",
+        "chromium.org",
+        "g.co",
+        "goo.gl",
+        "goog",
+        "google",
+        "google.cn",
+        "google.co.jp",
+        "google.com",
+        "google.com.hk",
+        "google.com.sg",
+        "google.com.tw",
+        "google.dev",
+        "googleapis.cn",
+        "googleapis.com",
+        "googledomains.com",
+        "googlesource.com",
+        "googletagmanager.com",
+        "googleusercontent.com",
+        "googlezip.net",
+        "gstatic.cn",
+        "gstatic.com",
+        "gvt1-cn.com",
+        "gvt1.com",
+        "gvt2.com",
+        "gvt3.com",
+        "recaptcha.net",
+        "withgoogle.com"
+      ]
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "owner": "google",
+      "category": "productivity",
+      "domains": [
+        "gmail.com",
+        "googlemail.com"
+      ]
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "owner": "google",
+      "category": "video",
+      "domains": [
+        "ggpht.com",
+        "googlevideo.com",
+        "youtu.be",
+        "youtube-nocookie.com",
+        "youtube.com",
+        "youtubei.googleapis.com",
+        "youtubekids.com",
+        "yt.be",
+        "ytimg.com"
+      ]
+    },
+    {
+      "id": "go-modules",
+      "name": "Go modules",
+      "owner": "google",
+      "category": "developer",
+      "domains": [
+        "index.golang.org",
+        "proxy.golang.org",
+        "sum.golang.org"
+      ]
+    },
+    {
+      "id": "firebase",
+      "name": "Firebase",
+      "owner": "google",
+      "category": "developer",
+      "domains": [
+        "crashlytics.com",
+        "firebase.com",
+        "firebaseio.com"
+      ]
+    },
+    {
+      "id": "google-ai",
+      "name": "Google AI",
+      "owner": "google",
+      "category": "ai",
+      "domains": [
+        "ai.google.dev",
+        "aicode.googleapis.com",
+        "aistudio.google.com",
+        "antigravity.google",
+        "appsgenaiserver-pa.googleapis.com",
+        "deepmind.google",
+        "gemini.google",
+        "gemini.google.com",
+        "geminiweb-pa.googleapis.com",
+        "generativelanguage.googleapis.com",
+        "jules.google.com",
+        "labs.google",
+        "notebooklm.google",
+        "notebooklm.google.com",
+        "proactivebackend-pa.googleapis.com",
+        "robinfrontend-pa.googleapis.com"
+      ]
+    },
+    {
+      "id": "huawei",
+      "name": "Huawei",
+      "zh": "华为",
+      "owner": "huawei",
+      "category": "platform",
+      "domains": [
+        "dbankcdn.com",
+        "dbankcloud.com",
+        "hicloud.com",
+        "huawei.com",
+        "vmall.com"
+      ]
+    },
+    {
+      "id": "huawei-cloud",
+      "name": "Huawei Cloud",
+      "zh": "华为云",
+      "owner": "huawei",
+      "category": "cloud",
+      "domains": [
+        "cdnhwc1.com",
+        "cdnhwc2.com",
+        "cdnhwc3.com",
+        "huaweicloud.com",
+        "hwcdn.cn"
+      ]
+    },
+    {
+      "id": "jd",
+      "name": "JD",
+      "zh": "京东",
+      "owner": "jd",
+      "category": "shopping",
+      "domains": [
+        "3.cn",
+        "360buyimg.com",
+        "jd.com",
+        "jd.hk",
+        "jddj.com",
+        "jdpay.com"
+      ]
+    },
+    {
+      "id": "jd-cloud",
+      "name": "JD Cloud",
+      "zh": "京东云",
+      "owner": "jd",
+      "category": "cloud",
+      "domains": [
+        "jdcloud-oss.com",
+        "jdcloud.com"
+      ]
+    },
+    {
+      "id": "trip",
+      "name": "Trip.com",
+      "zh": "携程",
+      "category": "lifestyle",
+      "domains": [
+        "c-ctrip.com",
+        "ctrip.com",
+        "trip.com",
+        "tripcdn.cn",
+        "tripcdn.com"
+      ]
+    },
+    {
+      "id": "zhipin",
+      "name": "BOSS Zhipin",
+      "zh": "BOSS 直聘",
+      "category": "lifestyle",
+      "domains": [
+        "zhipin.com"
+      ]
+    },
+    {
+      "id": "meituan",
+      "name": "Meituan",
+      "zh": "美团",
+      "owner": "meituan",
+      "category": "lifestyle",
+      "domains": [
+        "meituan.com",
+        "meituan.net",
+        "sankuai.com"
+      ]
+    },
+    {
+      "id": "dianping",
+      "name": "Dianping",
+      "zh": "大众点评",
+      "owner": "meituan",
+      "category": "lifestyle",
+      "domains": [
+        "dianping.com",
+        "dpfile.com"
+      ]
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "owner": "meta",
+      "category": "platform",
+      "domains": [
+        "meta.com",
+        "oculus.com",
+        "oculuscdn.com"
+      ]
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "owner": "meta",
+      "category": "social",
+      "domains": [
+        "facebook.com",
+        "facebook.net",
+        "fb.com",
+        "fb.gg",
+        "fb.watch",
+        "fbcdn.com",
+        "fbcdn.net",
+        "fbsbx.com"
+      ]
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "owner": "meta",
+      "category": "social",
+      "domains": [
+        "cdninstagram.com",
+        "ig.me",
+        "instagram.com"
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp",
+      "owner": "meta",
+      "category": "social",
+      "domains": [
+        "wa.me",
+        "whatsapp.com",
+        "whatsapp.net"
+      ]
+    },
+    {
+      "id": "messenger",
+      "name": "Messenger",
+      "owner": "meta",
+      "category": "social",
+      "domains": [
+        "messenger.com"
+      ]
+    },
+    {
+      "id": "threads",
+      "name": "Threads",
+      "owner": "meta",
+      "category": "social",
+      "domains": [
+        "threads.com",
+        "threads.net"
+      ]
+    },
+    {
+      "id": "react-native",
+      "name": "React Native",
+      "owner": "meta",
+      "category": "developer",
+      "domains": [
+        "reactnative.dev",
+        "repo.reactnative.dev"
+      ]
+    },
+    {
+      "id": "meta-ai",
+      "name": "Meta AI",
+      "owner": "meta",
+      "category": "ai",
+      "domains": [
+        "meta.ai",
+        "metaaivm.com"
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "owner": "microsoft",
+      "category": "platform",
+      "domains": [
+        "az764295.vo.msecnd.net",
+        "crl.microsoft.com",
+        "dl.delivery.mp.microsoft.com",
+        "download.microsoft.com",
+        "download.visualstudio.microsoft.com",
+        "exp-tas.com",
+        "live.com",
+        "live.net",
+        "microsoft",
+        "microsoft.com",
+        "microsoftonline-p.com",
+        "microsoftonline.com",
+        "msauth.net",
+        "msauthimages.net",
+        "msecnd.net",
+        "msedge.net",
+        "msftauth.net",
+        "msftauthimages.net",
+        "msftconnecttest.com",
+        "msftncsi.com",
+        "msocsp.com",
+        "ocsp.msocsp.com",
+        "officecdn.microsoft.com",
+        "officecdnmac.microsoft.com",
+        "oneocsp.microsoft.com",
+        "s-microsoft.com",
+        "sdx.microsoft.com",
+        "sfx.ms",
+        "skype.com",
+        "storeedge.microsoft.com",
+        "tlu.dl.delivery.mp.microsoft.com",
+        "windows.com",
+        "windows.net",
+        "windowsupdate.com"
+      ]
+    },
+    {
+      "id": "microsoft-365",
+      "name": "Microsoft 365",
+      "owner": "microsoft",
+      "category": "productivity",
+      "domains": [
+        "cdn.office.net",
+        "hotmail.com",
+        "office.com",
+        "office.net",
+        "office365.com",
+        "onenote.com",
+        "onenote.net",
+        "outlook.com",
+        "sharepoint.com",
+        "sharepointonline.com"
+      ]
+    },
+    {
+      "id": "onedrive",
+      "name": "OneDrive",
+      "owner": "microsoft",
+      "category": "storage",
+      "domains": [
+        "1drv.com",
+        "livefilestore.com",
+        "microsoftpersonalcontent.com",
+        "onedrive.com"
+      ]
+    },
+    {
+      "id": "azure",
+      "name": "Azure",
+      "owner": "microsoft",
+      "category": "cloud",
+      "domains": [
+        "azure.com",
+        "azure.net",
+        "azureedge.net",
+        "azurefd.net",
+        "azurewebsites.net",
+        "cloudapp.net",
+        "trafficmanager.net",
+        "vscode-sync.trafficmanager.net"
+      ]
+    },
+    {
+      "id": "bing",
+      "name": "Bing",
+      "owner": "microsoft",
+      "category": "platform",
+      "domains": [
+        "bing.com",
+        "bing.net"
+      ]
+    },
+    {
+      "id": "msn",
+      "name": "MSN",
+      "owner": "microsoft",
+      "category": "news",
+      "domains": [
+        "msn.com"
+      ]
+    },
+    {
+      "id": "visual-studio",
+      "name": "Visual Studio",
+      "owner": "microsoft",
+      "category": "developer",
+      "domains": [
+        "update.code.visualstudio.com",
+        "visualstudio.com",
+        "vsassets.io",
+        "vscode-cdn.net",
+        "vscode-unpkg.net"
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "owner": "microsoft",
+      "category": "developer",
+      "domains": [
+        "copilotprodattachments.blob.core.windows.net",
+        "ghcr.io",
+        "github-cloud.s3.amazonaws.com",
+        "github.com",
+        "githubapp.com",
+        "githubassets.com",
+        "githubcopilot.com",
+        "githubnext.com",
+        "githubusercontent.com"
+      ]
+    },
+    {
+      "id": "npm",
+      "name": "npm",
+      "owner": "microsoft",
+      "category": "developer",
+      "domains": [
+        "npm.cloudflare.com",
+        "npmjs.com",
+        "npmjs.org",
+        "registry.npmjs.com",
+        "registry.npmjs.org",
+        "replicate.npmjs.com",
+        "skimdb.npmjs.com"
+      ]
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "owner": "microsoft",
+      "category": "social",
+      "domains": [
+        "licdn.com",
+        "linkedin.com",
+        "lnkd.in"
+      ]
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "owner": "microsoft",
+      "category": "ai",
+      "domains": [
+        "copilot.microsoft.com"
+      ]
+    },
+    {
+      "id": "xbox",
+      "name": "Xbox",
+      "owner": "microsoft",
+      "category": "gaming",
+      "domains": [
+        "gamepass.com",
+        "xbox.com",
+        "xboxgamepass.com",
+        "xboxlive.com",
+        "xboxservices.com"
+      ]
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft",
+      "owner": "microsoft",
+      "category": "gaming",
+      "domains": [
+        "minecraft.net",
+        "minecraftservices.com",
+        "mojang.com"
+      ]
+    },
+    {
+      "id": "blizzard",
+      "name": "Blizzard",
+      "owner": "microsoft",
+      "category": "gaming",
+      "domains": [
+        "battle.net",
+        "blizzard.com"
+      ]
+    },
+    {
+      "id": "mihoyo",
+      "name": "miHoYo",
+      "zh": "米哈游",
+      "owner": "mihoyo",
+      "category": "gaming",
+      "domains": [
+        "bh3.com",
+        "mihoyo.com",
+        "yuanshen.com"
+      ]
+    },
+    {
+      "id": "hoyoverse",
+      "name": "HoYoverse",
+      "owner": "mihoyo",
+      "category": "gaming",
+      "domains": [
+        "honkaiimpact3.com",
+        "hoyolab.com",
+        "hoyoverse.com"
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "category": "music",
+      "domains": [
+        "pscdn.co",
+        "scdn.co",
+        "spotify.com",
+        "spotifycdn.com",
+        "spotilocal.com"
+      ]
+    },
+    {
+      "id": "netease",
+      "name": "NetEase",
+      "zh": "网易",
+      "owner": "netease",
+      "category": "platform",
+      "domains": [
+        "126.net",
+        "127.net",
+        "163.com",
+        "163jiasu.com",
+        "163yun.com",
+        "netease.com",
+        "netease.im"
+      ]
+    },
+    {
+      "id": "netease-mail",
+      "name": "NetEase Mail",
+      "zh": "网易邮箱",
+      "owner": "netease",
+      "category": "productivity",
+      "domains": [
+        "126.com",
+        "mail.163.com",
+        "yeah.net"
+      ]
+    },
+    {
+      "id": "netease-music",
+      "name": "NetEase Cloud Music",
+      "zh": "网易云音乐",
+      "owner": "netease",
+      "category": "music",
+      "domains": [
+        "music.126.net",
+        "music.163.com"
+      ]
+    },
+    {
+      "id": "youdao",
+      "name": "Youdao",
+      "zh": "有道",
+      "owner": "netease",
+      "category": "productivity",
+      "domains": [
+        "youdao.com"
+      ]
+    },
+    {
+      "id": "lofter",
+      "name": "LOFTER",
+      "owner": "netease",
+      "category": "social",
+      "domains": [
+        "lofter.com"
+      ]
+    },
+    {
+      "id": "sohu",
+      "name": "Sohu",
+      "zh": "搜狐",
+      "category": "news",
+      "domains": [
+        "sohu.com",
+        "sohucs.com"
+      ]
+    },
+    {
+      "id": "speedtest",
+      "name": "Speedtest",
+      "category": "platform",
+      "domains": [
+        "ookla.com",
+        "speedtest.net",
+        "stvidtest.net"
+      ]
+    },
+    {
+      "id": "qihoo",
+      "name": "Qihoo 360",
+      "zh": "360",
+      "category": "platform",
+      "domains": [
+        "360.cn",
+        "360.com",
+        "qhimg.com"
+      ]
+    },
+    {
+      "id": "raycast",
+      "name": "Raycast",
+      "category": "productivity",
+      "domains": [
+        "raycast-ai-attachments.s3-accelerate.amazonaws.com",
+        "raycast-releases.com",
+        "raycast.com"
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "category": "productivity",
+      "domains": [
+        "notion.com",
+        "notion.site",
+        "notion.so",
+        "notionusercontent.com"
+      ]
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "category": "productivity",
+      "domains": [
+        "slack-edge.com",
+        "slack-msgs.com",
+        "slack.com",
+        "slackb.com"
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "category": "productivity",
+      "domains": [
+        "figma.com",
+        "figma.site"
+      ]
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "category": "productivity",
+      "domains": [
+        "1password.com",
+        "1passwordservices.com",
+        "1passwordusercontent.com",
+        "agilebits.com"
+      ]
+    },
+    {
+      "id": "spark",
+      "name": "Spark",
+      "category": "productivity",
+      "domains": [
+        "sparkmailapp.com"
+      ]
+    },
+    {
+      "id": "setapp",
+      "name": "Setapp",
+      "category": "productivity",
+      "domains": [
+        "setapp.com",
+        "store.setapp.com"
+      ]
+    },
+    {
+      "id": "pinduoduo",
+      "name": "Pinduoduo",
+      "zh": "拼多多",
+      "category": "shopping",
+      "domains": [
+        "pddpic.com",
+        "pddugc.com",
+        "pinduoduo.com",
+        "yangkeduo.com"
+      ]
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "category": "social",
+      "domains": [
+        "cdn-telegram.org",
+        "graph.org",
+        "t.me",
+        "tdesktop.com",
+        "telegra.ph",
+        "telegram-cdn.org",
+        "telegram.me",
+        "telegram.org",
+        "telesco.pe"
+      ]
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "category": "social",
+      "domains": [
+        "discord.com",
+        "discord.gg",
+        "discord.gift",
+        "discord.media",
+        "discordapp.com",
+        "discordapp.net"
+      ]
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "category": "social",
+      "domains": [
+        "periscope.tv",
+        "pscp.tv",
+        "t.co",
+        "tweetdeck.com",
+        "twimg.com",
+        "twitter.com",
+        "x.com"
+      ]
+    },
+    {
+      "id": "bluesky",
+      "name": "Bluesky",
+      "category": "social",
+      "domains": [
+        "bsky.app",
+        "bsky.network",
+        "bsky.social"
+      ]
+    },
+    {
+      "id": "line",
+      "name": "LINE",
+      "category": "social",
+      "domains": [
+        "line-apps.com",
+        "line-scdn.net",
+        "line.me",
+        "line.naver.jp"
+      ]
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "category": "social",
+      "domains": [
+        "redd.it",
+        "reddit.com",
+        "redditmedia.com",
+        "redditstatic.com"
+      ]
+    },
+    {
+      "id": "snapchat",
+      "name": "Snapchat",
+      "category": "social",
+      "domains": [
+        "sc-cdn.net",
+        "snapchat.com",
+        "snapkit.com"
+      ]
+    },
+    {
+      "id": "weibo",
+      "name": "Weibo",
+      "zh": "微博",
+      "category": "social",
+      "domains": [
+        "sinaimg.cn",
+        "weibo.cn",
+        "weibo.com",
+        "weibo.com.cn",
+        "weibocdn.com"
+      ]
+    },
+    {
+      "id": "coolapk",
+      "name": "Coolapk",
+      "zh": "酷安",
+      "category": "social",
+      "domains": [
+        "coolapk.com"
+      ]
+    },
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "category": "storage",
+      "domains": [
+        "syncthing.net"
+      ]
+    },
+    {
+      "id": "123pan",
+      "name": "123pan",
+      "zh": "123 云盘",
+      "category": "storage",
+      "domains": [
+        "123pan.com"
+      ]
+    },
+    {
+      "id": "lanzou",
+      "name": "Lanzou",
+      "zh": "蓝奏云",
+      "category": "storage",
+      "domains": [
+        "lanzoui.com",
+        "lanzoux.com"
+      ]
+    },
+    {
+      "id": "xunlei",
+      "name": "Xunlei",
+      "zh": "迅雷",
+      "category": "storage",
+      "domains": [
+        "thunderurl.com",
+        "xunlei.com"
+      ]
+    },
+    {
+      "id": "wenshushu",
+      "name": "Wenshushu",
+      "zh": "文叔叔",
+      "category": "storage",
+      "domains": [
+        "wenshushu.cn"
+      ]
+    },
+    {
+      "id": "tencent",
+      "name": "Tencent",
+      "zh": "腾讯",
+      "owner": "tencent",
+      "category": "platform",
+      "domains": [
+        "gtimg.cn",
+        "gtimg.com",
+        "idqqimg.com",
+        "qq.com",
+        "smtcdns.com",
+        "tencent.com"
+      ]
+    },
+    {
+      "id": "wechat",
+      "name": "WeChat",
+      "zh": "微信",
+      "owner": "tencent",
+      "category": "social",
+      "domains": [
+        "qlogo.cn",
+        "qpic.cn",
+        "servicewechat.com",
+        "wechat.com",
+        "wechatlegal.com",
+        "wechatpay.cn",
+        "wechatpay.com",
+        "weixin.com",
+        "weixin.qq.com",
+        "weixinbridge.com",
+        "wxqcloud.qq.com.cn"
+      ]
+    },
+    {
+      "id": "qq-mail",
+      "name": "QQ Mail",
+      "zh": "QQ 邮箱",
+      "owner": "tencent",
+      "category": "productivity",
+      "domains": [
+        "foxmail.com",
+        "mail.qq.com",
+        "qqmail.com"
+      ]
+    },
+    {
+      "id": "tencent-video",
+      "name": "Tencent Video",
+      "zh": "腾讯视频",
+      "owner": "tencent",
+      "category": "video",
+      "domains": [
+        "v.qq.com",
+        "video.qq.com",
+        "wetv.vip"
+      ]
+    },
+    {
+      "id": "qq-music",
+      "name": "QQ Music",
+      "zh": "QQ 音乐",
+      "owner": "tencent",
+      "category": "music",
+      "domains": [
+        "qqmusic.qq.com",
+        "tencentmusic.com",
+        "y.qq.com"
+      ]
+    },
+    {
+      "id": "kugou",
+      "name": "Kugou",
+      "zh": "酷狗音乐",
+      "owner": "tencent",
+      "category": "music",
+      "domains": [
+        "kugou.com"
+      ]
+    },
+    {
+      "id": "kuwo",
+      "name": "Kuwo",
+      "zh": "酷我音乐",
+      "owner": "tencent",
+      "category": "music",
+      "domains": [
+        "kuwo.cn"
+      ]
+    },
+    {
+      "id": "tencent-cloud",
+      "name": "Tencent Cloud",
+      "zh": "腾讯云",
+      "owner": "tencent",
+      "category": "cloud",
+      "domains": [
+        "myqcloud.com",
+        "qcloud.com",
+        "qcloudcdn.com",
+        "qlivecdn.com",
+        "tcloudbaseapp.com",
+        "tencent-cloud.net",
+        "tencentcloudapi.com",
+        "tencentcs.com",
+        "tliveapp.com",
+        "tlivecdn.com",
+        "tlivedns.com",
+        "tlivemcdn.com",
+        "tlivesource.com"
+      ]
+    },
+    {
+      "id": "myapp",
+      "name": "Tencent App Store",
+      "zh": "应用宝",
+      "owner": "tencent",
+      "category": "platform",
+      "domains": [
+        "myapp.com"
+      ]
+    },
+    {
+      "id": "weiyun",
+      "name": "Weiyun",
+      "zh": "微云",
+      "owner": "tencent",
+      "category": "storage",
+      "domains": [
+        "weiyun.com"
+      ]
+    },
+    {
+      "id": "wegame",
+      "name": "WeGame",
+      "owner": "tencent",
+      "category": "gaming",
+      "domains": [
+        "anticheatexpert.com",
+        "gcloudcs.com",
+        "wegame.com"
+      ]
+    },
+    {
+      "id": "riot",
+      "name": "Riot Games",
+      "owner": "tencent",
+      "category": "gaming",
+      "domains": [
+        "leagueoflegends.com",
+        "playvalorant.com",
+        "pvp.net",
+        "riotgames.com",
+        "valorant.com"
+      ]
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "owner": "vercel",
+      "category": "developer",
+      "domains": [
+        "ai-gateway.vercel.sh",
+        "now.sh",
+        "vercel-insights.com",
+        "vercel-scripts.com",
+        "vercel-status.com",
+        "vercel-storage.com",
+        "vercel.app",
+        "vercel.com",
+        "vercel.sh"
+      ]
+    },
+    {
+      "id": "v0",
+      "name": "v0",
+      "owner": "vercel",
+      "category": "ai",
+      "domains": [
+        "v0.app",
+        "v0.dev"
+      ]
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "category": "video",
+      "domains": [
+        "fast.com",
+        "netflix.com",
+        "netflix.net",
+        "nflxext.com",
+        "nflximg.com",
+        "nflximg.net",
+        "nflxso.net",
+        "nflxvideo.net"
+      ]
+    },
+    {
+      "id": "hbo-max",
+      "name": "HBO Max",
+      "category": "video",
+      "domains": [
+        "hbo.com",
+        "hbogo.com",
+        "hbomax.com",
+        "hbonow.com",
+        "max.com",
+        "warnermediacdn.com"
+      ]
+    },
+    {
+      "id": "viu",
+      "name": "Viu",
+      "category": "video",
+      "domains": [
+        "viu.com",
+        "viu.tv"
+      ]
+    },
+    {
+      "id": "bilibili",
+      "name": "Bilibili",
+      "zh": "哔哩哔哩",
+      "category": "video",
+      "domains": [
+        "biliapi.com",
+        "biliapi.net",
+        "bilibili.cn",
+        "bilibili.com",
+        "bilivideo.cn",
+        "bilivideo.com",
+        "hdslb.com"
+      ]
+    },
+    {
+      "id": "kuaishou",
+      "name": "Kuaishou",
+      "zh": "快手",
+      "category": "video",
+      "domains": [
+        "gifshow.com",
+        "kuaishou.com",
+        "kwaicdn.com",
+        "yximgs.com"
+      ]
+    },
+    {
+      "id": "mgtv",
+      "name": "Mango TV",
+      "zh": "芒果 TV",
+      "category": "video",
+      "domains": [
+        "hunantv.com",
+        "mgtv.com"
+      ]
+    },
+    {
+      "id": "cctv",
+      "name": "CCTV",
+      "zh": "央视",
+      "category": "video",
+      "domains": [
+        "cctv.com",
+        "cctvpic.com",
+        "cntv.cn"
+      ]
+    },
+    {
+      "id": "letv",
+      "name": "LeTV",
+      "zh": "乐视视频",
+      "category": "video",
+      "domains": [
+        "le.com"
+      ]
+    },
+    {
+      "id": "pptv",
+      "name": "PPTV",
+      "zh": "PP 视频",
+      "category": "video",
+      "domains": [
+        "pptv.com"
+      ]
+    },
+    {
+      "id": "wasu",
+      "name": "Wasu",
+      "zh": "华数",
+      "category": "video",
+      "domains": [
+        "wasu.tv"
+      ]
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "Xiaohongshu",
+      "zh": "小红书",
+      "owner": "xiaohongshu",
+      "category": "social",
+      "domains": [
+        "xhscdn.com",
+        "xhscdn.net",
+        "xiaohongshu.com"
+      ]
+    },
+    {
+      "id": "diandian",
+      "name": "Diandian",
+      "zh": "点点",
+      "owner": "xiaohongshu",
+      "category": "ai",
+      "domains": [
+        "askdiandian.com"
+      ]
+    },
+    {
+      "id": "xiaomi",
+      "name": "Xiaomi",
+      "zh": "小米",
+      "owner": "xiaomi",
+      "category": "platform",
+      "domains": [
+        "mi-img.com",
+        "mi.com",
+        "mifile.cn",
+        "miinsurtech.com",
+        "mijia.tech",
+        "miui.com",
+        "miwifi.com",
+        "xiaomi.com",
+        "xiaomi.net"
+      ]
+    },
+    {
+      "id": "xiaomi-ev",
+      "name": "Xiaomi EV",
+      "zh": "小米汽车",
+      "owner": "xiaomi",
+      "category": "lifestyle",
+      "domains": [
+        "xiaomiev.com"
+      ]
+    },
+    {
+      "id": "xiaomi-youpin",
+      "name": "Xiaomi Youpin",
+      "zh": "小米有品",
+      "owner": "xiaomi",
+      "category": "shopping",
+      "domains": [
+        "xiaomiyoupin.com"
+      ]
+    },
+    {
+      "id": "xiaomi-mimo",
+      "name": "Xiaomi MiMo",
+      "owner": "xiaomi",
+      "category": "ai",
+      "domains": [
+        "xiaomimimo.com"
+      ]
+    }
+  ]
+}

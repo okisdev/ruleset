@@ -4,24 +4,47 @@
 #
 # Domestic video and audio without a file of their own. Bilibili, iQiyi and Youku have theirs; Douyin lives in Platforms/ByteDance.list.
 
-DOMAIN-SUFFIX,cctv.com
-DOMAIN-SUFFIX,cntv.cn
-DOMAIN-SUFFIX,gifshow.com
-DOMAIN-SUFFIX,hunantv.com
-DOMAIN-SUFFIX,kuaishou.com
-DOMAIN-SUFFIX,kugou.com
-DOMAIN-SUFFIX,kuwo.cn
-DOMAIN-SUFFIX,kwaicdn.com
-DOMAIN-SUFFIX,le.com
-DOMAIN-SUFFIX,mgtv.com
+# NetEase Cloud Music
 DOMAIN-SUFFIX,music.163.com
-DOMAIN-SUFFIX,pptv.com
-DOMAIN-SUFFIX,qqmusic.qq.com
+
+# Sohu
 DOMAIN-SUFFIX,sohu.com
 DOMAIN-SUFFIX,sohucs.com
+
+# Tencent Video
 DOMAIN-SUFFIX,v.qq.com
 DOMAIN-SUFFIX,video.qq.com
 DOMAIN-SUFFIX,wetv.vip
+
+# QQ Music
+DOMAIN-SUFFIX,qqmusic.qq.com
 DOMAIN-SUFFIX,y.qq.com
+
+# Kugou
+DOMAIN-SUFFIX,kugou.com
+
+# Kuwo
+DOMAIN-SUFFIX,kuwo.cn
+
+# Kuaishou
+DOMAIN-SUFFIX,gifshow.com
+DOMAIN-SUFFIX,kuaishou.com
+DOMAIN-SUFFIX,kwaicdn.com
 DOMAIN-SUFFIX,yximgs.com
+
+# Mango TV
+DOMAIN-SUFFIX,hunantv.com
+DOMAIN-SUFFIX,mgtv.com
+
+# CCTV
+DOMAIN-SUFFIX,cctv.com
+DOMAIN-SUFFIX,cntv.cn
+
+# LeTV
+DOMAIN-SUFFIX,le.com
+
+# PPTV
+DOMAIN-SUFFIX,pptv.com
+
+# Wasu
 DOMAIN-SUFFIX,wasu.tv

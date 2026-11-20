@@ -4,11 +4,14 @@
 #
 # Xbox, Game Pass and Minecraft. xbox.*.microsoft.com and xboxlive.com sit in the profile's always-real-ip, so a console's NAT probes reach the gateway by address and never match here.
 
+# Xbox
 DOMAIN-SUFFIX,gamepass.com
-DOMAIN-SUFFIX,minecraft.net
-DOMAIN-SUFFIX,minecraftservices.com
-DOMAIN-SUFFIX,mojang.com
 DOMAIN-SUFFIX,xbox.com
 DOMAIN-SUFFIX,xboxgamepass.com
 DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,xboxservices.com
+
+# Minecraft
+DOMAIN-SUFFIX,minecraft.net
+DOMAIN-SUFFIX,minecraftservices.com
+DOMAIN-SUFFIX,mojang.com

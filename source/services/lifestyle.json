@@ -1,0 +1,30 @@
+{
+  "services": [
+    {
+      "id": "trip",
+      "name": "Trip.com",
+      "zh": "携程",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/Trip.list": [
+          "DOMAIN-SUFFIX,c-ctrip.com",
+          "DOMAIN-SUFFIX,ctrip.com",
+          "DOMAIN-SUFFIX,trip.com",
+          "DOMAIN-SUFFIX,tripcdn.cn",
+          "DOMAIN-SUFFIX,tripcdn.com"
+        ]
+      }
+    },
+    {
+      "id": "zhipin",
+      "name": "BOSS Zhipin",
+      "zh": "BOSS 直聘",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,zhipin.com"
+        ]
+      }
+    }
+  ]
+}

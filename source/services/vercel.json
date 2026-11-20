@@ -1,0 +1,44 @@
+{
+  "owner": {
+    "id": "vercel",
+    "name": "Vercel"
+  },
+  "services": [
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "category": "developer",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,ai-gateway.vercel.sh"
+        ],
+        "Library/Direct/Download.list": [
+          "DOMAIN-SUFFIX,vercel-storage.com"
+        ],
+        "Library/Developer/Vercel.list": [
+          "DOMAIN-SUFFIX,now.sh",
+          "DOMAIN-SUFFIX,vercel-insights.com",
+          "DOMAIN-SUFFIX,vercel-scripts.com",
+          "DOMAIN-SUFFIX,vercel-status.com",
+          "DOMAIN-SUFFIX,vercel.app",
+          "DOMAIN-SUFFIX,vercel.com",
+          "DOMAIN-SUFFIX,vercel.sh",
+          "IP-CIDR,64.239.109.0/24,no-resolve",
+          "IP-CIDR,64.239.123.0/24,no-resolve",
+          "IP-CIDR,76.76.21.0/24,no-resolve"
+        ]
+      }
+    },
+    {
+      "id": "v0",
+      "name": "v0",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,v0.dev",
+          "DOMAIN-SUFFIX,v0.app"
+        ]
+      }
+    }
+  ]
+}

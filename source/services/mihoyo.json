@@ -1,0 +1,34 @@
+{
+  "owner": {
+    "id": "mihoyo",
+    "name": "miHoYo",
+    "zh": "米哈游"
+  },
+  "services": [
+    {
+      "id": "mihoyo",
+      "name": "miHoYo",
+      "zh": "米哈游",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/miHoYo.list": [
+          "DOMAIN-SUFFIX,bh3.com",
+          "DOMAIN-SUFFIX,mihoyo.com",
+          "DOMAIN-SUFFIX,yuanshen.com"
+        ]
+      }
+    },
+    {
+      "id": "hoyoverse",
+      "name": "HoYoverse",
+      "category": "gaming",
+      "lists": {
+        "Library/Gaming/HoYoverse.list": [
+          "DOMAIN-SUFFIX,honkaiimpact3.com",
+          "DOMAIN-SUFFIX,hoyolab.com",
+          "DOMAIN-SUFFIX,hoyoverse.com"
+        ]
+      }
+    }
+  ]
+}
