@@ -2,7 +2,7 @@
 #
 # Expects a mainland policy.
 #
-# Ctrip and its international brand share one infrastructure, and the app used here alternates between the two names.
+# Ctrip and its international brand share infrastructure, so both names take the same policy.
 
 DOMAIN-SUFFIX,c-ctrip.com
 DOMAIN-SUFFIX,ctrip.com

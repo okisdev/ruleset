@@ -2,9 +2,9 @@
 #
 # Expects DIRECT.
 #
-# Update, download, Office delivery and certificate validation hosts. Must precede Platforms/Microsoft.list, whose suffixes would otherwise take them. update.code.visualstudio.com is the VS Code update check; measured at 1,056 direct flows with none failed in the 14 days to 2026-09-09.
+# Update, download, Office delivery and certificate validation hosts. Must precede Platforms/Microsoft.list, whose suffixes would otherwise take them. update.code.visualstudio.com carries the VS Code update check.
 #
-# download.prss.microsoft.com is deliberately absent. Its mainland edges answer on the direct path and cap every connection near 455 kB/s, so a completed flow says nothing about how long it took. Measured 2026-11-14 on the 389MB VS Code archive from vscode.download.prss.microsoft.com: 458 kB/s direct on one connection, 455 kB/s on each of four in parallel, against 58 and 89MB/s through a Singapore exit. The cap held on China Mobile, China Telecom and China Unicom edges, and playwright.download.prss.microsoft.com ran at the same rate. VS Code's own update took 31 minutes that day, 16 of them on an edge that delivered 20kB. The zone falls through to Platforms/Microsoft.list, so it is fast only while that file is bound to a proxy policy.
+# download.prss.microsoft.com is deliberately absent. Its mainland edges can cap each direct connection, so a completed request says nothing about download speed. The zone falls through to Platforms/Microsoft.list, where a proxy policy can avoid the direct path's cap.
 
 DOMAIN-SUFFIX,cdn.office.net
 DOMAIN-SUFFIX,sfx.ms

@@ -2,15 +2,15 @@
 #
 # Expects a proxy policy, the same one as general traffic. The list keeps every GitHub host on that one policy: the release asset and Copilot blob hosts sit on S3 and Azure, inside the suffixes of Platforms/Amazon.list and Platforms/Microsoft.list, whose groups are chosen independently, and ghcr.io and formulae.brew.sh fail on the direct path. Must precede those sets.
 #
-# Known risk on Hong Kong exits, measured 2026-08-12: both providers' Hong Kong exits intermittently dropped the TLS handshake to GitHub's Asia frontend (20.205.243.166), 12.5% to 17.5% of fresh connections, while Japan and Singapore were clean at 0 of 30. The client hello goes out and nothing returns for about 7 s; a browser retry succeeds. A group's availability probe does not catch a failure rate this low, so if it returns, the remedy is an exit outside Hong Kong for this list.
+# Hong Kong exits can intermittently drop the TLS handshake to GitHub's Asia frontend (20.205.243.166). The client hello goes out and nothing returns until a browser retry succeeds. A group's availability probe may miss intermittent failures, so an exit outside Hong Kong is appropriate if this occurs.
 #
 # ghcr.io lives here rather than in Registries/Registries.list: it is blocked on the direct path, and it is GitHub, so it should share their exit.
 #
-# formulae.brew.sh is a GitHub Pages custom domain (CNAME homebrew.github.io) that stalls on the direct path, which is why it cannot stay with brew.sh and docs.brew.sh or with Registries/Registries.list. Measured 2026-08-16: three fresh fetches of the 34MB formula.jws.json index each timed out at 90s after 5.8 to 8.8MB (64 to 98kB/s); the same file through Japan finished in 1.28 to 1.39s (24 to 27MB/s). The 21MB cask.jws.json index timed out the same way DIRECT and finished in 2.14s through Japan. brew.sh and docs.brew.sh reach a proxy through FINAL, so they stay out of this list.
+# formulae.brew.sh is a GitHub Pages custom domain (CNAME homebrew.github.io) whose large indexes stall on the direct path. It belongs here rather than with brew.sh and docs.brew.sh or with Registries/Registries.list. brew.sh and docs.brew.sh reach a proxy through FINAL.
 #
-# github.io is deliberately absent. GitHub Pages is served from different infrastructure; the Pages custom domain above is listed on its own evidence.
+# github.io is deliberately absent. GitHub Pages uses different infrastructure; the Pages custom domain above needs its own rule.
 #
-# The two address rules cover clients that dial GitHub without a name: 20.205.243.0/24 is the Asia frontend and 185.199.108.0/22 serves githubusercontent.com as well as Pages. In the 14 days to 2026-11-14 they carried 10,707 and 19,625 flows (1.6GB) through FINAL. They carry no-resolve, so a Pages custom domain that arrives by name is still not matched here.
+# The two address rules cover clients that dial GitHub without a name: 20.205.243.0/24 is the Asia frontend and 185.199.108.0/22 serves githubusercontent.com as well as Pages. They carry no-resolve, so a Pages custom domain that arrives by name is still not matched here.
 
 DOMAIN-SUFFIX,github.com
 DOMAIN-SUFFIX,githubassets.com
