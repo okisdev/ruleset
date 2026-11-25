@@ -13,6 +13,19 @@
           "DOMAIN-SUFFIX,yangkeduo.com"
         ]
       }
+    },
+    {
+      "id": "dewu",
+      "name": "Dewu",
+      "zh": "得物",
+      "category": "shopping",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,dewu.com",
+          "DOMAIN-SUFFIX,dewucdn.com",
+          "DOMAIN-SUFFIX,poizon.com"
+        ]
+      }
     }
   ]
 }

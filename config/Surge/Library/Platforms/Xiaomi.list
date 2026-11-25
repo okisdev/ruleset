@@ -14,6 +14,15 @@ DOMAIN-SUFFIX,miwifi.com
 DOMAIN-SUFFIX,xiaomi.com
 DOMAIN-SUFFIX,xiaomi.net
 DOMAIN-SUFFIX,miinsurtech.com
+DOMAIN-SUFFIX,miot-spec.org
+DOMAIN-SUFFIX,mi-fds.com
+
+# Xiaomi TV
+DOMAIN-SUFFIX,duokanbox.com
+DOMAIN-SUFFIX,mitvos.com
+
+# Xiao AI
+DOMAIN-SUFFIX,xiaomixiaoai.com
 
 # Xiaomi EV
 DOMAIN-SUFFIX,xiaomiev.com

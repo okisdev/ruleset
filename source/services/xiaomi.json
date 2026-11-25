@@ -20,7 +20,32 @@
           "DOMAIN-SUFFIX,miwifi.com",
           "DOMAIN-SUFFIX,xiaomi.com",
           "DOMAIN-SUFFIX,xiaomi.net",
-          "DOMAIN-SUFFIX,miinsurtech.com"
+          "DOMAIN-SUFFIX,miinsurtech.com",
+          "DOMAIN-SUFFIX,miot-spec.org",
+          "DOMAIN-SUFFIX,mi-fds.com"
+        ]
+      }
+    },
+    {
+      "id": "xiaomi-tv",
+      "name": "Xiaomi TV",
+      "zh": "小米电视",
+      "category": "video",
+      "lists": {
+        "Library/Platforms/Xiaomi.list": [
+          "DOMAIN-SUFFIX,duokanbox.com",
+          "DOMAIN-SUFFIX,mitvos.com"
+        ]
+      }
+    },
+    {
+      "id": "xiao-ai",
+      "name": "Xiao AI",
+      "zh": "小爱同学",
+      "category": "ai",
+      "lists": {
+        "Library/Platforms/Xiaomi.list": [
+          "DOMAIN-SUFFIX,xiaomixiaoai.com"
         ]
       }
     },

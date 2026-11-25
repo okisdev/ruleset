@@ -11,6 +11,10 @@ DOMAIN-SUFFIX,idqqimg.com
 DOMAIN-SUFFIX,qq.com
 DOMAIN-SUFFIX,smtcdns.com
 DOMAIN-SUFFIX,tencent.com
+DOMAIN-SUFFIX,cdntips.net
+
+# WeChat
+DOMAIN-SUFFIX,wxgateway.com
 
 # QQ Mail
 DOMAIN-SUFFIX,foxmail.com
@@ -38,3 +42,5 @@ DOMAIN-SUFFIX,myapp.com
 DOMAIN-SUFFIX,wegame.com
 DOMAIN-SUFFIX,anticheatexpert.com
 DOMAIN-SUFFIX,gcloudcs.com
+DOMAIN-SUFFIX,gcloudsdk.com
+DOMAIN-SUFFIX,gcloudsvcs.com

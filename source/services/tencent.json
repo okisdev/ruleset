@@ -17,7 +17,8 @@
           "DOMAIN-SUFFIX,idqqimg.com",
           "DOMAIN-SUFFIX,qq.com",
           "DOMAIN-SUFFIX,smtcdns.com",
-          "DOMAIN-SUFFIX,tencent.com"
+          "DOMAIN-SUFFIX,tencent.com",
+          "DOMAIN-SUFFIX,cdntips.net"
         ]
       }
     },
@@ -39,6 +40,9 @@
           "DOMAIN-SUFFIX,weixin.qq.com",
           "DOMAIN-SUFFIX,weixinbridge.com",
           "DOMAIN-SUFFIX,wxqcloud.qq.com.cn"
+        ],
+        "Library/Platforms/Tencent.list": [
+          "DOMAIN-SUFFIX,wxgateway.com"
         ]
       }
     },
@@ -164,7 +168,9 @@
         "Library/Platforms/Tencent.list": [
           "DOMAIN-SUFFIX,wegame.com",
           "DOMAIN-SUFFIX,anticheatexpert.com",
-          "DOMAIN-SUFFIX,gcloudcs.com"
+          "DOMAIN-SUFFIX,gcloudcs.com",
+          "DOMAIN-SUFFIX,gcloudsdk.com",
+          "DOMAIN-SUFFIX,gcloudsvcs.com"
         ]
       }
     },

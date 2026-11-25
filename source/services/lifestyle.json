@@ -22,7 +22,41 @@
       "category": "lifestyle",
       "lists": {
         "Library/Platforms/China.list": [
-          "DOMAIN-SUFFIX,zhipin.com"
+          "DOMAIN-SUFFIX,zhipin.com",
+          "DOMAIN-SUFFIX,bosszhipin.com"
+        ]
+      }
+    },
+    {
+      "id": "didi",
+      "name": "DiDi",
+      "zh": "滴滴出行",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,xiaojukeji.com"
+        ]
+      }
+    },
+    {
+      "id": "sf-express",
+      "name": "SF Express",
+      "zh": "顺丰速运",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,sf-express.com"
+        ]
+      }
+    },
+    {
+      "id": "zto",
+      "name": "ZTO Express",
+      "zh": "中通快递",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,zto.com"
         ]
       }
     }

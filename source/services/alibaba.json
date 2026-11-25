@@ -98,7 +98,9 @@
           "DOMAIN-SUFFIX,aliyun.com",
           "DOMAIN-SUFFIX,aliyuncs.com",
           "DOMAIN-SUFFIX,hichina.com",
-          "DOMAIN-SUFFIX,mxhichina.com"
+          "DOMAIN-SUFFIX,mxhichina.com",
+          "DOMAIN-SUFFIX,alcasset.com",
+          "DOMAIN-SUFFIX,alyasset.com"
         ]
       }
     },
@@ -110,7 +112,8 @@
       "lists": {
         "Library/Platforms/Alibaba.list": [
           "DOMAIN-SUFFIX,amap.com",
-          "DOMAIN-SUFFIX,autonavi.com"
+          "DOMAIN-SUFFIX,autonavi.com",
+          "DOMAIN-SUFFIX,amap-cdn.com"
         ]
       }
     },
@@ -144,6 +147,18 @@
       "lists": {
         "Library/Platforms/Alibaba.list": [
           "DOMAIN-SUFFIX,dingtalk.com"
+        ]
+      }
+    },
+    {
+      "id": "yuque",
+      "name": "Yuque",
+      "zh": "语雀",
+      "category": "productivity",
+      "lists": {
+        "Library/Platforms/Alibaba.list": [
+          "DOMAIN-SUFFIX,nlark.com",
+          "DOMAIN-SUFFIX,yuque.com"
         ]
       }
     },

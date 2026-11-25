@@ -153,7 +153,11 @@
       "lists": {
         "Library/Finance/Brokers.list": [
           "DOMAIN-SUFFIX,lbctrl.com",
-          "DOMAIN-SUFFIX,lbkrs.com"
+          "DOMAIN-SUFFIX,lbkrs.com",
+          "DOMAIN-SUFFIX,longbridge.com",
+          "DOMAIN-SUFFIX,longportapp.com",
+          "DOMAIN-SUFFIX,pbkrs.com",
+          "DOMAIN-SUFFIX,wbrks.com"
         ]
       }
     },
