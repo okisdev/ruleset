@@ -6,7 +6,7 @@ Every `.list` under `config/Surge/`, `config/Surge/Library/INDEX.md` and `catalo
 
 `lists.json` defines every rule set: its path under `config/Surge/`, its title, its header paragraphs, and its kind. The first header paragraph opens with the policy the list expects (`Expects DIRECT.`, `Expects a proxy policy, …`), and `Library/INDEX.md` reads the expected policy from it.
 
-- A `policy` list is a set chosen by what the rules do rather than whose they are: reject sets, rescue patches, private names, certificate validation, NTP, carrier services, proxy utilities, banks, geographic ranges, process names. It owns all of its rules, in `blocks`.
+- A `policy` list is a set chosen by what the rules do rather than whose they are: reject sets, private names, certificate validation, NTP, carrier services, proxy utilities, banks, geographic ranges, process names. It owns all of its rules, in `blocks`.
 - A `service` list takes its rules from the services that point at it. It may still own `blocks` of names whose operator is unknown; the build lists those names so they can be claimed.
 
 A block is `{ "note"?, "rules" }`. The note is written as a comment above the rules and carries the reason a rule looks the way it does.
@@ -28,3 +28,7 @@ A service is one product: Douyin, WeChat, iCloud. It has an `id`, an English `na
 - A name is claimed only when its operator is known. A CDN that serves many customers is claimed by the CDN, never by a guess at the customer.
 - Address ranges, keywords and wildcards route but do not identify; cloud address space carries other companies' traffic.
 - Put a product's own zone in the source whenever it has one. A consumer that keeps only registrable domains sees `163.com`, not `music.163.com`.
+
+## Protected hosts
+
+`protected.json` lists hosts an app needs, each with the symptom its loss causes as `reason`, and optionally the `list` that must route it. The build fails when any `Library/Reject/` set matches a protected host or when the named list does not. Add a host here whenever a reject rule is narrowed because of a false positive, so the next widening cannot bring the failure back.

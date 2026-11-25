@@ -103,91 +103,6 @@
     ]
   },
   {
-    "path": "Rescue/Alibaba.list",
-    "title": "Alibaba false positives",
-    "kind": "policy",
-    "header": [
-      "Expects a mainland policy. Must precede the blocking rule sets.",
-      "The reject set classifies Alibaba's security SDK, device fingerprint and device identifier endpoints as tracking, and Platforms/Alibaba.list cannot shield them because it follows the reject layer. Taobao treats a client that cannot reach them as an untrusted device: the app can refuse to load and report that the network is restricted.",
-      "Analytics stay blocked: adashx, the ut hosts, mmstat and loggw carry no verdict the apps depend on."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,mum.alibabachengdun.com",
-          "DOMAIN-SUFFIX,ynuf.aliapp.org",
-          "DOMAIN,audid-api.taobao.com"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Rescue/BetterStack.list",
-    "title": "Better Stack false positives",
-    "kind": "policy",
-    "header": [
-      "Expects a proxy policy. Must precede the imported reject layer.",
-      "Log shipping to Better Stack ingests at s<source>.<cluster>.betterstackdata.com, and the reject set classifies the whole zone as telemetry. Blocking an ingestion host stops its source from receiving lines even when the shipping client reports no error."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,betterstackdata.com"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Rescue/Douyin.list",
-    "title": "Douyin false positives",
-    "kind": "policy",
-    "header": [
-      "Expects a mainland policy. Must precede the blocking rule sets.",
-      "The reject set's keyword matching also catches Douyin's app API hosts on -normal.zijieapi.com and its realtime push channel, which takes the app off the air rather than removing an ad.",
-      "These hosts filter on the TLS fingerprint, so a bare curl reset by the origin cannot establish that the reject layer blocked them. Check the matched rule or switch the reject policy to DIRECT and see whether the symptom clears."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-KEYWORD,-normal.zijieapi.com",
-          "DOMAIN-KEYWORD,frontier-aweme"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Rescue/Kuaishou.list",
-    "title": "Kuaishou false positives",
-    "kind": "policy",
-    "header": [
-      "Expects a mainland policy. Must precede the blocking rule sets.",
-      "Live streams pull from ks.pull.yximgs.com, which the reject set treats as PCDN infrastructure."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,ks.pull.yximgs.com"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Rescue/Meituan.list",
-    "title": "Meituan false positives",
-    "kind": "policy",
-    "header": [
-      "Expects a mainland policy. Must precede the blocking rule sets.",
-      "d.meituan.net serves in-app imagery and the reject set classifies it as ad infrastructure. Blocking the host leaves blank image tiles."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,d.meituan.net"
-        ]
-      }
-    ]
-  },
-  {
     "path": "Tailscale/Coordination.list",
     "title": "Tailscale coordination and admin",
     "kind": "service",
@@ -223,49 +138,181 @@
     "kind": "policy",
     "header": [
       "Expects a reject policy.",
-      "Known advertising hosts. Keep Rescue ahead of this file. Analytics and crash reporters stay out. Hang this on a policy that can be switched off rather than a hard REJECT."
+      "Advertising: ad networks and ad SDK zones whose only purpose is serving or measuring ads, which are named ahead of being seen, and the ad hosts inside company zones, which are named only once the gateway has seen them. Analytics and crash reports belong in Telemetry.list. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
+      "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
     ],
     "blocks": [
       {
+        "note": "Global ad networks and exchanges.",
         "rules": [
           "DOMAIN-SUFFIX,2mdn.net",
+          "DOMAIN-SUFFIX,3lift.com",
+          "DOMAIN-SUFFIX,1rtb.net",
+          "DOMAIN-SUFFIX,adcolony.com",
           "DOMAIN-SUFFIX,adform.net",
           "DOMAIN-SUFFIX,adition.com",
-          "DOMAIN-SUFFIX,admaster.com.cn",
           "DOMAIN-SUFFIX,admob.com",
           "DOMAIN-SUFFIX,adnxs.com",
           "DOMAIN-SUFFIX,ads-twitter.com",
-          "DOMAIN-SUFFIX,ads.linkedin.com",
-          "DOMAIN-SUFFIX,ads.yahoo.com",
           "DOMAIN-SUFFIX,adsafeprotected.com",
-          "DOMAIN-SUFFIX,adservice.google.com",
           "DOMAIN-SUFFIX,adsrvr.org",
+          "DOMAIN-SUFFIX,adthrive.com",
           "DOMAIN-SUFFIX,advertising.com",
-          "DOMAIN-SUFFIX,alimama.com",
           "DOMAIN-SUFFIX,amazon-adsystem.com",
           "DOMAIN-SUFFIX,applovin.com",
+          "DOMAIN-SUFFIX,applvn.com",
+          "DOMAIN-SUFFIX,bidmachine.io",
+          "DOMAIN-SUFFIX,btloader.com",
+          "DOMAIN-SUFFIX,carbonads.com",
           "DOMAIN-SUFFIX,casalemedia.com",
+          "DOMAIN-SUFFIX,chartboost.com",
+          "DOMAIN-SUFFIX,cootlogix.com",
           "DOMAIN-SUFFIX,criteo.com",
           "DOMAIN-SUFFIX,criteo.net",
           "DOMAIN-SUFFIX,doubleclick.net",
+          "DOMAIN-SUFFIX,geoedge.be",
           "DOMAIN-SUFFIX,googleadservices.com",
           "DOMAIN-SUFFIX,googlesyndication.com",
           "DOMAIN-SUFFIX,googletagservices.com",
+          "DOMAIN-SUFFIX,indexww.com",
+          "DOMAIN-SUFFIX,inmobi.com",
+          "DOMAIN-SUFFIX,inner-active.mobi",
+          "DOMAIN-SUFFIX,innity.net",
+          "DOMAIN-SUFFIX,kueezrtb.com",
+          "DOMAIN-SUFFIX,liadm.com",
+          "DOMAIN-SUFFIX,mobilefuse.com",
           "DOMAIN-SUFFIX,moatads.com",
           "DOMAIN-SUFFIX,openx.net",
           "DOMAIN-SUFFIX,outbrain.com",
-          "DOMAIN-SUFFIX,pagead2.googlesyndication.com",
           "DOMAIN-SUFFIX,pubmatic.com",
-          "DOMAIN-SUFFIX,quantserve.com",
+          "DOMAIN-SUFFIX,raptivecdn.com",
           "DOMAIN-SUFFIX,rubiconproject.com",
-          "DOMAIN-SUFFIX,scorecardresearch.com",
+          "DOMAIN-SUFFIX,sharethrough.com",
+          "DOMAIN-SUFFIX,smartadserver.com",
+          "DOMAIN-SUFFIX,stackadapt.com",
+          "DOMAIN-SUFFIX,supersonicads.com",
           "DOMAIN-SUFFIX,taboola.com",
-          "DOMAIN-SUFFIX,tanx.com",
-          "DOMAIN-SUFFIX,unityads.unity3d.com",
+          "DOMAIN-SUFFIX,teads.tv",
+          "DOMAIN-SUFFIX,vervegroupinc.net",
+          "DOMAIN-SUFFIX,vungle.com",
+          "DOMAIN-SUFFIX,yieldmo.com",
           "DOMAIN,ads.google.com",
-          "DOMAIN,cpro.baidu.com",
+          "DOMAIN,adservice.google.com",
           "DOMAIN,pagead2.googleadservices.com",
-          "DOMAIN,pos.baidu.com"
+          "DOMAIN,skadnetworks.fyber.com"
+        ]
+      },
+      {
+        "note": "Mainland ad networks and ad SDKs: Pangle, Kuaishou, Tencent GDT, Baidu, Alimama, Sigmob, TopOn and smaller networks.",
+        "rules": [
+          "DOMAIN-SUFFIX,admaster.com.cn",
+          "DOMAIN-SUFFIX,adkwai.com",
+          "DOMAIN-SUFFIX,adukwai.com",
+          "DOMAIN-SUFFIX,alimama.com",
+          "DOMAIN-SUFFIX,anythinktech.com",
+          "DOMAIN-SUFFIX,beizi.biz",
+          "DOMAIN-SUFFIX,etoolads.cn",
+          "DOMAIN-SUFFIX,gdt.qq.com",
+          "DOMAIN-SUFFIX,gdtimg.com",
+          "DOMAIN-SUFFIX,miaozhen.com",
+          "DOMAIN-SUFFIX,mintegral.net",
+          "DOMAIN-SUFFIX,pangle.io",
+          "DOMAIN-SUFFIX,pangolin-sdk-toutiao.com",
+          "DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com",
+          "DOMAIN-SUFFIX,pglstatp-toutiao.com",
+          "DOMAIN-SUFFIX,rayjump.com",
+          "DOMAIN-SUFFIX,sigmob.cn",
+          "DOMAIN-SUFFIX,sigmob.com",
+          "DOMAIN-SUFFIX,tanx.com",
+          "DOMAIN-SUFFIX,uyunad.com",
+          "DOMAIN-SUFFIX,yfanads.com",
+          "DOMAIN,cpro.baidu.com",
+          "DOMAIN,mobads.baidu.com",
+          "DOMAIN,mobads-logs.baidu.com",
+          "DOMAIN,open.e.kuaishou.cn",
+          "DOMAIN,open.e.kuaishou.com",
+          "DOMAIN,open.kuaishouzt.com",
+          "DOMAIN,open.kwaizt.com",
+          "DOMAIN,pos.baidu.com",
+          "DOMAIN,sdk.e.qq.com",
+          "DOMAIN,sdkquic.e.qq.com"
+        ]
+      },
+      {
+        "note": "Ad SDK zones seen at the gateway whose operator is not published; each serves nothing but ad delivery or ad reporting.",
+        "rules": [
+          "DOMAIN-SUFFIX,app-ads-services.com",
+          "DOMAIN-SUFFIX,ay.delivery",
+          "DOMAIN-SUFFIX,blueduckredapple.com",
+          "DOMAIN-SUFFIX,bridgeoos.com",
+          "DOMAIN-SUFFIX,cr-relay.com",
+          "DOMAIN-SUFFIX,dex.group",
+          "DOMAIN-SUFFIX,everestop.io",
+          "DOMAIN-SUFFIX,flux.jp",
+          "DOMAIN-SUFFIX,jspcdn.cn",
+          "DOMAIN-SUFFIX,kuiniuca.com",
+          "DOMAIN-SUFFIX,opecloud.com",
+          "DOMAIN-SUFFIX,pkoplink.com",
+          "DOMAIN-SUFFIX,pub.network",
+          "DOMAIN-SUFFIX,puata.info",
+          "DOMAIN-SUFFIX,qchannel01.cn",
+          "DOMAIN-SUFFIX,qchannel03.cn",
+          "DOMAIN-SUFFIX,stapecdn.com",
+          "DOMAIN-SUFFIX,statisticslinks.com",
+          "DOMAIN-SUFFIX,thecatmachine.com",
+          "DOMAIN-SUFFIX,tianwenca.com",
+          "DOMAIN-SUFFIX,weszxdrf.com",
+          "DOMAIN-SUFFIX,yingt.fun"
+        ]
+      },
+      {
+        "note": "Apple Search Ads attribution and in-app ad delivery.",
+        "rules": [
+          "DOMAIN-SUFFIX,iadsdk.apple.com",
+          "DOMAIN,api-adservices.apple.com"
+        ]
+      },
+      {
+        "note": "Google account bar promotions.",
+        "rules": [
+          "DOMAIN,ogads-pa.clients6.google.com",
+          "DOMAIN,ogads-pa.googleapis.com"
+        ]
+      },
+      {
+        "note": "Ad hosts inside company zones.",
+        "rules": [
+          "DOMAIN-SUFFIX,ad.intl.xiaomi.com",
+          "DOMAIN-SUFFIX,ad.xiaomi.com",
+          "DOMAIN-SUFFIX,media.net",
+          "DOMAIN-SUFFIX,pbs.yahoo.com",
+          "DOMAIN-SUFFIX,yjtag.yahoo.co.jp",
+          "DOMAIN,adtrack.quark.cn",
+          "DOMAIN,ads-api.x.com",
+          "DOMAIN,alb.reddit.com",
+          "DOMAIN,arc.msn.com",
+          "DOMAIN,awaken.amap.com",
+          "DOMAIN,iadmatapk.nosdn.127.net",
+          "DOMAIN,impdsp.meituan.com",
+          "DOMAIN,optimus-ads.amap.com",
+          "DOMAIN,p3-ad-sign.byteimg.com",
+          "DOMAIN,pbd.yahoo.com",
+          "DOMAIN,qsearch-a.akamaihd.net",
+          "DOMAIN,report-stats.ad.jiguang.cn",
+          "DOMAIN,rtb.julang.taobao.com",
+          "DOMAIN,show.re.taobao.com",
+          "DOMAIN,t-dsp.pinduoduo.com",
+          "DOMAIN,ta.pinduoduo.com",
+          "DOMAIN-WILDCARD,ads-*.xhscdn.com",
+          "DOMAIN-WILDCARD,ads*-normal-*.zijieapi.com",
+          "DOMAIN,adm.shinobi.jp",
+          "DOMAIN,t7z.cupid.iqiyi.com",
+          "DOMAIN,t7z.cupid.ptqy.gitv.tv",
+          "DOMAIN,wxa.wxs.qq.com",
+          "DOMAIN,wximg.wxs.qq.com",
+          "DOMAIN,wxsmw.wxs.qq.com",
+          "DOMAIN,wxsnsdy.wxs.qq.com",
+          "DOMAIN,wxsnsdythumb.wxs.qq.com"
         ]
       }
     ]
@@ -276,18 +323,22 @@
     "kind": "policy",
     "header": [
       "Expects a reject policy.",
-      "Stops mainland apps from bypassing the gateway resolver. Hang this on a policy that can be switched off rather than a hard REJECT. If an app fails closed instead of falling back, that host belongs in Rescue.",
-      "DNSPod's public DoH under doh.pub and dns.pub is the same bypass with a general resolver behind it. The foreign public resolvers are in Proxy/DoH.list."
+      "Stops mainland apps from bypassing the gateway resolver: every host here answers DNS over HTTP for an app SDK, so a client that cannot reach it falls back to the system resolver. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
+      "DNSPod's public DoH under doh.pub and dns.pub is the same bypass with a general resolver behind it. The foreign public resolvers are in Proxy/DoH.list. The bare service addresses that apps dial without a name are in HttpDNSCIDR.list.",
+      "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
     ],
     "blocks": [
       {
         "rules": [
           "DOMAIN-SUFFIX,httpdns.platform.dbankcloud.cn",
           "DOMAIN-SUFFIX,httpdns.platform.dbankcloud.com",
+          "DOMAIN,aedns.weixin.qq.com",
+          "DOMAIN,dns.jd.com",
           "DOMAIN,dns.pub",
           "DOMAIN,dns.wechat.com",
           "DOMAIN,dns.weixin.qq.com",
           "DOMAIN,dns.weixin.qq.com.cn",
+          "DOMAIN,doh.ptqy.gitv.tv",
           "DOMAIN,doh.pub",
           "DOMAIN,httpdns.alicdn.com",
           "DOMAIN,httpdns.aliyuncs.com",
@@ -297,8 +348,44 @@
           "DOMAIN,httpdns.huaweicloud.com",
           "DOMAIN,httpdns.meituan.com",
           "DOMAIN,httpdns.music.163.com",
+          "DOMAIN,httpdns.music.ntes53.netease.com",
           "DOMAIN,httpdns.n.netease.com",
-          "DOMAIN,httpdns.volcengineapi.com"
+          "DOMAIN,httpdns.volcengineapi.com",
+          "DOMAIN,httpdns.yunxindns.com",
+          "DOMAIN,httpdnsmultiapi.meituan.com",
+          "DOMAIN,resolve.umeng.com",
+          "DOMAIN,resolver.mi.xiaomi.com",
+          "DOMAIN,udns.weixin.qq.com"
+        ]
+      },
+      {
+        "note": "Alibaba's endpoint dispatch for Taobao and Alipay. Blocking it sends the apps to ordinary DNS at the cost of a slower first request; the anycast addresses they then dial stay domestic through Geo/AlibabaCIDR.list.",
+        "rules": [
+          "DOMAIN,amdc-sibling.alipay.com.cn",
+          "DOMAIN,amdc-thirdparty.alipay.com",
+          "DOMAIN,amdc.alipay.com",
+          "DOMAIN,amdc.m.taobao.com"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Library/Reject/HttpDNSCIDR.list",
+    "title": "HTTP DNS addresses",
+    "kind": "policy",
+    "header": [
+      "Expects a reject policy.",
+      "The service addresses of the mainland HTTP DNS products, which SDKs dial by address so no name rule sees them: Tencent DNSPod D+, Alibaba Cloud HTTPDNS and Baidu Cloud HTTPDNS. Only addresses the vendors dedicate to the service belong here; an address shared with a CDN would take unrelated traffic with it. 119.29.29.29 and 223.5.5.5 are general public resolvers and stay out.",
+      "Reference it in the address block, after every name rule, so a named request that lands on one of these addresses is classified by its name."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "IP-CIDR,119.29.29.98/31,no-resolve",
+          "IP-CIDR,180.76.76.200/32,no-resolve",
+          "IP-CIDR,182.254.116.117/32,no-resolve",
+          "IP-CIDR,182.254.118.119/32,no-resolve",
+          "IP-CIDR,203.107.1.0/24,no-resolve"
         ]
       }
     ]
@@ -309,83 +396,265 @@
     "kind": "policy",
     "header": [
       "Expects a reject policy.",
-      "Usage telemetry, product analytics and crash reports that the imported reject layer lets through, so they would otherwise ride a proxy exit. Developer CLIs are the heaviest senders: they report on every command. Hang this on a policy that can be switched off rather than a hard REJECT.",
-      "Scope: the ingestion host, never the vendor's dashboard or API, which keep their own file or FINAL. Feature flag services stay out, because a client that cannot fetch its flags changes behavior. Our own services stay in Developer/Owned.list. A host whose company list sits in the overlay, ahead of the reject block (GitHub, AI, Tailscale coordination), cannot be caught here."
+      "Usage telemetry, product analytics, performance monitoring and crash reports. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
+      "Scope: the ingestion host, never the vendor's dashboard or API, which keep their own file or FINAL. Feature flag and remote configuration hosts stay out, because a client that cannot fetch them changes behavior; so do push channels that share a vendor with its analytics. Our own services stay in Developer/Owned.list. A host whose company list sits in the overlay, ahead of the reject block (GitHub, AI, Tailscale coordination, the Apple pins), cannot be caught here.",
+      "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
     ],
     "blocks": [
       {
-        "note": "Cloudflare: wrangler's usage events.",
+        "note": "Developer tooling: wrangler, the Vercel CLI and Turborepo, Homebrew, 1Password, App Center, Tailscale's log service.",
         "rules": [
-          "DOMAIN,sparrow.cloudflare.com"
-        ]
-      },
-      {
-        "note": "Vercel: the CLI and Turborepo.",
-        "rules": [
+          "DOMAIN,analytics.brew.sh",
+          "DOMAIN,b5x-sentry.1passwordservices.com",
+          "DOMAIN,in.appcenter.ms",
+          "DOMAIN,log.tailscale.com",
+          "DOMAIN,sparrow.cloudflare.com",
+          "DOMAIN,telemetry.1passwordservices.com",
           "DOMAIN,telemetry.vercel.com"
         ]
       },
       {
-        "note": "Sentry ingestion, per region. sentry.io itself stays in Developer/Sentry.list.",
+        "note": "Analytics and monitoring vendors. Sentry, PostHog and Amplitude keep their sites and APIs; only ingestion is here.",
         "rules": [
+          "DOMAIN-SUFFIX,appsflyersdk.com",
+          "DOMAIN-SUFFIX,browser-intake-datadoghq.com",
+          "DOMAIN-SUFFIX,browser-intake-us5-datadoghq.com",
+          "DOMAIN-SUFFIX,cloudflareinsights.com",
+          "DOMAIN-SUFFIX,crashlytics.com",
+          "DOMAIN-SUFFIX,demdex.net",
+          "DOMAIN-SUFFIX,google-analytics.com",
+          "DOMAIN-SUFFIX,app-measurement.com",
+          "DOMAIN-SUFFIX,hightouch-events.com",
+          "DOMAIN-SUFFIX,hotjar.com",
+          "DOMAIN-SUFFIX,hotjar.io",
+          "DOMAIN-SUFFIX,rumt-zh.com",
+          "DOMAIN-SUFFIX,hs-analytics.net",
+          "DOMAIN-SUFFIX,hscollectedforms.net",
+          "DOMAIN-SUFFIX,i.posthog.com",
+          "DOMAIN-SUFFIX,ingest.de.sentry.io",
           "DOMAIN-SUFFIX,ingest.sentry.io",
           "DOMAIN-SUFFIX,ingest.us.sentry.io",
-          "DOMAIN-SUFFIX,ingest.de.sentry.io"
-        ]
-      },
-      {
-        "note": "Datadog log and browser intake. The us5 browser intake is its own registrable domain.",
-        "rules": [
+          "DOMAIN-SUFFIX,omtrdc.net",
+          "DOMAIN-SUFFIX,segment.io",
+          "DOMAIN-SUFFIX,clarity.ms",
+          "DOMAIN,analytics.adjust.com",
+          "DOMAIN,analytics.adjust.io",
+          "DOMAIN,analytics.ahrefs.com",
+          "DOMAIN,analytics.chase.com",
+          "DOMAIN,px.effirst.com",
+          "DOMAIN,smetrics.sc.com",
+          "DOMAIN,analytics.tiktok.com",
+          "DOMAIN,analytics.twitter.com",
+          "DOMAIN,api.amplitude.com",
+          "DOMAIN,api2.amplitude.com",
+          "DOMAIN,api-js.mixpanel.com",
+          "DOMAIN,api.mixpanel.com",
+          "DOMAIN,api.openpanel.dev",
+          "DOMAIN,app.posthog.com",
+          "DOMAIN,cdn.amplitude.com",
+          "DOMAIN,cdn-settings.segment.com",
+          "DOMAIN,crashlyticsreports-pa.googleapis.com",
+          "DOMAIN,cs.ns1p.net",
+          "DOMAIN,csp-reporting.cloudflare.com",
+          "DOMAIN,edge.adobedc.net",
+          "DOMAIN,events.mapbox.com",
+          "DOMAIN,federatedcompute-pa.googleapis.com",
+          "DOMAIN,firebaselogging.googleapis.com",
           "DOMAIN,http-intake.logs.datadoghq.com",
           "DOMAIN,http-intake.logs.us5.datadoghq.com",
-          "DOMAIN-SUFFIX,browser-intake-datadoghq.com",
-          "DOMAIN-SUFFIX,browser-intake-us5-datadoghq.com"
+          "DOMAIN,metrics-fe-na1.hubspot.com",
+          "DOMAIN,monorail-edge.shopifysvc.com",
+          "DOMAIN,player.stats.live-video.net",
+          "DOMAIN,rum.hlx.page",
+          "DOMAIN,snowplow-pixel.tradingview.com",
+          "DOMAIN,spade.twitch.tv",
+          "DOMAIN,stats.cleanip.io",
+          "DOMAIN,tag.unifyintent.com",
+          "DOMAIN,w3-reporting-nel.reddit.com"
         ]
       },
       {
-        "note": "PostHog ingestion. posthog.com itself is the product site.",
+        "note": "Google network beacons and Meta network measurement, both under shared CDN zones.",
         "rules": [
-          "DOMAIN-SUFFIX,i.posthog.com",
-          "DOMAIN,app.posthog.com"
+          "DOMAIN-WILDCARD,beacons*.gvt2.com",
+          "DOMAIN-WILDCARD,beacons*.gvt3.com",
+          "DOMAIN-WILDCARD,e2c*.gcp.gvt2.com",
+          "DOMAIN-KEYWORD,-netseer-ipaddr-assoc"
         ]
       },
       {
-        "note": "Segment",
+        "note": "Apple diagnostics and per-app analytics.",
         "rules": [
-          "DOMAIN-SUFFIX,segment.io",
-          "DOMAIN,cdn-settings.segment.com"
+          "DOMAIN,metrics.icloud.com",
+          "DOMAIN,metrics-config.icloud.com",
+          "DOMAIN,notes-analytics-events.apple.com",
+          "DOMAIN,securemetrics.apple.com",
+          "DOMAIN,weather-analytics-events.apple.com"
         ]
       },
       {
-        "note": "1Password usage and crash reports. The vaults stay in Developer/1Password.list.",
+        "note": "Microsoft and Yahoo.",
         "rules": [
-          "DOMAIN,telemetry.1passwordservices.com",
-          "DOMAIN,b5x-sentry.1passwordservices.com"
+          "DOMAIN-SUFFIX,analytics.yahoo.com",
+          "DOMAIN-SUFFIX,events.data.microsoft.com",
+          "DOMAIN,geo.yahoo.com"
         ]
       },
       {
-        "note": "Microsoft App Center",
+        "note": "Netflix and WhatsApp client logs.",
         "rules": [
-          "DOMAIN,in.appcenter.ms"
+          "DOMAIN-SUFFIX,logs.netflix.com",
+          "DOMAIN,dit.whatsapp.net"
         ]
       },
       {
-        "note": "Firebase Crashlytics",
+        "note": "Tencent: the mdt and beacon pipelines, Bugly crash reports, the WeChat web error reporter and P2P delivery statistics.",
         "rules": [
-          "DOMAIN-SUFFIX,crashlytics.com",
-          "DOMAIN,crashlyticsreports-pa.googleapis.com"
+          "DOMAIN-SUFFIX,beacon.qq.com",
+          "DOMAIN-SUFFIX,bugly.qq.com",
+          "DOMAIN-SUFFIX,mdt.qq.com",
+          "DOMAIN,aegis.qq.com",
+          "DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net",
+          "DOMAIN,badjs.weixinbridge.com",
+          "DOMAIN,galileotelemetry.tencent.com",
+          "DOMAIN,h.trace.qq.com",
+          "DOMAIN,report.idqqimg.com",
+          "DOMAIN,report.tv.kohesport.qq.com",
+          "DOMAIN,rmonitor.qq.com",
+          "DOMAIN,snowflake.qq.com",
+          "DOMAIN,tdid.m.qq.com"
         ]
       },
       {
-        "note": "Tailscale's log service. Clients keep working without it.",
+        "note": "ByteDance and Volcano Engine application logs and APM.",
         "rules": [
-          "DOMAIN,log.tailscale.com"
+          "DOMAIN,analytics.oceanengine.com",
+          "DOMAIN,apm.volccdn.com",
+          "DOMAIN,apmplus.volces.com",
+          "DOMAIN,log.byteoversea.com",
+          "DOMAIN,log.snssdk.com",
+          "DOMAIN,log0-misc-hl.amemv.com",
+          "DOMAIN,log5-applog-lf.fqnovel.com",
+          "DOMAIN,mcs.zijieapi.com",
+          "DOMAIN,mon.zijieapi.com",
+          "DOMAIN,toblog.ctobsnssdk.com"
         ]
       },
       {
-        "note": "X web analytics",
+        "note": "Xiaohongshu tracking and APM. Its risk control host edith-seb stays out.",
         "rules": [
-          "DOMAIN,analytics.twitter.com"
+          "DOMAIN,apm-fe.xiaohongshu.com",
+          "DOMAIN,apm-native.xiaohongshu.com",
+          "DOMAIN,lng.xiaohongshu.com",
+          "DOMAIN,spider-tracker.xiaohongshu.com",
+          "DOMAIN,t2.xiaohongshu.com"
+        ]
+      },
+      {
+        "note": "Alibaba: the adashx and mmstat collectors, the Alibaba Cloud log projects of its video and messaging SDKs, RUM, Alipay log gateways, Amap, Quark, UC and Ele.me.",
+        "rules": [
+          "DOMAIN-KEYWORD,adashx",
+          "DOMAIN-SUFFIX,mmstat.com",
+          "DOMAIN,adash-emas.cn-hangzhou.aliyuncs.com",
+          "DOMAIN,app-monitor.ele.me",
+          "DOMAIN,applog.lc.quark.cn",
+          "DOMAIN,applog.uc.cn",
+          "DOMAIN,arms-retcode.aliyuncs.com",
+          "DOMAIN,collect.alipay.com",
+          "DOMAIN,dualstack-logs.amap.com",
+          "DOMAIN,loggw.alipay.com",
+          "DOMAIN,loggw-ex.alipay.com",
+          "DOMAIN,logs.amap.com",
+          "DOMAIN,openmonitor.alipay-eco.com",
+          "DOMAIN,puds.ucweb.com",
+          "DOMAIN,px.ucweb.com",
+          "DOMAIN,px.wpk.quark.cn",
+          "DOMAIN,track.uc.cn",
+          "DOMAIN,ucus.ucweb.com",
+          "DOMAIN,woodpecker.uc.cn",
+          "DOMAIN,alivc-aio.cn-hangzhou.log.aliyuncs.com",
+          "DOMAIN,alivc-aio.cn-hangzhou.dualstack.log.aliyuncs.com",
+          "DOMAIN,client-upload.cn-shanghai.log.aliyuncs.com",
+          "DOMAIN,impaas-for-client.cn-shanghai.log.aliyuncs.com",
+          "DOMAIN,videocloud.cn-hangzhou.log.aliyuncs.com",
+          "DOMAIN,videocloud.cn-hangzhou.dualstack.log.aliyuncs.com",
+          "DOMAIN,vod-newplayer.cn-hangzhou.log.aliyuncs.com"
+        ]
+      },
+      {
+        "note": "Xiaomi system and app tracking. The TV launcher's content platform and configuration hosts stay out.",
+        "rules": [
+          "DOMAIN-SUFFIX,tracking.intl.miui.com",
+          "DOMAIN-SUFFIX,tracking.miui.com",
+          "DOMAIN,apm-rum.inf.miui.com",
+          "DOMAIN,stat.youpin.mi.com",
+          "DOMAIN,tracker.xiaomixiaoai.com"
+        ]
+      },
+      {
+        "note": "JD, Meituan, Dianping and Pinduoduo collectors. Their risk control, chat and device fingerprint hosts stay out.",
+        "rules": [
+          "DOMAIN-SUFFIX,dreport.meituan.net",
+          "DOMAIN,catfront.dianping.com",
+          "DOMAIN,hermes.jd.com",
+          "DOMAIN,mllog.jd.com",
+          "DOMAIN,report.meituan.com",
+          "DOMAIN,sgm-w.jd.com",
+          "DOMAIN,th.pinduoduo.com",
+          "DOMAIN,uranus.jd.com",
+          "DOMAIN,wl.jd.com"
+        ]
+      },
+      {
+        "note": "Baidu statistics and crash reports, NetEase APM and Bilibili client data. The Baidu and NetEase security SDKs stay out.",
+        "rules": [
+          "DOMAIN,apm.music.ntes53.netease.com",
+          "DOMAIN,countly.mail.163.com",
+          "DOMAIN,crab.baidu.com",
+          "DOMAIN,data.bilibili.com",
+          "DOMAIN,h2tcbox.baidu.com",
+          "DOMAIN,hm.baidu.com",
+          "DOMAIN,hmma.baidu.com",
+          "DOMAIN,openrcv.baidu.com",
+          "DOMAIN,push.zhanzhang.baidu.com",
+          "DOMAIN,sentry.netease.com"
+        ]
+      },
+      {
+        "note": "Umeng, Getui and JPush statistics. Their push channels (U-Push and its token host, the Getui talk hosts, the JPush configuration and status hosts) stay out, so apps that push through them keep notifications.",
+        "rules": [
+          "DOMAIN,alog.umeng.com",
+          "DOMAIN,ali-stats.jpush.cn",
+          "DOMAIN,bz-sdk.open.extension.getui.com",
+          "DOMAIN,ccs.umeng.com",
+          "DOMAIN,cnlogs.umeng.com",
+          "DOMAIN,dnms.getui.com",
+          "DOMAIN,errnewlog.umeng.com",
+          "DOMAIN,gd-stats.jpush.cn",
+          "DOMAIN,htls.umeng.com",
+          "DOMAIN,oslogs.umeng.com",
+          "DOMAIN,sdk.open.extension.getui.com",
+          "DOMAIN,stats.jpush.cn",
+          "DOMAIN,stats-ipv6.jpush.cn",
+          "DOMAIN,ulogs.umeng.com",
+          "DOMAIN,alog.umengcloud.com",
+          "DOMAIN,cnlogs.umengcloud.com",
+          "DOMAIN,htls.umengcloud.com",
+          "DOMAIN,ulogs.umengcloud.com"
+        ]
+      },
+      {
+        "note": "Trip.com, ShopBack, ifanr, RongCloud, Shujupie, 360 and Sogou input method reporting. Sogou's keyboard uploads input to its cloud service.",
+        "rules": [
+          "DOMAIN,analytics.ifanrusercontent.com",
+          "DOMAIN,c.sayhi.360.cn",
+          "DOMAIN,logcollection.ronghub.com",
+          "DOMAIN,s.c-ctrip.com",
+          "DOMAIN,tracking.shopback.com",
+          "DOMAIN,ubt-sgp.trip.com",
+          "DOMAIN,umini.shujupie.com",
+          "DOMAIN,v2.get.sogou.com",
+          "DOMAIN,ws-keyboard.shouji.sogou.com"
         ]
       }
     ]
@@ -864,7 +1133,7 @@
     "kind": "service",
     "header": [
       "Expects a streaming policy.",
-      "The international product. Douyin stays in Rescue and Media/China."
+      "The international product. Douyin stays in Platforms/ByteDance.list and Media/China."
     ]
   },
   {
@@ -930,7 +1199,7 @@
     "kind": "service",
     "header": [
       "Expects a proxy policy.",
-      "The dashboard, incidents and the MCP server. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Log ingestion under betterstackdata.com lives in Rescue/BetterStack.list, ahead of the reject layer that would otherwise take it."
+      "The dashboard, incidents and the MCP server. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Log ingestion under betterstackdata.com is named here too, so our own log shipping keeps the same exit."
     ]
   },
   {
@@ -1366,7 +1635,7 @@
     "kind": "service",
     "header": [
       "Expects a mainland policy.",
-      "Commerce, payments, cloud, DingTalk, Amap and device fingerprint hosts. alicdn.com lives in Direct/CDNChina.list; Youku in Media/Youku.list. UC Browser and Quark hosts under ucweb.com, uc.cn and myquark.cn belong on the mainland path; Quark download hosts stay in Direct/Download.list. Security hosts taken by the reject layer are repaired in Rescue/Alibaba.list, and the anycast space the apps dial by address is in Geo/AlibabaCIDR.list."
+      "Commerce, payments, cloud, DingTalk, Amap and device fingerprint hosts. alicdn.com lives in Direct/CDNChina.list; Youku in Media/Youku.list. UC Browser and Quark hosts under ucweb.com, uc.cn and myquark.cn belong on the mainland path; Quark download hosts stay in Direct/Download.list. Its security SDK, device fingerprint and device identifier hosts are listed in source/protected.json so no reject list can take them, and the anycast space the apps dial by address is in Geo/AlibabaCIDR.list."
     ]
   },
   {
@@ -1412,7 +1681,7 @@
     "kind": "service",
     "header": [
       "Expects a mainland policy.",
-      "Douyin, Toutiao, Feishu, Volcano Engine and the e-commerce and mini-app estates. TikTok stays in Media/TikTok.list and expects a streaming policy. The content CDNs (douyincdn.com, douyinvod.com, byteimg.com, bytecdn.cn, pstatp.com) live in Direct/CDNChina.list. Rescue/Douyin.list precedes the reject layer for the app hosts it blocks."
+      "Douyin, Toutiao, Feishu, Volcano Engine and the e-commerce and mini-app estates. TikTok stays in Media/TikTok.list and expects a streaming policy. The content CDNs (douyincdn.com, douyinvod.com, byteimg.com, bytecdn.cn, pstatp.com) live in Direct/CDNChina.list. Its app API and realtime push hosts are listed in source/protected.json so no reject list can take them."
     ]
   },
   {
@@ -1482,7 +1751,7 @@
     "kind": "service",
     "header": [
       "Expects a mainland policy.",
-      "Meituan and Dianping. Rescue/Meituan.list precedes the reject layer for the image host it blocks; this file carries the rest."
+      "Meituan and Dianping."
     ]
   },
   {

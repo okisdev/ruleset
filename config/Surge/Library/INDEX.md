@@ -1,14 +1,15 @@
 # Library index
 
-107 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
+108 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
 
 ### Reject
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Reject/Ads.list`](Reject/Ads.list) | Ads | a reject policy | 38 |
-| [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 17 |
-| [`Reject/Telemetry.list`](Reject/Telemetry.list) | Telemetry | a reject policy | 20 |
+| [`Reject/Ads.list`](Reject/Ads.list) | Ads | a reject policy | 143 |
+| [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 30 |
+| [`Reject/HttpDNSCIDR.list`](Reject/HttpDNSCIDR.list) | HTTP DNS addresses | a reject policy | 5 |
+| [`Reject/Telemetry.list`](Reject/Telemetry.list) | Telemetry | a reject policy | 181 |
 | [`Reject/Unresolvable.list`](Reject/Unresolvable.list) | Unresolvable names | a reject policy | 4 |
 
 ### Direct
@@ -79,7 +80,7 @@
 | --- | --- | --- | ---: |
 | [`Developer/1Password.list`](Developer/1Password.list) | 1Password | a proxy policy | 3 |
 | [`Developer/Atlassian.list`](Developer/Atlassian.list) | Atlassian | a proxy policy | 6 |
-| [`Developer/BetterStack.list`](Developer/BetterStack.list) | Better Stack | a proxy policy | 1 |
+| [`Developer/BetterStack.list`](Developer/BetterStack.list) | Better Stack | a proxy policy | 2 |
 | [`Developer/Cloudflare.list`](Developer/Cloudflare.list) | Cloudflare | a proxy policy | 7 |
 | [`Developer/Datadog.list`](Developer/Datadog.list) | Datadog | a proxy policy | 1 |
 | [`Developer/Docker.list`](Developer/Docker.list) | Docker | a proxy policy | 3 |

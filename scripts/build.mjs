@@ -252,6 +252,36 @@ for (const list of listByPath.values()) {
   }
 }
 
+const matches = (rule, host) => {
+  const [type, value] = rule.split(',');
+  if (type === 'DOMAIN') return host === value;
+  if (type === 'DOMAIN-SUFFIX') return host === value || host.endsWith(`.${value}`);
+  if (type === 'DOMAIN-KEYWORD') return host.includes(value);
+  if (type === 'DOMAIN-WILDCARD') {
+    const pattern = value.replace(/[.]/g, '\\.').replace(/\*/g, '.*').replace(/\?/g, '.');
+    return new RegExp(`^${pattern}$`).test(host);
+  }
+  return false;
+};
+const protectedHosts = readJson(join(root, 'source', 'protected.json'));
+if (!Array.isArray(protectedHosts)) fail('source/protected.json: must be an array');
+for (const [index, entry] of (Array.isArray(protectedHosts) ? protectedHosts : []).entries()) {
+  const where = `source/protected.json[${index}]`;
+  unknownKeys(entry, ['host', 'list', 'reason'], where);
+  if (!domain.test(entry?.host ?? '')) fail(`${where}: host must be a domain`);
+  if (!isText(entry?.reason)) fail(`${where}: reason is required`);
+  for (const list of listByPath.values()) {
+    if (!list.path.startsWith('Library/Reject/')) continue;
+    const rule = [...list.rules].find((candidate) => matches(candidate, entry?.host ?? ''));
+    if (rule) fail(`${where}: ${entry.host} is protected but ${list.path} rejects it with ${rule}`);
+  }
+  if (entry?.list !== undefined) {
+    const list = listByPath.get(entry.list);
+    if (list === undefined) fail(`${where}: ${entry.list} is not a list`);
+    else if (![...list.rules].some((rule) => matches(rule, entry.host))) fail(`${where}: ${entry.list} does not match ${entry.host}`);
+  }
+}
+
 if (errors.length > 0) {
   for (const error of errors) console.error(error);
   process.exit(1);
