@@ -1,7 +1,0 @@
-# Ruleset: Better Stack false positives
-#
-# Expects a proxy policy. Must precede the imported reject layer.
-#
-# Log shipping to Better Stack ingests at s<source>.<cluster>.betterstackdata.com, and the reject set classifies the whole zone as telemetry. Blocking an ingestion host stops its source from receiving lines even when the shipping client reports no error.
-
-DOMAIN-SUFFIX,betterstackdata.com

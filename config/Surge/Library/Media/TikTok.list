@@ -2,7 +2,7 @@
 #
 # Expects a streaming policy.
 #
-# The international product. Douyin stays in Rescue and Media/China.
+# The international product. Douyin stays in Platforms/ByteDance.list and Media/China.
 
 DOMAIN-SUFFIX,byteoversea.com
 DOMAIN-SUFFIX,ibytedtos.com

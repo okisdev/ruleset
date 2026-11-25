@@ -577,8 +577,10 @@
       "owner": "alibaba",
       "category": "cloud",
       "domains": [
+        "alcasset.com",
         "aliyun.com",
         "aliyuncs.com",
+        "alyasset.com",
         "hichina.com",
         "mxhichina.com"
       ]
@@ -590,6 +592,7 @@
       "owner": "alibaba",
       "category": "lifestyle",
       "domains": [
+        "amap-cdn.com",
         "amap.com",
         "autonavi.com"
       ]
@@ -622,6 +625,17 @@
       "category": "productivity",
       "domains": [
         "dingtalk.com"
+      ]
+    },
+    {
+      "id": "yuque",
+      "name": "Yuque",
+      "zh": "语雀",
+      "owner": "alibaba",
+      "category": "productivity",
+      "domains": [
+        "nlark.com",
+        "yuque.com"
       ]
     },
     {
@@ -895,6 +909,7 @@
       "category": "video",
       "domains": [
         "71edge.com",
+        "gitv.tv",
         "iq.com",
         "iqiyi.com",
         "iqiyipic.com",
@@ -1647,7 +1662,11 @@
       "category": "finance",
       "domains": [
         "lbctrl.com",
-        "lbkrs.com"
+        "lbkrs.com",
+        "longbridge.com",
+        "longportapp.com",
+        "pbkrs.com",
+        "wbrks.com"
       ]
     },
     {
@@ -1948,7 +1967,35 @@
       "zh": "BOSS 直聘",
       "category": "lifestyle",
       "domains": [
+        "bosszhipin.com",
         "zhipin.com"
+      ]
+    },
+    {
+      "id": "didi",
+      "name": "DiDi",
+      "zh": "滴滴出行",
+      "category": "lifestyle",
+      "domains": [
+        "xiaojukeji.com"
+      ]
+    },
+    {
+      "id": "sf-express",
+      "name": "SF Express",
+      "zh": "顺丰速运",
+      "category": "lifestyle",
+      "domains": [
+        "sf-express.com"
+      ]
+    },
+    {
+      "id": "zto",
+      "name": "ZTO Express",
+      "zh": "中通快递",
+      "category": "lifestyle",
+      "domains": [
+        "zto.com"
       ]
     },
     {
@@ -2474,6 +2521,17 @@
       ]
     },
     {
+      "id": "dewu",
+      "name": "Dewu",
+      "zh": "得物",
+      "category": "shopping",
+      "domains": [
+        "dewu.com",
+        "dewucdn.com",
+        "poizon.com"
+      ]
+    },
+    {
       "id": "telegram",
       "name": "Telegram",
       "category": "social",
@@ -2633,6 +2691,7 @@
       "owner": "tencent",
       "category": "platform",
       "domains": [
+        "cdntips.net",
         "gtimg.cn",
         "gtimg.com",
         "idqqimg.com",
@@ -2658,6 +2717,7 @@
         "weixin.com",
         "weixin.qq.com",
         "weixinbridge.com",
+        "wxgateway.com",
         "wxqcloud.qq.com.cn"
       ]
     },
@@ -2767,6 +2827,8 @@
       "domains": [
         "anticheatexpert.com",
         "gcloudcs.com",
+        "gcloudsdk.com",
+        "gcloudsvcs.com",
         "wegame.com"
       ]
     },
@@ -2951,15 +3013,38 @@
       "owner": "xiaomi",
       "category": "platform",
       "domains": [
+        "mi-fds.com",
         "mi-img.com",
         "mi.com",
         "mifile.cn",
         "miinsurtech.com",
         "mijia.tech",
+        "miot-spec.org",
         "miui.com",
         "miwifi.com",
         "xiaomi.com",
         "xiaomi.net"
+      ]
+    },
+    {
+      "id": "xiaomi-tv",
+      "name": "Xiaomi TV",
+      "zh": "小米电视",
+      "owner": "xiaomi",
+      "category": "video",
+      "domains": [
+        "duokanbox.com",
+        "mitvos.com"
+      ]
+    },
+    {
+      "id": "xiao-ai",
+      "name": "Xiao AI",
+      "zh": "小爱同学",
+      "owner": "xiaomi",
+      "category": "ai",
+      "domains": [
+        "xiaomixiaoai.com"
       ]
     },
     {

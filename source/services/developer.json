@@ -81,12 +81,10 @@
       "category": "developer",
       "lists": {
         "Library/Developer/BetterStack.list": [
-          "DOMAIN-SUFFIX,betterstack.com"
+          "DOMAIN-SUFFIX,betterstack.com",
+          "DOMAIN-SUFFIX,betterstackdata.com"
         ]
-      },
-      "names": [
-        "betterstackdata.com"
-      ]
+      }
     },
     {
       "id": "infisical",

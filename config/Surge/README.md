@@ -23,16 +23,16 @@ Files that expect DIRECT expect it literally: a bank or a pin on DIRECT must not
 
 ## Order of the profile
 
-1. **Overlay.** Surge's built-in `SYSTEM` set, infrastructure, Tailscale, the transport guards, the iCloud content QUIC guard, the Apple pins, Apple Intelligence, Rescue, the AI sets, the GitHub set, and the registries. It sits first so these rules win.
+1. **Overlay.** Surge's built-in `SYSTEM` set, infrastructure, Tailscale, the transport guards, the iCloud content QUIC guard, the Apple pins, Apple Intelligence, the AI sets, the GitHub set, and the registries. It sits first so these rules win.
 2. **Local.** Proxy cores and download clients by process name, private names, LAN.
-3. **Reject.** The library's unresolvable names, ads, HTTP DNS and telemetry sets, then the imported skk.moe reject layer. Rescue must precede this block and every service list must follow it. Two imported sets do not follow the reject policy: `reject-drop.conf` carries `pre-matching`, which Surge evaluates before every other rule, and `reject-no-drop.conf` is a hard `REJECT-NO-DROP`; a Rescue file cannot override either, so no repair may collide with them.
+3. **Reject.** The unresolvable names on REJECT, then the HTTP DNS, ads and telemetry sets on a reject policy that can be switched off, each with `extended-matching`. Every service list must follow this block.
 4. **Direct services.** Certificate validation, NTP, carrier, Syncthing, downloads, the mainland CDN, then the four proxy-side utility sets (speedtest, public DoH, Safe Browsing, app backends).
 5. **Apple.** Apple China, Apple TV and News, Private Relay, then the company floor `Platforms/Apple.list` on DIRECT.
 6. **Microsoft.** The CDN, Xbox, then the company set, which works on DIRECT or a proxy policy.
 7. **Social, media, gaming, developer, finance.** One file per service.
 8. **Banks.** The proxied set, then the direct set; every bank takes one path by name.
 9. **Company-wide sets** after the more specific files, `Platforms/China.list` last among them, then `DOMAIN-SUFFIX,cn`.
-10. **Addresses.** The imported IP reject set, the Telegram prefixes, Alibaba's anycast space, `LAN`, `GEOIP,CN`, then `FINAL`.
+10. **Addresses.** The HTTP DNS service addresses on the reject policy, the Telegram prefixes, Alibaba's anycast space, `LAN`, `GEOIP,CN`, then `FINAL`.
 
 ## Apple
 
@@ -79,8 +79,9 @@ The port guards cover traffic that reaches a gateway without a name. Names in a 
 ## Ordering rules that are easy to get wrong
 
 - Overlay precedes library. A repair rule placed behind the classification it is repairing does nothing.
-- Rescue precedes reject, and reject precedes every service list. A service list placed before the reject layer shields that company's telemetry hosts from it.
-- Every Rescue line carries `extended-matching`, because the reject domainset does. A client that dials an address and names the host only in its SNI otherwise passes the repair unmatched and is rejected one block later.
+- Reject precedes every service list. A service list placed before the reject layer shields that company's telemetry hosts from it.
+- Every name based reject line carries `extended-matching`. A client that dials an address and names the host only in its SNI otherwise passes the block unmatched and leaves through the address rules.
+- `Reject/HttpDNSCIDR.list` follows every name rule, so a named request that lands on one of its addresses is classified by its name.
 - The iCloud content QUIC guard precedes `Apple/iCloudContent.list`. Behind the pin it never sees a packet.
 - `AI/AI.list` precedes `Platforms/Google.list`, so the `.google` AI products keep the AI exit; `Platforms/GoogleChina.list` precedes it too.
 - The four Apple exceptions and `Proxy/SafeBrowsing.list` precede `Platforms/Apple.list`; the Microsoft CDN and Xbox precede `Platforms/Microsoft.list`; `Direct/Download.list` and `Direct/CDNChina.list` precede the company sets whose suffixes cover their hosts.
@@ -89,4 +90,14 @@ The port guards cover traffic that reaches a gateway without a name. Names in a 
 
 ## Checking a change
 
-`node scripts/build.mjs --check` verifies that every generated file matches the source and that no domain is claimed twice. It does not judge routing, so also check a change by replaying request log hosts through the old and new rule order. Compare which hosts change policy, what still lands on `FINAL`, and whether functional hosts meet the reject layer. Traffic arriving as a bare address appears without a host and, for QUIC on a proxy policy, can show `QUIC-BLOCK`.
+`node scripts/build.mjs --check` verifies that every generated file matches the source, that no domain is claimed twice, and that no reject set matches a host in `source/protected.json`. It does not judge routing, so also check a change by replaying request log hosts through the old and new rule order. Compare which hosts change policy, what still lands on `FINAL`, and whether functional hosts meet the reject layer. Traffic arriving as a bare address appears without a host and, for QUIC on a proxy policy, can show `QUIC-BLOCK`.
+
+## Triaging a page or app that does not load
+
+Three failure shapes look alike and need different fixes. The request log names the rule that matched each connection, so start there.
+
+**Blocked by a reject set.** A zero byte connection that closes immediately after the TCP connect, with a reject rule named in the log. Switch the reject policy to DIRECT; if the symptom clears within a second, narrow or remove the rule and add the host to `source/protected.json` with the symptom as its reason.
+
+**Sent abroad by the catch all.** A domestic service that no domestic list carries and that `GEOIP,CN` misses reaches `FINAL` and is proxied into an origin that refuses foreign exits. The handshake completes, a few kilobytes pass, then the connection closes. Widen the domestic classification instead of patching the single host, so the next service in the same position is caught too.
+
+**Arrives without a name.** Names in the profile's `always-real-ip`, and HTTP/3 whose SNI the gateway cannot read, reach the gateway as a bare address and fall to `FINAL`, where `block-quic` rejects QUIC on a proxy policy. The log shows an address without a host and, for QUIC, the policy `QUIC-BLOCK`. Fix with an address rule when the destination owns a published range, or an inline protocol and port rule in the profile when it does not.

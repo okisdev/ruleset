@@ -1,14 +1,15 @@
 # Library index
 
-107 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
+108 first-party rule sets. The expected policy is a kind, defined in [`../README.md`](../README.md#policies); the profile binds it to a group of its own.
 
 ### Reject
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Reject/Ads.list`](Reject/Ads.list) | Ads | a reject policy | 38 |
-| [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 17 |
-| [`Reject/Telemetry.list`](Reject/Telemetry.list) | Telemetry | a reject policy | 20 |
+| [`Reject/Ads.list`](Reject/Ads.list) | Ads | a reject policy | 143 |
+| [`Reject/HttpDNS.list`](Reject/HttpDNS.list) | HTTP DNS | a reject policy | 30 |
+| [`Reject/HttpDNSCIDR.list`](Reject/HttpDNSCIDR.list) | HTTP DNS addresses | a reject policy | 5 |
+| [`Reject/Telemetry.list`](Reject/Telemetry.list) | Telemetry | a reject policy | 181 |
 | [`Reject/Unresolvable.list`](Reject/Unresolvable.list) | Unresolvable names | a reject policy | 4 |
 
 ### Direct
@@ -71,7 +72,7 @@
 | [`Media/Viu.list`](Media/Viu.list) | Viu | a streaming policy | 2 |
 | [`Media/YouTube.list`](Media/YouTube.list) | YouTube | a streaming policy | 9 |
 | [`Media/Youku.list`](Media/Youku.list) | Youku | a mainland policy | 3 |
-| [`Media/iQiyi.list`](Media/iQiyi.list) | iQiyi | a mainland policy | 4 |
+| [`Media/iQiyi.list`](Media/iQiyi.list) | iQiyi | a mainland policy | 5 |
 
 ### Developer
 
@@ -79,7 +80,7 @@
 | --- | --- | --- | ---: |
 | [`Developer/1Password.list`](Developer/1Password.list) | 1Password | a proxy policy | 3 |
 | [`Developer/Atlassian.list`](Developer/Atlassian.list) | Atlassian | a proxy policy | 6 |
-| [`Developer/BetterStack.list`](Developer/BetterStack.list) | Better Stack | a proxy policy | 1 |
+| [`Developer/BetterStack.list`](Developer/BetterStack.list) | Better Stack | a proxy policy | 2 |
 | [`Developer/Cloudflare.list`](Developer/Cloudflare.list) | Cloudflare | a proxy policy | 7 |
 | [`Developer/Datadog.list`](Developer/Datadog.list) | Datadog | a proxy policy | 1 |
 | [`Developer/Docker.list`](Developer/Docker.list) | Docker | a proxy policy | 3 |
@@ -117,7 +118,7 @@
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
 | [`Finance/Binance.list`](Finance/Binance.list) | Binance | a proxy policy | 5 |
-| [`Finance/Brokers.list`](Finance/Brokers.list) | Brokerages | a proxy policy | 3 |
+| [`Finance/Brokers.list`](Finance/Brokers.list) | Brokerages | a proxy policy | 7 |
 | [`Finance/Crypto.list`](Finance/Crypto.list) | Cryptocurrency | a proxy policy | 11 |
 | [`Finance/PayPal.list`](Finance/PayPal.list) | PayPal | a proxy policy | 4 |
 | [`Finance/Stripe.list`](Finance/Stripe.list) | Stripe | a proxy policy | 4 |
@@ -133,13 +134,13 @@
 
 | File | Title | Expected policy | Rules |
 | --- | --- | --- | ---: |
-| [`Platforms/Alibaba.list`](Platforms/Alibaba.list) | Alibaba | a mainland policy | 30 |
+| [`Platforms/Alibaba.list`](Platforms/Alibaba.list) | Alibaba | a mainland policy | 35 |
 | [`Platforms/Amazon.list`](Platforms/Amazon.list) | Amazon | a proxy policy | 9 |
 | [`Platforms/Apple.list`](Platforms/Apple.list) | Apple | DIRECT | 17 |
 | [`Platforms/AppleChina.list`](Platforms/AppleChina.list) | Apple China | a mainland policy | 7 |
 | [`Platforms/Baidu.list`](Platforms/Baidu.list) | Baidu | a mainland policy | 10 |
 | [`Platforms/ByteDance.list`](Platforms/ByteDance.list) | ByteDance | a mainland policy | 44 |
-| [`Platforms/China.list`](Platforms/China.list) | China services | a mainland policy | 11 |
+| [`Platforms/China.list`](Platforms/China.list) | China services | a mainland policy | 18 |
 | [`Platforms/Google.list`](Platforms/Google.list) | Google | a proxy policy | 35 |
 | [`Platforms/GoogleChina.list`](Platforms/GoogleChina.list) | Google China | a mainland policy | 6 |
 | [`Platforms/Huawei.list`](Platforms/Huawei.list) | Huawei | a mainland policy | 6 |
@@ -150,9 +151,9 @@
 | [`Platforms/MicrosoftCDN.list`](Platforms/MicrosoftCDN.list) | Microsoft CDN | DIRECT | 16 |
 | [`Platforms/NetEase.list`](Platforms/NetEase.list) | NetEase | a mainland policy | 11 |
 | [`Platforms/Pinduoduo.list`](Platforms/Pinduoduo.list) | Pinduoduo | a mainland policy | 4 |
-| [`Platforms/Tencent.list`](Platforms/Tencent.list) | Tencent | a mainland policy | 23 |
+| [`Platforms/Tencent.list`](Platforms/Tencent.list) | Tencent | a mainland policy | 27 |
 | [`Platforms/Trip.list`](Platforms/Trip.list) | Trip.com | a mainland policy | 5 |
-| [`Platforms/Xiaomi.list`](Platforms/Xiaomi.list) | Xiaomi | a mainland policy | 12 |
+| [`Platforms/Xiaomi.list`](Platforms/Xiaomi.list) | Xiaomi | a mainland policy | 17 |
 
 ### Geo
 

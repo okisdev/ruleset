@@ -6,8 +6,8 @@ Each file names the kind of policy it expects, never a policy group; [`../README
 
 ## How to use it
 
-1. Keep the overlay block first. Rescue, Tailscale, the Apple pins, the owned AI sets, and the GitHub set all have to win.
-2. Reference the files from [INDEX.md](INDEX.md) in the documented order and bind each to a policy of the kind its header expects. Hang ads, HTTP DNS and telemetry on a reject policy that can be switched off, not a hard REJECT; bind the unresolvable names to REJECT itself, and keep the imported reject layer between Rescue and the service lists.
+1. Keep the overlay block first. Tailscale, the Apple pins, the owned AI sets, and the GitHub set all have to win.
+2. Reference the files from [INDEX.md](INDEX.md) in the documented order and bind each to a policy of the kind its header expects. Hang ads, HTTP DNS and telemetry on a reject policy that can be switched off, not a hard REJECT; bind the unresolvable names to REJECT itself, keep the reject block ahead of every service list, and reference `Reject/HttpDNSCIDR.list` in the address block.
 3. Apple is `Platforms/Apple.list` on DIRECT behind its four exceptions. Microsoft is `Platforms/MicrosoftCDN.list` DIRECT, `Gaming/Xbox.list`, then `Platforms/Microsoft.list` on DIRECT or a proxy policy. Official package registries are `Registries/Registries.list` in the overlay and precede `Developer/Npm.list`.
 4. Mainland companies have their own files; mainland addresses that no file names are handled by the `.cn` rule and `GEOIP,CN`. Everything else falls through to `FINAL` on a proxy policy.
 

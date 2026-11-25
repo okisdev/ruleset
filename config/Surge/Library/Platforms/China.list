@@ -6,6 +6,21 @@
 
 # BOSS Zhipin
 DOMAIN-SUFFIX,zhipin.com
+DOMAIN-SUFFIX,bosszhipin.com
+
+# DiDi
+DOMAIN-SUFFIX,xiaojukeji.com
+
+# SF Express
+DOMAIN-SUFFIX,sf-express.com
+
+# ZTO Express
+DOMAIN-SUFFIX,zto.com
+
+# Dewu
+DOMAIN-SUFFIX,dewu.com
+DOMAIN-SUFFIX,dewucdn.com
+DOMAIN-SUFFIX,poizon.com
 
 # Coolapk
 DOMAIN-SUFFIX,coolapk.com
