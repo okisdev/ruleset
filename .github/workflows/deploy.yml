@@ -1,0 +1,44 @@
+name: Deploy ruleset
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ruleset-deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CF_SEND_TELEMETRY: 'false'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+        with:
+          version: 12.23.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: node --test
+      - run: pnpm exec tsc -p worker --noEmit
+      - name: Build the Worker and assets
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        working-directory: worker
+        run: pnpm exec cf build --mode production
+      - name: Deploy the Worker and assets
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm exec cf deploy --prebuilt --mode production
