@@ -1,8 +1,0 @@
-# Ruleset: Slack
-#
-# Expects a proxy policy.
-
-DOMAIN-SUFFIX,slack-edge.com
-DOMAIN-SUFFIX,slack-msgs.com
-DOMAIN-SUFFIX,slack.com
-DOMAIN-SUFFIX,slackb.com

@@ -24,6 +24,41 @@
         "360.cn",
         "360.com"
       ]
+    },
+    {
+      "id": "getui",
+      "name": "Getui",
+      "zh": "个推",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,getui.com",
+          "DOMAIN-SUFFIX,getui.net"
+        ]
+      }
+    },
+    {
+      "id": "jpush",
+      "name": "JPush",
+      "zh": "极光推送",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,jpush.io"
+        ]
+      }
+    },
+    {
+      "id": "rongcloud",
+      "name": "RongCloud",
+      "zh": "融云",
+      "category": "platform",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,rong-edge.com",
+          "DOMAIN-SUFFIX,rongnav.com"
+        ]
+      }
     }
   ]
 }

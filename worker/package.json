@@ -1,0 +1,9 @@
+{
+  "name": "ruleset-worker",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "2.0.0-rc.2",
+    "vite": "8.3.8"
+  }
+}

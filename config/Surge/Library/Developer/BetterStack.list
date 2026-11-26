@@ -1,8 +1,0 @@
-# Ruleset: Better Stack
-#
-# Expects a proxy policy.
-#
-# The dashboard, incidents and the MCP server. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Log ingestion under betterstackdata.com is named here too, so our own log shipping keeps the same exit.
-
-DOMAIN-SUFFIX,betterstack.com
-DOMAIN-SUFFIX,betterstackdata.com

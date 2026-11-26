@@ -46,6 +46,8 @@
       "lists": {
         "Library/Gaming/EA.list": [
           "DOMAIN-SUFFIX,ea.com",
+          "DOMAIN-SUFFIX,eaaccounts.akamaized.net",
+          "DOMAIN-SUFFIX,eaassets-a.akamaihd.net",
           "DOMAIN-SUFFIX,origin.com",
           "DOMAIN-SUFFIX,origin.ea.com"
         ]

@@ -19,7 +19,8 @@
           "DOMAIN-SUFFIX,jd.com",
           "DOMAIN-SUFFIX,jd.hk",
           "DOMAIN-SUFFIX,jddj.com",
-          "DOMAIN-SUFFIX,jdpay.com"
+          "DOMAIN-SUFFIX,jdpay.com",
+          "DOMAIN-SUFFIX,jddebug.com"
         ]
       }
     },

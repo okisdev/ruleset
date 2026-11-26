@@ -18,7 +18,8 @@
       "category": "storage",
       "lists": {
         "Library/Direct/Download.list": [
-          "DOMAIN-SUFFIX,123pan.com"
+          "DOMAIN-SUFFIX,123pan.com",
+          "DOMAIN-SUFFIX,123clouddrive.net"
         ]
       }
     },

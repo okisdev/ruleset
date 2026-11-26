@@ -1,8 +1,0 @@
-# Ruleset: LINE
-#
-# Expects a proxy policy.
-
-DOMAIN-SUFFIX,line-apps.com
-DOMAIN-SUFFIX,line-scdn.net
-DOMAIN-SUFFIX,line.me
-DOMAIN-SUFFIX,line.naver.jp

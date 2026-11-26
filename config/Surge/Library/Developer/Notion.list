@@ -1,8 +1,0 @@
-# Ruleset: Notion
-#
-# Expects a proxy policy.
-
-DOMAIN-SUFFIX,notion.com
-DOMAIN-SUFFIX,notion.site
-DOMAIN-SUFFIX,notion.so
-DOMAIN-SUFFIX,notionusercontent.com

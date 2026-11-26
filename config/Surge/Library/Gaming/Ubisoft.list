@@ -1,7 +1,0 @@
-# Ruleset: Ubisoft
-#
-# Expects a gaming policy.
-
-DOMAIN-SUFFIX,ubi.com
-DOMAIN-SUFFIX,ubisoft.com
-DOMAIN-SUFFIX,uplay.com

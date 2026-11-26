@@ -11,7 +11,8 @@
           "DOMAIN-SUFFIX,ctrip.com",
           "DOMAIN-SUFFIX,trip.com",
           "DOMAIN-SUFFIX,tripcdn.cn",
-          "DOMAIN-SUFFIX,tripcdn.com"
+          "DOMAIN-SUFFIX,tripcdn.com",
+          "DOMAIN-SUFFIX,ctripins.com"
         ]
       }
     },
@@ -34,7 +35,8 @@
       "category": "lifestyle",
       "lists": {
         "Library/Platforms/China.list": [
-          "DOMAIN-SUFFIX,xiaojukeji.com"
+          "DOMAIN-SUFFIX,xiaojukeji.com",
+          "DOMAIN-SUFFIX,didistatic.com"
         ]
       }
     },
@@ -59,6 +61,22 @@
           "DOMAIN-SUFFIX,zto.com"
         ]
       }
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "zh": "特斯拉",
+      "category": "lifestyle",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,tesla.cn"
+        ]
+      },
+      "names": [
+        "tesla.com",
+        "tesla.services",
+        "teslamotors.com"
+      ]
     }
   ]
 }

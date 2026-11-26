@@ -1,0 +1,6 @@
+packages:
+  - worker
+
+allowBuilds:
+  fsevents: true
+  workerd: true

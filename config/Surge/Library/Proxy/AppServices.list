@@ -1,9 +1,0 @@
-# Ruleset: App services
-#
-# Expects a proxy policy.
-#
-# Backends that desktop and mobile apps call independently of their main sites. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
-
-DOMAIN-SUFFIX,braze.com
-DOMAIN-SUFFIX,intercom.io
-DOMAIN-SUFFIX,istatmenus.app

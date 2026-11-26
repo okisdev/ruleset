@@ -1,8 +1,0 @@
-# Ruleset: Reddit
-#
-# Expects a proxy policy.
-
-DOMAIN-SUFFIX,redd.it
-DOMAIN-SUFFIX,reddit.com
-DOMAIN-SUFFIX,redditmedia.com
-DOMAIN-SUFFIX,redditstatic.com

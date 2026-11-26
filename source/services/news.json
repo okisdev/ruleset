@@ -11,6 +11,20 @@
           "DOMAIN-SUFFIX,sohucs.com"
         ]
       }
+    },
+    {
+      "id": "ifanr",
+      "name": "ifanr",
+      "zh": "爱范儿",
+      "category": "news",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,ifanr.com",
+          "DOMAIN-SUFFIX,ifanrusercontent.com",
+          "DOMAIN-SUFFIX,minapp.com",
+          "DOMAIN-SUFFIX,myminapp.com"
+        ]
+      }
     }
   ]
 }
