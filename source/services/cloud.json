@@ -154,6 +154,17 @@
         "supabase.co",
         "supabase.com"
       ]
+    },
+    {
+      "id": "planetscale",
+      "name": "PlanetScale",
+      "category": "cloud",
+      "lists": {
+        "Library/Developer/PlanetScale.list": [
+          "DOMAIN-SUFFIX,planetscale.com",
+          "DOMAIN-SUFFIX,psdb.cloud"
+        ]
+      }
     }
   ]
 }

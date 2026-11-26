@@ -18,7 +18,8 @@
           "DOMAIN-SUFFIX,qq.com",
           "DOMAIN-SUFFIX,smtcdns.com",
           "DOMAIN-SUFFIX,tencent.com",
-          "DOMAIN-SUFFIX,cdntips.net"
+          "DOMAIN-SUFFIX,cdntips.net",
+          "DOMAIN-SUFFIX,woa.com"
         ]
       }
     },
@@ -130,7 +131,8 @@
           "DOMAIN-SUFFIX,tlivecdn.com",
           "DOMAIN-SUFFIX,tlivedns.com",
           "DOMAIN-SUFFIX,tlivemcdn.com",
-          "DOMAIN-SUFFIX,tlivesource.com"
+          "DOMAIN-SUFFIX,tlivesource.com",
+          "DOMAIN-SUFFIX,tcdnlive.com"
         ]
       },
       "names": [
@@ -170,7 +172,8 @@
           "DOMAIN-SUFFIX,anticheatexpert.com",
           "DOMAIN-SUFFIX,gcloudcs.com",
           "DOMAIN-SUFFIX,gcloudsdk.com",
-          "DOMAIN-SUFFIX,gcloudsvcs.com"
+          "DOMAIN-SUFFIX,gcloudsvcs.com",
+          "DOMAIN-SUFFIX,gcloudgbs.com"
         ]
       }
     },

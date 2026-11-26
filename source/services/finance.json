@@ -172,6 +172,19 @@
         "95516.com",
         "cup.com.cn"
       ]
+    },
+    {
+      "id": "yiqianbao",
+      "name": "Ping An 1QianBao",
+      "zh": "壹钱包",
+      "category": "finance",
+      "lists": {
+        "Library/Platforms/China.list": [
+          "DOMAIN-SUFFIX,1qianbao.com",
+          "DOMAIN-SUFFIX,yqb.com",
+          "DOMAIN-SUFFIX,yqbimg.net"
+        ]
+      }
     }
   ]
 }

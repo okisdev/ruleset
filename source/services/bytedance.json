@@ -35,7 +35,11 @@
           "DOMAIN-SUFFIX,ibytedapm.com",
           "DOMAIN-SUFFIX,snssdk.com",
           "DOMAIN-SUFFIX,zijieapi.com",
-          "DOMAIN-SUFFIX,zjcdn.com"
+          "DOMAIN-SUFFIX,zjcdn.com",
+          "DOMAIN-SUFFIX,bdcgslb.com",
+          "DOMAIN-SUFFIX,bytefae.com",
+          "DOMAIN-SUFFIX,vegslb.com",
+          "DOMAIN-SUFFIX,vlabstatic.com"
         ]
       }
     },
@@ -55,7 +59,9 @@
           "DOMAIN-SUFFIX,douyinpic.com",
           "DOMAIN-SUFFIX,douyinstatic.com",
           "DOMAIN-SUFFIX,idouyinvod.com",
-          "DOMAIN-SUFFIX,iesdouyin.com"
+          "DOMAIN-SUFFIX,iesdouyin.com",
+          "DOMAIN-SUFFIX,douyinliving.com",
+          "DOMAIN-SUFFIX,doupay.com"
         ]
       }
     },
@@ -208,6 +214,19 @@
           "DOMAIN-SUFFIX,tiktokcdn-us.com",
           "DOMAIN-SUFFIX,tiktokcdn.com",
           "DOMAIN-SUFFIX,tiktokv.com"
+        ]
+      }
+    },
+    {
+      "id": "fanqie",
+      "name": "Fanqie Novel",
+      "zh": "番茄小说",
+      "category": "news",
+      "lists": {
+        "Library/Platforms/ByteDance.list": [
+          "DOMAIN-SUFFIX,fqnovel.com",
+          "DOMAIN-SUFFIX,fqnovelpic.com",
+          "DOMAIN-SUFFIX,qznovelvod.com"
         ]
       }
     }

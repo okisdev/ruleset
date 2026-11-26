@@ -22,7 +22,10 @@
           "DOMAIN-SUFFIX,alibabausercontent.com",
           "DOMAIN-SUFFIX,alidns.com",
           "DOMAIN-SUFFIX,alikunlun.com",
-          "DOMAIN-SUFFIX,marmot-cloud.com"
+          "DOMAIN-SUFFIX,marmot-cloud.com",
+          "DOMAIN-SUFFIX,alimebot.com",
+          "DOMAIN-SUFFIX,koubei.com",
+          "DOMAIN-SUFFIX,umeng.com"
         ]
       }
     },
@@ -100,7 +103,8 @@
           "DOMAIN-SUFFIX,hichina.com",
           "DOMAIN-SUFFIX,mxhichina.com",
           "DOMAIN-SUFFIX,alcasset.com",
-          "DOMAIN-SUFFIX,alyasset.com"
+          "DOMAIN-SUFFIX,alyasset.com",
+          "DOMAIN-SUFFIX,alibabacloud.com"
         ]
       }
     },
@@ -135,7 +139,8 @@
       "category": "lifestyle",
       "lists": {
         "Library/Platforms/Alibaba.list": [
-          "DOMAIN-SUFFIX,ele.me"
+          "DOMAIN-SUFFIX,ele.me",
+          "DOMAIN-SUFFIX,elemecdn.com"
         ]
       }
     },
@@ -196,7 +201,8 @@
       "lists": {
         "Library/Platforms/Alibaba.list": [
           "DOMAIN-SUFFIX,uc.cn",
-          "DOMAIN-SUFFIX,ucweb.com"
+          "DOMAIN-SUFFIX,ucweb.com",
+          "DOMAIN-SUFFIX,shuqireader.com"
         ]
       }
     },
@@ -209,7 +215,8 @@
         "AI/AIChina.list": [
           "DOMAIN-SUFFIX,qianwen.com",
           "DOMAIN-SUFFIX,qwen.ai",
-          "DOMAIN-SUFFIX,tongyi.com"
+          "DOMAIN-SUFFIX,tongyi.com",
+          "DOMAIN-SUFFIX,qianwenai.com"
         ]
       }
     },

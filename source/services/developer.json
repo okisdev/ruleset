@@ -340,7 +340,8 @@
         "Registries/Registries.list": [
           "DOMAIN,archive.ubuntu.com",
           "DOMAIN,security.ubuntu.com",
-          "DOMAIN,ports.ubuntu.com"
+          "DOMAIN,ports.ubuntu.com",
+          "DOMAIN,esm.ubuntu.com"
         ]
       },
       "names": [
@@ -372,6 +373,50 @@
           "DOMAIN-SUFFIX,okis.me",
           "DOMAIN-SUFFIX,okisdev.com",
           "DOMAIN-SUFFIX,okisdev.workers.dev"
+        ]
+      }
+    },
+    {
+      "id": "jsr",
+      "name": "JSR",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN-SUFFIX,jsr.io"
+        ]
+      }
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "category": "developer",
+      "lists": {
+        "Registries/Registries.list": [
+          "DOMAIN,dl.k8s.io"
+        ]
+      },
+      "names": [
+        "k8s.io"
+      ]
+    },
+    {
+      "id": "axiom",
+      "name": "Axiom",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Axiom.list": [
+          "DOMAIN-SUFFIX,axiom.co"
+        ]
+      }
+    },
+    {
+      "id": "expo",
+      "name": "Expo",
+      "category": "developer",
+      "lists": {
+        "Library/Developer/Expo.list": [
+          "DOMAIN-SUFFIX,exp.host",
+          "DOMAIN-SUFFIX,expo.dev"
         ]
       }
     }

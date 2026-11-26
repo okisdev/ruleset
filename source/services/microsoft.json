@@ -28,7 +28,19 @@
           "DOMAIN-SUFFIX,s-microsoft.com",
           "DOMAIN-SUFFIX,skype.com",
           "DOMAIN-SUFFIX,windows.com",
-          "DOMAIN-SUFFIX,windows.net"
+          "DOMAIN-SUFFIX,windows.net",
+          "DOMAIN-SUFFIX,aka.ms",
+          "DOMAIN-SUFFIX,aspnetcdn.com",
+          "DOMAIN-SUFFIX,gfx.ms",
+          "DOMAIN-SUFFIX,microsoftapp.net",
+          "DOMAIN-SUFFIX,msft.net",
+          "DOMAIN-SUFFIX,msftstatic.com",
+          "DOMAIN-SUFFIX,msidentity.com",
+          "DOMAIN-SUFFIX,msocdn.com",
+          "DOMAIN-SUFFIX,onestore.ms",
+          "DOMAIN-SUFFIX,svc.ms",
+          "DOMAIN-SUFFIX,microsoftazuread-sso.com",
+          "DOMAIN-SUFFIX,onmicrosoft.com"
         ],
         "Library/Platforms/MicrosoftCDN.list": [
           "DOMAIN-SUFFIX,sfx.ms",
@@ -65,7 +77,15 @@
           "DOMAIN-SUFFIX,onenote.net",
           "DOMAIN-SUFFIX,outlook.com",
           "DOMAIN-SUFFIX,sharepoint.com",
-          "DOMAIN-SUFFIX,sharepointonline.com"
+          "DOMAIN-SUFFIX,sharepointonline.com",
+          "DOMAIN-SUFFIX,lync.com",
+          "DOMAIN-SUFFIX,microsoft365.com",
+          "DOMAIN-SUFFIX,microsoftstream.com",
+          "DOMAIN-SUFFIX,outlookmobile.com",
+          "DOMAIN-SUFFIX,powerbi.com",
+          "DOMAIN-SUFFIX,skypeassets.com",
+          "DOMAIN-SUFFIX,sway.com",
+          "DOMAIN-SUFFIX,dynamics.com"
         ],
         "Library/Platforms/MicrosoftCDN.list": [
           "DOMAIN-SUFFIX,cdn.office.net"
@@ -97,7 +117,16 @@
           "DOMAIN-SUFFIX,azurefd.net",
           "DOMAIN-SUFFIX,azurewebsites.net",
           "DOMAIN-SUFFIX,cloudapp.net",
-          "DOMAIN,vscode-sync.trafficmanager.net"
+          "DOMAIN,vscode-sync.trafficmanager.net",
+          "DOMAIN-SUFFIX,azure-api.net",
+          "DOMAIN-SUFFIX,azure-dns.com",
+          "DOMAIN-SUFFIX,azure-dns.info",
+          "DOMAIN-SUFFIX,azure-dns.net",
+          "DOMAIN-SUFFIX,azure-dns.org",
+          "DOMAIN-SUFFIX,azurecr.io",
+          "DOMAIN-SUFFIX,azurestaticapps.net",
+          "DOMAIN-SUFFIX,msappproxy.net",
+          "DOMAIN-SUFFIX,windowsazure.com"
         ]
       },
       "names": [
@@ -111,7 +140,8 @@
       "lists": {
         "Library/Platforms/Microsoft.list": [
           "DOMAIN-SUFFIX,bing.com",
-          "DOMAIN-SUFFIX,bing.net"
+          "DOMAIN-SUFFIX,bing.net",
+          "DOMAIN-SUFFIX,bingapis.com"
         ]
       }
     },
@@ -134,7 +164,9 @@
           "DOMAIN-SUFFIX,visualstudio.com",
           "DOMAIN-SUFFIX,vsassets.io",
           "DOMAIN-SUFFIX,vscode-cdn.net",
-          "DOMAIN-SUFFIX,vscode-unpkg.net"
+          "DOMAIN-SUFFIX,vscode-unpkg.net",
+          "DOMAIN-SUFFIX,nuget.org",
+          "DOMAIN-SUFFIX,typescriptlang.org"
         ],
         "Library/Platforms/MicrosoftCDN.list": [
           "DOMAIN,update.code.visualstudio.com"
@@ -148,7 +180,7 @@
       "lists": {
         "AI/AI.list": [
           {
-            "note": "Copilot's model endpoint is githubcopilot.com; api.github.com is ordinary GitHub API traffic and lives in config/Surge/GitHub/GitHub.list.",
+            "note": "Copilot's model endpoint is githubcopilot.com; api.github.com is ordinary GitHub API traffic and lives in GitHub/GitHub.list.",
             "rules": [
               "DOMAIN-SUFFIX,githubcopilot.com"
             ]

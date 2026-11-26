@@ -496,6 +496,9 @@
       "lists": {
         "AI/AIChina.list": [
           "DOMAIN-SUFFIX,minimaxi.com"
+        ],
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,minimax.io"
         ]
       }
     },
@@ -518,6 +521,70 @@
       "lists": {
         "AI/AIChina.list": [
           "DOMAIN-SUFFIX,siliconflow.cn"
+        ],
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,siliconflow.com"
+        ]
+      }
+    },
+    {
+      "id": "ai21",
+      "name": "AI21 Labs",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,ai21.com"
+        ]
+      }
+    },
+    {
+      "id": "nebius-token-factory",
+      "name": "Nebius Token Factory",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,tokenfactory.nebius.com"
+        ]
+      }
+    },
+    {
+      "id": "nvidia-nim",
+      "name": "NVIDIA NIM",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN,build.nvidia.com",
+          "DOMAIN,integrate.api.nvidia.com"
+        ]
+      }
+    },
+    {
+      "id": "parasail",
+      "name": "Parasail",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,parasail.io"
+        ]
+      }
+    },
+    {
+      "id": "recraft",
+      "name": "Recraft",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,recraft.ai"
+        ]
+      }
+    },
+    {
+      "id": "reka",
+      "name": "Reka",
+      "category": "ai",
+      "lists": {
+        "AI/AI.list": [
+          "DOMAIN-SUFFIX,reka.ai"
         ]
       }
     }
