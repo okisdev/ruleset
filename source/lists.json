@@ -1,10 +1,105 @@
 [
   {
+    "path": "Infrastructure/CloudflareTunnel.list",
+    "title": "Cloudflare Tunnel",
+    "kind": "service",
+    "policy": "direct",
+    "header": [
+      "cloudflared dials the Cloudflare edge on 7844 and carries its own transport security. Proxying it adds a hop to every tunnelled service for no benefit.",
+      "cfargotunnel.com is the current connector hostname. argotunnel.com is the older name still in use on some agents. trycloudflare.com is the quick-tunnel front.",
+      "The connector dials the edge by address, so its QUIC transport arrives without a name and misses the suffixes above. 198.41.192.0/24 and 198.41.200.0/24 are Cloudflare edge ranges; proxying these connections can break the tunnel."
+    ]
+  },
+  {
+    "path": "Tailscale/Coordination.list",
+    "title": "Tailscale coordination and admin",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The coordination server is not reliably reachable from CN, and the admin console is ordinary browser traffic that has no reason to be direct."
+    ]
+  },
+  {
+    "path": "Tailscale/Tailnet.list",
+    "title": "tailnet address space",
+    "kind": "service",
+    "policy": "direct",
+    "policySuffix": " on macOS and a Tailscale policy on iOS",
+    "intro": "Referenced twice, once per platform, with a different policy each time. On macOS the native client owns this range outside Surge's virtual interface, so it expects DIRECT. On iOS the tunnel runs inside Surge as a Tailscale policy, because iOS allows only one VPN tunnel and installing the official client would displace Surge entirely.",
+    "header": [
+      "The platform split cannot live inside this file: rule set files have no platform directive. Reference it twice instead, and let the profile generator resolve the directives."
+    ]
+  },
+  {
+    "path": "Tailscale/Direct.list",
+    "title": "Tailscale direct",
+    "kind": "service",
+    "policy": "direct",
+    "intro": "Must follow Coordination.list.",
+    "header": [
+      "The process rules cover a local Tailscale client that dials DERP relays by bare address and would otherwise reach the fallthrough proxy.",
+      "The DERP relays double as STUN servers, so proxying them makes Tailscale advertise the proxy's address as its own endpoint. That defeats NAT traversal and pins every peer to relay. The guard that enforces this for the STUN port is a logical rule and cannot live in a rule set, so it stays inline in the profile:",
+      "  AND,((PROTOCOL,UDP),(DEST-PORT,3478)),DIRECT",
+      "Only the DERP relay names are pinned here. The website and pkgs.tailscale.com are ordinary HTTPS that is slow on the direct path, so they reach a proxy through FINAL; log.tailscale.com is telemetry and lives in Library/Reject/Telemetry.list."
+    ]
+  },
+  {
+    "path": "Apple/ApplePush.list",
+    "title": "Apple push",
+    "kind": "service",
+    "policy": "direct",
+    "intro": "Lives in the overlay so push stays direct whatever policy the profile puts the company-wide Platforms/Apple.list on, and precedes the two Apple sets that leave the direct path.",
+    "header": [
+      "APNs uses long-lived TCP connections, and instant delivery depends on them staying up. Every reselection of a proxy policy group severs those connections. iOS reconnects aggressively and can fall back to cellular, while macOS may back off exponentially and delay push delivery. DIRECT avoids proxy group reselection.",
+      "Push is reachable on the domestic path, so it stays DIRECT.",
+      "The egress region also influences which courier Apple assigns. A Hong Kong exit can assign us-courier.push.apple.com, sending notifications through a US courier.",
+      "IP ranges are Apple's published list: https://support.apple.com/en-us/102266"
+    ]
+  },
+  {
+    "path": "Apple/iCloudContent.list",
+    "title": "iCloud content",
+    "kind": "service",
+    "policy": "direct",
+    "intro": "Lives in the overlay so the content plane stays direct whatever policy the profile puts the company-wide Platforms/Apple.list on.",
+    "header": [
+      "The MMCS content service carries iMessage attachments, Photos, Drive and Backup. On a proxy path, the profile's QUIC block rejects HTTP/3 handshakes, and TCP fallbacks inherit that path's instability.",
+      "The profile refuses QUIC to these names ahead of this file, so transfers arrive here over TCP. Direct QUIC can remain connected while transferring slowly, preventing a TCP fallback. The guard is a logical rule that takes this file as a sub-rule and matches names only; docs/surge.md explains why it never matches by address.",
+      "This file carries names only. The content edges are also reached with no SNI the gateway can read, and those flows can only match by address: Platforms/Apple.list carries Apple's address space for them, after the named exceptions, because an address rule would otherwise take a flow that arrived by address with an SNI the exceptions own."
+    ]
+  },
+  {
+    "path": "Apple/AppleIntelligence.list",
+    "title": "Apple Intelligence",
+    "kind": "service",
+    "policy": "ai",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "Must precede Platforms/Apple.list, which would otherwise route these direct like ordinary Apple services, by name and by address.",
+    "header": [
+      "Private Cloud Compute reaches Apple's inference through these relay hosts, which are fronted by Cloudflare and Fastly rather than by Apple. The feature is region gated, so it needs the same foreign exit as every other AI service, which is why it is grouped with AI rather than with push and content.",
+      "gspe1-ssl.ls.apple.com answers the GeoServices country lookup that the eligibility check reads, so it takes the same exit as the relays.",
+      "apple-relay.apple.com shares 17.248.152.0/24 and 17.248.163.0/24 with the Private Relay ingress at mask.icloud.com and with the iCloud content edges, so the three can only be told apart by name; Platforms/Apple.list carries the address space for the flows that arrive without one, and sits behind this file so an address never outranks the name."
+    ]
+  },
+  {
+    "path": "AI/AIChina.list",
+    "title": "Chinese AI services",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "The mainland providers, kept apart from AI/AI.list so they never take the foreign exit and never depend on GEOIP to stay home. askdiandian.com is Xiaohongshu's AI search app, and jimeng.jianying.com is ByteDance's image and video generation site."
+    ]
+  },
+  {
     "path": "AI/AI.list",
     "title": "AI services",
     "kind": "service",
+    "policy": "ai",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "Must precede the general proxy classification.",
     "header": [
-      "Expects an AI policy, referenced with extended-matching. Must precede the general proxy classification.",
       "extended-matching is not optional here. Clients that run their own encrypted DNS never ask the gateway to resolve, so they arrive as a raw IP with an SNI, and claude.com in particular resolves to GFW poisoned addresses on those clients. extended-matching matches on the SNI and hands the connection to the policy to resolve again, which replaces the destination rather than only changing the route. Without it those clients connect to a poisoned address and hang.",
       "This file owns the AI category outright. The plain GitHub API is not a model endpoint, while dedicated inference and agent services need an AI policy.",
       "Scope: a service earns a line when it is an unambiguous AI product endpoint, meaning inference, chat, generation, or the agent tooling built on them. Benchmark sites, observability dashboards and vendor marketing stay out. An omission costs the ability to steer AI separately and to account for it as a category in the console, never connectivity, because everything else still lands on a proxy one way or another.",
@@ -25,54 +120,13 @@
     ]
   },
   {
-    "path": "AI/AIChina.list",
-    "title": "Chinese AI services",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "The mainland providers, kept apart from AI/AI.list so they never take the foreign exit and never depend on GEOIP to stay home. askdiandian.com is Xiaohongshu's AI search app, and jimeng.jianying.com is ByteDance's image and video generation site."
-    ]
-  },
-  {
-    "path": "Apple/AppleIntelligence.list",
-    "title": "Apple Intelligence",
-    "kind": "service",
-    "header": [
-      "Expects an AI policy, referenced with extended-matching. Must precede Platforms/Apple.list, which would otherwise route these direct like ordinary Apple services, by name and by address.",
-      "Private Cloud Compute reaches Apple's inference through these relay hosts, which are fronted by Cloudflare and Fastly rather than by Apple. The feature is region gated, so it needs the same foreign exit as every other AI service, which is why it is grouped with AI rather than with push and content.",
-      "gspe1-ssl.ls.apple.com answers the GeoServices country lookup that the eligibility check reads, so it takes the same exit as the relays.",
-      "apple-relay.apple.com shares 17.248.152.0/24 and 17.248.163.0/24 with the Private Relay ingress at mask.icloud.com and with the iCloud content edges, so the three can only be told apart by name; Platforms/Apple.list carries the address space for the flows that arrive without one, and sits behind this file so an address never outranks the name."
-    ]
-  },
-  {
-    "path": "Apple/ApplePush.list",
-    "title": "Apple push",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT. Lives in the overlay so push stays direct whatever policy the profile puts the company-wide Platforms/Apple.list on, and precedes the two Apple sets that leave the direct path.",
-      "APNs uses long-lived TCP connections, and instant delivery depends on them staying up. Every reselection of a proxy policy group severs those connections. iOS reconnects aggressively and can fall back to cellular, while macOS may back off exponentially and delay push delivery. DIRECT avoids proxy group reselection.",
-      "Push is reachable on the domestic path, so it stays DIRECT.",
-      "The egress region also influences which courier Apple assigns. A Hong Kong exit can assign us-courier.push.apple.com, sending notifications through a US courier.",
-      "IP ranges are Apple's published list: https://support.apple.com/en-us/102266"
-    ]
-  },
-  {
-    "path": "Apple/iCloudContent.list",
-    "title": "iCloud content",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT. Lives in the overlay so the content plane stays direct whatever policy the profile puts the company-wide Platforms/Apple.list on.",
-      "The MMCS content service carries iMessage attachments, Photos, Drive and Backup. On a proxy path, the profile's QUIC block rejects HTTP/3 handshakes, and TCP fallbacks inherit that path's instability.",
-      "The profile refuses QUIC to these names ahead of this file, so transfers arrive here over TCP. Direct QUIC can remain connected while transferring slowly, preventing a TCP fallback. The guard is a logical rule that takes this file as a sub-rule and matches names only; config/Surge/README.md explains why it never matches by address.",
-      "This file carries names only. The content edges are also reached with no SNI the gateway can read, and those flows can only match by address: Platforms/Apple.list carries Apple's address space for them, after the named exceptions, because an address rule would otherwise take a flow that arrived by address with an SNI the exceptions own."
-    ]
-  },
-  {
     "path": "GitHub/GitHub.list",
     "title": "GitHub",
     "kind": "service",
+    "policy": "proxy",
+    "policySuffix": ", the same one as general traffic",
+    "intro": "The list keeps every GitHub host on that one policy: the release asset and Copilot blob hosts sit on S3 and Azure, inside the suffixes of Platforms/Amazon.list and Platforms/Microsoft.list, whose groups are chosen independently, and ghcr.io and formulae.brew.sh fail on the direct path. Must precede those sets.",
     "header": [
-      "Expects a proxy policy, the same one as general traffic. The list keeps every GitHub host on that one policy: the release asset and Copilot blob hosts sit on S3 and Azure, inside the suffixes of Platforms/Amazon.list and Platforms/Microsoft.list, whose groups are chosen independently, and ghcr.io and formulae.brew.sh fail on the direct path. Must precede those sets.",
       "Hong Kong exits can intermittently drop the TLS handshake to GitHub's Asia frontend (20.205.243.166). The client hello goes out and nothing returns until a browser retry succeeds. A group's availability probe may miss intermittent failures, so an exit outside Hong Kong is appropriate if this occurs.",
       "ghcr.io lives here rather than in Registries/Registries.list: it is blocked on the direct path, and it is GitHub, so it should share their exit.",
       "formulae.brew.sh is a GitHub Pages custom domain (CNAME homebrew.github.io) whose large indexes stall on the direct path. It belongs here rather than with brew.sh and docs.brew.sh or with Registries/Registries.list. brew.sh and docs.brew.sh reach a proxy through FINAL.",
@@ -81,63 +135,217 @@
     ]
   },
   {
-    "path": "Infrastructure/CloudflareTunnel.list",
-    "title": "Cloudflare Tunnel",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT.",
-      "cloudflared dials the Cloudflare edge on 7844 and carries its own transport security. Proxying it adds a hop to every tunnelled service for no benefit.",
-      "cfargotunnel.com is the current connector hostname. argotunnel.com is the older name still in use on some agents. trycloudflare.com is the quick-tunnel front.",
-      "The connector dials the edge by address, so its QUIC transport arrives without a name and misses the suffixes above. 198.41.192.0/24 and 198.41.200.0/24 are Cloudflare edge ranges; proxying these connections can break the tunnel."
-    ]
-  },
-  {
     "path": "Registries/Registries.list",
     "title": "official package registries",
     "kind": "service",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
       "A generic download set mixes domestic mirrors, GitHub Pages indexes that stall on the direct path, and destinations the GFW blocks. This file owns the official registries so their policy is explicit. Blocked destinations such as gcr.io, pkg.dev, mega.nz and archive.org stay unclassified so FINAL carries them to a proxy.",
       "Policy is a proxy because the direct path from the mainland answers slowly and can time out, which package managers feel on every metadata request.",
       "Scope: the package body or index host of an official registry, a Linux distribution's package archive, or a toolchain's official download host. Website, documentation, and static-asset hosts stay out and reach FINAL. GitHub-hosted registries stay in GitHub/GitHub.list. Chinese mirrors stay on the domestic path. Docker Hub stays in Library/Developer/Docker.list. NuGet stays in Library/Platforms/Microsoft.list."
     ]
   },
   {
-    "path": "Tailscale/Coordination.list",
-    "title": "Tailscale coordination and admin",
-    "kind": "service",
+    "path": "Library/Process/ProxyCores.list",
+    "title": "Proxy cores",
+    "kind": "policy",
+    "policy": "direct",
     "header": [
-      "Expects a proxy policy.",
-      "The coordination server is not reliably reachable from CN, and the admin console is ordinary browser traffic that has no reason to be direct."
+      "Prevents the gateway from proxying another proxy process on the same machine."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "PROCESS-NAME,brook",
+          "PROCESS-NAME,clash",
+          "PROCESS-NAME,Clash Meta",
+          "PROCESS-NAME,ClashX",
+          "PROCESS-NAME,ClashX Pro",
+          "PROCESS-NAME,hysteria",
+          "PROCESS-NAME,hysteria2",
+          "PROCESS-NAME,leaf",
+          "PROCESS-NAME,mihomo",
+          "PROCESS-NAME,naive",
+          "PROCESS-NAME,privoxy",
+          "PROCESS-NAME,sing-box",
+          "PROCESS-NAME,ss-local",
+          "PROCESS-NAME,surge",
+          "PROCESS-NAME,Surge",
+          "PROCESS-NAME,Surge-CLI",
+          "PROCESS-NAME,trojan",
+          "PROCESS-NAME,trojan-go",
+          "PROCESS-NAME,v2ray",
+          "PROCESS-NAME,xray"
+        ]
+      }
     ]
   },
   {
-    "path": "Tailscale/Direct.list",
-    "title": "Tailscale direct",
-    "kind": "service",
+    "path": "Library/Process/Downloaders.list",
+    "title": "Download clients",
+    "kind": "policy",
+    "policy": "direct",
     "header": [
-      "Expects DIRECT. Must follow Coordination.list.",
-      "The process rules cover a local Tailscale client that dials DERP relays by bare address and would otherwise reach the fallthrough proxy.",
-      "The DERP relays double as STUN servers, so proxying them makes Tailscale advertise the proxy's address as its own endpoint. That defeats NAT traversal and pins every peer to relay. The guard that enforces this for the STUN port is a logical rule and cannot live in a rule set, so it stays inline in the profile:",
-      "  AND,((PROTOCOL,UDP),(DEST-PORT,3478)),DIRECT",
-      "Only the DERP relay names are pinned here. The website and pkgs.tailscale.com are ordinary HTTPS that is slow on the direct path, so they reach a proxy through FINAL; log.tailscale.com is telemetry and lives in Library/Reject/Telemetry.list."
+      "Process names for common download clients. Keep large transfers off the proxy path."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "PROCESS-NAME,aria2c",
+          "PROCESS-NAME,BitComet",
+          "PROCESS-NAME,BitTorrent",
+          "PROCESS-NAME,DownloadService",
+          "PROCESS-NAME,fdm",
+          "PROCESS-NAME,Folx",
+          "PROCESS-NAME,NetTransport",
+          "PROCESS-NAME,qBittorrent",
+          "PROCESS-NAME,Thunder",
+          "PROCESS-NAME,ThunderVIP",
+          "PROCESS-NAME,Transmission",
+          "PROCESS-NAME,uTorrent",
+          "PROCESS-NAME,WebTorrent"
+        ]
+      }
     ]
   },
   {
-    "path": "Tailscale/Tailnet.list",
-    "title": "tailnet address space",
-    "kind": "service",
+    "path": "Library/Direct/Private.list",
+    "title": "Private names",
+    "kind": "policy",
+    "policy": "direct",
     "header": [
-      "Expects DIRECT on macOS and a Tailscale policy on iOS. Referenced twice, once per platform, with a different policy each time. On macOS the native client owns this range outside Surge's virtual interface, so it expects DIRECT. On iOS the tunnel runs inside Surge as a Tailscale policy, because iOS allows only one VPN tunnel and installing the official client would displace Surge entirely.",
-      "The platform split cannot live inside this file: rule set files have no platform directive. Reference it twice instead, and let the profile generator resolve the directives."
+      "Names that never leave the machine or the LAN."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "DOMAIN-SUFFIX,home.arpa",
+          "DOMAIN-SUFFIX,internal",
+          "DOMAIN-SUFFIX,lan",
+          "DOMAIN-SUFFIX,local",
+          "DOMAIN-SUFFIX,localdomain",
+          "DOMAIN-SUFFIX,localhost",
+          "DOMAIN,localhost"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Library/Geo/LAN.list",
+    "title": "LAN",
+    "kind": "policy",
+    "policy": "direct",
+    "header": [
+      "Surge also ships RULE-SET,LAN. This copy exists so a profile can stay inside this library.",
+      "100.64.0.0/10 is omitted on purpose: Tailscale/Tailnet.list owns that range. All address rules carry no-resolve."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "DOMAIN-SUFFIX,home.arpa",
+          "DOMAIN-SUFFIX,internal",
+          "DOMAIN-SUFFIX,lan",
+          "DOMAIN-SUFFIX,local",
+          "DOMAIN-SUFFIX,localdomain",
+          "DOMAIN-SUFFIX,localhost",
+          "IP-CIDR,0.0.0.0/8,no-resolve",
+          "IP-CIDR,10.0.0.0/8,no-resolve",
+          "IP-CIDR,127.0.0.0/8,no-resolve",
+          "IP-CIDR,169.254.0.0/16,no-resolve",
+          "IP-CIDR,172.16.0.0/12,no-resolve",
+          "IP-CIDR,192.0.0.0/24,no-resolve",
+          "IP-CIDR,192.168.0.0/16,no-resolve",
+          "IP-CIDR,198.18.0.0/15,no-resolve",
+          "IP-CIDR,224.0.0.0/4,no-resolve",
+          "IP-CIDR,255.255.255.255/32,no-resolve",
+          "IP-CIDR6,::1/128,no-resolve",
+          "IP-CIDR6,fc00::/7,no-resolve",
+          "IP-CIDR6,fe80::/10,no-resolve",
+          "IP-CIDR6,ff00::/8,no-resolve"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Library/Reject/Unresolvable.list",
+    "title": "Unresolvable names",
+    "kind": "policy",
+    "policy": "reject",
+    "header": [
+      "Names that can never resolve: the special-use TLDs of RFC 2606 and RFC 6761, and names under a TLD that does not exist. Without a rule they reach FINAL and are dialed through a proxy exit that cannot resolve them either: test fixtures under .test, connectivity probes under .invalid, and app placeholders such as uc.cmd. Bind it to REJECT: nothing here works on any path.",
+      "example.com and its siblings stay out. They are reserved but resolve and answer."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "DOMAIN-SUFFIX,test",
+          "DOMAIN-SUFFIX,invalid",
+          "DOMAIN-SUFFIX,example",
+          "DOMAIN-SUFFIX,cmd"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Library/Reject/HttpDNS.list",
+    "title": "HTTP DNS",
+    "kind": "policy",
+    "policy": "reject",
+    "sni": true,
+    "header": [
+      "Stops mainland apps from bypassing the gateway resolver: every host here answers DNS over HTTP for an app SDK, so a client that cannot reach it falls back to the system resolver. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
+      "DNSPod's public DoH under doh.pub and dns.pub is the same bypass with a general resolver behind it. The foreign public resolvers are in Proxy/DoH.list. The bare service addresses that apps dial without a name are in HttpDNSCIDR.list.",
+      "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "DOMAIN-SUFFIX,httpdns.platform.dbankcloud.cn",
+          "DOMAIN-SUFFIX,httpdns.platform.dbankcloud.com",
+          "DOMAIN,aedns.weixin.qq.com",
+          "DOMAIN,dns.jd.com",
+          "DOMAIN,dns.pub",
+          "DOMAIN,dns.wechat.com",
+          "DOMAIN,dns.weixin.qq.com",
+          "DOMAIN,dns.weixin.qq.com.cn",
+          "DOMAIN,doh.ptqy.gitv.tv",
+          "DOMAIN,doh.pub",
+          "DOMAIN,httpdns.alicdn.com",
+          "DOMAIN,httpdns.aliyuncs.com",
+          "DOMAIN,httpdns.baidu.com",
+          "DOMAIN,httpdns.baidubce.com",
+          "DOMAIN,httpdns.bilivideo.com",
+          "DOMAIN,httpdns.huaweicloud.com",
+          "DOMAIN,httpdns.meituan.com",
+          "DOMAIN,httpdns.music.163.com",
+          "DOMAIN,httpdns.music.ntes53.netease.com",
+          "DOMAIN,httpdns.n.netease.com",
+          "DOMAIN,httpdns.volcengineapi.com",
+          "DOMAIN,httpdns.yunxindns.com",
+          "DOMAIN,httpdnsmultiapi.meituan.com",
+          "DOMAIN,resolve.umeng.com",
+          "DOMAIN,resolver.mi.xiaomi.com",
+          "DOMAIN,udns.weixin.qq.com"
+        ]
+      },
+      {
+        "note": "Alibaba's endpoint dispatch for Taobao and Alipay. Blocking it sends the apps to ordinary DNS at the cost of a slower first request; the anycast addresses they then dial stay domestic through Geo/AlibabaCIDR.list.",
+        "rules": [
+          "DOMAIN,amdc-sibling.alipay.com.cn",
+          "DOMAIN,amdc-thirdparty.alipay.com",
+          "DOMAIN,amdc.alipay.com",
+          "DOMAIN,amdc.m.taobao.com"
+        ]
+      }
     ]
   },
   {
     "path": "Library/Reject/Ads.list",
     "title": "Ads",
     "kind": "policy",
+    "policy": "reject",
+    "sni": true,
     "header": [
-      "Expects a reject policy.",
       "Advertising: ad networks and ad SDK zones whose only purpose is serving or measuring ads, which are named ahead of being seen, and the ad hosts inside company zones, which are named only once the gateway has seen them. Analytics and crash reports belong in Telemetry.list. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
       "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
     ],
@@ -318,84 +526,12 @@
     ]
   },
   {
-    "path": "Library/Reject/HttpDNS.list",
-    "title": "HTTP DNS",
-    "kind": "policy",
-    "header": [
-      "Expects a reject policy.",
-      "Stops mainland apps from bypassing the gateway resolver: every host here answers DNS over HTTP for an app SDK, so a client that cannot reach it falls back to the system resolver. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
-      "DNSPod's public DoH under doh.pub and dns.pub is the same bypass with a general resolver behind it. The foreign public resolvers are in Proxy/DoH.list. The bare service addresses that apps dial without a name are in HttpDNSCIDR.list.",
-      "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,httpdns.platform.dbankcloud.cn",
-          "DOMAIN-SUFFIX,httpdns.platform.dbankcloud.com",
-          "DOMAIN,aedns.weixin.qq.com",
-          "DOMAIN,dns.jd.com",
-          "DOMAIN,dns.pub",
-          "DOMAIN,dns.wechat.com",
-          "DOMAIN,dns.weixin.qq.com",
-          "DOMAIN,dns.weixin.qq.com.cn",
-          "DOMAIN,doh.ptqy.gitv.tv",
-          "DOMAIN,doh.pub",
-          "DOMAIN,httpdns.alicdn.com",
-          "DOMAIN,httpdns.aliyuncs.com",
-          "DOMAIN,httpdns.baidu.com",
-          "DOMAIN,httpdns.baidubce.com",
-          "DOMAIN,httpdns.bilivideo.com",
-          "DOMAIN,httpdns.huaweicloud.com",
-          "DOMAIN,httpdns.meituan.com",
-          "DOMAIN,httpdns.music.163.com",
-          "DOMAIN,httpdns.music.ntes53.netease.com",
-          "DOMAIN,httpdns.n.netease.com",
-          "DOMAIN,httpdns.volcengineapi.com",
-          "DOMAIN,httpdns.yunxindns.com",
-          "DOMAIN,httpdnsmultiapi.meituan.com",
-          "DOMAIN,resolve.umeng.com",
-          "DOMAIN,resolver.mi.xiaomi.com",
-          "DOMAIN,udns.weixin.qq.com"
-        ]
-      },
-      {
-        "note": "Alibaba's endpoint dispatch for Taobao and Alipay. Blocking it sends the apps to ordinary DNS at the cost of a slower first request; the anycast addresses they then dial stay domestic through Geo/AlibabaCIDR.list.",
-        "rules": [
-          "DOMAIN,amdc-sibling.alipay.com.cn",
-          "DOMAIN,amdc-thirdparty.alipay.com",
-          "DOMAIN,amdc.alipay.com",
-          "DOMAIN,amdc.m.taobao.com"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Library/Reject/HttpDNSCIDR.list",
-    "title": "HTTP DNS addresses",
-    "kind": "policy",
-    "header": [
-      "Expects a reject policy.",
-      "The service addresses of the mainland HTTP DNS products, which SDKs dial by address so no name rule sees them: Tencent DNSPod D+, Alibaba Cloud HTTPDNS and Baidu Cloud HTTPDNS. Only addresses the vendors dedicate to the service belong here; an address shared with a CDN would take unrelated traffic with it. 119.29.29.29 and 223.5.5.5 are general public resolvers and stay out.",
-      "Reference it in the address block, after every name rule, so a named request that lands on one of these addresses is classified by its name."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "IP-CIDR,119.29.29.98/31,no-resolve",
-          "IP-CIDR,180.76.76.200/32,no-resolve",
-          "IP-CIDR,182.254.116.117/32,no-resolve",
-          "IP-CIDR,182.254.118.119/32,no-resolve",
-          "IP-CIDR,203.107.1.0/24,no-resolve"
-        ]
-      }
-    ]
-  },
-  {
     "path": "Library/Reject/Telemetry.list",
     "title": "Telemetry",
     "kind": "policy",
+    "policy": "reject",
+    "sni": true,
     "header": [
-      "Expects a reject policy.",
       "Usage telemetry, product analytics, performance monitoring and crash reports. Hang this on a policy that can be switched off rather than a hard REJECT, so a suspected false positive is tested by flipping the policy.",
       "Scope: the ingestion host, never the vendor's dashboard or API, which keep their own file or FINAL. Feature flag and remote configuration hosts stay out, because a client that cannot fetch them changes behavior; so do push channels that share a vendor with its analytics. Our own services stay in Developer/Owned.list. A host whose company list sits in the overlay, ahead of the reject block (GitHub, AI, Tailscale coordination, the Apple pins), cannot be caught here.",
       "A host an app needs goes in source/protected.json, and the build fails if any reject list matches it."
@@ -656,75 +792,20 @@
           "DOMAIN,v2.get.sogou.com",
           "DOMAIN,ws-keyboard.shouji.sogou.com"
         ]
-      }
-    ]
-  },
-  {
-    "path": "Library/Reject/Unresolvable.list",
-    "title": "Unresolvable names",
-    "kind": "policy",
-    "header": [
-      "Expects a reject policy.",
-      "Names that can never resolve: the special-use TLDs of RFC 2606 and RFC 6761, and names under a TLD that does not exist. Without a rule they reach FINAL and are dialed through a proxy exit that cannot resolve them either: test fixtures under .test, connectivity probes under .invalid, and app placeholders such as uc.cmd. Bind it to REJECT: nothing here works on any path.",
-      "example.com and its siblings stay out. They are reserved but resolve and answer."
-    ],
-    "blocks": [
+      },
       {
+        "note": "Tesla China app analytics and crash reports, New Relic browser ingestion, the Shopify CLI's OTLP exporters, ccusage and Gridea usage pings, Databuddy ingestion, and PostHog and Segment proxies on customers' own zones.",
         "rules": [
-          "DOMAIN-SUFFIX,test",
-          "DOMAIN-SUFFIX,invalid",
-          "DOMAIN-SUFFIX,example",
-          "DOMAIN-SUFFIX,cmd"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Library/Direct/CDNChina.list",
-    "title": "China CDN",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT.",
-      "Mainland content hosts keep large objects on the local last mile. ctlcdn.cn and ctadns.cn are China Telecom CDN zones; NetEase Cloud Music streams through names such as m701.music.126.net.ctlcdn.cn.",
-      "volcgslb.com and vedcdnlb.com are Volcano Engine CDN zones used by NetEase Cloud Music under names such as music.126.net.volcgslb.com; tcdnos.com carries app and game update downloads."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,tcdnos.com"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Library/Direct/Carrier.list",
-    "title": "Carrier services",
-    "kind": "policy",
-    "header": [
-      "Expects DIRECT.",
-      "Wi-Fi Calling ePDG endpoints. The IKEv2/IPsec tunnel must terminate at the carrier from the real access network; through a proxy exit it can fail registration or pin calls to the exit region. The hostname pattern sits in the profile's always-real-ip so the phone sees real addresses, which also means the tunnel reaches the gateway by bare address and this name rule never sees it. Inline UDP 500 and 4500 rules in the profile catch those packets; this file keeps name resolution on the same path.",
-      "Carrier apps. China Telecom's app and account plane live under 189.cn; the carrier answers its customers on the access network it runs.",
-      "Handset address space. A mainland mobile carrier can number a handset interface from US DoD and UK MoD blocks, and peer-to-peer apps such as UU Remote offer that address as a connection candidate. It is unreachable from outside the carrier, but a candidate that falls to FINAL is dialed through a proxy exit. Surge maps a UDP socket as a whole, so the policy its first packet picks also carries later packets to relay servers and the handset's public address. These blocks need a direct rule to keep the entire socket on the access network."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,189.cn",
-          "DOMAIN-SUFFIX,pub.3gppnetwork.org",
-          "IP-CIDR,6.0.0.0/8,no-resolve",
-          "IP-CIDR,7.0.0.0/8,no-resolve",
-          "IP-CIDR,11.0.0.0/8,no-resolve",
-          "IP-CIDR,21.0.0.0/8,no-resolve",
-          "IP-CIDR,22.0.0.0/8,no-resolve",
-          "IP-CIDR,25.0.0.0/8,no-resolve",
-          "IP-CIDR,26.0.0.0/8,no-resolve",
-          "IP-CIDR,28.0.0.0/8,no-resolve",
-          "IP-CIDR,29.0.0.0/8,no-resolve",
-          "IP-CIDR,30.0.0.0/8,no-resolve",
-          "IP-CIDR,33.0.0.0/8,no-resolve",
-          "IP-CIDR,55.0.0.0/8,no-resolve",
-          "IP-CIDR,214.0.0.0/8,no-resolve",
-          "IP-CIDR,215.0.0.0/8,no-resolve"
+          "DOMAIN-SUFFIX,nr-data.net",
+          "DOMAIN,akamai-apigateway-gio-analytics.tesla.cn",
+          "DOMAIN,akamai-apigateway-sentry.tesla.cn",
+          "DOMAIN,analytics.gridea.dev",
+          "DOMAIN,basket.databuddy.cc",
+          "DOMAIN,otlp-http-production-cli.shopifysvc.com",
+          "DOMAIN,otlp-http-production.shopifysvc.com",
+          "DOMAIN,ph.rivet.gg",
+          "DOMAIN,sgmnt-a.ramp.com",
+          "DOMAIN,telemetry.ccusage.com"
         ]
       }
     ]
@@ -733,8 +814,8 @@
     "path": "Library/Direct/Certificates.list",
     "title": "Certificate validation",
     "kind": "policy",
+    "policy": "direct",
     "header": [
-      "Expects DIRECT.",
       "OCSP responders and CRL and AIA hosts of public CAs. A revocation check sits on the critical path of its TLS handshake. These CAs serve responders from anycast networks with mainland reach; Google's pki.goog does not and stays out. Apple's own responders live in Platforms/Apple.list and Microsoft's in Platforms/MicrosoftCDN.list."
     ],
     "blocks": [
@@ -769,27 +850,19 @@
           "DOMAIN,status.geotrust.com",
           "DOMAIN,status.rapidssl.com",
           "DOMAIN,status.thawte.com",
-          "DOMAIN,validation.identrust.com"
+          "DOMAIN,validation.identrust.com",
+          "DOMAIN,ica.wt.trustasia.com",
+          "DOMAIN,ocsp.wt.trustasia.com"
         ]
       }
-    ]
-  },
-  {
-    "path": "Library/Direct/Download.list",
-    "title": "Downloads",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT.",
-      "Netdisk fronts, OS and game content CDNs, and update and object storage hosts that work on the direct path. Steam and Nintendo delivery hosts follow the same policy for game downloads. Microsoft delivery lives in Platforms/MicrosoftCDN.list.",
-      "The 1Password, iStat Menus and PopClip update hosts answer slowly on the direct path, so they reach a proxy through FINAL."
     ]
   },
   {
     "path": "Library/Direct/NTP.list",
     "title": "NTP",
     "kind": "policy",
+    "policy": "direct",
     "header": [
-      "Expects DIRECT.",
       "Time sync should not ride a proxy path. These names sit in the profile's always-real-ip, so packets reach the gateway by bare address and only the inline UDP 123 rule in the profile catches them."
     ],
     "blocks": [
@@ -811,59 +884,93 @@
     ]
   },
   {
-    "path": "Library/Direct/Private.list",
-    "title": "Private names",
+    "path": "Library/Direct/Carrier.list",
+    "title": "Carrier services",
     "kind": "policy",
+    "policy": "direct",
     "header": [
-      "Expects DIRECT.",
-      "Names that never leave the machine or the LAN."
+      "Wi-Fi Calling ePDG endpoints. The IKEv2/IPsec tunnel must terminate at the carrier from the real access network; through a proxy exit it can fail registration or pin calls to the exit region. The hostname pattern sits in the profile's always-real-ip so the phone sees real addresses, which also means the tunnel reaches the gateway by bare address and this name rule never sees it. Inline UDP 500 and 4500 rules in the profile catch those packets; this file keeps name resolution on the same path.",
+      "Carrier apps. China Telecom's app and account plane live under 189.cn; the carrier answers its customers on the access network it runs.",
+      "Handset address space. A mainland mobile carrier can number a handset interface from US DoD and UK MoD blocks, and peer-to-peer apps such as UU Remote offer that address as a connection candidate. It is unreachable from outside the carrier, but a candidate that falls to FINAL is dialed through a proxy exit. Surge maps a UDP socket as a whole, so the policy its first packet picks also carries later packets to relay servers and the handset's public address. These blocks need a direct rule to keep the entire socket on the access network."
     ],
     "blocks": [
       {
         "rules": [
-          "DOMAIN-SUFFIX,home.arpa",
-          "DOMAIN-SUFFIX,internal",
-          "DOMAIN-SUFFIX,lan",
-          "DOMAIN-SUFFIX,local",
-          "DOMAIN-SUFFIX,localdomain",
-          "DOMAIN-SUFFIX,localhost",
-          "DOMAIN,localhost"
+          "DOMAIN-SUFFIX,189.cn",
+          "DOMAIN-SUFFIX,pub.3gppnetwork.org",
+          "IP-CIDR,6.0.0.0/8,no-resolve",
+          "IP-CIDR,7.0.0.0/8,no-resolve",
+          "IP-CIDR,11.0.0.0/8,no-resolve",
+          "IP-CIDR,21.0.0.0/8,no-resolve",
+          "IP-CIDR,22.0.0.0/8,no-resolve",
+          "IP-CIDR,25.0.0.0/8,no-resolve",
+          "IP-CIDR,26.0.0.0/8,no-resolve",
+          "IP-CIDR,28.0.0.0/8,no-resolve",
+          "IP-CIDR,29.0.0.0/8,no-resolve",
+          "IP-CIDR,30.0.0.0/8,no-resolve",
+          "IP-CIDR,33.0.0.0/8,no-resolve",
+          "IP-CIDR,55.0.0.0/8,no-resolve",
+          "IP-CIDR,214.0.0.0/8,no-resolve",
+          "IP-CIDR,215.0.0.0/8,no-resolve"
         ]
       }
-    ]
-  },
-  {
-    "path": "Library/Direct/PrivateRelay.list",
-    "title": "iCloud Private Relay",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT, referenced with extended-matching. Must precede Platforms/Apple.list, which would otherwise swallow the mask hosts; it exists as its own file so the relay can be switched off for the whole network by pointing it at REJECT.",
-      "Private Relay negotiates its own QUIC transport to the relay edge. On a proxy policy that bootstrap is blocked by the profile's QUIC policy and incurs a retry before TCP fallback. DIRECT lets it negotiate for itself. The relay ingress shares 17.248.152.0/24 and 17.248.163.0/24 with the iCloud content edges; the profile's iCloud content guard refuses QUIC by name only, so relay traffic keeps its QUIC whether it arrives by name or by address. To disable Private Relay at the network, point this file at REJECT in the profile."
     ]
   },
   {
     "path": "Library/Direct/Syncthing.list",
     "title": "Syncthing",
     "kind": "service",
+    "policy": "direct",
     "header": [
-      "Expects DIRECT.",
       "Global discovery and relays, plus local Syncthing clients by process name. Announcing through a proxy registers the exit address as the device's endpoint, which defeats direct peer connections the same way a proxied STUN answer would. Peers and relays are dialed by bare address, so the inline TCP 22000 and 22067 rules in the profile keep the transfers themselves direct; this file covers the lookups and the local process."
     ]
   },
   {
-    "path": "Library/Proxy/AppServices.list",
-    "title": "App services",
-    "kind": "policy",
+    "path": "Library/Direct/Download.list",
+    "title": "Downloads",
+    "kind": "service",
+    "policy": "direct",
     "header": [
-      "Expects a proxy policy.",
-      "Backends that desktop and mobile apps call independently of their main sites. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+      "Netdisk fronts, OS and game content CDNs, and update and object storage hosts that work on the direct path. Steam and Nintendo delivery hosts follow the same policy for game downloads. Microsoft delivery lives in Platforms/MicrosoftCDN.list.",
+      "The 1Password, iStat Menus and PopClip update hosts answer slowly on the direct path, so they stay out of this file and reach a proxy."
+    ]
+  },
+  {
+    "path": "Library/Direct/CDNChina.list",
+    "title": "China CDN",
+    "kind": "service",
+    "policy": "direct",
+    "header": [
+      "Mainland content hosts keep large objects on the local last mile. ctlcdn.cn and ctadns.cn are China Telecom CDN zones; NetEase Cloud Music streams through names such as m701.music.126.net.ctlcdn.cn.",
+      "volcgslb.com and vedcdnlb.com are Volcano Engine CDN zones used by NetEase Cloud Music under names such as music.126.net.volcgslb.com; tcdnos.com carries app and game update downloads."
     ],
     "blocks": [
       {
         "rules": [
-          "DOMAIN-SUFFIX,braze.com",
-          "DOMAIN-SUFFIX,intercom.io",
-          "DOMAIN-SUFFIX,istatmenus.app"
+          "DOMAIN-SUFFIX,tcdnos.com"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "Library/Proxy/Speedtest.list",
+    "title": "Speedtest",
+    "kind": "policy",
+    "policy": "proxy",
+    "header": [
+      "On a hijacking gateway these measure the selected exit. DIRECT would measure the last mile instead."
+    ],
+    "blocks": [
+      {
+        "rules": [
+          "DOMAIN-SUFFIX,ookla.com",
+          "DOMAIN-SUFFIX,speed.cloudflare.com",
+          "DOMAIN-SUFFIX,speedtest.cn",
+          "DOMAIN-SUFFIX,speedtest.net",
+          "DOMAIN-SUFFIX,stvidtest.net",
+          "DOMAIN,csl.hkspeedtest.com",
+          "DOMAIN,hkspeedtest.netvigator.com",
+          "DOMAIN,speedtest.tele2.net"
         ]
       }
     ]
@@ -872,8 +979,8 @@
     "path": "Library/Proxy/DoH.list",
     "title": "DNS over HTTPS",
     "kind": "policy",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
       "Public resolvers. Sending these DIRECT bypasses the gateway resolver."
     ],
     "blocks": [
@@ -895,8 +1002,9 @@
     "path": "Library/Proxy/SafeBrowsing.list",
     "title": "Safe Browsing",
     "kind": "policy",
+    "policy": "proxy",
+    "intro": "Must precede Platforms/Apple.list, whose .apple suffix would otherwise take it.",
     "header": [
-      "Expects a proxy policy. Must precede Platforms/Apple.list, whose .apple suffix would otherwise take it.",
       "Safari's Safe Browsing service fetches its token from token.safebrowsing.apple, which fails on the direct path from the mainland but answers through a foreign exit. The Google lookups behind it already take a proxy through Platforms/Google.list."
     ],
     "blocks": [
@@ -908,107 +1016,208 @@
     ]
   },
   {
-    "path": "Library/Proxy/Speedtest.list",
-    "title": "Speedtest",
+    "path": "Library/Proxy/AppServices.list",
+    "title": "App services",
     "kind": "policy",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
-      "On a hijacking gateway these measure the selected exit. DIRECT would measure the last mile instead."
+      "Backends that desktop and mobile apps call independently of their main sites. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
     ],
     "blocks": [
       {
         "rules": [
-          "DOMAIN-SUFFIX,ookla.com",
-          "DOMAIN-SUFFIX,speed.cloudflare.com",
-          "DOMAIN-SUFFIX,speedtest.cn",
-          "DOMAIN-SUFFIX,speedtest.net",
-          "DOMAIN-SUFFIX,stvidtest.net",
-          "DOMAIN,csl.hkspeedtest.com",
-          "DOMAIN,hkspeedtest.netvigator.com",
-          "DOMAIN,speedtest.tele2.net"
+          "DOMAIN-SUFFIX,braze.com",
+          "DOMAIN-SUFFIX,intercom.io",
+          "DOMAIN-SUFFIX,istatmenus.app",
+          "DOMAIN-SUFFIX,cleanshot.cloud",
+          "DOMAIN-SUFFIX,culturedcode.com",
+          "DOMAIN-SUFFIX,flightyapp.com",
+          "DOMAIN-SUFFIX,nothing.tech",
+          "DOMAIN-SUFFIX,nothingtech.link",
+          "DOMAIN-SUFFIX,ouraring.com",
+          "DOMAIN-SUFFIX,pilotmoon.com",
+          "DOMAIN-SUFFIX,popclip.app",
+          "DOMAIN-SUFFIX,setapp.com",
+          "DOMAIN-SUFFIX,tesla.com",
+          "DOMAIN-SUFFIX,tesla.services",
+          "DOMAIN-SUFFIX,teslamotors.com"
         ]
       }
     ]
   },
   {
-    "path": "Library/Social/Bluesky.list",
-    "title": "Bluesky",
+    "path": "Library/Platforms/AppleChina.list",
+    "title": "Apple China",
     "kind": "service",
+    "policy": "mainland",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "Must precede Platforms/Apple.list, whose apple.com suffix would otherwise take the -cn location and Maps hosts. Those hosts carry the region inside a label (gspe19-cn-ssl, gsp10-ssl-cn), which a suffix rule cannot see, so the wildcard does that work.",
     "header": [
-      "Expects a proxy policy."
+      "The mainland operated estate includes iCloud on GCBD, the .cn store, and location, Maps and search endpoints for mainland clients. These endpoints can still answer through a proxy, hiding a routing mismatch."
     ]
   },
   {
-    "path": "Library/Social/Discord.list",
-    "title": "Discord",
+    "path": "Library/Media/AppleMedia.list",
+    "title": "Apple TV and News",
     "kind": "service",
+    "policy": "proxy",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "Must precede Platforms/Apple.list.",
     "header": [
-      "Expects a proxy policy."
+      "The Apple services whose catalogs depend on the connection region are the TV app, with its channels and licensed streams, and News. Music and Podcasts are storefront bound rather than address bound, so they stay on the direct floor; a proxy path can block QUIC attempts to their playback hosts."
     ]
   },
   {
-    "path": "Library/Social/Facebook.list",
-    "title": "Facebook",
+    "path": "Library/Direct/PrivateRelay.list",
+    "title": "iCloud Private Relay",
     "kind": "service",
+    "policy": "direct",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "Must precede Platforms/Apple.list, which would otherwise swallow the mask hosts; it exists as its own file so the relay can be switched off for the whole network by pointing it at REJECT.",
     "header": [
-      "Expects a proxy policy."
+      "Private Relay negotiates its own QUIC transport to the relay edge. On a proxy policy that bootstrap is blocked by the profile's QUIC policy and incurs a retry before TCP fallback. DIRECT lets it negotiate for itself. The relay ingress shares 17.248.152.0/24 and 17.248.163.0/24 with the iCloud content edges; the profile's iCloud content guard refuses QUIC by name only, so relay traffic keeps its QUIC whether it arrives by name or by address. To disable Private Relay at the network, point this file at REJECT in the profile."
     ]
   },
   {
-    "path": "Library/Social/Instagram.list",
-    "title": "Instagram",
+    "path": "Library/Platforms/Apple.list",
+    "title": "Apple",
     "kind": "service",
+    "policy": "direct",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "The company-wide floor: every Apple name and Apple's own address space. Must follow Apple/AppleIntelligence.list, Media/AppleMedia.list, Platforms/AppleChina.list and Direct/PrivateRelay.list, the four Apple sets whose policy differs; everything else Apple lands here instead of in FINAL.",
     "header": [
-      "Expects a proxy policy."
+      "DIRECT keeps Apple services on a stable domestic path. On a proxy path, the profile's QUIC block can time out HTTP/3 before TCP fallback, and some Apple frontends refuse foreign exits. setup.icloud.com bootstraps iCloud sessions, while init.itunes.apple.com bootstraps the App Store. The company floor also covers iMessage identity under ess.apple.com, Game Center, gsas.apple.com, unlinkability.apple.com, tether.edge.apple, the partitioned p*-buy.itunes.apple.com store hosts, and iCloud Mail on me.com.",
+      "The address rules carry traffic that arrives without a name. iCloud content can run over HTTP/3 to edge-*.hkhkg2.icloud-content.com without a readable SNI, so those requests reach the gateway as bare addresses and can otherwise fall to FINAL, where block-quic rejects them. 17.0.0.0/8 and the three IPv6 blocks are Apple allocations; they cover the content edges (17.248.152.0/24 and 17.248.163.0/24, shared with Private Relay ingress and the Intelligence relay), gateway addresses (17.248.216.0/24), and time servers. QUIC to content names meets the profile's name guard first, because direct QUIC can transfer slowly without falling back to TCP. That guard leaves address based CloudKit migrations alone. These address rules follow the named exceptions: no-resolve avoids resolving a named request solely for address matching, but a request arriving by address with an SNI is still matched by address.",
+      "The services that keep a foreign exit on purpose stay out: Apple Intelligence in the overlay, TV and News in Media/AppleMedia.list."
     ]
   },
   {
-    "path": "Library/Social/Line.list",
-    "title": "LINE",
+    "path": "Library/Platforms/MicrosoftCDN.list",
+    "title": "Microsoft CDN",
     "kind": "service",
+    "policy": "direct",
     "header": [
-      "Expects a proxy policy."
+      "Update, download, Office delivery and certificate validation hosts. Must precede Platforms/Microsoft.list, whose suffixes would otherwise take them. update.code.visualstudio.com carries the VS Code update check.",
+      "download.prss.microsoft.com is deliberately absent. Its mainland edges can cap each direct connection, so a completed request says nothing about download speed. The zone falls through to Platforms/Microsoft.list, where a proxy policy can avoid the direct path's cap."
     ]
   },
   {
-    "path": "Library/Social/LinkedIn.list",
-    "title": "LinkedIn",
+    "path": "Library/Gaming/Xbox.list",
+    "title": "Xbox",
     "kind": "service",
+    "policy": "gaming",
+    "intro": "Must precede Platforms/Microsoft.list, which would otherwise take the account hosts.",
     "header": [
-      "Expects a proxy policy."
+      "Xbox, Game Pass and Minecraft. xbox.*.microsoft.com and xboxlive.com sit in the profile's always-real-ip, so a console's NAT probes reach the gateway by address and never match here."
     ]
   },
   {
-    "path": "Library/Social/Reddit.list",
-    "title": "Reddit",
+    "path": "Library/Platforms/Microsoft.list",
+    "title": "Microsoft",
     "kind": "service",
+    "policy": "direct-or-proxy",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
     "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Social/Snap.list",
-    "title": "Snap",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
+      "Accounts, Office, Azure, Bing, Skype and the VS Code service plane. Update and download hosts live in Platforms/MicrosoftCDN.list and must precede this file, whose suffixes would otherwise take them. Xbox has its own file. msftconnecttest.com and msftncsi.com sit in the profile's always-real-ip, so their probes reach the gateway by address and never match here."
     ]
   },
   {
     "path": "Library/Social/Telegram.list",
     "title": "Telegram",
     "kind": "service",
+    "policy": "proxy",
+    "sni": true,
     "header": [
-      "Expects a proxy policy.",
       "Pair with Geo/TelegramCIDR.list for clients that skip SNI."
     ]
+  },
+  {
+    "path": "Library/Social/Discord.list",
+    "title": "Discord",
+    "kind": "service",
+    "policy": "proxy",
+    "sni": true,
+    "header": []
+  },
+  {
+    "path": "Library/Social/X.list",
+    "title": "X",
+    "kind": "service",
+    "policy": "proxy",
+    "sni": true,
+    "header": [
+      "The product formerly branded Twitter."
+    ]
+  },
+  {
+    "path": "Library/Social/WhatsApp.list",
+    "title": "WhatsApp",
+    "kind": "service",
+    "policy": "proxy",
+    "sni": true,
+    "header": []
+  },
+  {
+    "path": "Library/Social/Facebook.list",
+    "title": "Facebook",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Social/Instagram.list",
+    "title": "Instagram",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Social/Line.list",
+    "title": "LINE",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Social/LinkedIn.list",
+    "title": "LinkedIn",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Social/Reddit.list",
+    "title": "Reddit",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Social/Snap.list",
+    "title": "Snap",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Social/Bluesky.list",
+    "title": "Bluesky",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
   },
   {
     "path": "Library/Social/WeChat.list",
     "title": "WeChat",
     "kind": "service",
+    "policy": "mainland",
+    "sni": true,
     "header": [
-      "Expects a mainland policy.",
       "The messenger subset can be steered without the rest of Tencent. The image hosts under qpic.cn and qlogo.cn and the mini program hosts under wxqcloud.qq.com.cn would otherwise depend on DOMAIN-SUFFIX,cn, which a client that dials by address with an SNI never meets."
     ]
   },
@@ -1016,362 +1225,145 @@
     "path": "Library/Social/Weibo.list",
     "title": "Weibo",
     "kind": "service",
-    "header": [
-      "Expects a mainland policy."
-    ]
-  },
-  {
-    "path": "Library/Social/WhatsApp.list",
-    "title": "WhatsApp",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Social/X.list",
-    "title": "X",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The product formerly branded Twitter."
-    ]
+    "policy": "mainland",
+    "header": []
   },
   {
     "path": "Library/Social/Xiaohongshu.list",
     "title": "Xiaohongshu",
     "kind": "service",
-    "header": [
-      "Expects a mainland policy."
-    ]
+    "policy": "mainland",
+    "header": []
   },
   {
-    "path": "Library/Media/AppleMedia.list",
-    "title": "Apple TV and News",
+    "path": "Library/Media/Netflix.list",
+    "title": "Netflix",
     "kind": "service",
-    "header": [
-      "Expects a proxy policy, referenced with extended-matching. Must precede Platforms/Apple.list.",
-      "The Apple services whose catalogs depend on the connection region are the TV app, with its channels and licensed streams, and News. Music and Podcasts are storefront bound rather than address bound, so they stay on the direct floor; a proxy path can block QUIC attempts to their playback hosts."
-    ]
+    "policy": "streaming",
+    "sni": true,
+    "header": []
   },
   {
-    "path": "Library/Media/Bahamut.list",
-    "title": "Bahamut",
+    "path": "Library/Media/YouTube.list",
+    "title": "YouTube",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
-  },
-  {
-    "path": "Library/Media/Bilibili.list",
-    "title": "Bilibili",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy."
-    ]
-  },
-  {
-    "path": "Library/Media/China.list",
-    "title": "China media",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "Domestic video and audio without a file of their own. Bilibili, iQiyi and Youku have theirs; Douyin lives in Platforms/ByteDance.list."
-    ]
+    "policy": "streaming",
+    "sni": true,
+    "header": []
   },
   {
     "path": "Library/Media/Disney.list",
     "title": "Disney",
     "kind": "service",
+    "policy": "streaming",
+    "sni": true,
+    "header": []
+  },
+  {
+    "path": "Library/Media/Spotify.list",
+    "title": "Spotify",
+    "kind": "service",
+    "policy": "streaming",
+    "sni": true,
+    "header": []
+  },
+  {
+    "path": "Library/Media/TikTok.list",
+    "title": "TikTok",
+    "kind": "service",
+    "policy": "streaming",
+    "sni": true,
     "header": [
-      "Expects a streaming policy."
+      "The international product. Douyin stays in Platforms/ByteDance.list and Media/China."
     ]
   },
   {
     "path": "Library/Media/HBO.list",
     "title": "HBO",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
+    "policy": "streaming",
+    "header": []
   },
   {
     "path": "Library/Media/Hulu.list",
     "title": "Hulu",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
-  },
-  {
-    "path": "Library/Media/Netflix.list",
-    "title": "Netflix",
-    "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
+    "policy": "streaming",
+    "header": []
   },
   {
     "path": "Library/Media/PrimeVideo.list",
     "title": "Prime Video",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
-  },
-  {
-    "path": "Library/Media/Spotify.list",
-    "title": "Spotify",
-    "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
-  },
-  {
-    "path": "Library/Media/TikTok.list",
-    "title": "TikTok",
-    "kind": "service",
-    "header": [
-      "Expects a streaming policy.",
-      "The international product. Douyin stays in Platforms/ByteDance.list and Media/China."
-    ]
+    "policy": "streaming",
+    "header": []
   },
   {
     "path": "Library/Media/Twitch.list",
     "title": "Twitch",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
+    "policy": "streaming",
+    "header": []
+  },
+  {
+    "path": "Library/Media/Bahamut.list",
+    "title": "Bahamut",
+    "kind": "service",
+    "policy": "streaming",
+    "header": []
   },
   {
     "path": "Library/Media/Viu.list",
     "title": "Viu",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
+    "policy": "streaming",
+    "header": []
   },
   {
-    "path": "Library/Media/YouTube.list",
-    "title": "YouTube",
+    "path": "Library/Media/Bilibili.list",
+    "title": "Bilibili",
     "kind": "service",
-    "header": [
-      "Expects a streaming policy."
-    ]
-  },
-  {
-    "path": "Library/Media/Youku.list",
-    "title": "Youku",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy."
-    ]
+    "policy": "mainland",
+    "header": []
   },
   {
     "path": "Library/Media/iQiyi.list",
     "title": "iQiyi",
     "kind": "service",
+    "policy": "mainland",
+    "header": []
+  },
+  {
+    "path": "Library/Media/Youku.list",
+    "title": "Youku",
+    "kind": "service",
+    "policy": "mainland",
+    "header": []
+  },
+  {
+    "path": "Library/Media/China.list",
+    "title": "China media",
+    "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects a mainland policy."
+      "Domestic video and audio without a file of their own. Bilibili, iQiyi and Youku have theirs; Douyin lives in Platforms/ByteDance.list."
     ]
   },
   {
-    "path": "Library/Developer/1Password.list",
-    "title": "1Password",
+    "path": "Library/Gaming/Steam.list",
+    "title": "Steam",
     "kind": "service",
+    "policy": "gaming",
     "header": [
-      "Expects a proxy policy.",
-      "Vaults, Watchtower and app updates. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
-    ]
-  },
-  {
-    "path": "Library/Developer/Atlassian.list",
-    "title": "Atlassian",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Developer/BetterStack.list",
-    "title": "Better Stack",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The dashboard, incidents and the MCP server. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Log ingestion under betterstackdata.com is named here too, so our own log shipping keeps the same exit."
-    ]
-  },
-  {
-    "path": "Library/Developer/Cloudflare.list",
-    "title": "Cloudflare",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "Dashboard, APIs, and Workers. Tunnel edge hosts stay in the overlay and expect DIRECT. Do not send cloudflare-dns.com DIRECT."
-    ]
-  },
-  {
-    "path": "Library/Developer/Datadog.list",
-    "title": "Datadog",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The Datadog app and API. Log and browser intake is telemetry and lives in Reject/Telemetry.list, which precedes this file. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
-    ]
-  },
-  {
-    "path": "Library/Developer/Docker.list",
-    "title": "Docker",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Developer/Figma.list",
-    "title": "Figma",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Developer/GitLab.list",
-    "title": "GitLab",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Developer/Infisical.list",
-    "title": "Infisical",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "Secrets. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
-    ]
-  },
-  {
-    "path": "Library/Developer/JetBrains.list",
-    "title": "JetBrains",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The AI endpoint is also in the overlay AI list."
-    ]
-  },
-  {
-    "path": "Library/Developer/Neon.list",
-    "title": "Neon",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "Database endpoints and the MCP server. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
-    ]
-  },
-  {
-    "path": "Library/Developer/Notion.list",
-    "title": "Notion",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Developer/Npm.list",
-    "title": "npm",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy. Must follow Registries/Registries.list, which owns the registry hosts under these suffixes."
-    ]
-  },
-  {
-    "path": "Library/Developer/Owned.list",
-    "title": "Owned services",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The maintainer's own zones. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Must follow Process/ProxyCores.list, so a proxy core that fetches its configuration from one of these zones keeps the direct path when no proxy answers."
-    ]
-  },
-  {
-    "path": "Library/Developer/Sentry.list",
-    "title": "Sentry",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The Sentry dashboard and API. Event ingestion under ingest.sentry.io is telemetry and lives in Reject/Telemetry.list, which precedes this file. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
-    ]
-  },
-  {
-    "path": "Library/Developer/Slack.list",
-    "title": "Slack",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
-  },
-  {
-    "path": "Library/Developer/Vercel.list",
-    "title": "Vercel",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "Blob storage lives in Direct/Download.list.",
-      "The address rules cover the Vercel CLI, which dials Vercel's anycast space without a name. They classify those requests even if the cause of a failed connection lies elsewhere."
-    ]
-  },
-  {
-    "path": "Library/Developer/WakaTime.list",
-    "title": "WakaTime",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "Editor heartbeats. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
-    ]
-  },
-  {
-    "path": "Library/Gaming/Blizzard.list",
-    "title": "Blizzard",
-    "kind": "service",
-    "header": [
-      "Expects a gaming policy.",
-      "battlenet.com.cn, the NetEase-operated mainland service, falls to the .cn rule."
-    ]
-  },
-  {
-    "path": "Library/Gaming/EA.list",
-    "title": "EA",
-    "kind": "service",
-    "header": [
-      "Expects a gaming policy."
-    ]
-  },
-  {
-    "path": "Library/Gaming/Epic.list",
-    "title": "Epic Games",
-    "kind": "service",
-    "header": [
-      "Expects a gaming policy."
-    ]
-  },
-  {
-    "path": "Library/Gaming/HoYoverse.list",
-    "title": "HoYoverse",
-    "kind": "service",
-    "header": [
-      "Expects a gaming policy.",
-      "The global publisher. The mainland servers under mihoyo.com and yuanshen.com live in Gaming/miHoYo.list and expect a mainland policy."
+      "Store, community, chat and the API. Game content stays on the direct path through Direct/Download.list (steamcontent.com and the Akamai delivery hosts), which must precede this file."
     ]
   },
   {
     "path": "Library/Gaming/Nintendo.list",
     "title": "Nintendo",
     "kind": "service",
+    "policy": "gaming",
     "header": [
-      "Expects a gaming policy.",
       "Accounts, the eShop, Switch Online and the game services under nintendo.net. The download CDN cdn.nintendo.net lives in Direct/Download.list. nintendo.cn and nintendoswitch.cn, the Tencent-operated mainland service, fall to the .cn rule. The Switch reaches its NAT traversal and push servers under srv.nintendo.net by bare address, because the profile's always-real-ip hands it real answers; those flows never match a name rule and need a device rule in the profile if they are to stay direct."
     ]
   },
@@ -1379,102 +1371,365 @@
     "path": "Library/Gaming/PlayStation.list",
     "title": "PlayStation",
     "kind": "service",
+    "policy": "gaming",
     "header": [
-      "Expects a gaming policy.",
       "stun.playstation.net sits in the profile's always-real-ip, so a console's NAT probes reach the gateway by address and never match here."
     ]
+  },
+  {
+    "path": "Library/Gaming/Epic.list",
+    "title": "Epic Games",
+    "kind": "service",
+    "policy": "gaming",
+    "header": []
   },
   {
     "path": "Library/Gaming/Riot.list",
     "title": "Riot",
     "kind": "service",
+    "policy": "gaming",
+    "header": []
+  },
+  {
+    "path": "Library/Gaming/Blizzard.list",
+    "title": "Blizzard",
+    "kind": "service",
+    "policy": "gaming",
     "header": [
-      "Expects a gaming policy."
+      "battlenet.com.cn, the NetEase-operated mainland service, falls to the .cn rule."
     ]
   },
   {
-    "path": "Library/Gaming/Steam.list",
-    "title": "Steam",
+    "path": "Library/Gaming/EA.list",
+    "title": "EA",
     "kind": "service",
-    "header": [
-      "Expects a gaming policy.",
-      "Store, community, chat and the API. Game content stays on the direct path through Direct/Download.list (steamcontent.com and the Akamai delivery hosts), which must precede this file."
-    ]
+    "policy": "gaming",
+    "header": []
   },
   {
     "path": "Library/Gaming/Ubisoft.list",
     "title": "Ubisoft",
     "kind": "service",
-    "header": [
-      "Expects a gaming policy."
-    ]
+    "policy": "gaming",
+    "header": []
   },
   {
-    "path": "Library/Gaming/Xbox.list",
-    "title": "Xbox",
+    "path": "Library/Gaming/HoYoverse.list",
+    "title": "HoYoverse",
     "kind": "service",
+    "policy": "gaming",
     "header": [
-      "Expects a gaming policy. Must precede Platforms/Microsoft.list, which would otherwise take the account hosts.",
-      "Xbox, Game Pass and Minecraft. xbox.*.microsoft.com and xboxlive.com sit in the profile's always-real-ip, so a console's NAT probes reach the gateway by address and never match here."
+      "The global publisher. The mainland servers under mihoyo.com and yuanshen.com live in Gaming/miHoYo.list and expect a mainland policy."
     ]
   },
   {
     "path": "Library/Gaming/miHoYo.list",
     "title": "miHoYo",
     "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects a mainland policy.",
       "The mainland servers. The global publisher lives in Gaming/HoYoverse.list."
     ]
   },
   {
-    "path": "Library/Finance/Binance.list",
-    "title": "Binance",
+    "path": "Library/Developer/Owned.list",
+    "title": "Owned services",
     "kind": "service",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy."
+      "The maintainer's own zones. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Must follow Process/ProxyCores.list, so a proxy core that fetches its configuration from one of these zones keeps the direct path when no proxy answers."
     ]
   },
   {
-    "path": "Library/Finance/Brokers.list",
-    "title": "Brokerages",
+    "path": "Library/Developer/Npm.list",
+    "title": "npm",
     "kind": "service",
+    "policy": "proxy",
+    "intro": "Must follow Registries/Registries.list, which owns the registry hosts under these suffixes.",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/GitLab.list",
+    "title": "GitLab",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/Docker.list",
+    "title": "Docker",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/Vercel.list",
+    "title": "Vercel",
+    "kind": "service",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
-      "Futu and Longbridge are Hong Kong brokerages that refuse logins from a mainland address. Their apps can answer from mainland addresses and reach the direct path through GEOIP,CN unless matched by name. A brokerage ties a session to the address it sees, as a bank does, so each takes one path by name. Must precede GEOIP,CN. Mainland brokerages stay on the mainland path; GF Securities is in Platforms/China.list."
+      "Blob storage lives in Direct/Download.list.",
+      "The address rules cover the Vercel CLI, which dials Vercel's anycast space without a name. They classify those requests even if the cause of a failed connection lies elsewhere."
     ]
   },
   {
-    "path": "Library/Finance/Crypto.list",
-    "title": "Cryptocurrency",
+    "path": "Library/Developer/Cloudflare.list",
+    "title": "Cloudflare",
     "kind": "service",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
-      "Major exchanges and on-chain fronts that need a foreign exit from the mainland."
+      "Dashboard, APIs, and Workers. Tunnel edge hosts stay in the overlay and expect DIRECT. Do not send cloudflare-dns.com DIRECT."
+    ]
+  },
+  {
+    "path": "Library/Developer/Notion.list",
+    "title": "Notion",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/Figma.list",
+    "title": "Figma",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/Slack.list",
+    "title": "Slack",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/Atlassian.list",
+    "title": "Atlassian",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Developer/JetBrains.list",
+    "title": "JetBrains",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The AI endpoint is also in the overlay AI list."
+    ]
+  },
+  {
+    "path": "Library/Developer/Sentry.list",
+    "title": "Sentry",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The Sentry dashboard and API. Event ingestion under ingest.sentry.io is telemetry and lives in Reject/Telemetry.list, which precedes this file. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/Datadog.list",
+    "title": "Datadog",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The Datadog app and API. Log and browser intake is telemetry and lives in Reject/Telemetry.list, which precedes this file. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/1Password.list",
+    "title": "1Password",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "Vaults, Watchtower and app updates. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/Neon.list",
+    "title": "Neon",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "Database endpoints and the MCP server. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/PlanetScale.list",
+    "title": "PlanetScale",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The console, API and database endpoints. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/Axiom.list",
+    "title": "Axiom",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The console, API, ingest edges and the MCP server. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/Expo.list",
+    "title": "Expo",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The Expo API, update service and development tooling hosts. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/BetterStack.list",
+    "title": "Better Stack",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The dashboard, incidents and the MCP server. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to. Log ingestion under betterstackdata.com is named here too, so our own log shipping keeps the same exit."
+    ]
+  },
+  {
+    "path": "Library/Developer/Infisical.list",
+    "title": "Infisical",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "Secrets. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
+    ]
+  },
+  {
+    "path": "Library/Developer/WakaTime.list",
+    "title": "WakaTime",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "Editor heartbeats. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to."
     ]
   },
   {
     "path": "Library/Finance/PayPal.list",
     "title": "PayPal",
     "kind": "service",
-    "header": [
-      "Expects a proxy policy."
-    ]
+    "policy": "proxy",
+    "header": []
   },
   {
     "path": "Library/Finance/Stripe.list",
     "title": "Stripe",
     "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Finance/Binance.list",
+    "title": "Binance",
+    "kind": "service",
+    "policy": "proxy",
+    "header": []
+  },
+  {
+    "path": "Library/Finance/Crypto.list",
+    "title": "Cryptocurrency",
+    "kind": "service",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy."
+      "Major exchanges and on-chain fronts that need a foreign exit from the mainland."
+    ]
+  },
+  {
+    "path": "Library/Finance/Brokers.list",
+    "title": "Brokerages",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "Futu and Longbridge are Hong Kong brokerages that refuse logins from a mainland address. Their apps can answer from mainland addresses and reach the direct path through GEOIP,CN unless matched by name. A brokerage ties a session to the address it sees, as a bank does, so each takes one path by name. Must precede GEOIP,CN. Mainland brokerages stay on the mainland path; GF Securities is in Platforms/China.list."
+    ]
+  },
+  {
+    "path": "Library/Bank/Proxy.list",
+    "title": "Banks, proxied",
+    "kind": "policy",
+    "policy": "proxy",
+    "intro": "Must precede Bank/Direct.list, whose mainland suffixes would otherwise take CCB Asia and BoCom Hong Kong.",
+    "header": [
+      "A bank ties a session to the address it sees, so each bank takes one path for its whole estate, decided by name. Hong Kong and foreign banks take the proxy. GEOIP can split them: mainland resolvers hand some bank edges a mainland or Alibaba anycast address, sending those direct while the rest of the bank takes the proxy.",
+      "Analytics hosts such as smetrics.sc.com, svc2.sc.com, omns.americanexpress.com and analytics.chase.com are rejected by the reject layer, which this file follows, and stay rejected.",
+      "Scope: Hong Kong retail and virtual banks, and foreign banks. A Hong Kong arm with its own Hong Kong infrastructure belongs here even when a host sits under its mainland parent's zone: CCB Asia's www.asia.ccb.com resolves into CCB's Hong Kong network (AS38475), and BoCom Hong Kong's hk.bankcomm.com into the same Hong Kong range as bankcomm.com.hk. AlipayHK is a Hong Kong stored value licensee and sits here with HSBC's PayMe. Card networks are not banks and stay unclassified."
+    ],
+    "blocks": [
+      {
+        "note": "Hong Kong retail banks. HSBC's PayMe lives on HSBC's own top-level domain.",
+        "rules": [
+          "DOMAIN-SUFFIX,hsbc.com.hk",
+          "DOMAIN-SUFFIX,hsbc.com",
+          "DOMAIN-SUFFIX,hsbc",
+          "DOMAIN-SUFFIX,hangseng.com",
+          "DOMAIN-SUFFIX,sc.com",
+          "DOMAIN-SUFFIX,citibank.com.hk",
+          "DOMAIN-SUFFIX,dbs.com.hk",
+          "DOMAIN-SUFFIX,dbs.com",
+          "DOMAIN-SUFFIX,hkbea.com",
+          "DOMAIN-SUFFIX,chiyubank.com",
+          "DOMAIN-SUFFIX,ncb.com.hk",
+          "DOMAIN-SUFFIX,dahsing.com",
+          "DOMAIN-SUFFIX,chbank.com",
+          "DOMAIN-SUFFIX,fubonbank.com.hk",
+          "DOMAIN-SUFFIX,shacombank.com.hk",
+          "DOMAIN-SUFFIX,ocbc.com.hk",
+          "DOMAIN-SUFFIX,publicbank.com.hk"
+        ]
+      },
+      {
+        "note": "Hong Kong arms of mainland banks that run their own Hong Kong infrastructure",
+        "rules": [
+          "DOMAIN-SUFFIX,asia.ccb.com",
+          "DOMAIN-SUFFIX,ccbasia.com",
+          "DOMAIN-SUFFIX,hk.bankcomm.com",
+          "DOMAIN-SUFFIX,bankcomm.com.hk",
+          "DOMAIN-SUFFIX,cmbwinglungbank.com",
+          "DOMAIN-SUFFIX,cncbinternational.com"
+        ]
+      },
+      {
+        "note": "Hong Kong virtual banks",
+        "rules": [
+          "DOMAIN-SUFFIX,za.group",
+          "DOMAIN-SUFFIX,mox.com",
+          "DOMAIN-SUFFIX,livibank.com",
+          "DOMAIN-SUFFIX,welab.bank",
+          "DOMAIN-SUFFIX,airstarbank.com",
+          "DOMAIN-SUFFIX,fusionbank.com",
+          "DOMAIN-SUFFIX,paob.com.hk",
+          "DOMAIN-SUFFIX,antbank.hk"
+        ]
+      },
+      {
+        "note": "Hong Kong stored value",
+        "rules": [
+          "DOMAIN-SUFFIX,alipay.hk"
+        ]
+      },
+      {
+        "note": "Foreign banks",
+        "rules": [
+          "DOMAIN-SUFFIX,americanexpress.com",
+          "DOMAIN-SUFFIX,aexp-static.com",
+          "DOMAIN-SUFFIX,chase.com",
+          "DOMAIN-SUFFIX,barclays.co.uk",
+          "DOMAIN-SUFFIX,barclays.com"
+        ]
+      }
     ]
   },
   {
     "path": "Library/Bank/Direct.list",
     "title": "Banks, direct",
     "kind": "policy",
+    "policy": "direct",
+    "intro": "Must follow Bank/Proxy.list, which takes two Hong Kong arms out of their mainland parents' suffixes, and precede DOMAIN-SUFFIX,cn.",
     "header": [
-      "Expects DIRECT. Must follow Bank/Proxy.list, which takes two Hong Kong arms out of their mainland parents' suffixes, and precede DOMAIN-SUFFIX,cn.",
       "A bank ties a session to the address it sees, so each bank takes one path for its whole estate, decided by name. This file holds the banks whose path is the real access network. It expects DIRECT rather than a mainland policy, so routing mainland traffic through a proxy never moves a bank.",
       "Mainland banks and UnionPay take one direct path by name because their apps call each other inside a session. GEOIP can split a bank's hosts when DNS has no answer or its addresses vary. Hua Xia Bank's site answers on the direct path and can fail through a proxy exit.",
       "Bank of China (Hong Kong) needs DIRECT because a proxy provider can refuse bochk.com by name even when BOCHK accepts the exit address. bocgroup.com serves from the same addresses with BOCHK's certificate, and 202.127.168.0/21 is BOCHK's allocation (netname BOCHKAS), so traffic that arrives by address takes the same path.",
@@ -1555,142 +1810,149 @@
     ]
   },
   {
-    "path": "Library/Bank/Proxy.list",
-    "title": "Banks, proxied",
-    "kind": "policy",
+    "path": "Library/Platforms/GoogleChina.list",
+    "title": "Google China",
+    "kind": "service",
+    "policy": "mainland",
+    "intro": "Must precede Platforms/Google.list.",
     "header": [
-      "Expects a proxy policy. Must precede Bank/Direct.list, whose mainland suffixes would otherwise take CCB Asia and BoCom Hong Kong.",
-      "A bank ties a session to the address it sees, so each bank takes one path for its whole estate, decided by name. Hong Kong and foreign banks take the proxy. GEOIP can split them: mainland resolvers hand some bank edges a mainland or Alibaba anycast address, sending those direct while the rest of the bank takes the proxy.",
-      "Analytics hosts such as smetrics.sc.com, svc2.sc.com, omns.americanexpress.com and analytics.chase.com are rejected by the reject layer, which this file follows, and stay rejected.",
-      "Scope: Hong Kong retail and virtual banks, and foreign banks. A Hong Kong arm with its own Hong Kong infrastructure belongs here even when a host sits under its mainland parent's zone: CCB Asia's www.asia.ccb.com resolves into CCB's Hong Kong network (AS38475), and BoCom Hong Kong's hk.bankcomm.com into the same Hong Kong range as bankcomm.com.hk. AlipayHK is a Hong Kong stored value licensee and sits here with HSBC's PayMe. Card networks are not banks and stay unclassified."
-    ],
-    "blocks": [
-      {
-        "note": "Hong Kong retail banks. HSBC's PayMe lives on HSBC's own top-level domain.",
-        "rules": [
-          "DOMAIN-SUFFIX,hsbc.com.hk",
-          "DOMAIN-SUFFIX,hsbc.com",
-          "DOMAIN-SUFFIX,hsbc",
-          "DOMAIN-SUFFIX,hangseng.com",
-          "DOMAIN-SUFFIX,sc.com",
-          "DOMAIN-SUFFIX,citibank.com.hk",
-          "DOMAIN-SUFFIX,dbs.com.hk",
-          "DOMAIN-SUFFIX,dbs.com",
-          "DOMAIN-SUFFIX,hkbea.com",
-          "DOMAIN-SUFFIX,chiyubank.com",
-          "DOMAIN-SUFFIX,ncb.com.hk",
-          "DOMAIN-SUFFIX,dahsing.com",
-          "DOMAIN-SUFFIX,chbank.com",
-          "DOMAIN-SUFFIX,fubonbank.com.hk",
-          "DOMAIN-SUFFIX,shacombank.com.hk",
-          "DOMAIN-SUFFIX,ocbc.com.hk",
-          "DOMAIN-SUFFIX,publicbank.com.hk"
-        ]
-      },
-      {
-        "note": "Hong Kong arms of mainland banks that run their own Hong Kong infrastructure",
-        "rules": [
-          "DOMAIN-SUFFIX,asia.ccb.com",
-          "DOMAIN-SUFFIX,ccbasia.com",
-          "DOMAIN-SUFFIX,hk.bankcomm.com",
-          "DOMAIN-SUFFIX,bankcomm.com.hk",
-          "DOMAIN-SUFFIX,cmbwinglungbank.com",
-          "DOMAIN-SUFFIX,cncbinternational.com"
-        ]
-      },
-      {
-        "note": "Hong Kong virtual banks",
-        "rules": [
-          "DOMAIN-SUFFIX,za.group",
-          "DOMAIN-SUFFIX,mox.com",
-          "DOMAIN-SUFFIX,livibank.com",
-          "DOMAIN-SUFFIX,welab.bank",
-          "DOMAIN-SUFFIX,airstarbank.com",
-          "DOMAIN-SUFFIX,fusionbank.com",
-          "DOMAIN-SUFFIX,paob.com.hk",
-          "DOMAIN-SUFFIX,antbank.hk"
-        ]
-      },
-      {
-        "note": "Hong Kong stored value",
-        "rules": [
-          "DOMAIN-SUFFIX,alipay.hk"
-        ]
-      },
-      {
-        "note": "Foreign banks",
-        "rules": [
-          "DOMAIN-SUFFIX,americanexpress.com",
-          "DOMAIN-SUFFIX,aexp-static.com",
-          "DOMAIN-SUFFIX,chase.com",
-          "DOMAIN-SUFFIX,barclays.co.uk",
-          "DOMAIN-SUFFIX,barclays.com"
-        ]
-      }
+      "The endpoints Google serves for the mainland include the reCAPTCHA mirror, .cn API and static mirrors, and the -cn download redirector. recaptcha.net lets sites work without a foreign exit; the proxy path can block its QUIC attempts.",
+      "app-analytics-services.com is Firebase Analytics and answers from Google's mainland addresses, so it belongs on the mainland path."
     ]
   },
   {
-    "path": "Library/Platforms/Alibaba.list",
-    "title": "Alibaba",
+    "path": "Library/Platforms/Google.list",
+    "title": "Google",
     "kind": "service",
+    "policy": "proxy",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
     "header": [
-      "Expects a mainland policy.",
-      "Commerce, payments, cloud, DingTalk, Amap and device fingerprint hosts. alicdn.com lives in Direct/CDNChina.list; Youku in Media/Youku.list. UC Browser and Quark hosts under ucweb.com, uc.cn and myquark.cn belong on the mainland path; Quark download hosts stay in Direct/Download.list. Its security SDK, device fingerprint and device identifier hosts are listed in source/protected.json so no reject list can take them, and the anycast space the apps dial by address is in Geo/AlibabaCIDR.list."
+      "The overlay AI list must precede this file so Gemini, AI Studio and the .google AI products stay on the AI policy. YouTube has its own file. The mainland endpoints live in Platforms/GoogleChina.list and must precede this file."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Meta.list",
+    "title": "Meta",
+    "kind": "service",
+    "policy": "proxy",
+    "header": [
+      "The company remainder. Facebook, Instagram and WhatsApp have their own files."
     ]
   },
   {
     "path": "Library/Platforms/Amazon.list",
     "title": "Amazon",
     "kind": "service",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
       "Prime Video has its own file."
     ]
   },
   {
-    "path": "Library/Platforms/Apple.list",
-    "title": "Apple",
+    "path": "Library/Platforms/Xiaomi.list",
+    "title": "Xiaomi",
     "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects DIRECT, referenced with extended-matching. The company-wide floor: every Apple name and Apple's own address space. Must follow Apple/AppleIntelligence.list, Media/AppleMedia.list, Platforms/AppleChina.list and Direct/PrivateRelay.list, the four Apple sets whose policy differs; everything else Apple lands here instead of in FINAL.",
-      "DIRECT keeps Apple services on a stable domestic path. On a proxy path, the profile's QUIC block can time out HTTP/3 before TCP fallback, and some Apple frontends refuse foreign exits. setup.icloud.com bootstraps iCloud sessions, while init.itunes.apple.com bootstraps the App Store. The company floor also covers iMessage identity under ess.apple.com, Game Center, gsas.apple.com, unlinkability.apple.com, tether.edge.apple, the partitioned p*-buy.itunes.apple.com store hosts, and iCloud Mail on me.com.",
-      "The address rules carry traffic that arrives without a name. iCloud content can run over HTTP/3 to edge-*.hkhkg2.icloud-content.com without a readable SNI, so those requests reach the gateway as bare addresses and can otherwise fall to FINAL, where block-quic rejects them. 17.0.0.0/8 and the three IPv6 blocks are Apple allocations; they cover the content edges (17.248.152.0/24 and 17.248.163.0/24, shared with Private Relay ingress and the Intelligence relay), gateway addresses (17.248.216.0/24), and time servers. QUIC to content names meets the profile's name guard first, because direct QUIC can transfer slowly without falling back to TCP. That guard leaves address based CloudKit migrations alone. These address rules follow the named exceptions: no-resolve avoids resolving a named request solely for address matching, but a request arriving by address with an SNI is still matched by address.",
-      "The services that keep a foreign exit on purpose stay out: Apple Intelligence in the overlay, TV and News in Media/AppleMedia.list."
+      "Phones, the ROM, the account plane and home devices. Mijia camera and peer relay traffic under mijia.tech belongs on the domestic path."
     ]
   },
   {
-    "path": "Library/Platforms/AppleChina.list",
-    "title": "Apple China",
+    "path": "Library/Platforms/JD.list",
+    "title": "JD",
     "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects a mainland policy, referenced with extended-matching. Must precede Platforms/Apple.list, whose apple.com suffix would otherwise take the -cn location and Maps hosts. Those hosts carry the region inside a label (gspe19-cn-ssl, gsp10-ssl-cn), which a suffix rule cannot see, so the wildcard does that work.",
-      "The mainland operated estate includes iCloud on GCBD, the .cn store, and location, Maps and search endpoints for mainland clients. These endpoints can still answer through a proxy, hiding a routing mismatch."
+      "The store, payments and JD Cloud. The image CDN 360buyimg.com lives in Direct/CDNChina.list."
     ]
   },
   {
-    "path": "Library/Platforms/Baidu.list",
-    "title": "Baidu",
+    "path": "Library/Platforms/Meituan.list",
+    "title": "Meituan",
     "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects a mainland policy."
+      "Meituan and Dianping."
     ]
   },
   {
     "path": "Library/Platforms/ByteDance.list",
     "title": "ByteDance",
     "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects a mainland policy.",
       "Douyin, Toutiao, Feishu, Volcano Engine and the e-commerce and mini-app estates. TikTok stays in Media/TikTok.list and expects a streaming policy. The content CDNs (douyincdn.com, douyinvod.com, byteimg.com, bytecdn.cn, pstatp.com) live in Direct/CDNChina.list. Its app API and realtime push hosts are listed in source/protected.json so no reject list can take them."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Tencent.list",
+    "title": "Tencent",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "WeChat has its own file, the QQ media brands live in Media/China.list, and qcloudcdn.com in Direct/CDNChina.list."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Alibaba.list",
+    "title": "Alibaba",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "Commerce, payments, cloud, DingTalk, Amap and device fingerprint hosts. alicdn.com lives in Direct/CDNChina.list; Youku in Media/Youku.list. UC Browser and Quark hosts under ucweb.com, uc.cn and myquark.cn belong on the mainland path; Quark download hosts stay in Direct/Download.list. Its security SDK, device fingerprint and device identifier hosts are listed in source/protected.json so no reject list can take them, and the anycast space the apps dial by address is in Geo/AlibabaCIDR.list."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Baidu.list",
+    "title": "Baidu",
+    "kind": "service",
+    "policy": "mainland",
+    "header": []
+  },
+  {
+    "path": "Library/Platforms/NetEase.list",
+    "title": "NetEase",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "Mail, games, Yunxin and the music CDN mirrors. NetEase Cloud Music itself is music.163.com under this file."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Huawei.list",
+    "title": "Huawei",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "Reject/HttpDNS.list precedes this file for the HTTP DNS hosts under dbankcloud."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Trip.list",
+    "title": "Trip.com",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "Ctrip and its international brand share infrastructure, so both names take the same policy."
+    ]
+  },
+  {
+    "path": "Library/Platforms/Pinduoduo.list",
+    "title": "Pinduoduo",
+    "kind": "service",
+    "policy": "mainland",
+    "header": [
+      "The app, its web front yangkeduo.com and image and video hosts belong on the mainland path. The reject layer precedes this file and keeps tracking hosts under th.pinduoduo.com blocked."
     ]
   },
   {
     "path": "Library/Platforms/China.list",
     "title": "China services",
     "kind": "service",
+    "policy": "mainland",
     "header": [
-      "Expects a mainland policy.",
-      "Mainland services without a dedicated file: XGIMI, Coolapk, BOSS Zhipin, ifanr's IoT cloud, Cece and GF Securities. The owners of 300hu.com, dittocdn.com, ndcpp.com, sjxydc.com and i-ttg.net are unidentified; these hosts are classified by their mainland routing."
+      "Mainland services without a dedicated file: XGIMI, Coolapk, BOSS Zhipin, ifanr and its MinApp cloud, Cece, GF Securities, DiDi, Tesla China, Ping An 1QianBao, and the Getui, JPush and RongCloud push and messaging SDKs, whose statistics hosts sit in Reject/Telemetry.list. The owners of 300hu.com, dittocdn.com, ndcpp.com, sjxydc.com and i-ttg.net are unidentified; these hosts are classified by their mainland routing."
     ],
     "blocks": [
       {
@@ -1700,7 +1962,6 @@
           "DOMAIN-SUFFIX,cece.com",
           "DOMAIN-SUFFIX,dittocdn.com",
           "DOMAIN-SUFFIX,i-ttg.net",
-          "DOMAIN-SUFFIX,ifanrusercontent.com",
           "DOMAIN-SUFFIX,ndcpp.com",
           "DOMAIN-SUFFIX,sjxydc.com",
           "DOMAIN-SUFFIX,xgimi.com"
@@ -1709,176 +1970,22 @@
     ]
   },
   {
-    "path": "Library/Platforms/Google.list",
-    "title": "Google",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy, referenced with extended-matching.",
-      "The overlay AI list must precede this file so Gemini, AI Studio and the .google AI products stay on the AI policy. YouTube has its own file. The mainland endpoints live in Platforms/GoogleChina.list and must precede this file."
-    ]
-  },
-  {
-    "path": "Library/Platforms/GoogleChina.list",
-    "title": "Google China",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy. Must precede Platforms/Google.list.",
-      "The endpoints Google serves for the mainland include the reCAPTCHA mirror, .cn API and static mirrors, and the -cn download redirector. recaptcha.net lets sites work without a foreign exit; the proxy path can block its QUIC attempts.",
-      "app-analytics-services.com is Firebase Analytics and answers from Google's mainland addresses, so it belongs on the mainland path."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Huawei.list",
-    "title": "Huawei",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "Reject/HttpDNS.list precedes this file for the HTTP DNS hosts under dbankcloud."
-    ]
-  },
-  {
-    "path": "Library/Platforms/JD.list",
-    "title": "JD",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "The store, payments and JD Cloud. The image CDN 360buyimg.com lives in Direct/CDNChina.list."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Meituan.list",
-    "title": "Meituan",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "Meituan and Dianping."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Meta.list",
-    "title": "Meta",
-    "kind": "service",
-    "header": [
-      "Expects a proxy policy.",
-      "The company remainder. Facebook, Instagram and WhatsApp have their own files."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Microsoft.list",
-    "title": "Microsoft",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT or a proxy policy, referenced with extended-matching.",
-      "Accounts, Office, Azure, Bing, Skype and the VS Code service plane. Update and download hosts live in Platforms/MicrosoftCDN.list and must precede this file, whose suffixes would otherwise take them. Xbox has its own file. msftconnecttest.com and msftncsi.com sit in the profile's always-real-ip, so their probes reach the gateway by address and never match here."
-    ]
-  },
-  {
-    "path": "Library/Platforms/MicrosoftCDN.list",
-    "title": "Microsoft CDN",
-    "kind": "service",
-    "header": [
-      "Expects DIRECT.",
-      "Update, download, Office delivery and certificate validation hosts. Must precede Platforms/Microsoft.list, whose suffixes would otherwise take them. update.code.visualstudio.com carries the VS Code update check.",
-      "download.prss.microsoft.com is deliberately absent. Its mainland edges can cap each direct connection, so a completed request says nothing about download speed. The zone falls through to Platforms/Microsoft.list, where a proxy policy can avoid the direct path's cap."
-    ]
-  },
-  {
-    "path": "Library/Platforms/NetEase.list",
-    "title": "NetEase",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "Mail, games, Yunxin and the music CDN mirrors. NetEase Cloud Music itself is music.163.com under this file."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Pinduoduo.list",
-    "title": "Pinduoduo",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "The app, its web front yangkeduo.com and image and video hosts belong on the mainland path. The reject layer precedes this file and keeps tracking hosts under th.pinduoduo.com blocked."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Tencent.list",
-    "title": "Tencent",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "WeChat has its own file, the QQ media brands live in Media/China.list, and qcloudcdn.com in Direct/CDNChina.list."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Trip.list",
-    "title": "Trip.com",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "Ctrip and its international brand share infrastructure, so both names take the same policy."
-    ]
-  },
-  {
-    "path": "Library/Platforms/Xiaomi.list",
-    "title": "Xiaomi",
-    "kind": "service",
-    "header": [
-      "Expects a mainland policy.",
-      "Phones, the ROM, the account plane and home devices. Mijia camera and peer relay traffic under mijia.tech belongs on the domestic path."
-    ]
-  },
-  {
-    "path": "Library/Geo/AlibabaCIDR.list",
-    "title": "Alibaba CIDR",
+    "path": "Library/Reject/HttpDNSCIDR.list",
+    "title": "HTTP DNS addresses",
     "kind": "policy",
+    "policy": "reject",
     "header": [
-      "Expects a mainland policy.",
-      "Alibaba's anycast space is dialed by address without a name the gateway can read. The blocks are registered in the United States, so GEOIP,CN misses them and FINAL can send them abroad. Taobao can then see one session from a mainland address and a foreign data center, which its risk control may restrict.",
-      "155.102.0.0/16 and 163.181.0.0/16 are originated by Taobao's network, AS24429. 47.246.0.0/16 and 139.95.0.0/16 are anycast blocks inside Alibaba Cloud's AS45102 that its apps also dial by address. The rest of AS45102 is rented cloud capacity in foreign regions and stays out. Place below domain rules. Pair with Platforms/Alibaba.list."
+      "The service addresses of the mainland HTTP DNS products, which SDKs dial by address so no name rule sees them: Tencent DNSPod D+, Alibaba Cloud HTTPDNS and Baidu Cloud HTTPDNS. Only addresses the vendors dedicate to the service belong here; an address shared with a CDN would take unrelated traffic with it. 119.29.29.29 and 223.5.5.5 are general public resolvers and stay out.",
+      "Reference it in the address block, after every name rule, so a named request that lands on one of these addresses is classified by its name."
     ],
     "blocks": [
       {
         "rules": [
-          "IP-CIDR,155.102.0.0/16,no-resolve",
-          "IP-CIDR,163.181.0.0/16,no-resolve",
-          "IP-CIDR,47.246.0.0/16,no-resolve",
-          "IP-CIDR,139.95.0.0/16,no-resolve"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Library/Geo/LAN.list",
-    "title": "LAN",
-    "kind": "policy",
-    "header": [
-      "Expects DIRECT.",
-      "Surge also ships RULE-SET,LAN. This copy exists so a profile can stay inside this library.",
-      "100.64.0.0/10 is omitted on purpose: Tailscale/Tailnet.list owns that range. All address rules carry no-resolve."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "DOMAIN-SUFFIX,home.arpa",
-          "DOMAIN-SUFFIX,internal",
-          "DOMAIN-SUFFIX,lan",
-          "DOMAIN-SUFFIX,local",
-          "DOMAIN-SUFFIX,localdomain",
-          "DOMAIN-SUFFIX,localhost",
-          "IP-CIDR,0.0.0.0/8,no-resolve",
-          "IP-CIDR,10.0.0.0/8,no-resolve",
-          "IP-CIDR,127.0.0.0/8,no-resolve",
-          "IP-CIDR,169.254.0.0/16,no-resolve",
-          "IP-CIDR,172.16.0.0/12,no-resolve",
-          "IP-CIDR,192.0.0.0/24,no-resolve",
-          "IP-CIDR,192.168.0.0/16,no-resolve",
-          "IP-CIDR,198.18.0.0/15,no-resolve",
-          "IP-CIDR,224.0.0.0/4,no-resolve",
-          "IP-CIDR,255.255.255.255/32,no-resolve",
-          "IP-CIDR6,::1/128,no-resolve",
-          "IP-CIDR6,fc00::/7,no-resolve",
-          "IP-CIDR6,fe80::/10,no-resolve",
-          "IP-CIDR6,ff00::/8,no-resolve"
+          "IP-CIDR,119.29.29.98/31,no-resolve",
+          "IP-CIDR,180.76.76.200/32,no-resolve",
+          "IP-CIDR,182.254.116.117/32,no-resolve",
+          "IP-CIDR,182.254.118.119/32,no-resolve",
+          "IP-CIDR,203.107.1.0/24,no-resolve"
         ]
       }
     ]
@@ -1887,8 +1994,8 @@
     "path": "Library/Geo/TelegramCIDR.list",
     "title": "Telegram CIDR",
     "kind": "policy",
+    "policy": "proxy",
     "header": [
-      "Expects a proxy policy.",
       "Telegram data-center prefixes, written here the same way Apple Push carries Apple's published courier ranges. Place below domain rules. Pair with Social/Telegram.list."
     ],
     "blocks": [
@@ -1913,64 +2020,21 @@
     ]
   },
   {
-    "path": "Library/Process/Downloaders.list",
-    "title": "Download clients",
+    "path": "Library/Geo/AlibabaCIDR.list",
+    "title": "Alibaba CIDR",
     "kind": "policy",
+    "policy": "mainland",
     "header": [
-      "Expects DIRECT.",
-      "Process names for common download clients. Keep large transfers off the proxy path."
+      "Alibaba's anycast space is dialed by address without a name the gateway can read. The blocks are registered in the United States, so GEOIP,CN misses them and FINAL can send them abroad. Taobao can then see one session from a mainland address and a foreign data center, which its risk control may restrict.",
+      "155.102.0.0/16 and 163.181.0.0/16 are originated by Taobao's network, AS24429. 47.246.0.0/16 and 139.95.0.0/16 are anycast blocks inside Alibaba Cloud's AS45102 that its apps also dial by address. The rest of AS45102 is rented cloud capacity in foreign regions and stays out. Place below domain rules. Pair with Platforms/Alibaba.list."
     ],
     "blocks": [
       {
         "rules": [
-          "PROCESS-NAME,aria2c",
-          "PROCESS-NAME,BitComet",
-          "PROCESS-NAME,BitTorrent",
-          "PROCESS-NAME,DownloadService",
-          "PROCESS-NAME,fdm",
-          "PROCESS-NAME,Folx",
-          "PROCESS-NAME,NetTransport",
-          "PROCESS-NAME,qBittorrent",
-          "PROCESS-NAME,Thunder",
-          "PROCESS-NAME,ThunderVIP",
-          "PROCESS-NAME,Transmission",
-          "PROCESS-NAME,uTorrent",
-          "PROCESS-NAME,WebTorrent"
-        ]
-      }
-    ]
-  },
-  {
-    "path": "Library/Process/ProxyCores.list",
-    "title": "Proxy cores",
-    "kind": "policy",
-    "header": [
-      "Expects DIRECT.",
-      "Prevents the gateway from proxying another proxy process on the same machine."
-    ],
-    "blocks": [
-      {
-        "rules": [
-          "PROCESS-NAME,brook",
-          "PROCESS-NAME,clash",
-          "PROCESS-NAME,Clash Meta",
-          "PROCESS-NAME,ClashX",
-          "PROCESS-NAME,ClashX Pro",
-          "PROCESS-NAME,hysteria",
-          "PROCESS-NAME,hysteria2",
-          "PROCESS-NAME,leaf",
-          "PROCESS-NAME,mihomo",
-          "PROCESS-NAME,naive",
-          "PROCESS-NAME,privoxy",
-          "PROCESS-NAME,sing-box",
-          "PROCESS-NAME,ss-local",
-          "PROCESS-NAME,surge",
-          "PROCESS-NAME,Surge",
-          "PROCESS-NAME,Surge-CLI",
-          "PROCESS-NAME,trojan",
-          "PROCESS-NAME,trojan-go",
-          "PROCESS-NAME,v2ray",
-          "PROCESS-NAME,xray"
+          "IP-CIDR,155.102.0.0/16,no-resolve",
+          "IP-CIDR,163.181.0.0/16,no-resolve",
+          "IP-CIDR,47.246.0.0/16,no-resolve",
+          "IP-CIDR,139.95.0.0/16,no-resolve"
         ]
       }
     ]

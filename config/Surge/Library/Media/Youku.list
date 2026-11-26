@@ -1,7 +1,0 @@
-# Ruleset: Youku
-#
-# Expects a mainland policy.
-
-DOMAIN-SUFFIX,soku.com
-DOMAIN-SUFFIX,ykimg.com
-DOMAIN-SUFFIX,youku.com

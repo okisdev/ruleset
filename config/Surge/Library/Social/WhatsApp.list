@@ -1,7 +1,0 @@
-# Ruleset: WhatsApp
-#
-# Expects a proxy policy.
-
-DOMAIN-SUFFIX,wa.me
-DOMAIN-SUFFIX,whatsapp.com
-DOMAIN-SUFFIX,whatsapp.net

@@ -1,8 +1,0 @@
-# Ruleset: Syncthing
-#
-# Expects DIRECT.
-#
-# Global discovery and relays, plus local Syncthing clients by process name. Announcing through a proxy registers the exit address as the device's endpoint, which defeats direct peer connections the same way a proxied STUN answer would. Peers and relays are dialed by bare address, so the inline TCP 22000 and 22067 rules in the profile keep the transfers themselves direct; this file covers the lookups and the local process.
-
-DOMAIN-SUFFIX,syncthing.net
-PROCESS-NAME,syncthing

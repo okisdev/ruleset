@@ -1,7 +1,0 @@
-# Ruleset: npm
-#
-# Expects a proxy policy. Must follow Registries/Registries.list, which owns the registry hosts under these suffixes.
-
-DOMAIN-SUFFIX,npm.cloudflare.com
-DOMAIN-SUFFIX,npmjs.com
-DOMAIN-SUFFIX,npmjs.org

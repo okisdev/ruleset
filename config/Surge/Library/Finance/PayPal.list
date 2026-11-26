@@ -1,8 +1,0 @@
-# Ruleset: PayPal
-#
-# Expects a proxy policy.
-
-DOMAIN-SUFFIX,braintreegateway.com
-DOMAIN-SUFFIX,paypal.com
-DOMAIN-SUFFIX,paypalobjects.com
-DOMAIN-SUFFIX,venmo.com

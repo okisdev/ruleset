@@ -1,9 +1,0 @@
-# Ruleset: iQiyi
-#
-# Expects a mainland policy.
-
-DOMAIN-SUFFIX,iq.com
-DOMAIN-SUFFIX,iqiyi.com
-DOMAIN-SUFFIX,iqiyipic.com
-DOMAIN-SUFFIX,qy.net
-DOMAIN-SUFFIX,gitv.tv

@@ -1,7 +1,0 @@
-# Ruleset: WakaTime
-#
-# Expects a proxy policy.
-#
-# Editor heartbeats. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
-
-DOMAIN-SUFFIX,wakatime.com

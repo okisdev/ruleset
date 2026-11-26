@@ -1,7 +1,0 @@
-# Ruleset: Infisical
-#
-# Expects a proxy policy.
-#
-# Secrets. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
-
-DOMAIN-SUFFIX,infisical.com

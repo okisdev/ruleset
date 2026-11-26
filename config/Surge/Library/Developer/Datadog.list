@@ -1,7 +1,0 @@
-# Ruleset: Datadog
-#
-# Expects a proxy policy.
-#
-# The Datadog app and API. Log and browser intake is telemetry and lives in Reject/Telemetry.list, which precedes this file. Named so its exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
-
-DOMAIN-SUFFIX,datadoghq.com

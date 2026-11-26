@@ -1,7 +1,0 @@
-# Ruleset: Xiaohongshu
-#
-# Expects a mainland policy.
-
-DOMAIN-SUFFIX,xhscdn.com
-DOMAIN-SUFFIX,xhscdn.net
-DOMAIN-SUFFIX,xiaohongshu.com

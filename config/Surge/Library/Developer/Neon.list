@@ -1,7 +1,0 @@
-# Ruleset: Neon
-#
-# Expects a proxy policy.
-#
-# Database endpoints and the MCP server. Named so their exit is the profile's proxy policy instead of whatever the catch-all group is switched to.
-
-DOMAIN-SUFFIX,neon.tech

@@ -1,6 +1,0 @@
-# Ruleset: Viu
-#
-# Expects a streaming policy.
-
-DOMAIN-SUFFIX,viu.com
-DOMAIN-SUFFIX,viu.tv
