@@ -34,4 +34,4 @@ Banks are named whichever way they go. A bank ties a session to the address it s
 | `Geo/` | LAN, Telegram DC prefixes and Alibaba's anycast space |
 | `Process/` | Download clients and proxy cores |
 
-AI is not in this directory. That category is owned by `AI/AI.list` and `AI/AIChina.list` in the overlay.
+AI is not in this directory. That category is owned by `AI/AI.list`, `AI/GoogleAI.list` and `AI/AIChina.list` in the overlay.

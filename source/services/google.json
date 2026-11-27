@@ -116,7 +116,7 @@
       "name": "Google AI",
       "category": "ai",
       "lists": {
-        "AI/AI.list": [
+        "AI/GoogleAI.list": [
           {
             "note": "geminiweb-pa serves Gemini in Chrome; robinfrontend-pa and proactivebackend-pa serve the Gemini app on Android. Code Assist and Antigravity call cloudcode-pa through prefixed sibling hosts such as daily-cloudcode-pa, which a suffix cannot reach, so it is a keyword.",
             "rules": [
