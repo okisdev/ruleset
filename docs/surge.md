@@ -78,7 +78,7 @@ The port guards cover traffic that reaches a gateway without a name. Names in a 
 - The HTTP DNS, ads and telemetry references carry `extended-matching`. A client that dials an address and names the host only in its SNI otherwise passes the block unmatched and leaves through the address rules.
 - `Reject/HttpDNSCIDR.list` follows every name rule, so a named request that lands on one of its addresses is classified by its name.
 - The iCloud content QUIC guard precedes `Apple/iCloudContent.list`. Behind the pin it never sees a packet.
-- `AI/AI.list` precedes `Platforms/Google.list`, so the `.google` AI products keep the AI exit; `Platforms/GoogleChina.list` precedes it too.
+- `AI/GoogleAI.list` precedes `Platforms/Google.list`, so the `.google` AI products keep their AI exit; `Platforms/GoogleChina.list` precedes it too.
 - The four Apple exceptions and `Proxy/SafeBrowsing.list` precede `Platforms/Apple.list`; the Microsoft CDN and Xbox precede `Platforms/Microsoft.list`; `Direct/Download.list` and `Direct/CDNChina.list` precede the company sets whose suffixes cover their hosts.
 - `Library/Bank/Proxy.list` precedes `Library/Bank/Direct.list`, so `www.asia.ccb.com` and `hk.bankcomm.com` keep the proxy instead of matching their mainland parents' suffixes.
 - `Library/Geo/LAN.list` does not carry `100.64.0.0/10`. That range belongs to `Tailscale/Tailnet.list`.

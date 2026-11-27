@@ -92,6 +92,19 @@
     ]
   },
   {
+    "path": "AI/GoogleAI.list",
+    "title": "Google AI",
+    "kind": "service",
+    "policy": "ai",
+    "sni": true,
+    "policySuffix": ", referenced with extended-matching",
+    "intro": "Must precede AI/AI.list and Platforms/Google.list.",
+    "header": [
+      "Google decides eligibility for Gemini, AI Studio, NotebookLM, Code Assist and Antigravity from its own geolocation of the exit address, which can disagree with every public database. These hosts are kept apart from AI/AI.list so they can take their own exit when Google refuses the one the other AI services share.",
+      "extended-matching applies for the same reason as AI/AI.list: clients with their own encrypted DNS arrive as an address with an SNI."
+    ]
+  },
+  {
     "path": "AI/AI.list",
     "title": "AI services",
     "kind": "service",
