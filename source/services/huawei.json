@@ -13,6 +13,7 @@
       "lists": {
         "Library/Platforms/Huawei.list": [
           "DOMAIN-SUFFIX,dbankcdn.com",
+          "DOMAIN-SUFFIX,dbankcloud.cn",
           "DOMAIN-SUFFIX,dbankcloud.com",
           "DOMAIN-SUFFIX,hicloud.com",
           "DOMAIN-SUFFIX,huawei.com",
