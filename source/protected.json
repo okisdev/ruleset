@@ -54,6 +54,9 @@
   {"host": "ccc-x.jd.com", "list": "Library/Platforms/JD.list", "reason": "JD affiliate redirects that open product links shared from other apps"},
   {"host": "utoken.umeng.com", "reason": "Umeng U-Push device token"},
   {"host": "resolver.msg.xiaomi.net", "list": "Library/Platforms/Xiaomi.list", "reason": "MiPush gateway resolver for Xiaomi device notifications"},
+  {"host": "grs.dbankcloud.com", "list": "Library/Platforms/Huawei.list", "reason": "Huawei service routing that tells HMS clients which regional endpoints to use"},
+  {"host": "hisearch-drcn.dt.dbankcloud.com", "list": "Library/Platforms/Huawei.list", "reason": "Huawei system search, in the same dt zone as the metrics collectors"},
+  {"host": "store-drcn.hispace.dbankcloud.com", "list": "Library/Platforms/Huawei.list", "reason": "Huawei AppGallery store API"},
   {"host": "mixer.cupid.iqiyi.com", "reason": "iQIYI ad decision; refused, playback waits out the ad slot on a black screen"},
   {"host": "slackb.com", "reason": "Slack links and client connectivity"}
 ]

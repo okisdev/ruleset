@@ -526,6 +526,7 @@
           "DOMAIN,ta.pinduoduo.com",
           "DOMAIN-WILDCARD,ads-*.xhscdn.com",
           "DOMAIN-WILDCARD,ads*-normal-*.zijieapi.com",
+          "DOMAIN,ad.zijieapi.com",
           "DOMAIN,adm.shinobi.jp",
           "DOMAIN,t7z.cupid.iqiyi.com",
           "DOMAIN,t7z.cupid.ptqy.gitv.tv",
@@ -657,7 +658,7 @@
         ]
       },
       {
-        "note": "Tencent: the mdt and beacon pipelines, Bugly crash reports, the WeChat web error reporter and P2P delivery statistics.",
+        "note": "Tencent: the mdt and beacon pipelines, Bugly crash reports, the WeChat web error reporter, P2P delivery statistics and the Kugou collector.",
         "rules": [
           "DOMAIN-SUFFIX,beacon.qq.com",
           "DOMAIN-SUFFIX,bugly.qq.com",
@@ -667,6 +668,7 @@
           "DOMAIN,badjs.weixinbridge.com",
           "DOMAIN,galileotelemetry.tencent.com",
           "DOMAIN,h.trace.qq.com",
+          "DOMAIN,nbcollect.kugou.com",
           "DOMAIN,report.idqqimg.com",
           "DOMAIN,report.tv.kohesport.qq.com",
           "DOMAIN,rmonitor.qq.com",
@@ -741,6 +743,15 @@
         ]
       },
       {
+        "note": "Huawei HiAnalytics metrics, event and log uploads. The dt and op zones also carry search and store hosts, and grs routes the services, so only the collectors are named.",
+        "rules": [
+          "DOMAIN-WILDCARD,events-*.op.dbankcloud.cn",
+          "DOMAIN-WILDCARD,logservice*.dbankcloud.cn",
+          "DOMAIN-WILDCARD,metrics*.data.hicloud.com",
+          "DOMAIN-WILDCARD,metrics*.dt.dbankcloud.cn"
+        ]
+      },
+      {
         "note": "JD, Meituan, Dianping and Pinduoduo collectors. Their risk control, chat and device fingerprint hosts stay out.",
         "rules": [
           "DOMAIN-SUFFIX,dreport.meituan.net",
@@ -793,8 +804,9 @@
         ]
       },
       {
-        "note": "Trip.com, ShopBack, ifanr, RongCloud, Shujupie, 360 and Sogou input method reporting. Sogou's keyboard uploads input to its cloud service.",
+        "note": "Trip.com, ShopBack, ifanr, RongCloud, Shujupie, 360, Yuanfudao's frog logger and Sogou input method reporting. Sogou's keyboard uploads input to its cloud service.",
         "rules": [
+          "DOMAIN-SUFFIX,frog.yuanfudao.com",
           "DOMAIN,analytics.ifanrusercontent.com",
           "DOMAIN,c.sayhi.360.cn",
           "DOMAIN,logcollection.ronghub.com",
