@@ -18,7 +18,7 @@ Read `manifest.json` at the base URL. Its ordered `lists` array gives each list�
 
 ## Routing layers
 
-The overlay covers tunnel transport, path faults, Apple push and iCloud content pins, AI services, GitHub and registries. These lists take precedence over more general service rules. The library covers local traffic, reject rules, direct services, named platforms and address ranges. Profiles supply their own policy groups, inline transport guards, geographic fallback and final route. The Surge guide explains where those profile rules fit. [Surge profile guide](docs/surge.md) · [Library guide](docs/library.md)
+The overlay covers tunnel transport, path faults, Apple push and iCloud content pins, AI services, GitHub and registries. These lists take precedence over more general service rules. The library covers local traffic, reject rules, direct services, named platforms and address ranges. Profiles supply their own policy groups, inline transport guards, geographic fallback and final route. The Surge guide explains where those profile rules fit, and the mihomo guide translates that profile for mihomo and OpenClash. [Surge profile guide](docs/surge.md) · [mihomo guide](docs/mihomo.md) · [Library guide](docs/library.md)
 
 The reject lists cover app telemetry, ad SDKs and HTTP DNS bypasses. Include a whole zone when its only purpose is advertising or analytics. Inside a company’s shared zone, include a specific host once its purpose has been confirmed on the gateway. Record functional hosts in the protected host list when narrowing a reject rule.
 
